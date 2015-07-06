@@ -1,48 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>/r/smashbros tournament results tablemaker</title>
+	<title>/r/smashbros Tournament Table Maker</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="shortcut icon" href="http://img1.wikia.nocookie.net/__cb20150114084035/ssb/images/6/64/Favicon.ico" />
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500,300,100' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Satisfy|Roboto:300,700,400' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<div class="container">
-		<div class="round-info">
-			Round <br><input type="text" id="Round" value="Grand Finals"><br>
-		</div>
-		<div class="player-one">
-			Player 1 <br><input type="text" id="PlayerOne" value="C9 Mango"><br>
-			Player 1's mains (seperate with comma) <br><input type="text" id="PlayerOneMains" value="Fox, Falco"><br>
-			Player 1's Full Name (optional)<br><input type="text" id="PlayerOneName" value='Joseph "Mang0" Marquez'><br>
-			Player 1's Twitch (optional) <br><input type="text" id="PlayerOneTwitch" value="mang0"><br>
-			Player 1's Twitter (optional) <br><input type="text" id="PlayerOneTwitter" value="c9mang0"><br>
-		</div>
-		<div class="player-two">
-			Player 2 <br><input type="text" id="PlayerTwo" value="TSM Leffen"><br>
-			Player 2's mains (seperate with comma) <br><input type="text" id="PlayerTwoMains" value="Fox"><br>
-			Player 2's Full Name (optional)<br><input type="text" id="PlayerTwoName" value='William "Leffen" Hjelte'><br>
-			Player 2's Twitch (optional) <br><input type="text" id="PlayerTwoTwitch" value="lffn"><br>
-			Player 2's Twitter (optional) <br><input type="text" id="PlayerTwoTwitter" value="tsm_leffen"><br>
+<h1 class="main-header">Tournament Tabler</h1>
+	<section class="container">
+		<span id="version">Ver. 2.0.0</span>
+		<div>
+			<section class="round-info">
+				<h1>Round</h1> <br><input type="text" id="Round" value="Grand Finals"><br>
+				<h1>Set Count</h1> <br><input type="text" id="SetCount" value="2-1"><br>
+			</section>
+			<section class="player-one">
+				<h1>Player 1</h1> <br><input type="text" id="PlayerOne" value="C9 Mango"><br>
+				Mains (separate with commas) <br><input type="text" id="PlayerOneMains" value="Fox, Falco"><br>
+				Full Name (optional)<br><input type="text" id="PlayerOneName" value='Joseph "Mang0" Marquez'><br>
+				Twitch (optional) <br><input type="text" id="PlayerOneTwitch" value="mang0"><br>
+				Twitter (optional) <br><input type="text" id="PlayerOneTwitter" value="c9mang0"><br>
+			</section>
+			<section class="player-two">
+				<h1>Player 2</h1> <br><input type="text" id="PlayerTwo" value="TSM Leffen"><br>
+				Mains (separate with commas) <br><input type="text" id="PlayerTwoMains" value="Fox"><br>
+				Full Name (optional)<br><input type="text" id="PlayerTwoName" value='William "Leffen" Hjelte'><br>
+				Twitch (optional) <br><input type="text" id="PlayerTwoTwitch" value="lffn"><br>
+				Twitter (optional) <br><input type="text" id="PlayerTwoTwitter" value="tsm_leffen"><br>
+			</section>
 		</div>
 
 		<div class="clearfix"></div>
 
-		<div class="game-info">
-			Set Count <br><input type="text" id="SetCount" value="2-1"><br>
-
-			Game 1 (Winner, character, stock count, stage) <br><input type="text" id="GameOne" value="P1, Falco, 3, Battlefield"><br>
-			Game 2 (Winner, character, stock count, stage) <br><input type="text" id="GameTwo" value="P2, Fox, 1, Final Destination"><br>
-			Game 3 (Winner, character, stock count, stage) <br><input type="text" id="GameThree" value="P1, Fox, 2, Yoshi's Story"><br>
-			Game 4 (optional) <br><input type="text" id="GameFour" value=""><br>
-			Game 5 (optional) <br><input type="text" id="GameFive" value=""><br>
+		<div class="game-toggle">
+			<h1>Game #</h1>
+			<div style="background-color: rgba(0, 0, 0, 0.6)" onclick="showGame(1)">1</div>
+			<div onclick="showGame(2)">2</div>
+			<div onclick="showGame(3)">3</div>
+			<div onclick="showGame(4)">4</div>
+			<div onclick="showGame(5)">5</div>
 		</div>
-		<button onClick="printFormattedTable()">Generate Table Markup</button>
+		<div class="clearfix"></div>
+		<div class="game-info">
+			<section id="GameOne" style="display: block">
+				<div>P1's character <br><input type="text" class="PlayerOneCharacter" value="Falco"></div>
+				<div>P2's character <br><input type="text" class="PlayerTwoCharacter" value="Fox"><br></div>
+				<div>Stage <br><input type="text" class="Stage" value="Battlefield"><br></div>
+				<div>Winner (P1 or P2) <br><input type="text" class="Winner" value="P1"><br></div>
+				<div>Stocks Left <br><input type="text" class="StocksRemaining" value="3"><br></div>
+			</section>
+			<section id="GameTwo">
+				<div>P1's character <br><input type="text" class="PlayerOneCharacter" value="Falco"></div>
+				<div>P2's character <br><input type="text" class="PlayerTwoCharacter" value="Fox"><br></div>
+				<div>Stage <br><input type="text" class="Stage" value="Final Destination"><br></div>
+				<div>Winner (P1 or P2) <br><input type="text" class="Winner" value="P2"><br></div>
+				<div>Stocks Left <br><input type="text" class="StocksRemaining" value="1"><br></div>
+			</section>
+			<section id="GameThree">
+				<div>P1's character <br><input type="text" class="PlayerOneCharacter" value="Falco"></div>
+				<div>P2's character <br><input type="text" class="PlayerTwoCharacter" value="Fox"><br></div>
+				<div>Stage <br><input type="text" class="Stage" value="Yoshi's Story"><br></div>
+				<div>Winner (P1 or P2) <br><input type="text" class="Winner" value="P1"><br></div>
+				<div>Stocks Left <br><input type="text" class="StocksRemaining" value="2"><br></div>
+			</section>
+			<section id="GameFour">
+				<div>P1's character <br><input type="text" class="PlayerOneCharacter" value=""></div>
+				<div>P2's character <br><input type="text" class="PlayerTwoCharacter" value=""><br></div>
+				<div>Stage <br><input type="text" class="Stage" value=""><br></div>
+				<div>Winner (P1 or P2) <br><input type="text" class="Winner" value=""><br></div>
+				<div>Stocks Left <br><input type="text" class="StocksRemaining" value=""><br></div>
+			</section>
+			<section id="GameFive">
+				<div>P1's character <br><input type="text" class="PlayerOneCharacter" value=""></div>
+				<div>P2's character <br><input type="text" class="PlayerTwoCharacter" value=""><br></div>
+				<div>Stage <br><input type="text" class="Stage" value=""><br></div>
+				<div>Winner (P1 or P2) <br><input type="text" class="Winner" value=""><br></div>
+				<div>Stocks Left <br><input type="text" class="StocksRemaining" value=""><br></div>
+			</section>
+		</div>
+		<button onClick="printFormattedTable()">Generate Markup</button>
 
 		<div id="results"></div>
-	</div>
-	<p class="copyright">Made by <a href="http://reddit.com/u/darderp">/u/darderp</a> for <a href="http://reddit.com/r/smashbros">/r/smashbros</a></p>
+	</section>
+	<p class="copyright">Made (with love) by <a href="http://reddit.com/u/darderp" target="_blank">/u/darderp</a> for <a href="http://reddit.com/r/smashbros" target="_blank">/r/smashbros</a></p>
 
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
