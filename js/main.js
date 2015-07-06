@@ -112,11 +112,18 @@ function printFormattedTable(){
 
 	printLine("---");
 	printLine(round);
+
+	if(P1media != ""){
+		printLine("")
+		printLine(P1media)
+	}
+
 	printLine("")
-	printLine(P1media)
-	printLine("")
-	printLine(P2media)
-	printLine("")
+
+	if(P2media != ""){
+		printLine(P2media)
+		printLine("")
+	}
 
 	printLine(P1 + " " + P1mains.map(makeFlair).toString().replace(/,/g , " ") + " | " + setCount + " | " + P2 + " " + P2mains.map(makeFlair).toString().replace(/,/g , " "));
 	printLine("---:|:--:|:---");
