@@ -97,7 +97,7 @@ function printFormattedTable(){
 			P2media = "**" + P2name + "** // "
 
 			if(P2twitch != ""){
-				P2media = P2media.concat("[Twitch](http://www.twitch.tv/" + P2twitch + ") | ");
+				P2media = P2media.concat("[Twitch](http://www.twitch.tv/" + P2twitch + ")");
 			}
 			if(P2twitter != ""){
 				if(P2twitch != ""){
