@@ -129,10 +129,12 @@ section{
 	border-radius: 4px 4px 0px 0px;
 }
 
-.player-one, .player-two, .newgames{
+.player-one, .player-two, .game-wrapper{
 	width: 31.3%;
-	min-height: 510px;
+	height: 520px;
+	overflow: hidden;
 	padding: 0;
+	position: relative;
 	float: left;
 }
 
@@ -145,6 +147,28 @@ section{
 
 .game-info section div{
 	display: block;
+}
+
+.expand-extras{
+	width: 100%;
+	height: 50px;
+	background-color: rgba(0, 0, 0, 0.3);
+	line-height: 50px;
+	border-radius: 0px 0px 4px 4px;
+	position: absolute;
+	bottom: 0;
+	cursor: pointer;
+	transition: .6s;
+}
+
+.extra{
+	display: none;
+	transition: .6s;
+}
+
+.player-one div, .player-two div{
+	margin-top: 69.5px;
+	transition: .6s;
 }
 
 button{

@@ -1,4 +1,6 @@
 var pressed = false
+var P1extras = false
+var P2extras = false
 
 function randomNumberBetween(low,high){
 	return Math.floor(Math.random()*(high-low)+low);
@@ -8,6 +10,27 @@ $("body").css("background-color", "rgb(" + randomNumberBetween(47,126).toString(
 function printLine(content){//Prints content on screen
 	$("#results").append("<span></span><br>");
 	$("#results span").last().append(content);
+}
+
+function showExtras(num){
+	if(num === 1){
+		$(".player-one .expand-extras").css("display", "none");
+
+		$(".player-one .extra").css("display", "block");
+		$(".player-one div").css("margin-top", "0");
+
+		P1extras = true;
+	}	
+	if(num === 2){
+		$(".player-two .expand-extras").css("display", "none");
+
+		$(".player-two .extra").css("display", "block");
+		$(".player-two div").css("margin-top", "0");
+
+		P2extras = true;
+	}
+
+
 }
 
 function showGame(num){
@@ -74,6 +97,20 @@ function printFormattedTable(){
 	var game5P2Character = $("#GameFive .PlayerTwoCharacter").val();
 	var game5StockCount = parseInt($("#GameFive .StocksRemaining").val());
 	var game5Stage = $("#GameFive .Stage").val();
+
+
+	if(!P1extras){ //if P1 extras are hidden, don't use the pre-installed choices
+		P1name = "";
+		P1twitch = "";
+		P1twitter = "";
+		P1liquipedia = "";
+	}
+	if(!P2extras){//if P2 extras are hidden, don't use the pre-installed choices
+		P2name = "";
+		P2twitch = "";
+		P2twitter = "";
+		P2liquipedia = "";
+	}
 
 	function makeFlair(str){
 		return "[](/"+str+")";
