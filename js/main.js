@@ -1,8 +1,21 @@
 var pressed = false
 
+function randomNumberBetween(low,high){
+	return Math.floor(Math.random()*(high-low)+low);
+}
+$("body").css("background-color", "rgb(" + randomNumberBetween(47,126).toString() + "," + randomNumberBetween(47,126).toString() + "," + randomNumberBetween(47,126).toString() + ")"); //Random background-color :D
+
 function printLine(content){//Prints content on screen
 	$("#results").append("<span></span><br>");
 	$("#results span").last().append(content);
+}
+
+function showGame(num){
+	$(".game-toggle div").css("background-color", "rgba(0, 0, 0, 0.35)");
+	$(".game-toggle div:nth-child(" + (num+1).toString() + ")").css("background-color", "rgba(0, 0, 0, 0.6)");
+
+	$(".game-info section").css("display", "none");
+	$(".game-info section:nth-child(" + (num).toString() + ")").css("display", "block");
 }
 
 function printFormattedTable(){
@@ -17,61 +30,80 @@ function printFormattedTable(){
 	var round = "#" + $("#Round").val();
 
 	var P1 = $("#PlayerOne").val();
-	var P1mains = $("#PlayerOneMains").val().split(", ");
+	var P1mains = $("#PlayerOneMains").val().split(/, */g);
 	var P1name = $("#PlayerOneName").val();
 	var P1twitch = $("#PlayerOneTwitch").val();
 	var P1twitter = $("#PlayerOneTwitter").val();
+	var P1liquipedia = $("#PlayerOneLiquipedia").val();
 	var P1media = "";
 
 	var P2 = $("#PlayerTwo").val();
-	var P2mains = $("#PlayerTwoMains").val().split(", ");
+	var P2mains = $("#PlayerTwoMains").val().split(/, */g);
 	var P2name = $("#PlayerTwoName").val();
 	var P2twitch = $("#PlayerTwoTwitch").val();
 	var P2twitter = $("#PlayerTwoTwitter").val();
+	var P2liquipedia = $("#PlayerTwoLiquipedia").val();
 	var P2media = "";
 
-	var setCount = $("#SetCount").val();
+	var game1Winner = $("#GameOne .Winner").val().toUpperCase();
+	var game1P1Character = $("#GameOne .PlayerOneCharacter").val();
+	var game1P2Character = $("#GameOne .PlayerTwoCharacter").val();
+	var game1StockCount = parseInt($("#GameOne .StocksRemaining").val());
+	var game1Stage = $("#GameOne .Stage").val();
 
-	var game1Winner = $("#GameOne").val().split(", ")[0];
-	var game1Character = $("#GameOne").val().split(", ")[1];
-	var game1StockCount = parseInt($("#GameOne").val().split(", ")[2]);
-	var game1Stage = $("#GameOne").val().split(", ")[3];
+	var game2Winner = $("#GameTwo .Winner").val().toUpperCase();
+	var game2P1Character = $("#GameTwo .PlayerOneCharacter").val();
+	var game2P2Character = $("#GameTwo .PlayerTwoCharacter").val();
+	var game2StockCount = parseInt($("#GameTwo .StocksRemaining").val());
+	var game2Stage = $("#GameTwo .Stage").val();
 
-	var game2Winner = $("#GameTwo").val().split(", ")[0];
-	var game2Character = $("#GameTwo").val().split(", ")[1];
-	var game2StockCount = parseInt($("#GameTwo").val().split(", ")[2]);
-	var game2Stage = $("#GameTwo").val().split(", ")[3];
+	var game3Winner = $("#GameThree .Winner").val().toUpperCase();
+	var game3P1Character = $("#GameThree .PlayerOneCharacter").val();
+	var game3P2Character = $("#GameThree .PlayerTwoCharacter").val();
+	var game3StockCount = parseInt($("#GameThree .StocksRemaining").val());
+	var game3Stage = $("#GameThree .Stage").val();
 
-	var game3Winner = $("#GameThree").val().split(", ")[0];
-	var game3Character = $("#GameThree").val().split(", ")[1];
-	var game3StockCount = parseInt($("#GameThree").val().split(", ")[2]);
-	var game3Stage = $("#GameThree").val().split(", ")[3];
+	var game4Winner = $("#GameFour .Winner").val().toUpperCase();
+	var game4P1Character = $("#GameFour .PlayerOneCharacter").val();
+	var game4P2Character = $("#GameFour .PlayerTwoCharacter").val();
+	var game4StockCount = parseInt($("#GameFour .StocksRemaining").val());
+	var game4Stage = $("#GameFour .Stage").val();
 
-	var game4Winner = $("#GameFour").val().split(", ")[0];
-	var game4Character = $("#GameFour").val().split(", ")[1];
-	var game4StockCount = parseInt($("#GameFour").val().split(", ")[2]);
-	var game4Stage = $("#GameFour").val().split(", ")[3];
-
-	var game5Winner = $("#GameFive").val().split(", ")[0];
-	var game5Character = $("#GameFive").val().split(", ")[1];
-	var game5StockCount = parseInt($("#GameFive").val().split(", ")[2]);
-	var game5Stage = $("#GameFive").val().split(", ")[3];
+	var game5Winner = $("#GameFive .Winner").val().toUpperCase();
+	var game5P1Character = $("#GameFive .PlayerOneCharacter").val();
+	var game5P2Character = $("#GameFive .PlayerTwoCharacter").val();
+	var game5StockCount = parseInt($("#GameFive .StocksRemaining").val());
+	var game5Stage = $("#GameFive .Stage").val();
 
 	function makeFlair(str){
 		return "[](/"+str+")";
 	};
 
-	function multiplyStock(stock,num){
+	function multiplyStock(winner,stock,num){
 		var str = "";
+
+		if(winner === "P1"){
+			for(var i = 0;i < (4 - num);i++){
+				str = str.concat("X ")
+			};
+		}
+
 		for(var i = 0;i < num;i++){
 			str = str.concat(stock)
 		};
+
+		if(winner === "P2"){
+			for(var i = 0;i < (4 - num);i++){
+				str = str.concat(" X")
+			};
+		}
+
 		return str;
 	};
 
 	function generatePlayerMedia(){
 
-		if(P1twitter != "" || P1twitch != ""){
+		if(P1twitter != "" || P1twitch != "" || P1liquipedia){
 			if(P1name === ""){
 				P1name = P1;
 			}
@@ -87,9 +119,15 @@ function printFormattedTable(){
 				}
 				P1media = P1media.concat("[Twitter](https://twitter.com/" + P1twitter + ")");
 			}
+			if(P1liquipedia != ""){
+				if(P1twitch != "" || P1twitter != ""){
+					P1media = P1media.concat(" | ")
+				}
+				P1media = P1media.concat("[Liquipedia](" + P1liquipedia + ")");
+			}
 		}
 
-		if(P2twitter != "" || P2twitch != ""){
+		if(P2twitter != "" || P2twitch != "" || P2liquipedia){
 			if(P2name === ""){
 				P2name = P2;
 			}
@@ -105,7 +143,39 @@ function printFormattedTable(){
 				}
 				P2media = P2media.concat("[Twitter](https://twitter.com/" + P2twitter + ")");
 			}
+			if(P2liquipedia != ""){
+				if(P2twitch != "" || P2twitter != ""){
+					P2media = P2media.concat(" | ")
+				}
+				P2media = P2media.concat("[Liquipedia](" + P2liquipedia + ")");
+			}
 		}
+	}
+
+	function displayRow(winner, P1Char, P2Char, Stage, stockCount){
+		if(winner === "P1"){
+			printLine(multiplyStock("P1",makeFlair(P1Char),stockCount) + " | ==" + makeFlair(P1Char) + " " + Stage + " " + makeFlair(P2Char) + "== | X X X X")
+		}else if(winner === "P2"){
+			printLine("X X X X | ==" + makeFlair(P1Char) + " " + Stage + " " + makeFlair(P2Char) + "== | " + multiplyStock("P2",makeFlair(P2Char),stockCount))
+		}else{
+			printLine("ERROR: WINNER MUST BE 'P1' OR 'P2'")
+		}
+	}
+
+	function getSetCount(){
+		var P1score = 0;
+		var P2score = 0;
+
+		[game1Winner,game2Winner,game3Winner,game4Winner,game5Winner].forEach(function(winner){
+			if(winner === "P1"){
+				P1score += 1;
+			}
+			if(winner === "P2"){
+				P2score += 1;
+			}
+		});
+
+		return P1score.toString() + " - " + P2score.toString();
 	}
 
 	generatePlayerMedia();
@@ -125,69 +195,21 @@ function printFormattedTable(){
 		printLine("")
 	}
 
-	printLine(P1 + " " + P1mains.map(makeFlair).toString().replace(/,/g , " ") + " | " + setCount + " | " + P2 + " " + P2mains.map(makeFlair).toString().replace(/,/g , " "));
+	printLine(P1 + " " + P1mains.map(makeFlair).toString().replace(/,/g , " ") + " | " + getSetCount() + " | " + P2 + " " + P2mains.map(makeFlair).toString().replace(/,/g , " "));
 	printLine("---:|:--:|:---");
 
-	if(game1Winner === "P1"){
-		printLine(multiplyStock(makeFlair(game1Character),game1StockCount) + " | " + game1Stage + " | ---")
-	}else if(game1Winner === "P2"){
-		printLine("--- | " + game1Stage + " | " + multiplyStock(makeFlair(game1Character),game1StockCount))
-	}else{
-		printLine("ERROR: WINNER MUST BE 'P1' OR 'P2'")
+	displayRow(game1Winner, game1P1Character, game1P2Character, game1Stage, game1StockCount)
+	displayRow(game2Winner, game2P1Character, game2P2Character, game2Stage, game2StockCount)
+	
+	if($("#GameThree .Stage").val() != ""){
+		displayRow(game3Winner, game3P1Character, game3P2Character, game3Stage, game3StockCount)
 	}
-
-	if(game2Winner === "P1"){
-		printLine(multiplyStock(makeFlair(game2Character),game2StockCount) + " | " + game2Stage + " | ---")
-	}else if(game2Winner === "P2"){
-		printLine("--- | " + game2Stage + " | " + multiplyStock(makeFlair(game2Character),game2StockCount))
-	}else{
-		printLine("ERROR: WINNER MUST BE 'P1' OR 'P2'")
+	if($("#GameFour .Stage").val() != ""){
+		displayRow(game4Winner, game4P1Character, game4P2Character, game4Stage, game4StockCount)
 	}
-
-	if(game3Winner === "P1"){
-		printLine(multiplyStock(makeFlair(game3Character),game3StockCount) + " | " + game3Stage + " | ---")
-	}else if(game3Winner === "P2"){
-		printLine("--- | " + game3Stage + " | " + multiplyStock(makeFlair(game3Character),game3StockCount))
-	}else{
-		printLine("ERROR: WINNER MUST BE 'P1' OR 'P2'")
+	if($("#GameFive .Stage").val() != ""){
+		displayRow(game5Winner, game5P1Character, game5P2Character, game5Stage, game5StockCount)
 	}
-
-	if($("#GameFour").val() != ""){
-		if(game4Winner === "P1"){
-			printLine(multiplyStock(makeFlair(game4Character),game4StockCount) + " | " + game4Stage + " | ---")
-		}else if(game4Winner === "P2"){
-			printLine("--- | " + game4Stage + " | " + multiplyStock(makeFlair(game4Character),game4StockCount))
-		}else{
-			printLine("ERROR: WINNER MUST BE 'P1' OR 'P2'")
-		}
-	}
-	if($("#GameFive").val() != ""){
-		if(game5Winner === "P1"){
-			printLine(multiplyStock(makeFlair(game5Character),game3StockCount) + " | " + game5Stage + " | ---")
-		}else if(game3Winner === "P2"){
-			printLine("--- | " + game5Stage + " | " + multiplyStock(makeFlair(game5Character),game5StockCount))
-		}else{
-			printLine("ERROR: WINNER MUST BE 'P1' OR 'P2'")
-		}
-	}
-
-	printLine("---");
+	printLine("<span style=\"color: white\">*^^Generated ^^by [^^Tournament ^^Tabler](http://darylpinto.github.io)*</span>");
+	printLine("___");
 }
-
-/*
-
-Reference output
-
----
-
-#Winners Semi-Final
-
-Alliance Armada [](/Peach) [](/Fox) | 3-1 | Westballz [](/Falco) [](/Fox)
----:|:--:|:---
-[](/Peach)[](/Peach)[](/Peach) | Fountain of Dreams | ---
---- | Yoshi's Story | [](/Falco)
-[](/Fox)[](/Fox) | Final Destination | ---
-[](/Peach)[](/Peach) | Pokemon Stadium | ---
-
----
-*/

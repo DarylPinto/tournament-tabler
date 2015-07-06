@@ -5,7 +5,8 @@
 }
 
 body{
-	background-color: rgb(97, 126, 112);
+	background-color: rgb(110, 110, 110);
+	transition: .5s;
 }
 
 .clearfix{
@@ -15,15 +16,34 @@ body{
 	background-color: transparent;
 }
 
+.main-header{
+	max-width: 1040px;
+	margin: 0 auto;
+	font-family: 'Satisfy', serif;
+	padding-left: 60px;
+	color: white;
+	font-size: 55px;
+	text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+	position: relative;
+	z-index: 2;
+}
+
+#version{
+	position: absolute;
+	top: -14px;
+	right: 10px;
+	opacity: .5;
+}
+
 .container{
 	width: 1000px;
 	margin: 0 auto;
-	margin-top: 20px;
+	margin-top: -25px;
 	margin-bottom: 20px;
+	position: relative;
 }
 
 input{
-	width: 200px;
 	margin: 5px;
 	text-align: center;
 	margin-bottom: 20px;
@@ -34,9 +54,14 @@ input{
 	background-color: rgba(255, 255, 255, 0.75);
 	font-size: 15px;
 	font-weight: 700;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: rgba(0, 0, 0, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.75);
+	color: white;
 }
 
-div{
+section{
 	padding: 20px;
 	margin: 10px;
 	background-color: rgba(0, 0, 0, 0.35);
@@ -48,6 +73,34 @@ div{
 	border-radius: 4px;
 }
 
+.game-info{
+	position: relative;
+}
+
+.game-toggle h1{
+	background-color: rgba(0, 0, 0, 0.6);
+	height: 50px;
+	line-height: 50px;
+	border-radius: 4px 4px 0px 0px;
+}
+
+.game-toggle div{
+	background-color: rgba(0, 0, 0, 0.35);
+	float: left;
+	width: 20%;
+	height: 50px;
+	line-height: 10px;
+	padding: 20px;
+	box-sizing: border-box;
+	margin: 0;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.game-toggle #selected{
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
 #results{
 	font-family: 'courier-new', monospace;
 	background-color: white;
@@ -55,16 +108,43 @@ div{
 	color: black;
 	text-align: left;
 	display: none;
+	overflow: hidden;
 }
 
-.player-one, .player-two{
-	width: 440px;
+.round-info{
+	box-sizing: border-box;
+	height: 90px;
+}
+
+.round-info input{
+	font-size: 24px;
+	margin-top: -10px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	background-color: transparent;
+}
+
+.player-one h1, .player-two h1{
+	background-color: rgba(0, 0, 0, 0.6);
+	line-height: 50px;
+	border-radius: 4px 4px 0px 0px;
+}
+
+.player-one, .player-two, .newgames{
+	width: 31.3%;
+	min-height: 510px;
+	padding: 0;
 	float: left;
 }
 
-.game-info{
-	position: relative;
-	top: -40px;
+.game-info section{
+	background-color: transparent;
+	padding-top: 9px;
+	border-radius: 0px 4px 4px 4px;
+	display: none;
+}
+
+.game-info section div{
+	display: block;
 }
 
 button{
@@ -72,11 +152,11 @@ button{
 	padding: 7px;
 	color: white;
 	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	display: block;
 	width: 200px;
 	cursor: pointer;
-	position: relative;
-	top: -20px;
 	font-size: 20px;
 	border-radius: 3px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
