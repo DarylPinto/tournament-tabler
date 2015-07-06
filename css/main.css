@@ -1,0 +1,107 @@
+*{
+	margin: 0;
+	padding: 0;
+
+}
+
+body{
+	background-color: rgb(97, 126, 112);
+}
+
+.clearfix{
+	clear: both;
+	height: 0;
+	width: 0;
+	background-color: transparent;
+}
+
+.container{
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+input{
+	width: 200px;
+	margin: 5px;
+	text-align: center;
+	margin-bottom: 20px;
+	border: 0;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 3px;
+	background-color: rgba(255, 255, 255, 0.75);
+	font-size: 15px;
+	font-weight: 700;
+}
+
+div{
+	padding: 20px;
+	margin: 10px;
+	background-color: rgba(0, 0, 0, 0.35);
+	font-family: "Roboto", sans-serif;
+	color: white;
+	font-size: 13px;
+	font-weight: 300;
+	text-align: center;
+	border-radius: 4px;
+}
+
+#results{
+	font-family: 'courier-new', monospace;
+	background-color: white;
+	padding: 20px;
+	color: black;
+	text-align: left;
+	display: none;
+}
+
+.player-one, .player-two{
+	width: 440px;
+	float: left;
+}
+
+.game-info{
+	position: relative;
+	top: -40px;
+}
+
+button{
+	border: none;
+	padding: 7px;
+	color: white;
+	margin: 0 auto;
+	display: block;
+	width: 200px;
+	cursor: pointer;
+	position: relative;
+	top: -20px;
+	font-size: 20px;
+	border-radius: 3px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+	background-color: #1589D0;
+	font-family: "Roboto", sans-serif;
+	font-weight: 100;
+	text-shadow: 1px 1px 2px black;
+	transition: .3s;
+}
+
+button:hover{
+	box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+button:active{
+	background-color: #16618E;
+}
+
+.copyright, .copyright a{
+	font-family: "Roboto", sans-serif;
+	color: white;
+	text-align: center;
+	margin-top: -13px;
+	margin-bottom: 20px;
+	font-weight: 300;
+	text-decoration: none;
+	opacity: 0.5;
+}
