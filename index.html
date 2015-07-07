@@ -6,12 +6,12 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="shortcut icon" href="http://img1.wikia.nocookie.net/__cb20150114084035/ssb/images/6/64/Favicon.ico" />
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Satisfy|Roboto:300,700,400' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Satisfy|Roboto:300,700,400|Merriweather:400,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <h1 class="main-header">Tournament Tabler</h1>
 	<section class="container">
-		<span id="version">Ver. 2.1.8</span>
+		<span id="version">Ver. 2.5.0b</span>
 		<section class="round-info">
 			<br><input type="text" id="Round" value="Grand Finals"><br>
 		</section>
@@ -48,36 +48,47 @@
 				<div class="clearfix"></div>
 				<div class="game-info">
 					<section id="GameOne" style="display: block">
-						<div>P1's character <br><input type="text" class="PlayerOneCharacter" value="Falco"></div>
-						<div>P2's character <br><input type="text" class="PlayerTwoCharacter" value="Fox"><br></div>
+						<div style="float: left">
+							<h1><span class="P1-dynamic-name">P1</span>'s <br> character</h1>
+							<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameOne .PlayerOneCharacter')" style="margin: 0;float: left;margin-top: 10px"></div>
+						</div>
+						<div style="float: right">
+							<h1><span class="P2-dynamic-name">P2</span>'s <br> character</h1>
+							<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameOne .PlayerTwoCharacter')" style="margin: 0;float: right;margin-top: 10px"></div>
+						</div>
+						<div class="clearfix"></div>
 						<div>Stage <br><input type="text" class="Stage" value="Battlefield"><br></div>
-						<div>Winner (P1 or P2) <br><input type="text" class="Winner" value="P1"><br></div>
+						<div>
+							Winner
+							<br><input type="radio" name="winner" class="Winner" value="P1"><span class="P1-dynamic-name">P1</span><br>
+							<br><input type="radio" name="winner" class="Winner" value="P2"><span class="P2-dynamic-name">P2</span><br>
+						</div>
 						<div>Stocks Left <br><input type="text" class="StocksRemaining" value="3"><br></div>
 					</section>
 					<section id="GameTwo">
-						<div>P1's character <br><input type="text" class="PlayerOneCharacter" value="CF"></div>
-						<div>P2's character <br><input type="text" class="PlayerTwoCharacter" value="Yoshi"><br></div>
+						<div><span class="P1-dynamic-name">P1</span>'s character <br><input type="text" class="PlayerOneCharacter" value="CF"></div>
+						<div><span class="P2-dynamic-name">P2</span>'s character <br><input type="text" class="PlayerTwoCharacter" value="Yoshi"><br></div>
 						<div>Stage <br><input type="text" class="Stage" value="Final Destination"><br></div>
 						<div>Winner (P1 or P2) <br><input type="text" class="Winner" value="P1"><br></div>
 						<div>Stocks Left <br><input type="text" class="StocksRemaining" value="2"><br></div>
 					</section>
 					<section id="GameThree">
-						<div>P1's character <br><input type="text" class="PlayerOneCharacter" value=""></div>
-						<div>P2's character <br><input type="text" class="PlayerTwoCharacter" value=""><br></div>
+						<div><span class="P1-dynamic-name">P1</span>'s character <br><input type="text" class="PlayerOneCharacter" value=""></div>
+						<div><span class="P2-dynamic-name">P2</span>'s character <br><input type="text" class="PlayerTwoCharacter" value=""><br></div>
 						<div>Stage <br><input type="text" class="Stage" value=""><br></div>
 						<div>Winner (P1 or P2) <br><input type="text" class="Winner" value=""><br></div>
 						<div>Stocks Left <br><input type="text" class="StocksRemaining" value=""><br></div>
 					</section>
 					<section id="GameFour">
-						<div>P1's character <br><input type="text" class="PlayerOneCharacter" value=""></div>
-						<div>P2's character <br><input type="text" class="PlayerTwoCharacter" value=""><br></div>
+						<div><span class="P1-dynamic-name">P1</span>'s character <br><input type="text" class="PlayerOneCharacter" value=""></div>
+						<div><span class="P2-dynamic-name">P2</span>'s character <br><input type="text" class="PlayerTwoCharacter" value=""><br></div>
 						<div>Stage <br><input type="text" class="Stage" value=""><br></div>
 						<div>Winner (P1 or P2) <br><input type="text" class="Winner" value=""><br></div>
 						<div>Stocks Left <br><input type="text" class="StocksRemaining" value=""><br></div>
 					</section>
 					<section id="GameFive">
-						<div>P1's character <br><input type="text" class="PlayerOneCharacter" value=""></div>
-						<div>P2's character <br><input type="text" class="PlayerTwoCharacter" value=""><br></div>
+						<div><span class="P1-dynamic-name">P1</span>'s character <br><input type="text" class="PlayerOneCharacter" value=""></div>
+						<div><span class="P2-dynamic-name">P2</span>'s character <br><input type="text" class="PlayerTwoCharacter" value=""><br></div>
 						<div>Stage <br><input type="text" class="Stage" value=""><br></div>
 						<div>Winner (P1 or P2) <br><input type="text" class="Winner" value=""><br></div>
 						<div>Stocks Left <br><input type="text" class="StocksRemaining" value=""><br></div>
@@ -93,6 +104,50 @@
 		<div id="results"></div>
 	</section>
 	<p class="copyright">Made (with love) by <a href="http://reddit.com/u/darderp" target="_blank">/u/darderp</a> for <a href="http://reddit.com/r/smashbros" target="_blank">/r/smashbros</a></p>
+		<div class="blackout" style="display: none">
+			<div class="character-popout">
+				<table id="character-list">
+					<tr>
+						<td><div class="Fox" onclick="chooseCharacter('Fox')"></div></td>
+						<td><div class="Falco" onclick="chooseCharacter('Falco')"></div></td>
+						<td><div class="Sheik" onclick="chooseCharacter('Sheik')"></div></td>
+						<td><div class="Marth" onclick="chooseCharacter('Marth')"></div></td>
+						<td><div class="Puff" onclick="chooseCharacter('Puff')"></div></td>
+					</tr>
+					<tr>
+						<td><div class="Peach" onclick="chooseCharacter('Peach')"></div></td>
+						<td><div class="CF" onclick="chooseCharacter('CF')"></div></td>
+						<td><div class="Icies" onclick="chooseCharacter('Icies')"></div></td>
+						<td><div class="DrMario" onclick="chooseCharacter('DrMario')"></div></td>
+						<td><div class="Pikachu" onclick="chooseCharacter('Pikachu')"></div></td>
+					</tr>
+					<tr>
+						<td><div class="Samus" onclick="chooseCharacter('Samus')"></div></td>
+						<td><div class="Ganon" onclick="chooseCharacter('Ganon')"></div></td>
+						<td><div class="Luigi" onclick="chooseCharacter('Luigi')"></div></td>
+						<td><div class="Mario" onclick="chooseCharacter('Mario')"></div></td>
+						<td><div class="YL" onclick="chooseCharacter('YL')"></div></td>
+					</tr>
+					<tr>
+						<td><div class="Link" onclick="chooseCharacter('Link')"></div></td>
+						<td><div class="DK" onclick="chooseCharacter('DK')"></div></td>
+						<td><div class="Yoshi" onclick="chooseCharacter('Yoshi')"></div></td>
+						<td><div class="Zelda" onclick="chooseCharacter('Zelda')"></div></td>
+						<td><div class="Roy" onclick="chooseCharacter('Roy')"></div></td>
+					</tr>
+					<tr>
+						<td><div class="Mewtwo" onclick="chooseCharacter('Mewtwo')"></div></td>
+						<td><div class="GNW" onclick="chooseCharacter('GNW')"></div></td>
+						<td><div class="Ness" onclick="chooseCharacter('Ness')"></div></td>
+						<td><div class="Bowser" onclick="chooseCharacter('Bowser')"></div></td>
+						<td><div class="Pichu" onclick="chooseCharacter('Pichu')"></div></td>
+					</tr>
+					<tr>
+						<td><div class="Kirby" onclick="chooseCharacter('Kirby')"></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
 
 	<script type="text/javascript" src="js/main.js"></script>
 </body>

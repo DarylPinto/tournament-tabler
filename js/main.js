@@ -1,6 +1,7 @@
 var pressed = false
 var P1extras = false
 var P2extras = false
+var lastFieldClicked;
 
 function randomNumberBetween(low,high){
 	return Math.floor(Math.random()*(high-low)+low);
@@ -10,6 +11,21 @@ $("body").css("background-color", "rgb(" + randomNumberBetween(47,126).toString(
 function printLine(content){//Prints content on screen
 	$("#results").append("<span></span><br>");
 	$("#results span").last().append(content);
+}
+
+function openCharacterMenu(selector){
+	$(".blackout").css("display", "block");
+
+	lastFieldClicked = selector;
+}
+
+function chooseCharacter(character){
+	$(lastFieldClicked).empty();
+	$(lastFieldClicked).append('<div class="' + character + '"></div>');
+	$(lastFieldClicked).css("padding", "14px")
+	$(lastFieldClicked).css("width", "23px")
+	$(lastFieldClicked).css("height", "auto")
+	$(".blackout").css("display", "none");
 }
 
 function showExtras(num){
@@ -29,12 +45,27 @@ function showExtras(num){
 
 		P2extras = true;
 	}
-
-
 }
 
+function setDynamicName(){
+	if($("#PlayerOne").val() === ""){
+		$(".P1-dynamic-name").text("P1's");
+	}else{
+		$(".P1-dynamic-name").text($("#PlayerOne").val());
+	}
+
+	if($("#PlayerTwo").val() === ""){
+		$(".P2-dynamic-name").text("P2's");
+	}else{
+		$(".P2-dynamic-name").text($("#PlayerTwo").val());
+	}
+}
+
+$("#PlayerOne").focusout(setDynamicName); //FIX ROGUE 's!!!!!!!!!!!!
+$("#PlayerTwo").focusout(setDynamicName);
+
 function showGame(num){
-	$(".game-toggle div").css("background-color", "rgba(0, 0, 0, 0.35)");
+	$(".game-toggle div").css("background-color", "rgba(0, 0, 0, 0.2)");
 	$(".game-toggle div:nth-child(" + (num+1).toString() + ")").css("background-color", "rgba(0, 0, 0, 0.6)");
 
 	$(".game-info section").css("display", "none");
@@ -119,21 +150,21 @@ function printFormattedTable(){
 	function multiplyStock(winner,stock,num){
 		var str = "";
 
-		if(winner === "P1"){
+		/*if(winner === "P1"){
 			for(var i = 0;i < (4 - num);i++){
-				str = str.concat("X ")
+				str = str.concat("x ")
 			};
-		}
+		}*/
 
 		for(var i = 0;i < num;i++){
 			str = str.concat(stock)
 		};
 
-		if(winner === "P2"){
+		/*if(winner === "P2"){
 			for(var i = 0;i < (4 - num);i++){
-				str = str.concat(" X")
+				str = str.concat(" x")
 			};
-		}
+		}*/
 
 		return str;
 	};
@@ -191,9 +222,9 @@ function printFormattedTable(){
 
 	function displayRow(winner, P1Char, P2Char, Stage, stockCount){
 		if(winner === "P1"){
-			printLine(multiplyStock("P1",makeFlair(P1Char),stockCount) + " | ==" + makeFlair(P1Char) + " " + Stage + " " + makeFlair(P2Char) + "== | X X X X")
+			printLine(multiplyStock("P1",makeFlair(P1Char),stockCount) + " | `==` " + makeFlair(P1Char) + " " + Stage + " " + makeFlair(P2Char) + " `==` | ---")
 		}else if(winner === "P2"){
-			printLine("X X X X | ==" + makeFlair(P1Char) + " " + Stage + " " + makeFlair(P2Char) + "== | " + multiplyStock("P2",makeFlair(P2Char),stockCount))
+			printLine("--- | `==` " + makeFlair(P1Char) + " " + Stage + " " + makeFlair(P2Char) + " `==` | " + multiplyStock("P2",makeFlair(P2Char),stockCount))
 		}else{
 			printLine("ERROR: WINNER MUST BE 'P1' OR 'P2'")
 		}
@@ -232,7 +263,7 @@ function printFormattedTable(){
 		printLine("")
 	}
 
-	printLine(P1 + " " + P1mains.map(makeFlair).toString().replace(/,/g , " ") + " | " + getSetCount() + " | " + P2 + " " + P2mains.map(makeFlair).toString().replace(/,/g , " "));
+	printLine(P1mains.map(makeFlair).toString().replace(/,/g , " ") + " " + P1 + " | " + getSetCount() + " | " + P2 + " " + P2mains.map(makeFlair).toString().replace(/,/g , " "));
 	printLine("---:|:--:|:---");
 
 	displayRow(game1Winner, game1P1Character, game1P2Character, game1Stage, game1StockCount)
@@ -250,3 +281,5 @@ function printFormattedTable(){
 	printLine("<span style=\"color: white\">*^^Generated ^^by [^^Tournament ^^Tabler](http://darylpinto.github.io)*</span>");
 	printLine("___");
 }
+
+setDynamicName()
