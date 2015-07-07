@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>/r/smashbros Tournament Table Maker</title>
+	<title>/r/smashbros Tournament Tabler</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="shortcut icon" href="http://img1.wikia.nocookie.net/__cb20150114084035/ssb/images/6/64/Favicon.ico" />
@@ -11,29 +11,82 @@
 <body>
 <h1 class="main-header">Tournament Tabler</h1>
 	<section class="container">
-		<span id="version">Ver. 2.5.0b</span>
+		<span id="version">Ver. 2.5.0</span>
 		<section class="round-info">
 			<br><input type="text" id="Round" value="Grand Finals"><br>
 		</section>
 		<div>
 			<section class="player-one">
-				<h1>Player 1</h1><br>
-				<div><input type="text" id="PlayerOne" value="C9 Mango"><br></div>
-				<div>Mains (separate with commas) <br><input type="text" id="PlayerOneMains" value="Fox, Falco"><br></div>
-				<div class="extra">Full Name (optional)<br><input type="text" id="PlayerOneName" value='Joseph "Mang0" Marquez'><br></div>
-				<div class="extra">Twitch (optional) <br><input type="text" id="PlayerOneTwitch" value="mang0"><br></div>
-				<div class="extra">Twitter (optional) <br><input type="text" id="PlayerOneTwitter" value="c9mang0"><br></div>
-				<div class="extra">Liquipedia URL (optional) <br><input type="text" id="PlayerOneLiquipedia" value="http://wiki.teamliquid.net/smash/Mango"><br></div>
+				<h1>Player 1</h1>
+				<div class="player-name">
+					<h1>Tag</h1>
+					<input type="text" id="PlayerOne" value="C9 Mango">
+				</div>
+				<div id="PlayerOneMains">
+					<h1>Mains</h1>
+					<div class="character-main-wrapper">
+						<div id="P1Main1" onclick="openCharacterMenu('#P1Main1')">
+							<div class="Fox"></div>
+						</div>
+
+						<div id="P1Main2" onclick="openCharacterMenu('#P1Main2')">
+							<div class="Falco"></div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="extra">
+					<h1>Full Name (optional)</h1>
+					<input type="text" id="PlayerOneName" value='Joseph "Mang0" Marquez'>
+				</div>
+				<div class="extra">
+					<h1>Twitch (optional)</h1>
+					<input type="text" id="PlayerOneTwitch" value="mang0">
+				</div>
+				<div class="extra">
+					<h1>Twitter (optional)</h1>
+					<input type="text" id="PlayerOneTwitter" value="c9mang0">
+				</div>
+				<div class="extra">
+					<h1>Liquipedia URL (optional)</h1>
+					<input type="text" id="PlayerOneLiquipedia" value="http://wiki.teamliquid.net/smash/Mango">
+				</div>
 				<div class="expand-extras" onclick="showExtras(1)">Add Extras</div>
 			</section>
 			<section class="player-two">
-				<h1>Player 2</h1><br>
-				<div><input type="text" id="PlayerTwo" value="TSM Leffen"><br></div>
-				<div>Mains (separate with commas) <br><input type="text" id="PlayerTwoMains" value="Fox"><br></div>
-				<div class="extra">Full Name (optional)<br><input type="text" id="PlayerTwoName" value='William "Leffen" Hjelte'><br></div>
-				<div class="extra">Twitch (optional) <br><input type="text" id="PlayerTwoTwitch" value="lffn"><br></div>
-				<div class="extra">Twitter (optional) <br><input type="text" id="PlayerTwoTwitter" value="tsm_leffen"><br></div>
-				<div class="extra">Liquipedia URL (optional) <br><input type="text" id="PlayerTwoLiquipedia" value="http://wiki.teamliquid.net/smash/Leffen"><br></div>
+				<h1>Player 2</h1>
+				<div class="player-name">
+					<h1>Tag</h1>
+					<input type="text" id="PlayerTwo" value="TSM Leffen">
+				</div>
+				<div id="PlayerTwoMains">
+					<h1>Mains</h1>
+					<div class="character-main-wrapper">
+						<div id="P2Main1" onclick="openCharacterMenu('#P2Main1')">
+							<div class="Fox"></div>
+						</div>
+
+						<div id="P2Main2" onclick="openCharacterMenu('#P2Main2')">
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="extra">
+					<h1>Full Name (optional)</h1>
+					<input type="text" id="PlayerTwoName" value='William "Leffen" Hjelte'>
+				</div>
+				<div class="extra">
+					<h1>Twitch (optional)</h1>
+					<input type="text" id="PlayerTwoTwitch" value="lffn">
+				</div>
+				<div class="extra">
+					<h1>Twitter (optional)</h1>
+					<input type="text" id="PlayerTwoTwitter" value="tsm_leffen">
+				</div>
+				<div class="extra">
+					<h1>Liquipedia URL (optional)</h1>
+					<input type="text" id="PlayerTwoLiquipedia" value="http://wiki.teamliquid.net/smash/Leffen">
+				</div>
 				<div class="expand-extras" onclick="showExtras(2)">Add Extras</div>
 			</section>
 			<section class="game-wrapper">
@@ -48,50 +101,211 @@
 				<div class="clearfix"></div>
 				<div class="game-info">
 					<section id="GameOne" style="display: block">
-						<div style="float: left">
-							<h1><span class="P1-dynamic-name">P1</span>'s <br> character</h1>
-							<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameOne .PlayerOneCharacter')" style="margin: 0;float: left;margin-top: 10px"></div>
-						</div>
-						<div style="float: right">
-							<h1><span class="P2-dynamic-name">P2</span>'s <br> character</h1>
-							<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameOne .PlayerTwoCharacter')" style="margin: 0;float: right;margin-top: 10px"></div>
+						<div class="character-select">
+							<div class="P1-char-wrap">
+								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
+								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameOne .PlayerOneCharacter')">
+									<div class="Falco"></div>
+								</div>
+							</div>
+							<div class="P2-char-wrap">
+								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
+								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameOne .PlayerTwoCharacter')">
+									<div class="Fox"></div>
+								</div>
+							</div>
 						</div>
 						<div class="clearfix"></div>
-						<div>Stage <br><input type="text" class="Stage" value="Battlefield"><br></div>
-						<div>
-							Winner
-							<br><input type="radio" name="winner" class="Winner" value="P1"><span class="P1-dynamic-name">P1</span><br>
-							<br><input type="radio" name="winner" class="Winner" value="P2"><span class="P2-dynamic-name">P2</span><br>
+						<div class="stage-select">
+							<h1>Stage</h1>
+							<select class="Stage">
+								<option value="---">---</option>
+								<option value="===== Battlefield =====" selected="selected">Battlefield</option>
+								<option value="== Final Destination ==">Final Destination</option>
+								<option value="==== Yoshi's Story ====">Yoshi's Story</option>
+								<option value="==== Dreamland 64 ====">Dreamland 64</option>
+								<option value="= Fountain of Dreams =">Fountain of Dreams</option>
+								<option value="=== Pokémon Stadium ===">Pokémon Stadium</option>
+							</select>
 						</div>
-						<div>Stocks Left <br><input type="text" class="StocksRemaining" value="3"><br></div>
+						<div class="winner">
+							<h1>Winner</h1>
+							<div class="player-winner selected-winner" onclick="chooseWinner('#GameOne', 'P1')"><span class="P1-dynamic-name">P1</span></div>
+							<div class="player-winner" onclick="chooseWinner('#GameOne', 'P2')"><span class="P2-dynamic-name">P2</span></div>
+						</div>
+						<div class="stock-count">
+							<h1>Stocks Left</h1>
+							<ul>
+								<li onclick="changeStocksLeft('#GameOne', 1)"><div class="Falco"></div></li>
+								<li onclick="changeStocksLeft('#GameOne', 2)"><div class="Falco"></div></li>
+								<li onclick="changeStocksLeft('#GameOne', 3)">x</li>
+								<li onclick="changeStocksLeft('#GameOne', 4)">x</li>
+							</ul>
+						</div>
 					</section>
 					<section id="GameTwo">
-						<div><span class="P1-dynamic-name">P1</span>'s character <br><input type="text" class="PlayerOneCharacter" value="CF"></div>
-						<div><span class="P2-dynamic-name">P2</span>'s character <br><input type="text" class="PlayerTwoCharacter" value="Yoshi"><br></div>
-						<div>Stage <br><input type="text" class="Stage" value="Final Destination"><br></div>
-						<div>Winner (P1 or P2) <br><input type="text" class="Winner" value="P1"><br></div>
-						<div>Stocks Left <br><input type="text" class="StocksRemaining" value="2"><br></div>
+						<div class="character-select">
+							<div class="P1-char-wrap">
+								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
+								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameTwo .PlayerOneCharacter')">
+								</div>
+							</div>
+							<div class="P2-char-wrap">
+								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
+								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameTwo .PlayerTwoCharacter')">
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="stage-select">
+							<h1>Stage</h1>
+							<select class="Stage">
+								<option value="---">---</option>
+								<option value="===== Battlefield =====">Battlefield</option>
+								<option value="== Final Destination ==">Final Destination</option>
+								<option value="==== Yoshi's Story ====">Yoshi's Story</option>
+								<option value="==== Dreamland 64 ====">Dreamland 64</option>
+								<option value="= Fountain of Dreams =">Fountain of Dreams</option>
+								<option value="=== Pokémon Stadium ===">Pokémon Stadium</option>
+							</select>
+						</div>
+						<div class="winner">
+							<h1>Winner</h1>
+							<div class="player-winner" onclick="chooseWinner('#GameTwo', 'P1')"><span class="P1-dynamic-name">P1</span></div>
+							<div class="player-winner" onclick="chooseWinner('#GameTwo', 'P2')"><span class="P2-dynamic-name">P2</span></div>
+						</div>
+						<div class="stock-count">
+							<h1>Stocks Left</h1>
+							<ul>
+								<li onclick="changeStocksLeft('#GameTwo', 1)">x</li>
+								<li onclick="changeStocksLeft('#GameTwo', 2)">x</li>
+								<li onclick="changeStocksLeft('#GameTwo', 3)">x</li>
+								<li onclick="changeStocksLeft('#GameTwo', 4)">x</li>
+							</ul>
+						</div>
 					</section>
 					<section id="GameThree">
-						<div><span class="P1-dynamic-name">P1</span>'s character <br><input type="text" class="PlayerOneCharacter" value=""></div>
-						<div><span class="P2-dynamic-name">P2</span>'s character <br><input type="text" class="PlayerTwoCharacter" value=""><br></div>
-						<div>Stage <br><input type="text" class="Stage" value=""><br></div>
-						<div>Winner (P1 or P2) <br><input type="text" class="Winner" value=""><br></div>
-						<div>Stocks Left <br><input type="text" class="StocksRemaining" value=""><br></div>
+						<div class="character-select">
+							<div class="P1-char-wrap">
+								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
+								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameThree .PlayerOneCharacter')">
+								</div>
+							</div>
+							<div class="P2-char-wrap">
+								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
+								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameThree .PlayerTwoCharacter')">
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="stage-select">
+							<h1>Stage</h1>
+							<select class="Stage">
+								<option value="---">---</option>
+								<option value="===== Battlefield =====">Battlefield</option>
+								<option value="== Final Destination ==">Final Destination</option>
+								<option value="==== Yoshi's Story ====">Yoshi's Story</option>
+								<option value="==== Dreamland 64 ====">Dreamland 64</option>
+								<option value="= Fountain of Dreams =">Fountain of Dreams</option>
+								<option value="=== Pokémon Stadium ===">Pokémon Stadium</option>
+							</select>
+						</div>
+						<div class="winner">
+							<h1>Winner</h1>
+							<div class="player-winner" onclick="chooseWinner('#GameThree', 'P1')"><span class="P1-dynamic-name">P1</span></div>
+							<div class="player-winner" onclick="chooseWinner('#GameThree', 'P2')"><span class="P2-dynamic-name">P2</span></div>
+						</div>
+						<div class="stock-count">
+							<h1>Stocks Left</h1>
+							<ul>
+								<li onclick="changeStocksLeft('#GameThree', 1)">x</li>
+								<li onclick="changeStocksLeft('#GameThree', 2)">x</li>
+								<li onclick="changeStocksLeft('#GameThree', 3)">x</li>
+								<li onclick="changeStocksLeft('#GameThree', 4)">x</li>
+							</ul>
+						</div>
 					</section>
 					<section id="GameFour">
-						<div><span class="P1-dynamic-name">P1</span>'s character <br><input type="text" class="PlayerOneCharacter" value=""></div>
-						<div><span class="P2-dynamic-name">P2</span>'s character <br><input type="text" class="PlayerTwoCharacter" value=""><br></div>
-						<div>Stage <br><input type="text" class="Stage" value=""><br></div>
-						<div>Winner (P1 or P2) <br><input type="text" class="Winner" value=""><br></div>
-						<div>Stocks Left <br><input type="text" class="StocksRemaining" value=""><br></div>
+						<div class="character-select">
+							<div class="P1-char-wrap">
+								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
+								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameFour .PlayerOneCharacter')">
+								</div>
+							</div>
+							<div class="P2-char-wrap">
+								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
+								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameFour .PlayerTwoCharacter')">
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="stage-select">
+							<h1>Stage</h1>
+							<select class="Stage">
+								<option value="---">---</option>
+								<option value="===== Battlefield =====">Battlefield</option>
+								<option value="== Final Destination ==">Final Destination</option>
+								<option value="==== Yoshi's Story ====">Yoshi's Story</option>
+								<option value="==== Dreamland 64 ====">Dreamland 64</option>
+								<option value="= Fountain of Dreams =">Fountain of Dreams</option>
+								<option value="=== Pokémon Stadium ===">Pokémon Stadium</option>
+							</select>
+						</div>
+						<div class="winner">
+							<h1>Winner</h1>
+							<div class="player-winner" onclick="chooseWinner('#GameFour', 'P1')"><span class="P1-dynamic-name">P1</span></div>
+							<div class="player-winner" onclick="chooseWinner('#GameFour', 'P2')"><span class="P2-dynamic-name">P2</span></div>
+						</div>
+						<div class="stock-count">
+							<h1>Stocks Left</h1>
+							<ul>
+								<li onclick="changeStocksLeft('#GameFour', 1)">x</li>
+								<li onclick="changeStocksLeft('#GameFour', 2)">x</li>
+								<li onclick="changeStocksLeft('#GameFour', 3)">x</li>
+								<li onclick="changeStocksLeft('#GameFour', 4)">x</li>
+							</ul>
+						</div>
 					</section>
 					<section id="GameFive">
-						<div><span class="P1-dynamic-name">P1</span>'s character <br><input type="text" class="PlayerOneCharacter" value=""></div>
-						<div><span class="P2-dynamic-name">P2</span>'s character <br><input type="text" class="PlayerTwoCharacter" value=""><br></div>
-						<div>Stage <br><input type="text" class="Stage" value=""><br></div>
-						<div>Winner (P1 or P2) <br><input type="text" class="Winner" value=""><br></div>
-						<div>Stocks Left <br><input type="text" class="StocksRemaining" value=""><br></div>
+						<div class="character-select">
+							<div class="P1-char-wrap">
+								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
+								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameFive .PlayerOneCharacter')">
+								</div>
+							</div>
+							<div class="P2-char-wrap">
+								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
+								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameFive .PlayerTwoCharacter')">
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="stage-select">
+							<h1>Stage</h1>
+							<select class="Stage">
+								<option value="---">---</option>
+								<option value="===== Battlefield =====">Battlefield</option>
+								<option value="== Final Destination ==">Final Destination</option>
+								<option value="==== Yoshi's Story ====">Yoshi's Story</option>
+								<option value="==== Dreamland 64 ====">Dreamland 64</option>
+								<option value="= Fountain of Dreams =">Fountain of Dreams</option>
+								<option value="=== Pokémon Stadium ===">Pokémon Stadium</option>
+							</select>
+						</div>
+						<div class="winner">
+							<h1>Winner</h1>
+							<div class="player-winner" onclick="chooseWinner('#GameFive', 'P1')"><span class="P1-dynamic-name">P1</span></div>
+							<div class="player-winner" onclick="chooseWinner('#GameFive', 'P2')"><span class="P2-dynamic-name">P2</span></div>
+						</div>
+						<div class="stock-count">
+							<h1>Stocks Left</h1>
+							<ul>
+								<li onclick="changeStocksLeft('#GameFive', 1)">x</li>
+								<li onclick="changeStocksLeft('#GameFive', 2)">x</li>
+								<li onclick="changeStocksLeft('#GameFive', 3)">x</li>
+								<li onclick="changeStocksLeft('#GameFive', 4)">x</li>
+							</ul>
+						</div>
 					</section>
 				</div>
 			</section>
@@ -105,7 +319,9 @@
 	</section>
 	<p class="copyright">Made (with love) by <a href="http://reddit.com/u/darderp" target="_blank">/u/darderp</a> for <a href="http://reddit.com/r/smashbros" target="_blank">/r/smashbros</a></p>
 		<div class="blackout" style="display: none">
+			<div class="close-blackout" onclick="$('.blackout').css('display', 'none')"></div>
 			<div class="character-popout">
+				<div class="close-X" onclick="$('.blackout').css('display', 'none')">X</div>
 				<table id="character-list">
 					<tr>
 						<td><div class="Fox" onclick="chooseCharacter('Fox')"></div></td>
@@ -146,6 +362,7 @@
 						<td><div class="Kirby" onclick="chooseCharacter('Kirby')"></div></td>
 					</tr>
 				</table>
+				<div class="clear-char" onclick="chooseCharacter('clear')">Remove Character</div>
 			</div>
 		</div>
 

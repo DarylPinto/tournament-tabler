@@ -54,7 +54,6 @@ input{
 	border-radius: 3px;
 	background-color: rgba(255, 255, 255, 0.75);
 	font-size: 15px;
-	font-weight: 700;
 	padding-left: 10px;
 	padding-right: 10px;
 	background-color: rgba(0, 0, 0, 0.15);
@@ -72,6 +71,101 @@ section{
 	font-weight: 300;
 	text-align: center;
 	border-radius: 4px;
+}
+
+select, option{
+	background-color: rgba(0, 0, 0, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.75);
+	color: white;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 3px;
+	text-align: center;
+	width: 200px;
+	margin-top: 10px;
+}
+
+option{
+	background-color: rgb(27, 27, 27);
+}
+
+/*===Round Info (e.g. Grand Finals)===*/
+
+.round-info{
+	box-sizing: border-box;
+	height: 90px;
+}
+
+.round-info input{
+	font-size: 24px;
+	margin-top: -10px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	background-color: transparent;
+}
+
+/*===Player 1 & 2 Info===*/
+
+.player-one h1, .player-two h1{
+	background-color: rgba(0, 0, 0, 0.6);
+	line-height: 50px;
+	border-radius: 4px 4px 0px 0px;
+	margin-bottom: 20px;
+}
+
+.player-one, .player-two, .game-wrapper{
+	width: 31.3%;
+	height: 520px;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	float: left;
+}
+
+.player-name{
+	margin-top: 10px;
+}
+
+#PlayerOneMains, #PlayerTwoMains{
+	margin-bottom: 20px;
+}
+
+.PlayerOneCharacter div, .PlayerTwoCharacter div{
+	margin-top: 12.5px;
+	margin-left: 12.5px;
+}
+
+.expand-extras{
+	width: 100%;
+	height: 50px;
+	background-color: rgba(0, 0, 0, 0.2);
+	line-height: 50px;
+	border-radius: 0px 0px 4px 4px;
+	position: absolute;
+	bottom: 0;
+	cursor: pointer;
+	transition: .6s;
+}
+
+.extra{
+	display: none;
+	transition: .6s;
+}
+
+.player-one .extra h1, .player-two .extra h1{
+	margin-bottom: 0;
+}
+
+.player-one div, .player-two div{
+	margin-top: 69.5px;
+	transition: .6s;
+}
+
+/*===Game settings===*/
+
+
+.game-wrapper{
+	height: auto;
+	min-height: 520px;
 }
 
 .game-info{
@@ -102,87 +196,126 @@ section{
 	background-color: rgba(0, 0, 0, 0.6);
 }
 
-#results{
-	font-family: 'courier-new', monospace;
-	background-color: white;
-	padding: 20px;
-	color: black;
-	text-align: left;
-	display: none;
-	overflow: hidden;
-}
-
-.round-info{
-	box-sizing: border-box;
-	height: 90px;
-}
-
-.round-info input{
-	font-size: 24px;
-	margin-top: -10px;
-	border: 1px solid rgba(255, 255, 255, 0.3);
-	background-color: transparent;
-}
-
-.player-one h1, .player-two h1{
-	background-color: rgba(0, 0, 0, 0.6);
-	line-height: 50px;
-	border-radius: 4px 4px 0px 0px;
-}
-
-.player-one, .player-two, .game-wrapper{
-	width: 31.3%;
-	height: 520px;
-	overflow: hidden;
-	padding: 0;
-	position: relative;
-	float: left;
-}
-
 .game-info section{
 	background-color: transparent;
 	padding-top: 9px;
 	border-radius: 0px 4px 4px 4px;
 	display: none;
+	overflow: auto;
 }
 
 .game-info section div{
 	display: block;
+}
+
+.character-select{
+	overflow: hidden;
+}
+
+.main-one-wrapper, .main-two-wrapper{
+	width: 50%;
 	float: left;
 }
 
-.expand-extras{
-	width: 100%;
-	height: 50px;
-	background-color: rgba(0, 0, 0, 0.2);
-	line-height: 50px;
-	border-radius: 0px 0px 4px 4px;
-	position: absolute;
-	bottom: 0;
-	cursor: pointer;
-	transition: .6s;
+.P1-char-wrap{
+	float: left;
+	width: 48%;
+	overflow: auto;
+}
+.P2-char-wrap{
+	float: right;
+	width: 48%;
+	overflow: auto;
 }
 
-.extra{
-	display: none;
-	transition: .6s;
-}
-
-.player-one div, .player-two div{
-	margin-top: 69.5px;
-	transition: .6s;
-}
-
-.PlayerOneCharacter, .PlayerTwoCharacter{
+.PlayerOneCharacter, .PlayerTwoCharacter, #P1Main1, #P1Main2, #P2Main1, #P2Main2{
 	height: 50px;
 	width: 50px;
-	margin: 10px;
+	margin: auto;
+	margin-top: 10px;
 	background-color: rgba(0, 0, 0, 0.3);
 	border-radius: 3px;
 	border: 1px solid rgba(255, 255, 255, 0.75);
 	cursor: pointer;
-
 }
+
+#PlayerOneMains div, #PlayerTwoMains div{
+	margin: 0;
+}
+
+.character-main-wrapper{
+	display: inline-block;
+	margin-top: 0;
+}
+
+#P1Main1, #P1Main2, #P2Main1, #P2Main2{
+	float: left;
+	margin-top: 0;
+}
+
+#PlayerOneMains #P1Main1, #PlayerTwoMains #P2Main1{
+	margin: 0;
+	margin-right: 10px;
+}
+
+#P1Main1 div, #P1Main2 div, #P2Main1 div, #P2Main2 div{
+	margin-top: 12.5px;
+}
+
+.player-one div h1, .player-two div h1{
+	font-family: "Roboto", sans-serif;
+	color: white;
+	background-color: transparent;
+	font-size: 13px;
+	line-height: 13px;
+	margin-bottom: 10px;
+}
+
+.stage-select{
+	margin-top: 20px;
+}
+
+.winner{
+	margin-top: 20px;
+}
+
+.game-info .player-winner{
+	display: inline-block;
+	font-size: 16px;
+	padding: 5px 10px 5px 10px;
+	margin: 10px;
+	border-radius: 4px;
+	cursor: pointer;
+	border: 1px solid transparent;
+}
+
+.game-info .selected-winner{
+	background-color: rgba(0, 0, 0, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.75);
+	text-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+}
+
+.stock-count{
+	margin-top: 20px;
+	padding-bottom: 40px;
+}
+
+.stock-count ul{
+	height: 24px;
+}
+
+.stock-count li{
+	display: inline-block;
+	padding: 10px 5px 10px 5px;
+	cursor: pointer;
+	width: 24px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/*===Generate Markup Button===*/
 
 button{
 	border: none;
@@ -223,7 +356,19 @@ button:active{
 	opacity: 0.5;
 }
 
-/*--Character Sprites--*/
+/*===Output===*/
+
+#results{
+	font-family: 'courier-new', monospace;
+	background-color: white;
+	padding: 20px;
+	color: black;
+	text-align: left;
+	display: none;
+	overflow: hidden;
+}
+
+/*--Character Select Overlay--*/
 
 .blackout{
 	background-color: rgba(0, 0, 0, 0.8);
@@ -233,21 +378,65 @@ button:active{
 	text-align: center;
 	top: 0;
 	left: 0;
-	z-index: 3;
+	z-index: 10;
+}
+
+.close-blackout{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 11;
+}
+
+.close-X{
+	position: absolute;
+	cursor: pointer;
+	top: 5px;
+	right: 12px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	font-size: 25px;
+	color: gray;
+	transition: .5s;
+	-webkit-transform: scale(1.25,1);
+	-moz-transform: scale(1.25,1);
+	-ms-transform: scale(1.25,1);
+	-o-transform: scale(1.25,1);
+}
+
+.close-X:hover{
+	color: black;
 }
 
 .character-popout{
-	background-color: white;
-	margin-top: 140px;
+	background-color: rgb(219, 219, 219);
+	margin-top: 110px;
 	padding: 40px;
 	text-align: center;
 	display: inline-block;
 	position: relative;
-	z-index: 4;
+	z-index: 12;
+	border-radius: 4px;
+}
+
+.clear-char{
+	font-family: "Roboto", sans-serif;
+	margin-top: 20px;
+	padding: 8px;
+	border: 1px solid black;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 4px;
+	cursor: pointer;
 }
 
 #character-list td{
-	padding: 5px;
+	padding: 10px;
+	scale(1.25);
+	-webkit-transform: scale(1.25);
+	-moz-transform: scale(1.25);
+	-ms-transform: scale(1.25);
+	-o-transform: scale(1.25);
 }
 
 #character-list td div{
@@ -418,4 +607,13 @@ button:active{
 	display: inline-block;
 	vertical-align: middle;
 	content: "";
+}
+
+.no-char{
+	height: 24px;
+	width: 24px;
+	background-color: rgb(218, 82, 82);
+	border: 3px solid rgb(97, 0, 0);
+	box-sizing: border-box;
+	border-radius: 100px;
 }

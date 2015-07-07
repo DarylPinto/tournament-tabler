@@ -3,10 +3,21 @@ var P1extras = false
 var P2extras = false
 var lastFieldClicked;
 
+var game1Winner = "P1"; //Only defined for demonstration purposes
+var game2Winner;
+var game3Winner;
+var game4Winner;
+var game5Winner;
+
+var game1StockCount = 2; //Only defined for demonstration purposes
+var game2StockCount;
+var game3StockCount;
+var game4StockCount;
+var game5StockCount;
+
 function randomNumberBetween(low,high){
 	return Math.floor(Math.random()*(high-low)+low);
 }
-$("body").css("background-color", "rgb(" + randomNumberBetween(47,126).toString() + "," + randomNumberBetween(47,126).toString() + "," + randomNumberBetween(47,126).toString() + ")"); //Random background-color :D
 
 function printLine(content){//Prints content on screen
 	$("#results").append("<span></span><br>");
@@ -21,11 +32,103 @@ function openCharacterMenu(selector){
 
 function chooseCharacter(character){
 	$(lastFieldClicked).empty();
-	$(lastFieldClicked).append('<div class="' + character + '"></div>');
-	$(lastFieldClicked).css("padding", "14px")
-	$(lastFieldClicked).css("width", "23px")
-	$(lastFieldClicked).css("height", "auto")
+	if(character != "clear"){
+		$(lastFieldClicked).append('<div class="' + character + '"></div>');
+	}
+
 	$(".blackout").css("display", "none");
+
+	updateStocksLeftIcons(lastFieldClicked.split(" ")[0]);
+}
+
+function chooseWinner(gamenum, winner){
+	$(gamenum + " .winner div").removeClass("selected-winner");
+
+	if(winner === "P1"){
+		$(gamenum + " .winner div:nth-child(2)").addClass("selected-winner")
+	}
+	if(winner === "P2"){
+		$(gamenum + " .winner div:nth-child(3)").addClass("selected-winner")
+	}
+
+	if(gamenum === "#GameOne"){
+		game1Winner = winner;
+	}else if(gamenum === "#GameTwo"){
+		game2Winner = winner;
+	}else if(gamenum === "#GameThree"){
+		game3Winner = winner;
+	}else if(gamenum === "#GameFour"){
+		game4Winner = winner;
+	}else if(gamenum === "#GameFive"){
+		game5Winner = winner;
+	}
+
+	updateStocksLeftIcons(gamenum)
+}
+
+function updateStocksLeftIcons(gamenum){
+	var P1Char = $(gamenum + " .PlayerOneCharacter div").attr("class");
+	var P2Char = $(gamenum + " .PlayerTwoCharacter div").attr("class");
+	var gamewinner = $(gamenum + " .winner .selected-winner span").attr("class");
+
+	if(gamewinner === "P1-dynamic-name"){
+		if(P1Char != undefined){
+			$(gamenum + " .stock-count li div").removeClass().addClass(P1Char)
+		}else{
+			$(gamenum + " .stock-count li div").removeClass().addClass("no-char")
+		}
+	}if(gamewinner === "P2-dynamic-name"){
+		if(P2Char != undefined){
+			$(gamenum + " .stock-count li div").removeClass().addClass(P2Char)
+		}else{
+			$(gamenum + " .stock-count li div").removeClass().addClass("no-char")
+		}
+	}
+	if(gamewinner === undefined){
+		$(gamenum + " .stock-count li div").removeClass().addClass("no-char")
+	}	
+}
+
+function changeStocksLeft(gamenum, stocks){ //Fix it so it doesn't only work on game1
+	var P1Char = $(gamenum + " .PlayerOneCharacter div").attr("class");
+	var P2Char = $(gamenum + " .PlayerTwoCharacter div").attr("class");
+	var gamewinner = $(gamenum + " .winner .selected-winner span").attr("class");
+
+	$(gamenum + ' .stock-count li').empty()
+	$(gamenum + ' .stock-count li').append("x")
+
+	for(var i = 1;i <= stocks;i++){
+		$(gamenum + ' .stock-count li:nth-child(' + i + ')').empty()
+		if(gamewinner === "P1-dynamic-name"){
+			if(P1Char != undefined){
+				$(gamenum + ' .stock-count li:nth-child(' + i + ')').append('<div class=' + P1Char + '></div>')
+			}else{
+				$(gamenum + ' .stock-count li:nth-child(' + i + ')').append('<div class=no-char></div>')
+			}
+		}if(gamewinner === "P2-dynamic-name"){
+			if(P2Char != undefined){
+				$(gamenum + ' .stock-count li:nth-child(' + i + ')').append('<div class=' + P2Char + '></div>')
+			}else{
+				$(gamenum + ' .stock-count li:nth-child(' + i + ')').append('<div class=no-char></div>')
+			}
+		}if(gamewinner === undefined){
+			$(gamenum + ' .stock-count li:nth-child(' + i + ')').append('<div class=no-char></div>')
+		}
+		
+	}
+
+	if(gamenum === "#GameOne"){
+		game1StockCount = stocks;
+	}else if(gamenum === "#GameTwo"){
+		game2StockCount = stocks;
+	}else if(gamenum === "#GameThree"){
+		game3StockCount = stocks;
+	}else if(gamenum === "#GameFour"){
+		game4StockCount = stocks;
+	}else if(gamenum === "#GameFive"){
+		game5StockCount = stocks;
+	}
+
 }
 
 function showExtras(num){
@@ -33,7 +136,7 @@ function showExtras(num){
 		$(".player-one .expand-extras").css("display", "none");
 
 		$(".player-one .extra").css("display", "block");
-		$(".player-one div").css("margin-top", "0");
+		$(".player-one > div").css("margin-top", "0");
 
 		P1extras = true;
 	}	
@@ -41,7 +144,7 @@ function showExtras(num){
 		$(".player-two .expand-extras").css("display", "none");
 
 		$(".player-two .extra").css("display", "block");
-		$(".player-two div").css("margin-top", "0");
+		$(".player-two > div").css("margin-top", "0");
 
 		P2extras = true;
 	}
@@ -49,19 +152,19 @@ function showExtras(num){
 
 function setDynamicName(){
 	if($("#PlayerOne").val() === ""){
-		$(".P1-dynamic-name").text("P1's");
+		$(".P1-dynamic-name").text("P1");
 	}else{
 		$(".P1-dynamic-name").text($("#PlayerOne").val());
 	}
 
 	if($("#PlayerTwo").val() === ""){
-		$(".P2-dynamic-name").text("P2's");
+		$(".P2-dynamic-name").text("P2");
 	}else{
 		$(".P2-dynamic-name").text($("#PlayerTwo").val());
 	}
 }
 
-$("#PlayerOne").focusout(setDynamicName); //FIX ROGUE 's!!!!!!!!!!!!
+$("#PlayerOne").focusout(setDynamicName); 
 $("#PlayerTwo").focusout(setDynamicName);
 
 function showGame(num){
@@ -84,7 +187,12 @@ function printFormattedTable(){
 	var round = "#" + $("#Round").val();
 
 	var P1 = $("#PlayerOne").val();
-	var P1mains = $("#PlayerOneMains").val().split(/, */g);
+	var P1mains = [];
+	if($("#P1Main1 div").attr("class") != undefined){
+		P1mains.push($("#P1Main1 div").attr("class"))
+	} if($("#P1Main2 div").attr("class") != undefined){
+		P1mains.push($("#P1Main2 div").attr("class"))
+	}
 	var P1name = $("#PlayerOneName").val();
 	var P1twitch = $("#PlayerOneTwitch").val();
 	var P1twitter = $("#PlayerOneTwitter").val();
@@ -92,41 +200,36 @@ function printFormattedTable(){
 	var P1media = "";
 
 	var P2 = $("#PlayerTwo").val();
-	var P2mains = $("#PlayerTwoMains").val().split(/, */g);
+	var P2mains = [];
+	if($("#P2Main1 div").attr("class") != undefined){
+		P2mains.push($("#P2Main1 div").attr("class"))
+	} if($("#P2Main2 div").attr("class") != undefined){
+		P2mains.push($("#P2Main2 div").attr("class"))
+	}
 	var P2name = $("#PlayerTwoName").val();
 	var P2twitch = $("#PlayerTwoTwitch").val();
 	var P2twitter = $("#PlayerTwoTwitter").val();
 	var P2liquipedia = $("#PlayerTwoLiquipedia").val();
 	var P2media = "";
 
-	var game1Winner = $("#GameOne .Winner").val().toUpperCase();
-	var game1P1Character = $("#GameOne .PlayerOneCharacter").val();
-	var game1P2Character = $("#GameOne .PlayerTwoCharacter").val();
-	var game1StockCount = parseInt($("#GameOne .StocksRemaining").val());
+	var game1P1Character = $("#GameOne .PlayerOneCharacter div").attr("class");
+	var game1P2Character = $("#GameOne .PlayerTwoCharacter div").attr("class");
 	var game1Stage = $("#GameOne .Stage").val();
 
-	var game2Winner = $("#GameTwo .Winner").val().toUpperCase();
-	var game2P1Character = $("#GameTwo .PlayerOneCharacter").val();
-	var game2P2Character = $("#GameTwo .PlayerTwoCharacter").val();
-	var game2StockCount = parseInt($("#GameTwo .StocksRemaining").val());
+	var game2P1Character = $("#GameTwo .PlayerOneCharacter div").attr("class");
+	var game2P2Character = $("#GameTwo .PlayerTwoCharacter div").attr("class");
 	var game2Stage = $("#GameTwo .Stage").val();
 
-	var game3Winner = $("#GameThree .Winner").val().toUpperCase();
-	var game3P1Character = $("#GameThree .PlayerOneCharacter").val();
-	var game3P2Character = $("#GameThree .PlayerTwoCharacter").val();
-	var game3StockCount = parseInt($("#GameThree .StocksRemaining").val());
+	var game3P1Character = $("#GameThree .PlayerOneCharacter div").attr("class");
+	var game3P2Character = $("#GameThree .PlayerTwoCharacter div").attr("class");
 	var game3Stage = $("#GameThree .Stage").val();
 
-	var game4Winner = $("#GameFour .Winner").val().toUpperCase();
-	var game4P1Character = $("#GameFour .PlayerOneCharacter").val();
-	var game4P2Character = $("#GameFour .PlayerTwoCharacter").val();
-	var game4StockCount = parseInt($("#GameFour .StocksRemaining").val());
+	var game4P1Character = $("#GameFour .PlayerOneCharacter div").attr("class");
+	var game4P2Character = $("#GameFour .PlayerTwoCharacter div").attr("class");
 	var game4Stage = $("#GameFour .Stage").val();
 
-	var game5Winner = $("#GameFive .Winner").val().toUpperCase();
-	var game5P1Character = $("#GameFive .PlayerOneCharacter").val();
-	var game5P2Character = $("#GameFive .PlayerTwoCharacter").val();
-	var game5StockCount = parseInt($("#GameFive .StocksRemaining").val());
+	var game5P1Character = $("#GameFive .PlayerOneCharacter div").attr("class");
+	var game5P2Character = $("#GameFive .PlayerTwoCharacter div").attr("class");
 	var game5Stage = $("#GameFive .Stage").val();
 
 
@@ -222,11 +325,11 @@ function printFormattedTable(){
 
 	function displayRow(winner, P1Char, P2Char, Stage, stockCount){
 		if(winner === "P1"){
-			printLine(multiplyStock("P1",makeFlair(P1Char),stockCount) + " | `==` " + makeFlair(P1Char) + " " + Stage + " " + makeFlair(P2Char) + " `==` | ---")
+			printLine(multiplyStock("P1",makeFlair(P1Char),stockCount) + " | `==` " + makeFlair(P1Char) + " `" + Stage + "` " + makeFlair(P2Char) + " `==` | ---")
 		}else if(winner === "P2"){
-			printLine("--- | `==` " + makeFlair(P1Char) + " " + Stage + " " + makeFlair(P2Char) + " `==` | " + multiplyStock("P2",makeFlair(P2Char),stockCount))
+			printLine("--- | `==` " + makeFlair(P1Char) + " `" + Stage + "` " + makeFlair(P2Char) + " `==` | " + multiplyStock("P2",makeFlair(P2Char),stockCount))
 		}else{
-			printLine("ERROR: WINNER MUST BE 'P1' OR 'P2'")
+			printLine("ERROR: WINNER NOT CHOSEN")
 		}
 	}
 
@@ -266,20 +369,37 @@ function printFormattedTable(){
 	printLine(P1mains.map(makeFlair).toString().replace(/,/g , " ") + " " + P1 + " | " + getSetCount() + " | " + P2 + " " + P2mains.map(makeFlair).toString().replace(/,/g , " "));
 	printLine("---:|:--:|:---");
 
-	displayRow(game1Winner, game1P1Character, game1P2Character, game1Stage, game1StockCount)
-	displayRow(game2Winner, game2P1Character, game2P2Character, game2Stage, game2StockCount)
-	
-	if($("#GameThree .Stage").val() != ""){
+	if($("#GameOne .Stage").val() != "---"){
+		displayRow(game1Winner, game1P1Character, game1P2Character, game1Stage, game1StockCount)
+	}
+	if($("#GameTwo .Stage").val() != "---"){
+		displayRow(game2Winner, game2P1Character, game2P2Character, game2Stage, game2StockCount)
+	}
+	if($("#GameThree .Stage").val() != "---"){
 		displayRow(game3Winner, game3P1Character, game3P2Character, game3Stage, game3StockCount)
 	}
-	if($("#GameFour .Stage").val() != ""){
+	if($("#GameFour .Stage").val() != "---"){
 		displayRow(game4Winner, game4P1Character, game4P2Character, game4Stage, game4StockCount)
 	}
-	if($("#GameFive .Stage").val() != ""){
+	if($("#GameFive .Stage").val() != "---"){
 		displayRow(game5Winner, game5P1Character, game5P2Character, game5Stage, game5StockCount)
 	}
+
 	printLine("<span style=\"color: white\">*^^Generated ^^by [^^Tournament ^^Tabler](http://darylpinto.github.io)*</span>");
+
 	printLine("___");
 }
 
+$(document).keydown(function(e) { //Escape Key closes character select screen
+    switch(e.which) {
+        case 27: // Escape Key
+	        $(".blackout").css("display", "none");
+        break;
+
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
+
 setDynamicName()
+$("body").css("background-color", "rgb(" + randomNumberBetween(47,126).toString() + "," + randomNumberBetween(47,126).toString() + "," + randomNumberBetween(47,126).toString() + ")"); //Random background-color :D
