@@ -274,6 +274,13 @@ function printFormattedTable(){
 
 	function generatePlayerMedia(){
 
+		if(P1liquipedia != "" && P1liquipedia.slice(0, 4) != "http"){ //Fix broken liquipedia links
+			P1liquipedia = "http://" + P1liquipedia
+		}
+		if(P2liquipedia != "" && P2liquipedia.slice(0, 4) != "http"){ //Fix broken liquipedia links
+			P2liquipedia = "http://" + P2liquipedia
+		}
+
 		if(P1twitter != "" || P1twitch != "" || P1liquipedia){
 			if(P1name === ""){
 				P1name = P1;

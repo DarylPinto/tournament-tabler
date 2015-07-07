@@ -96,6 +96,10 @@ option{
 	height: 90px;
 }
 
+.round-info input:first-child{
+	margin-top: 5px;
+}
+
 .round-info input{
 	font-size: 24px;
 	margin-top: -10px;
