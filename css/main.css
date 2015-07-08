@@ -81,7 +81,7 @@ select, option{
 	padding-bottom: 5px;
 	border-radius: 3px;
 	text-align: center;
-	width: 200px;
+	width: 235px;
 	margin-top: 10px;
 }
 
@@ -93,7 +93,7 @@ option{
 
 .round-info{
 	box-sizing: border-box;
-	height: 90px;
+	min-height: 90px;
 }
 
 .round-info input:first-child{
@@ -102,9 +102,19 @@ option{
 
 .round-info input{
 	font-size: 24px;
-	margin-top: -10px;
 	border: 1px solid rgba(255, 255, 255, 0.3);
 	background-color: transparent;
+}
+
+#Round{
+	margin-bottom: 15px;
+}
+
+#vod-link{
+	font-size: 13px;
+	width: 290px;
+	margin-top: -15px;
+	margin-bottom: 5px;
 }
 
 /*===Player 1 & 2 Info===*/
@@ -118,7 +128,7 @@ option{
 
 .player-one, .player-two, .game-wrapper{
 	width: 31.3%;
-	height: 520px;
+	height: 584px;
 	overflow: hidden;
 	padding: 0;
 	position: relative;
@@ -136,6 +146,11 @@ option{
 .PlayerOneCharacter div, .PlayerTwoCharacter div{
 	margin-top: 12.5px;
 	margin-left: 12.5px;
+	transform: scale(1.25);
+	-webkit-transform: scale(1.25);
+	-moz-transform: scale(1.25);
+	-ms-transform: scale(1.25);
+	-o-transform: scale(1.25);
 }
 
 .expand-extras{
@@ -152,7 +167,43 @@ option{
 
 .extra{
 	display: none;
+	position: relative;
 	transition: .6s;
+}
+
+.extra .clear-extra{
+	margin: 0;
+	position: absolute;
+	font-size: 14px;
+	right: 20px;
+	top: 22px;
+	padding: 3px;
+	border-radius: 20px;
+	height: 15px;
+	width: 15px;
+	line-height: 14px;
+	cursor: pointer;
+	transition: 0s;
+}
+
+.clear-extra span{
+	color: rgba(255, 255, 255, 0.1);
+	font-size: 18px;
+	display: block;
+	margin: 0 auto;
+	transform: scale(1.4, 1);
+	-webkit-transform: scale(1.4, 1);
+	-moz-transform: scale(1.4, 1);
+	-ms-transform: scale(1.4, 1);
+	-o-transform: scale(1.4, 1);
+}
+
+.extra .clear-extra:hover{
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.extra .clear-extra:hover span{
+	color: white;
 }
 
 .player-one .extra h1, .player-two .extra h1{
@@ -212,6 +263,14 @@ option{
 	display: block;
 }
 
+.game-info li div{
+	transform: scale(1.25);
+	-webkit-transform: scale(1.25);
+	-moz-transform: scale(1.25);
+	-ms-transform: scale(1.25);
+	-o-transform: scale(1.25);
+}
+
 .character-select{
 	overflow: hidden;
 }
@@ -264,6 +323,11 @@ option{
 
 #P1Main1 div, #P1Main2 div, #P2Main1 div, #P2Main2 div{
 	margin-top: 12.5px;
+	transform: scale(1.25);
+	-webkit-transform: scale(1.25);
+	-moz-transform: scale(1.25);
+	-ms-transform: scale(1.25);
+	-o-transform: scale(1.25);
 }
 
 .player-one div h1, .player-two div h1{
@@ -280,13 +344,16 @@ option{
 }
 
 .winner{
-	margin-top: 20px;
+	margin-top: 35px;
+}
+
+.game-info .player-winner:last-child{
+	margin-top: -10px;
 }
 
 .game-info .player-winner{
-	display: inline-block;
-	font-size: 16px;
-	padding: 5px 10px 5px 10px;
+	font-size: 13px;
+	padding: 7px;
 	margin: 10px;
 	border-radius: 4px;
 	cursor: pointer;
@@ -300,12 +367,18 @@ option{
 }
 
 .stock-count{
-	margin-top: 20px;
+	margin-top: 35px;
 	padding-bottom: 40px;
 }
 
 .stock-count ul{
-	height: 24px;
+	background-color: rgba(0, 0, 0, 0.15);
+	height: 45px;
+	border-radius: 4px;
+	border: 1px solid white;
+	width: 230px;
+	margin: 0 auto;
+	margin-top: 10px;
 }
 
 .stock-count li{
@@ -402,6 +475,7 @@ button:active{
 	font-size: 25px;
 	color: gray;
 	transition: .5s;
+	transform: scale(1.25,1);
 	-webkit-transform: scale(1.25,1);
 	-moz-transform: scale(1.25,1);
 	-ms-transform: scale(1.25,1);
@@ -437,6 +511,7 @@ button:active{
 #character-list td{
 	padding: 10px;
 	scale(1.25);
+	transform: scale(1.25);
 	-webkit-transform: scale(1.25);
 	-moz-transform: scale(1.25);
 	-ms-transform: scale(1.25);
@@ -616,8 +691,8 @@ button:active{
 .no-char{
 	height: 24px;
 	width: 24px;
-	background-color: rgb(218, 82, 82);
-	border: 3px solid rgb(97, 0, 0);
+	background-color: rgb(219, 104, 104);
+	border: 3px solid rgb(153, 56, 56);
 	box-sizing: border-box;
 	border-radius: 100px;
 }

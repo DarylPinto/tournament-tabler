@@ -11,9 +11,10 @@
 <body>
 <h1 class="main-header">Tournament Tabler</h1>
 	<section class="container">
-		<span id="version">Ver. 2.5.1</span>
+		<span id="version">Ver. 2.6.0</span>
 		<section class="round-info">
-			<input type="text" id="Round" value="Grand Finals">
+			<div><input type="text" id="Round" value="Grand Finals"></div>
+			<div><input type="text" id="vod-link" placeholder="VoD link (optional but recommended)"></div>
 		</section>
 		<div>
 			<section class="player-one">
@@ -38,18 +39,22 @@
 				<div class="extra">
 					<h1>Full Name (optional)</h1>
 					<input type="text" id="PlayerOneName" value='Joseph "Mang0" Marquez'>
+					<div class="clear-extra" onclick="clearExtra('#PlayerOneName')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Twitch (optional)</h1>
 					<input type="text" id="PlayerOneTwitch" value="mang0">
+					<div class="clear-extra" onclick="clearExtra('#PlayerOneTwitch')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Twitter (optional)</h1>
 					<input type="text" id="PlayerOneTwitter" value="c9mang0">
+					<div class="clear-extra" onclick="clearExtra('#PlayerOneTwitter')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Liquipedia URL (optional)</h1>
 					<input type="text" id="PlayerOneLiquipedia" value="http://wiki.teamliquid.net/smash/Mango">
+					<div class="clear-extra" onclick="clearExtra('#PlayerOneLiquipedia')"><span>x</span></div>
 				</div>
 				<div class="expand-extras" onclick="showExtras(1)">Add Extras</div>
 			</section>
@@ -74,18 +79,22 @@
 				<div class="extra">
 					<h1>Full Name (optional)</h1>
 					<input type="text" id="PlayerTwoName" value='William "Leffen" Hjelte'>
+					<div class="clear-extra" onclick="clearExtra('#PlayerTwoName')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Twitch (optional)</h1>
 					<input type="text" id="PlayerTwoTwitch" value="lffn">
+					<div class="clear-extra" onclick="clearExtra('#PlayerTwoTwitch')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Twitter (optional)</h1>
 					<input type="text" id="PlayerTwoTwitter" value="tsm_leffen">
+					<div class="clear-extra" onclick="clearExtra('#PlayerTwoTwitter')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Liquipedia URL (optional)</h1>
 					<input type="text" id="PlayerTwoLiquipedia" value="http://wiki.teamliquid.net/smash/Leffen">
+					<div class="clear-extra" onclick="clearExtra('#PlayerTwoLiquipedia')"><span>x</span></div>
 				</div>
 				<div class="expand-extras" onclick="showExtras(2)">Add Extras</div>
 			</section>
@@ -105,13 +114,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameOne .PlayerOneCharacter')">
-									<div class="Falco"></div>
+									<div class="Falco" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameOne .PlayerTwoCharacter')">
-									<div class="Fox"></div>
+									<div class="Fox" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -138,8 +147,8 @@
 							<ul>
 								<li onclick="changeStocksLeft('#GameOne', 1)"><div class="Falco"></div></li>
 								<li onclick="changeStocksLeft('#GameOne', 2)"><div class="Falco"></div></li>
-								<li onclick="changeStocksLeft('#GameOne', 3)">x</li>
-								<li onclick="changeStocksLeft('#GameOne', 4)">x</li>
+								<li onclick="changeStocksLeft('#GameOne', 3)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameOne', 4)">&bull;</li>
 							</ul>
 						</div>
 					</section>
@@ -148,11 +157,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameTwo .PlayerOneCharacter')">
+									<div class="Falco" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameTwo .PlayerTwoCharacter')">
+									<div class="Fox" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -177,10 +188,10 @@
 						<div class="stock-count">
 							<h1>Stocks Left</h1>
 							<ul>
-								<li onclick="changeStocksLeft('#GameTwo', 1)">x</li>
-								<li onclick="changeStocksLeft('#GameTwo', 2)">x</li>
-								<li onclick="changeStocksLeft('#GameTwo', 3)">x</li>
-								<li onclick="changeStocksLeft('#GameTwo', 4)">x</li>
+								<li onclick="changeStocksLeft('#GameTwo', 1)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameTwo', 2)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameTwo', 3)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameTwo', 4)">&bull;</li>
 							</ul>
 						</div>
 					</section>
@@ -189,11 +200,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameThree .PlayerOneCharacter')">
+									<div class="Falco" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameThree .PlayerTwoCharacter')">
+									<div class="Fox" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -218,10 +231,10 @@
 						<div class="stock-count">
 							<h1>Stocks Left</h1>
 							<ul>
-								<li onclick="changeStocksLeft('#GameThree', 1)">x</li>
-								<li onclick="changeStocksLeft('#GameThree', 2)">x</li>
-								<li onclick="changeStocksLeft('#GameThree', 3)">x</li>
-								<li onclick="changeStocksLeft('#GameThree', 4)">x</li>
+								<li onclick="changeStocksLeft('#GameThree', 1)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameThree', 2)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameThree', 3)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameThree', 4)">&bull;</li>
 							</ul>
 						</div>
 					</section>
@@ -230,11 +243,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameFour .PlayerOneCharacter')">
+									<div class="Falco" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameFour .PlayerTwoCharacter')">
+									<div class="Fox" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -259,10 +274,10 @@
 						<div class="stock-count">
 							<h1>Stocks Left</h1>
 							<ul>
-								<li onclick="changeStocksLeft('#GameFour', 1)">x</li>
-								<li onclick="changeStocksLeft('#GameFour', 2)">x</li>
-								<li onclick="changeStocksLeft('#GameFour', 3)">x</li>
-								<li onclick="changeStocksLeft('#GameFour', 4)">x</li>
+								<li onclick="changeStocksLeft('#GameFour', 1)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameFour', 2)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameFour', 3)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameFour', 4)">&bull;</li>
 							</ul>
 						</div>
 					</section>
@@ -271,11 +286,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameFive .PlayerOneCharacter')">
+									<div class="Falco" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameFive .PlayerTwoCharacter')">
+									<div class="Fox" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -300,10 +317,10 @@
 						<div class="stock-count">
 							<h1>Stocks Left</h1>
 							<ul>
-								<li onclick="changeStocksLeft('#GameFive', 1)">x</li>
-								<li onclick="changeStocksLeft('#GameFive', 2)">x</li>
-								<li onclick="changeStocksLeft('#GameFive', 3)">x</li>
-								<li onclick="changeStocksLeft('#GameFive', 4)">x</li>
+								<li onclick="changeStocksLeft('#GameFive', 1)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameFive', 2)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameFive', 3)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameFive', 4)">&bull;</li>
 							</ul>
 						</div>
 					</section>

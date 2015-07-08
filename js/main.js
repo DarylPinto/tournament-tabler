@@ -39,6 +39,39 @@ function chooseCharacter(character){
 	$(".blackout").css("display", "none");
 
 	updateStocksLeftIcons(lastFieldClicked.split(" ")[0]);
+
+	if(lastFieldClicked === "#P1Main1"){
+		updateEmptyGameChars("P1", character)
+		updateStocksLeftIcons("#GameOne")
+		updateStocksLeftIcons("#GameTwo")
+		updateStocksLeftIcons("#GameThree")
+		updateStocksLeftIcons("#GameFour")
+		updateStocksLeftIcons("#GameFive")
+	}
+	if(lastFieldClicked === "#P2Main1"){
+		updateEmptyGameChars("P2", character)
+		updateStocksLeftIcons("#GameOne")
+		updateStocksLeftIcons("#GameTwo")
+		updateStocksLeftIcons("#GameThree")
+		updateStocksLeftIcons("#GameFour")
+		updateStocksLeftIcons("#GameFive")
+	}
+}
+
+function updateEmptyGameChars(player, character){
+
+	var games = ['#GameOne', '#GameTwo', '#GameThree', '#GameFour', '#GameFive'];
+
+	games.forEach(function(game){
+		if( ( $(game + " .PlayerOneCharacter div").attr("class") === undefined || $(game + " .PlayerOneCharacter div").attr("autoset") === "true" ) && $("#P1Main1 div").attr("class") != undefined && player === "P1"){
+			$(game + " .PlayerOneCharacter").empty()
+			$(game + " .PlayerOneCharacter").append("<div class='" + character + "' autoset='true'></div>")
+		}
+		if( ( $(game + " .PlayerTwoCharacter div").attr("class") === undefined || $(game + " .PlayerTwoCharacter div").attr("autoset") === "true" ) && $("#P2Main1 div").attr("class") != undefined && player === "P2"){
+			$(game + " .PlayerTwoCharacter").empty()
+			$(game + " .PlayerTwoCharacter").append("<div class='" + character + "' autoset='true'></div>")
+		}
+	});
 }
 
 function chooseWinner(gamenum, winner){
@@ -95,7 +128,7 @@ function changeStocksLeft(gamenum, stocks){ //Fix it so it doesn't only work on 
 	var gamewinner = $(gamenum + " .winner .selected-winner span").attr("class");
 
 	$(gamenum + ' .stock-count li').empty()
-	$(gamenum + ' .stock-count li').append("x")
+	$(gamenum + ' .stock-count li').append("&bull;")
 
 	for(var i = 1;i <= stocks;i++){
 		$(gamenum + ' .stock-count li:nth-child(' + i + ')').empty()
@@ -150,6 +183,10 @@ function showExtras(num){
 	}
 }
 
+function clearExtra(extra){
+	$(extra).val("");
+}
+
 function setDynamicName(){
 	if($("#PlayerOne").val() === ""){
 		$(".P1-dynamic-name").text("P1");
@@ -173,6 +210,19 @@ function showGame(num){
 
 	$(".game-info section").css("display", "none");
 	$(".game-info section:nth-child(" + (num).toString() + ")").css("display", "block");
+
+	solidifyCharChoice(num)
+}
+
+function solidifyCharChoice(num){ //Choosing a game num solidifies character choices in afformentioned games' fields
+	var games = ['#GameOne', '#GameTwo', '#GameThree', '#GameFour', '#GameFive']
+
+	$(games[num - 1] + " .PlayerOneCharacter div").removeAttr("autoset")
+	$(games[num - 1] + " .PlayerTwoCharacter div").removeAttr("autoset")
+
+	$("#GameOne .PlayerOneCharacter div").removeAttr("autoset") //Since user never actually clicks game 1 (because they start on it), solidify game 1 characters when any game num is clicked
+	$("#GameOne .PlayerTwoCharacter div").removeAttr("autoset")
+
 }
 
 function printFormattedTable(){
@@ -185,6 +235,7 @@ function printFormattedTable(){
 	pressed = true;
 
 	var round = "#" + $("#Round").val();
+	var vodLink = $("#vod-link").val();
 
 	var P1 = $("#PlayerOne").val();
 	var P1mains = [];
@@ -360,6 +411,21 @@ function printFormattedTable(){
 
 	printLine("---");
 	printLine(round);
+
+	if(vodLink != ""){
+		if(vodLink.indexOf("www") > -1){
+			var vodSite = vodLink.slice( (vodLink.indexOf(".") + 1) ) 
+			vodSite = vodSite.slice(0, vodSite.indexOf("."))
+			vodSite = vodSite[0].toUpperCase() + vodSite.slice(1)
+		}else{
+			var vodSite = vodLink.slice( (vodLink.indexOf("/") + 2) ) 
+			vodSite = vodSite.slice(0, vodSite.indexOf("."))
+			vodSite = vodSite[0].toUpperCase() + vodSite.slice(1)
+		}
+
+		printLine("")
+		printLine("*VoD: " + "[" + vodSite + "](" + vodLink + ")*")
+	}
 
 	if(P1media != ""){
 		printLine("")
