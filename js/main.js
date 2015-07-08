@@ -320,6 +320,13 @@ function printFormattedTable(){
 			P2liquipedia = "http://" + P2liquipedia
 		}
 
+		if(P1twitter != "" && P1twitter[0] === "@"){ //Remove @ from twitter handle
+			P1twitter = P1twitter.slice(1)
+		}
+		if(P2twitter != "" && P2twitter[0] === "@"){ //Remove @ from twitter handle
+			P2twitter = P2twitter.slice(1)
+		}
+
 		if(P1twitter != "" || P1twitch != "" || P1liquipedia){
 			if(P1name === ""){
 				P1name = P1;
@@ -327,17 +334,25 @@ function printFormattedTable(){
 
 			P1media = "**" + P1name + "** // "
 
-			if(P1twitch != ""){
-				P1media = P1media.concat("[Twitch](http://www.twitch.tv/" + P1twitch + ")");
+			if(P1twitch.toLowerCase().indexOf("twitch.") === -1){
+				P1media = P1media.concat("[Twitch](http://twitch.tv/" + P1twitch + ")");
+			}else{
+				P1media = P1media.concat("[Twitch](" + P1twitch + ")");
 			}
+
 			if(P1twitter != ""){
 				if(P1twitch != ""){
 					P1media = P1media.concat(" | ")
 				}
-				P1media = P1media.concat("[Twitter](https://twitter.com/" + P1twitter + ")");
+
+				if(P1twitter.toLowerCase().indexOf("twitter.") === -1){
+					P1media = P1media.concat("[Twitter](https://twitter.com/" + P1twitter + ")");
+				}else{
+					P1media = P1media.concat("[Twitter](" + P1twitter + ")");
+				}
 			}
 			if(P1liquipedia != ""){
-				if(P1twitch != "" || P1twitter != ""){
+				if(P1twitch != "" || P1twitch != ""){
 					P1media = P1media.concat(" | ")
 				}
 				P1media = P1media.concat("[Liquipedia](" + P1liquipedia + ")");
@@ -351,17 +366,25 @@ function printFormattedTable(){
 
 			P2media = "**" + P2name + "** // "
 
-			if(P2twitch != ""){
-				P2media = P2media.concat("[Twitch](http://www.twitch.tv/" + P2twitch + ")");
+			if(P2twitch.toLowerCase().indexOf("twitch.") === -1){
+				P2media = P2media.concat("[Twitch](http://twitch.tv/" + P2twitch + ")");
+			}else{
+				P2media = P2media.concat("[Twitch](" + P2twitch + ")");
 			}
+
 			if(P2twitter != ""){
 				if(P2twitch != ""){
 					P2media = P2media.concat(" | ")
 				}
-				P2media = P2media.concat("[Twitter](https://twitter.com/" + P2twitter + ")");
+				
+				if(P2twitter.toLowerCase().indexOf("twitter.") === -1){
+					P2media = P2media.concat("[Twitter](https://twitter.com/" + P2twitter + ")");
+				}else{
+					P2media = P2media.concat("[Twitter](" + P2twitter + ")");
+				}
 			}
 			if(P2liquipedia != ""){
-				if(P2twitch != "" || P2twitter != ""){
+				if(P2twitch != "" || P2twitch != ""){
 					P2media = P2media.concat(" | ")
 				}
 				P2media = P2media.concat("[Liquipedia](" + P2liquipedia + ")");
