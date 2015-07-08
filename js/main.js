@@ -40,7 +40,7 @@ function chooseCharacter(character){
 
 	updateStocksLeftIcons(lastFieldClicked.split(" ")[0]);
 
-	if(lastFieldClicked === "#P1Main1"){
+	if(lastFieldClicked === "#P1Main1" || lastFieldClicked.split(" ")[1] === ".PlayerOneCharacter"){
 		updateEmptyGameChars("P1", character)
 		updateStocksLeftIcons("#GameOne")
 		updateStocksLeftIcons("#GameTwo")
@@ -48,7 +48,7 @@ function chooseCharacter(character){
 		updateStocksLeftIcons("#GameFour")
 		updateStocksLeftIcons("#GameFive")
 	}
-	if(lastFieldClicked === "#P2Main1"){
+	if(lastFieldClicked === "#P2Main1" || lastFieldClicked.split(" ")[1] === ".PlayerTwoCharacter"){
 		updateEmptyGameChars("P2", character)
 		updateStocksLeftIcons("#GameOne")
 		updateStocksLeftIcons("#GameTwo")
@@ -304,21 +304,9 @@ function printFormattedTable(){
 	function multiplyStock(winner,stock,num){
 		var str = "";
 
-		/*if(winner === "P1"){
-			for(var i = 0;i < (4 - num);i++){
-				str = str.concat("x ")
-			};
-		}*/
-
 		for(var i = 0;i < num;i++){
 			str = str.concat(stock)
 		};
-
-		/*if(winner === "P2"){
-			for(var i = 0;i < (4 - num);i++){
-				str = str.concat(" x")
-			};
-		}*/
 
 		return str;
 	};
