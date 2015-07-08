@@ -237,14 +237,14 @@ function printFormattedTable(){
 	var round = "#" + $("#Round").val();
 	var vodLink = $("#vod-link").val();
 
-	var P1 = $("#PlayerOne").val();
+	var P1 = $("#PlayerOne").val().replace("|", " ");
 	var P1mains = [];
 	if($("#P1Main1 div").attr("class") != undefined){
 		P1mains.push($("#P1Main1 div").attr("class"))
 	} if($("#P1Main2 div").attr("class") != undefined){
 		P1mains.push($("#P1Main2 div").attr("class"))
 	}
-	var P1name = $("#PlayerOneName").val();
+	var P1name = $("#PlayerOneName").val().replace("|"," ");
 	var P1twitch = $("#PlayerOneTwitch").val();
 	var P1twitter = $("#PlayerOneTwitter").val();
 	var P1liquipedia = $("#PlayerOneLiquipedia").val();
