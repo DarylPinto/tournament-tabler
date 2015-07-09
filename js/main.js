@@ -1,3 +1,5 @@
+//Default values
+
 var pressed = false
 var P1extras = false
 var P2extras = false
@@ -15,22 +17,22 @@ var game3StockCount;
 var game4StockCount;
 var game5StockCount;
 
-function randomNumberBetween(low,high){
+function randomNumberBetween(low,high){ //Get a random int between low and high (including low, not including high)
 	return Math.floor(Math.random()*(high-low)+low);
 }
 
-function printLine(content){//Prints content on screen
+function printLine(content){ //Prints content into results box
 	$("#results").append("<span></span><br>");
 	$("#results span").last().append(content);
 }
 
-function openCharacterMenu(selector){
+function openCharacterMenu(selector){ //Open character selection menu
 	$(".blackout").css("display", "block");
 
 	lastFieldClicked = selector;
 }
 
-function chooseCharacter(character){
+function chooseCharacter(character){ //Load selected character into box that was clicked to open the menu, then close the menu
 	$(lastFieldClicked).empty();
 	if(character != "clear"){
 		$(lastFieldClicked).append('<div class="' + character + '"></div>');
@@ -40,7 +42,7 @@ function chooseCharacter(character){
 
 	updateStocksLeftIcons(lastFieldClicked.split(" ")[0]);
 
-	if(lastFieldClicked === "#P1Main1" || lastFieldClicked.split(" ")[1] === ".PlayerOneCharacter"){
+	if( (lastFieldClicked === "#P1Main1" || lastFieldClicked.split(" ")[1] === ".PlayerOneCharacter") && character != "clear"){ 
 		updateEmptyGameChars("P1", character)
 		updateStocksLeftIcons("#GameOne")
 		updateStocksLeftIcons("#GameTwo")
@@ -48,7 +50,7 @@ function chooseCharacter(character){
 		updateStocksLeftIcons("#GameFour")
 		updateStocksLeftIcons("#GameFive")
 	}
-	if(lastFieldClicked === "#P2Main1" || lastFieldClicked.split(" ")[1] === ".PlayerTwoCharacter"){
+	if( (lastFieldClicked === "#P2Main1" || lastFieldClicked.split(" ")[1] === ".PlayerTwoCharacter") && character != "clear"){ 
 		updateEmptyGameChars("P2", character)
 		updateStocksLeftIcons("#GameOne")
 		updateStocksLeftIcons("#GameTwo")
@@ -58,7 +60,7 @@ function chooseCharacter(character){
 	}
 }
 
-function updateEmptyGameChars(player, character){
+function updateEmptyGameChars(player, character){ //If mains or game characters are updated, automatically update the ones in the games that the user has not yet set themselves
 
 	var games = ['#GameOne', '#GameTwo', '#GameThree', '#GameFour', '#GameFive'];
 
@@ -74,7 +76,7 @@ function updateEmptyGameChars(player, character){
 	});
 }
 
-function chooseWinner(gamenum, winner){
+function chooseWinner(gamenum, winner){ //Update winner for current game
 	$(gamenum + " .winner div").removeClass("selected-winner");
 
 	if(winner === "P1"){
@@ -99,7 +101,7 @@ function chooseWinner(gamenum, winner){
 	updateStocksLeftIcons(gamenum)
 }
 
-function updateStocksLeftIcons(gamenum){
+function updateStocksLeftIcons(gamenum){ //Update stock icons in the "stocks left" field
 	var P1Char = $(gamenum + " .PlayerOneCharacter div").attr("class");
 	var P2Char = $(gamenum + " .PlayerTwoCharacter div").attr("class");
 	var gamewinner = $(gamenum + " .winner .selected-winner span").attr("class");
@@ -122,7 +124,7 @@ function updateStocksLeftIcons(gamenum){
 	}	
 }
 
-function changeStocksLeft(gamenum, stocks){ //Fix it so it doesn't only work on game1
+function changeStocksLeft(gamenum, stocks){ //Change number of stock icons in the "stocks left" field
 	var P1Char = $(gamenum + " .PlayerOneCharacter div").attr("class");
 	var P2Char = $(gamenum + " .PlayerTwoCharacter div").attr("class");
 	var gamewinner = $(gamenum + " .winner .selected-winner span").attr("class");
@@ -164,7 +166,7 @@ function changeStocksLeft(gamenum, stocks){ //Fix it so it doesn't only work on 
 
 }
 
-function showExtras(num){
+function showExtras(num){ //Show additional player info
 	if(num === 1){
 		$(".player-one .expand-extras").css("display", "none");
 
@@ -183,11 +185,11 @@ function showExtras(num){
 	}
 }
 
-function clearExtra(extra){
+function clearExtra(extra){ //Clear an extras field
 	$(extra).val("");
 }
 
-function setDynamicName(){
+function setDynamicName(){ //Update player name throughout the page
 	if($("#PlayerOne").val() === ""){
 		$(".P1-dynamic-name").text("P1");
 	}else{
@@ -201,10 +203,10 @@ function setDynamicName(){
 	}
 }
 
-$("#PlayerOne").focusout(setDynamicName); 
+$("#PlayerOne").focusout(setDynamicName); //When player tag field loses focus, update the player name throughout the page
 $("#PlayerTwo").focusout(setDynamicName);
 
-function showGame(num){
+function showGame(num){ //Change which game user is currently looking at
 	$(".game-toggle div").css("background-color", "rgba(0, 0, 0, 0.2)");
 	$(".game-toggle div:nth-child(" + (num+1).toString() + ")").css("background-color", "rgba(0, 0, 0, 0.6)");
 
@@ -225,7 +227,7 @@ function solidifyCharChoice(num){ //Choosing a game num solidifies character cho
 
 }
 
-function printFormattedTable(){
+function printFormattedTable(){ //Generate code output
 	$("#results").css("display", "block"); //Show results area
 	$("#results").text(""); //Clear last table
 
@@ -392,7 +394,7 @@ function printFormattedTable(){
 		}
 	}
 
-	function displayRow(winner, P1Char, P2Char, Stage, stockCount){
+	function displayRow(winner, P1Char, P2Char, Stage, stockCount){ //Add a table row
 		if(winner === "P1"){
 			printLine(multiplyStock("P1",makeFlair(P1Char),stockCount) + " | `==` " + makeFlair(P1Char) + " `" + Stage + "` " + makeFlair(P2Char) + " `==` | ---")
 		}else if(winner === "P2"){
@@ -402,7 +404,7 @@ function printFormattedTable(){
 		}
 	}
 
-	function getSetCount(){
+	function getSetCount(){ //Automatically calculate set count based on the games' winners
 		var P1score = 0;
 		var P2score = 0;
 
@@ -486,4 +488,5 @@ $(document).keydown(function(e) { //Escape Key closes character select screen
 });
 
 setDynamicName()
-$("body").css("background-color", "rgb(" + randomNumberBetween(47,126).toString() + "," + randomNumberBetween(47,126).toString() + "," + randomNumberBetween(47,126).toString() + ")"); //Random background-color :D
+
+$("body").css("background-color", "rgb(" + randomNumberBetween(47,126).toString() + ", " + randomNumberBetween(47,126).toString() + ", " + randomNumberBetween(47,126).toString() + ")"); //Random background-color :D

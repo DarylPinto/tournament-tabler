@@ -11,11 +11,13 @@
 <body>
 <h1 class="main-header">Tournament Tabler</h1>
 	<section class="container">
-		<span id="version">Ver. 2.6.3</span>
+		<span id="version">Ver. 2.6.4</span>
+		<!--===== Round Info =====-->
 		<section class="round-info">
 			<div><input type="text" id="Round" value="Grand Finals"></div>
 			<div><input type="text" id="vod-link" placeholder="VoD link (optional but recommended)"></div>
 		</section>
+		<!--===== Player 1 Information =====-->
 		<div>
 			<section class="player-one">
 				<h1>Player 1</h1>
@@ -58,6 +60,7 @@
 				</div>
 				<div class="expand-extras" onclick="showExtras(1)">Add Extras</div>
 			</section>
+			<!--===== Player 2 Information =====-->
 			<section class="player-two">
 				<h1>Player 2</h1>
 				<div class="player-name">
@@ -98,6 +101,7 @@
 				</div>
 				<div class="expand-extras" onclick="showExtras(2)">Add Extras</div>
 			</section>
+			<!--===== Game Information =====-->
 			<section class="game-wrapper">
 				<div class="game-toggle">
 					<h1>Game #</h1>
@@ -109,6 +113,7 @@
 				</div>
 				<div class="clearfix"></div>
 				<div class="game-info">
+					<!--===== Game 1 Info =====-->
 					<section id="GameOne" style="display: block">
 						<div class="character-select">
 							<div class="P1-char-wrap">
@@ -152,6 +157,7 @@
 							</ul>
 						</div>
 					</section>
+					<!--===== Game 2 Info =====-->
 					<section id="GameTwo">
 						<div class="character-select">
 							<div class="P1-char-wrap">
@@ -195,6 +201,7 @@
 							</ul>
 						</div>
 					</section>
+					<!--===== Game 3 Info =====-->
 					<section id="GameThree">
 						<div class="character-select">
 							<div class="P1-char-wrap">
@@ -238,6 +245,7 @@
 							</ul>
 						</div>
 					</section>
+					<!--===== Game 4 Info =====-->
 					<section id="GameFour">
 						<div class="character-select">
 							<div class="P1-char-wrap">
@@ -281,6 +289,7 @@
 							</ul>
 						</div>
 					</section>
+					<!--===== Game 5 Info =====-->
 					<section id="GameFive">
 						<div class="character-select">
 							<div class="P1-char-wrap">
@@ -334,11 +343,16 @@
 
 		<div id="results"></div>
 	</section>
+
+	<!--===== Footer =====-->
+
 	<p class="copyright">Made (with love) by <a href="http://reddit.com/u/darderp" target="_blank">/u/darderp</a> for <a href="http://reddit.com/r/smashbros" target="_blank">/r/smashbros</a></p>
-		<div class="blackout" style="display: none">
-			<div class="close-blackout" onclick="$('.blackout').css('display', 'none')"></div>
-			<div class="character-popout">
-				<div class="close-X" onclick="$('.blackout').css('display', 'none')">X</div>
+
+	<!--===== Character Select Overlay =====-->
+	<div class="blackout" style="display: none">
+		<div class="close-blackout" onclick="$('.blackout').css('display', 'none')"></div>
+		<div class="character-popout">
+			<div class="close-X" onclick="$('.blackout').css('display', 'none')">X</div>
 				<table id="character-list">
 					<tr>
 						<td><div class="Fox" onclick="chooseCharacter('Fox')"></div></td>
@@ -379,10 +393,9 @@
 						<td><div class="Kirby" onclick="chooseCharacter('Kirby')"></div></td>
 					</tr>
 				</table>
-				<div class="clear-char" onclick="chooseCharacter('clear')">Remove Character</div>
-			</div>
+			<div class="clear-char" onclick="chooseCharacter('clear')">Remove Character</div>
 		</div>
-
+	</div>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
