@@ -22,8 +22,12 @@ function randomNumberBetween(low,high){ //Get a random int between low and high 
 }
 
 function printLine(content){ //Prints content into results box
-	$("#results").append("<span></span><br>");
-	$("#results span").last().append(content);
+	$("#comment-code").append("<span></span><br>");
+	$("#comment-code span").last().append(content);
+}
+
+function addToPreview(content){ //Prints content into preview table
+	$("#preview-inner").append(content);
 }
 
 function openCharacterMenu(selector){ //Open character selection menu
@@ -227,16 +231,16 @@ function solidifyCharChoice(num){ //Choosing a game num solidifies character cho
 
 }
 
-function printFormattedTable(){ //Generate code output
-	$("#results").css("display", "block"); //Show results area
-	$("#results").text(""); //Clear last table
+function printFormattedTable(){ //Generate code and preview output
+	$("#results").css("display", "block"); //Show results code area
+	$("#comment-code").text(""); //Clear last table code
 
 	if(!pressed){ //scroll to bottom on first button press
 		$("html, body").animate({ scrollTop: $(document).height() }, "slow");
 	}
 	pressed = true;
 
-	var round = "#" + $("#Round").val();
+	var round = $("#Round").val();
 	var vodLink = $("#vod-link").val();
 
 	var P1 = $("#PlayerOne").val().replace("|", " ");
@@ -300,7 +304,11 @@ function printFormattedTable(){ //Generate code output
 	}
 
 	function makeFlair(str){
-		return "[](/"+str+")";
+		if(str === undefined){
+			return ""
+		}else{
+			return "[](/"+str+")";
+		}
 	};
 
 	function multiplyStock(winner,stock,num){
@@ -336,10 +344,12 @@ function printFormattedTable(){ //Generate code output
 
 			P1media = "**" + P1name + "** // "
 
-			if(P1twitch.toLowerCase().indexOf("twitch.") === -1){
-				P1media = P1media.concat("[Twitch](http://twitch.tv/" + P1twitch + ")");
-			}else{
-				P1media = P1media.concat("[Twitch](" + P1twitch + ")");
+			if(P1twitch != ""){
+				if(P1twitch.toLowerCase().indexOf("twitch.") === -1){
+					P1media = P1media.concat("[Twitch](http://twitch.tv/" + P1twitch + ")");
+				}else{
+					P1media = P1media.concat("[Twitch](" + P1twitch + ")");
+				}
 			}
 
 			if(P1twitter != ""){
@@ -354,7 +364,7 @@ function printFormattedTable(){ //Generate code output
 				}
 			}
 			if(P1liquipedia != ""){
-				if(P1twitch != "" || P1twitch != ""){
+				if(P1twitter != "" || P1twitch != ""){
 					P1media = P1media.concat(" | ")
 				}
 				P1media = P1media.concat("[Liquipedia](" + P1liquipedia + ")");
@@ -368,10 +378,12 @@ function printFormattedTable(){ //Generate code output
 
 			P2media = "**" + P2name + "** // "
 
-			if(P2twitch.toLowerCase().indexOf("twitch.") === -1){
-				P2media = P2media.concat("[Twitch](http://twitch.tv/" + P2twitch + ")");
-			}else{
-				P2media = P2media.concat("[Twitch](" + P2twitch + ")");
+			if(P2twitch != ""){	
+				if(P2twitch.toLowerCase().indexOf("twitch.") === -1){
+					P2media = P2media.concat("[Twitch](http://twitch.tv/" + P2twitch + ")");
+				}else{
+					P2media = P2media.concat("[Twitch](" + P2twitch + ")");
+				}
 			}
 
 			if(P2twitter != ""){
@@ -386,7 +398,7 @@ function printFormattedTable(){ //Generate code output
 				}
 			}
 			if(P2liquipedia != ""){
-				if(P2twitch != "" || P2twitch != ""){
+				if(P2twitter != "" || P2twitch != ""){
 					P2media = P2media.concat(" | ")
 				}
 				P2media = P2media.concat("[Liquipedia](" + P2liquipedia + ")");
@@ -394,7 +406,7 @@ function printFormattedTable(){ //Generate code output
 		}
 	}
 
-	function displayRow(winner, P1Char, P2Char, Stage, stockCount){ //Add a table row
+	function displayRow(winner, P1Char, P2Char, Stage, stockCount){ //Add a table row to code
 		if(winner === "P1"){
 			printLine(multiplyStock("P1",makeFlair(P1Char),stockCount) + " | `==` " + makeFlair(P1Char) + " `" + Stage + "` " + makeFlair(P2Char) + " `==` | ---")
 		}else if(winner === "P2"){
@@ -404,26 +416,33 @@ function printFormattedTable(){ //Generate code output
 		}
 	}
 
+
 	function getSetCount(){ //Automatically calculate set count based on the games' winners
 		var P1score = 0;
 		var P2score = 0;
+		var winners = [game1Winner,game2Winner,game3Winner,game4Winner,game5Winner]
+		var stages = [game1Stage,game2Stage,game3Stage,game4Stage,game5Stage]
 
-		[game1Winner,game2Winner,game3Winner,game4Winner,game5Winner].forEach(function(winner){
-			if(winner === "P1"){
+		for(var i = 0; i < winners.length; i++){
+			if(winners[i] === "P1" && stages[i] != "---"){
 				P1score += 1;
 			}
-			if(winner === "P2"){
+			if(winners[i] === "P2" && stages[i] != "---"){
 				P2score += 1;
 			}
-		});
+		}
 
 		return P1score.toString() + " - " + P2score.toString();
 	}
 
+
+	//GENERATE REDDIT MARKUP
+
+
 	generatePlayerMedia();
 
 	printLine("---");
-	printLine(round);
+	printLine("#" + round);
 
 	if(vodLink != ""){
 		if(vodLink.indexOf("www") > -1){
@@ -471,10 +490,209 @@ function printFormattedTable(){ //Generate code output
 		displayRow(game5Winner, game5P1Character, game5P2Character, game5Stage, game5StockCount)
 	}
 
-	printLine("<span style=\"color: white\">*^^Generated ^^by [^^Tournament ^^Tabler](http://darylpinto.github.io)*</span>");
+	printLine("<span style='color: transparent'>*^^Generated ^^by [^^Tournament ^^Tabler](http://darylpinto.github.io)*</span>");
 
 	printLine("___");
+
+	//PREVIEW TABLE SPECIFIC FUNCTIONS
+
+
+	function makePreviewFlair(str){
+		if(str === undefined){
+			return ""
+		}else{
+			return "<div class='" + str + "'></div>"
+		}
+	}
+
+	function displayPreviewRow(winner, P1Char, P2Char, Stage, stockCount){ //Add a table row to preview
+		if(winner === "P1"){
+			addToPreview("<tr>")
+			addToPreview("<td align='right'>" + multiplyStock("P1",makePreviewFlair(P1Char),stockCount) + "</td>")
+			addToPreview("<td align='center'><code>==</code> " + makePreviewFlair(P1Char) + " <code>" + Stage + "</code> " + makePreviewFlair(P2Char) + " <code>==</code></td>")
+			addToPreview("<td align='left'>---</td>")
+			addToPreview("</tr>")
+		}else if(winner === "P2"){
+			addToPreview("<tr>")
+			addToPreview("<td align='right'>---</td>")
+			addToPreview("<td align='center'><code>==</code> " + makePreviewFlair(P1Char) + " <code>" + Stage + "</code> " + makePreviewFlair(P2Char) + " <code>==</code></td>")
+			addToPreview("<td align='left'>" + multiplyStock("P2",makePreviewFlair(P2Char),stockCount) + "</td>")
+			addToPreview("</tr>")
+		}else{
+			addToPreview("ERROR: WINNER NOT CHOSEN")
+		}
+	}
+
+	function generatePlayerPreviewMedia(){
+
+		if(P1liquipedia != "" && P1liquipedia.slice(0, 4) != "http"){ //Fix broken liquipedia links
+			P1liquipedia = "http://" + P1liquipedia
+		}
+		if(P2liquipedia != "" && P2liquipedia.slice(0, 4) != "http"){ //Fix broken liquipedia links
+			P2liquipedia = "http://" + P2liquipedia
+		}
+
+		if(P1twitter != "" && P1twitter[0] === "@"){ //Remove @ from twitter handle
+			P1twitter = P1twitter.slice(1)
+		}
+		if(P2twitter != "" && P2twitter[0] === "@"){ //Remove @ from twitter handle
+			P2twitter = P2twitter.slice(1)
+		}
+
+		if(P1twitter != "" || P1twitch != "" || P1liquipedia){
+			if(P1name === ""){
+				P1name = P1;
+			}
+
+			P1previewmedia = "<b>" + P1name + "</b> // "
+
+			if(P1twitch != ""){
+				if(P1twitch.toLowerCase().indexOf("twitch.") === -1){
+					P1previewmedia = P1previewmedia.concat("<a href='http://twitch.tv/" + P1twitch + "' target='_blank'>Twitch</a>");
+				}else{
+					P1previewmedia = P1previewmedia.concat("<a href='" + P1twitch + "' target='_blank'>Twitch</a>");
+				}
+			}
+
+			if(P1twitter != ""){
+				if(P1twitch != ""){
+					P1previewmedia = P1previewmedia.concat(" | ")
+				}
+
+				if(P1twitter.toLowerCase().indexOf("twitter.") === -1){
+					P1previewmedia = P1previewmedia.concat("<a href='https://twitter.com/" + P1twitter + "' target='_blank'>Twitter</a>"); 
+				}else{
+					P1previewmedia = P1previewmedia.concat("<a href='" + P1twitter + "' target='_blank'>Twitter</a>");
+				}
+			}
+			if(P1liquipedia != ""){
+				if(P1twitter != "" || P1twitch != ""){
+					P1previewmedia = P1previewmedia.concat(" | ")
+				}
+				P1previewmedia = P1previewmedia.concat("<a href='" + P1liquipedia + "' target='_blank'>Liquipedia</a>");
+			}
+		}
+
+		if(P2twitter != "" || P2twitch != "" || P2liquipedia){
+			if(P2name === ""){
+				P2name = P2;
+			}
+
+			P2previewmedia = "<b>" + P2name + "</b> // "
+
+			if(P2twitch != ""){
+				if(P2twitch.toLowerCase().indexOf("twitch.") === -1){
+					P2previewmedia = P2previewmedia.concat("<a href='http://twitch.tv/" + P2twitch + "' target='_blank'>Twitch</a>");
+				}else{
+					P2previewmedia = P2previewmedia.concat("<a href='" + P2twitch + "' target='_blank'>Twitch</a>");
+				}
+			}
+
+			if(P2twitter != ""){
+				if(P2twitch != ""){
+					P2previewmedia = P2previewmedia.concat(" | ")
+				}
+				
+				if(P2twitter.toLowerCase().indexOf("twitter.") === -1){
+					P2previewmedia = P2previewmedia.concat("<a href='https://twitter.com/" + P2twitter + "' target='_blank'>Twitter</a>");
+				}else{
+					P2previewmedia = P2previewmedia.concat("<a href='" + P2twitter + "' target='_blank'>Twitter</a>");
+				}
+			}
+			if(P2liquipedia != ""){
+				if(P2twitter != "" || P2twitch != ""){
+					P2previewmedia = P2previewmedia.concat(" | ")
+				}
+				P2previewmedia = P2previewmedia.concat("<a href='" + P2liquipedia + "' target='_blank'>Liquipedia</a>");
+			}
+		}
+	}
+
+
+	//GENERATE TABLE PREVIEW
+
+
+	$("#preview-inner").empty(); //Clear last preview table
+
+	generatePlayerPreviewMedia()
+
+	addToPreview("<h1>" + round + "</h1>")
+
+	if(vodLink != ""){
+		addToPreview("<div><i>VoD: <a href='" + vodLink + "'>" + vodSite + "</i></div>")
+	}
+
+	if(P1media != ""){
+		addToPreview("<div>" + P1previewmedia + "</div>")
+	}
+	if(P2media != ""){
+		addToPreview("<div>" + P2previewmedia + "</div>")
+	}
+
+	addToPreview("<table><thead>")
+	addToPreview("<tr>")
+	addToPreview("<th align='right'>" + P1mains.map(makePreviewFlair).toString().replace(/,/g , " ") + " " + P1 + "</th>")
+	addToPreview("<th align='center'>" + getSetCount() + "</th>")
+	addToPreview("<th align='left'>" + P2 + " " + P2mains.map(makePreviewFlair).toString().replace(/,/g , " ") + "</th>")
+	addToPreview("</tr>")
+	addToPreview("</thead><tbody>")
+
+	if($("#GameOne .Stage").val() != "---"){
+		displayPreviewRow(game1Winner, game1P1Character, game1P2Character, game1Stage, game1StockCount)
+	}
+	if($("#GameTwo .Stage").val() != "---"){
+		displayPreviewRow(game2Winner, game2P1Character, game2P2Character, game2Stage, game2StockCount)
+	}
+	if($("#GameThree .Stage").val() != "---"){
+		displayPreviewRow(game3Winner, game3P1Character, game3P2Character, game3Stage, game3StockCount)
+	}
+	if($("#GameFour .Stage").val() != "---"){
+		displayPreviewRow(game4Winner, game4P1Character, game4P2Character, game4Stage, game4StockCount)
+	}
+	if($("#GameFive .Stage").val() != "---"){
+		displayPreviewRow(game5Winner, game5P1Character, game5P2Character, game5Stage, game5StockCount)
+	}
+
+	addToPreview("</tbody></table>")
 }
+
+//Reference code
+
+/*
+<table><thead>
+<tr>
+<th align='right'><a href='/Falco'></a> <a href='/Marth'></a> Evil Geniuses PPMD</th>
+<th align='center'>3 - 2</th>
+<th align='left'>Alliance Armada <a href='/Fox'></a> <a href='/Peach'></a></th>
+</tr>
+</thead><tbody>
+<tr>
+<td align='right'>---</td>
+<td align='center'><code>==</code> <a href='/Marth'></a> <code>===== Battlefield =====</code> <a href='/Fox'></a> <code>==</code></td>
+<td align='left'><a href='/Fox'></a><a href='/Fox'></a></td>
+</tr>
+<tr>
+<td align='right'><a href='/Falco'></a></td>
+<td align='center'><code>==</code> <a href='/Falco'></a> <code>==== Yoshi&#39;s Story ====</code> <a href='/Fox'></a> <code>==</code></td>
+<td align='left'>---</td>
+</tr>
+<tr>
+<td align='right'>---</td>
+<td align='center'><code>==</code> <a href='/Falco'></a> <code>==== Dreamland 64 ====</code> <a href='/Peach'></a> <code>==</code></td>
+<td align='left'><a href='/Peach'></a><a href='/Peach'></a></td>
+</tr>
+<tr>
+<td align='right'><a href='/Falco'></a></td>
+<td align='center'><code>==</code> <a href='/Falco'></a> <code>== Final Destination ==</code> <a href='/Fox'></a> <code>==</code></td>
+<td align='left'>---</td>
+</tr>
+<tr>
+<td align='right'><a href='/Falco'></a><a href='/Falco'></a></td>
+<td align='center'><code>==</code> <a href='/Falco'></a> <code>=== Pokémon Stadium ===</code> <a href='/Fox'></a> <code>==</code></td>
+<td align='left'>---</td>
+</tr>
+</tbody></table>
+*/
 
 $(document).keydown(function(e) { //Escape Key closes character select screen
     switch(e.which) {
