@@ -193,6 +193,64 @@ function clearExtra(extra){ //Clear an extras field
 	$(extra).val("");
 }
 
+function clearDataForGame(num){ //Clears all data entered for a specified game
+
+	if(confirm("Are you sure you want to clear all data for Game " + num + "?") === true){
+		if(num === 1){
+
+			$("#GameOne .PlayerOneCharacter, #GameOne .PlayerTwoCharacter").empty()
+			$("#GameOne .Stage").val("---")
+
+			chooseWinner("#GameOne", null)
+
+			$("#GameOne .stock-count li").empty()
+			changeStocksLeft('#GameOne', 0)
+
+		}else if(num === 2){
+
+			$("#GameTwo .PlayerOneCharacter, #GameTwo .PlayerTwoCharacter").empty()
+			$("#GameTwo .Stage").val("---")
+
+			chooseWinner("#GameTwo", null)
+
+			$("#GameTwo .stock-count li").empty()
+			changeStocksLeft('#GameTwo', 0)
+
+		}else if(num === 3){
+
+			$("#GameThree .PlayerOneCharacter, #GameThree .PlayerTwoCharacter").empty()
+			$("#GameThree .Stage").val("---")
+
+			chooseWinner("#GameThree", null)
+
+			$("#GameThree .stock-count li").empty()
+			changeStocksLeft('#GameThree', 0)
+
+		}else if(num === 4){
+
+			$("#GameFour .PlayerOneCharacter, #GameFour .PlayerTwoCharacter").empty()
+			$("#GameFour .Stage").val("---")
+
+			chooseWinner("#GameFour", null)
+
+			$("#GameFour .stock-count li").empty()
+			changeStocksLeft('#GameFour', 0)
+
+		}else if(num === 5){
+
+			$("#GameFive .PlayerOneCharacter, #GameFive .PlayerTwoCharacter").empty()
+			$("#GameFive .Stage").val("---")
+
+			chooseWinner("#GameFive", null)
+
+			$("#GameFive .stock-count li").empty()
+			changeStocksLeft('#GameFive', 0)
+
+		}
+	}
+
+}
+
 function setDynamicName(){ //Update player name throughout the page
 	if($("#PlayerOne").val() === ""){
 		$(".P1-dynamic-name").text("P1");
@@ -445,6 +503,9 @@ function printFormattedTable(){ //Generate code and preview output
 	printLine("#" + round);
 
 	if(vodLink != ""){
+		if(vodLink.slice(0, 4) != "http"){ //Fix broken vod links
+			vodLink = "http://" + vodLink
+		}
 		if(vodLink.indexOf("www") > -1){
 			var vodSite = vodLink.slice( (vodLink.indexOf(".") + 1) ) 
 			vodSite = vodSite.slice(0, vodSite.indexOf("."))
@@ -453,6 +514,10 @@ function printFormattedTable(){ //Generate code and preview output
 			var vodSite = vodLink.slice( (vodLink.indexOf("/") + 2) ) 
 			vodSite = vodSite.slice(0, vodSite.indexOf("."))
 			vodSite = vodSite[0].toUpperCase() + vodSite.slice(1)
+		}
+
+		if(vodSite === "Vods"){ //Just for clarity's sake, with this one instance
+			vodSite = "vods.co"
 		}
 
 		printLine("")
@@ -619,7 +684,7 @@ function printFormattedTable(){ //Generate code and preview output
 	addToPreview("<h1>" + round + "</h1>")
 
 	if(vodLink != ""){
-		addToPreview("<div><i>VoD: <a href='" + vodLink + "'>" + vodSite + "</i></div>")
+		addToPreview("<div><i>VoD: <a href='" + vodLink + "' target='_blank'>" + vodSite + "</i></div>")
 	}
 
 	if(P1media != ""){
@@ -655,44 +720,6 @@ function printFormattedTable(){ //Generate code and preview output
 
 	addToPreview("</tbody></table>")
 }
-
-//Reference code
-
-/*
-<table><thead>
-<tr>
-<th align='right'><a href='/Falco'></a> <a href='/Marth'></a> Evil Geniuses PPMD</th>
-<th align='center'>3 - 2</th>
-<th align='left'>Alliance Armada <a href='/Fox'></a> <a href='/Peach'></a></th>
-</tr>
-</thead><tbody>
-<tr>
-<td align='right'>---</td>
-<td align='center'><code>==</code> <a href='/Marth'></a> <code>===== Battlefield =====</code> <a href='/Fox'></a> <code>==</code></td>
-<td align='left'><a href='/Fox'></a><a href='/Fox'></a></td>
-</tr>
-<tr>
-<td align='right'><a href='/Falco'></a></td>
-<td align='center'><code>==</code> <a href='/Falco'></a> <code>==== Yoshi&#39;s Story ====</code> <a href='/Fox'></a> <code>==</code></td>
-<td align='left'>---</td>
-</tr>
-<tr>
-<td align='right'>---</td>
-<td align='center'><code>==</code> <a href='/Falco'></a> <code>==== Dreamland 64 ====</code> <a href='/Peach'></a> <code>==</code></td>
-<td align='left'><a href='/Peach'></a><a href='/Peach'></a></td>
-</tr>
-<tr>
-<td align='right'><a href='/Falco'></a></td>
-<td align='center'><code>==</code> <a href='/Falco'></a> <code>== Final Destination ==</code> <a href='/Fox'></a> <code>==</code></td>
-<td align='left'>---</td>
-</tr>
-<tr>
-<td align='right'><a href='/Falco'></a><a href='/Falco'></a></td>
-<td align='center'><code>==</code> <a href='/Falco'></a> <code>=== Pokémon Stadium ===</code> <a href='/Fox'></a> <code>==</code></td>
-<td align='left'>---</td>
-</tr>
-</tbody></table>
-*/
 
 $(document).keydown(function(e) { //Escape Key closes character select screen
     switch(e.which) {

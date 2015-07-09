@@ -11,7 +11,7 @@
 <body>
 <h1 class="main-header">Tournament Tabler</h1>
 	<section class="container">
-		<span id="version">Ver. 3.0.0</span>
+		<span id="version">Ver. 3.0.5</span>
 		<!--===== Round Info =====-->
 		<section class="round-info">
 			<div><input type="text" id="Round" value="Grand Finals" placeholder="Round"></div>
@@ -156,6 +156,7 @@
 								<li onclick="changeStocksLeft('#GameOne', 4)">&bull;</li>
 							</ul>
 						</div>
+						<div class="clear-game-data" onclick="clearDataForGame(1)">Remove Game 1</div>
 					</section>
 					<!--===== Game 2 Info =====-->
 					<section id="GameTwo">
@@ -200,6 +201,7 @@
 								<li onclick="changeStocksLeft('#GameTwo', 4)">&bull;</li>
 							</ul>
 						</div>
+						<div class="clear-game-data" onclick="clearDataForGame(2)">Remove Game 2</div>
 					</section>
 					<!--===== Game 3 Info =====-->
 					<section id="GameThree">
@@ -244,6 +246,7 @@
 								<li onclick="changeStocksLeft('#GameThree', 4)">&bull;</li>
 							</ul>
 						</div>
+						<div class="clear-game-data" onclick="clearDataForGame(3)">Remove Game 3</div>
 					</section>
 					<!--===== Game 4 Info =====-->
 					<section id="GameFour">
@@ -288,6 +291,7 @@
 								<li onclick="changeStocksLeft('#GameFour', 4)">&bull;</li>
 							</ul>
 						</div>
+						<div class="clear-game-data" onclick="clearDataForGame(4)">Remove Game 4</div>
 					</section>
 					<!--===== Game 5 Info =====-->
 					<section id="GameFive">
@@ -332,6 +336,7 @@
 								<li onclick="changeStocksLeft('#GameFive', 4)">&bull;</li>
 							</ul>
 						</div>
+						<div class="clear-game-data" onclick="clearDataForGame(5)">Remove Game 5</div>
 					</section>
 				</div>
 			</section>
