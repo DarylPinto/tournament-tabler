@@ -1,6 +1,7 @@
 //Default values
 
 var codeLines = []
+var tablePreviewPieces = []
 
 var pressed = false
 var P1extras = false
@@ -29,7 +30,7 @@ function printLine(content){ //Prints content into results box
 }
 
 function addToPreview(content){ //Prints content into preview table
-	$("#preview-inner").append(content);
+	tablePreviewPieces.push(content);
 }
 
 function openCharacterMenu(selector){ //Open character selection menu
@@ -284,7 +285,7 @@ function printFormattedTable(){ //Generate code and preview output
 	} if($("#P2Main2 div").attr("class") != undefined){
 		P2mains.push($("#P2Main2 div").attr("class"))
 	}
-	var P2name = $("#PlayerTwoName").val();
+	var P2name = $("#PlayerTwoName").val().replace("|"," ");
 	var P2twitch = $("#PlayerTwoTwitch").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P2twitter = $("#PlayerTwoTwitter").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P2liquipedia = $("#PlayerTwoLiquipedia").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
@@ -526,9 +527,9 @@ function printFormattedTable(){ //Generate code and preview output
 
 	$("#comment-code").select() //Auto Highlight code text after "Generate Table" button is clicked
 
-	$("body").append("<div id='snackbar-shade' style='display: none'></div>")
+	$("body").append("<div id='snackbar-shade' style='display: none' onclick=\"$('#comment-code').select()\"></div>")
 	$("#snackbar-shade").fadeIn()
-	$("body").append("<div id='snackbar'><span>Text selected! Ctrl+C to copy!</span></div>")
+	$("body").append("<div id='snackbar' onclick=\"$('#comment-code').select()\"><span>Text selected! Ctrl+C to copy!</span></div>")
 	$("#snackbar").fadeIn()
 	window.setTimeout(function(){
 		$("#snackbar-shade").fadeOut()
@@ -629,6 +630,7 @@ function printFormattedTable(){ //Generate code and preview output
 
 
 	$("#preview-inner").empty(); //Clear last preview table
+	tablePreviewPieces = [];
 
 	addToPreview("<h1>" + round + "</h1>")
 
@@ -636,7 +638,7 @@ function printFormattedTable(){ //Generate code and preview output
 	P2media = HTMLify(P2media)
 
 	if(vodLink != ""){
-		addToPreview("<div><i>VoD: <a href='" + vodLink + "' target='_blank'>" + vodSite + "</i></div>")
+		addToPreview("<div><i>VoD: <a href='" + vodLink + "' target='_blank'>" + vodSite + "</a></i></div>")
 	}
 
 	if(P1media != ""){
@@ -673,6 +675,8 @@ function printFormattedTable(){ //Generate code and preview output
 	}
 
 	addToPreview("</tbody></table>")
+
+	$("#preview-inner").append(tablePreviewPieces.toString().replace(/,/g , ""))
 }
 
 $(document).keydown(function(e) { //Escape Key closes character select screen
