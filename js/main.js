@@ -278,7 +278,7 @@ function printFormattedTable(){ //Generate code and preview output
 	var P1liquipedia = $("#PlayerOneLiquipedia").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P1media = "";
 
-	var P2 = $("#PlayerTwo").val();
+	var P2 = $("#PlayerTwo").val().replace("|"," ");
 	var P2mains = [];
 	if($("#P2Main1 div").attr("class") != undefined){
 		P2mains.push($("#P2Main1 div").attr("class"))
