@@ -1,5 +1,7 @@
 //Default values
 
+var codeLines = []
+
 var pressed = false
 var P1extras = false
 var P2extras = false
@@ -22,8 +24,8 @@ function randomNumberBetween(low,high){ //Get a random int between low and high 
 }
 
 function printLine(content){ //Prints content into results box
-	$("#comment-code").append("<span></span><br>");
-	$("#comment-code span").last().append(content);
+	codeLines.push(content);
+	$("#comment-code").val(codeLines.toString().replace(/,/g , "\n"));
 }
 
 function addToPreview(content){ //Prints content into preview table
@@ -193,62 +195,23 @@ function clearExtra(extra){ //Clear an extras field
 	$(extra).val("");
 }
 
-function clearDataForGame(num){ //Clears all data entered for a specified game
+function deleteDataForGame(num){ //Clears all data entered for a specified game
 
-	if(confirm("Are you sure you want to clear all data for Game " + num + "?") === true){
-		if(num === 1){
+	var games = ["#GameOne", "#GameTwo", "#GameThree", "#GameFour", "#GameFive"]
 
-			$("#GameOne .PlayerOneCharacter, #GameOne .PlayerTwoCharacter").empty()
-			$("#GameOne .Stage").val("---")
+	var game = games[num - 1]
 
-			chooseWinner("#GameOne", null)
+	if(confirm("Are you sure you want to delete all data for Game " + num + "?") === true){
 
-			$("#GameOne .stock-count li").empty()
-			changeStocksLeft('#GameOne', 0)
+		$(game + " .PlayerOneCharacter, " + game + " .PlayerTwoCharacter").empty()
+		$(game + " .Stage").val("---")
 
-		}else if(num === 2){
+		chooseWinner(game, null)
 
-			$("#GameTwo .PlayerOneCharacter, #GameTwo .PlayerTwoCharacter").empty()
-			$("#GameTwo .Stage").val("---")
+		$(game + " .stock-count li").empty()
+		changeStocksLeft(game, 0)
 
-			chooseWinner("#GameTwo", null)
-
-			$("#GameTwo .stock-count li").empty()
-			changeStocksLeft('#GameTwo', 0)
-
-		}else if(num === 3){
-
-			$("#GameThree .PlayerOneCharacter, #GameThree .PlayerTwoCharacter").empty()
-			$("#GameThree .Stage").val("---")
-
-			chooseWinner("#GameThree", null)
-
-			$("#GameThree .stock-count li").empty()
-			changeStocksLeft('#GameThree', 0)
-
-		}else if(num === 4){
-
-			$("#GameFour .PlayerOneCharacter, #GameFour .PlayerTwoCharacter").empty()
-			$("#GameFour .Stage").val("---")
-
-			chooseWinner("#GameFour", null)
-
-			$("#GameFour .stock-count li").empty()
-			changeStocksLeft('#GameFour', 0)
-
-		}else if(num === 5){
-
-			$("#GameFive .PlayerOneCharacter, #GameFive .PlayerTwoCharacter").empty()
-			$("#GameFive .Stage").val("---")
-
-			chooseWinner("#GameFive", null)
-
-			$("#GameFive .stock-count li").empty()
-			changeStocksLeft('#GameFive', 0)
-
-		}
 	}
-
 }
 
 function setDynamicName(){ //Update player name throughout the page
@@ -291,7 +254,7 @@ function solidifyCharChoice(num){ //Choosing a game num solidifies character cho
 
 function printFormattedTable(){ //Generate code and preview output
 	$("#results").css("display", "block"); //Show results code area
-	$("#comment-code").text(""); //Clear last table code
+	codeLines = [] //Clear last table code
 
 	if(!pressed){ //scroll to bottom on first button press
 		$("html, body").animate({ scrollTop: $(document).height() }, "slow");
@@ -299,7 +262,7 @@ function printFormattedTable(){ //Generate code and preview output
 	pressed = true;
 
 	var round = $("#Round").val();
-	var vodLink = $("#vod-link").val();
+	var vodLink = $("#vod-link").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
 
 	var P1 = $("#PlayerOne").val().replace("|", " ");
 	var P1mains = [];
@@ -309,9 +272,9 @@ function printFormattedTable(){ //Generate code and preview output
 		P1mains.push($("#P1Main2 div").attr("class"))
 	}
 	var P1name = $("#PlayerOneName").val().replace("|"," ");
-	var P1twitch = $("#PlayerOneTwitch").val();
-	var P1twitter = $("#PlayerOneTwitter").val();
-	var P1liquipedia = $("#PlayerOneLiquipedia").val();
+	var P1twitch = $("#PlayerOneTwitch").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
+	var P1twitter = $("#PlayerOneTwitter").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
+	var P1liquipedia = $("#PlayerOneLiquipedia").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P1media = "";
 
 	var P2 = $("#PlayerTwo").val();
@@ -322,9 +285,9 @@ function printFormattedTable(){ //Generate code and preview output
 		P2mains.push($("#P2Main2 div").attr("class"))
 	}
 	var P2name = $("#PlayerTwoName").val();
-	var P2twitch = $("#PlayerTwoTwitch").val();
-	var P2twitter = $("#PlayerTwoTwitter").val();
-	var P2liquipedia = $("#PlayerTwoLiquipedia").val();
+	var P2twitch = $("#PlayerTwoTwitch").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"").replace(/\[/g,"").replace(/\]/g,"");
+	var P2twitter = $("#PlayerTwoTwitter").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
+	var P2liquipedia = $("#PlayerTwoLiquipedia").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P2media = "";
 
 	var game1P1Character = $("#GameOne .PlayerOneCharacter div").attr("class");
@@ -466,9 +429,9 @@ function printFormattedTable(){ //Generate code and preview output
 
 	function displayRow(winner, P1Char, P2Char, Stage, stockCount){ //Add a table row to code
 		if(winner === "P1"){
-			printLine(multiplyStock("P1",makeFlair(P1Char),stockCount) + " | `==` " + makeFlair(P1Char) + " `" + Stage + "` " + makeFlair(P2Char) + " `==` | ---")
+			printLine(multiplyStock("P1",makeFlair(P1Char),stockCount) + " | `=` " + makeFlair(P1Char) + " | " + Stage + " | " + makeFlair(P2Char) + " `=` | ---")
 		}else if(winner === "P2"){
-			printLine("--- | `==` " + makeFlair(P1Char) + " `" + Stage + "` " + makeFlair(P2Char) + " `==` | " + multiplyStock("P2",makeFlair(P2Char),stockCount))
+			printLine("--- | `=` " + makeFlair(P1Char) + " | " + Stage + " | " + makeFlair(P2Char) + " `=` | " + multiplyStock("P2",makeFlair(P2Char),stockCount))
 		}else{
 			printLine("ERROR: WINNER NOT CHOSEN")
 		}
@@ -536,8 +499,8 @@ function printFormattedTable(){ //Generate code and preview output
 		printLine("")
 	}
 
-	printLine(P1mains.map(makeFlair).toString().replace(/,/g , " ") + " " + P1 + " | " + getSetCount() + " | " + P2 + " " + P2mains.map(makeFlair).toString().replace(/,/g , " "));
-	printLine("---:|:--:|:---");
+	printLine(P1mains.map(makeFlair).toString().replace(/,/g , " ") + " " + P1 + " | | " + getSetCount() + " | | " + P2 + " " + P2mains.map(makeFlair).toString().replace(/,/g , " "));
+	printLine("---:|:--:|:--:|:--:|:---");
 
 	if($("#GameOne .Stage").val() != "---"){
 		displayRow(game1Winner, game1P1Character, game1P2Character, game1Stage, game1StockCount)
@@ -555,9 +518,26 @@ function printFormattedTable(){ //Generate code and preview output
 		displayRow(game5Winner, game5P1Character, game5P2Character, game5Stage, game5StockCount)
 	}
 
-	printLine("<span style='color: transparent'>*^^Generated ^^by [^^Tournament ^^Tabler](http://darylpinto.github.io)*</span>");
+	printLine("*^^Generated ^^by [^^Tournament ^^Tabler](http://darylpinto.github.io)*");
 
-	printLine("___");
+	printLine("");
+	printLine("---");
+
+
+	$("#comment-code").select() //Auto Highlight code text after "Generate Table" button is clicked
+
+	$("body").append("<div id='snackbar-shade' style='display: none'></div>")
+	$("#snackbar-shade").fadeIn()
+	$("body").append("<div id='snackbar'><span>Text selected! Ctrl+C to copy!</span></div>")
+	$("#snackbar").fadeIn()
+	window.setTimeout(function(){
+		$("#snackbar-shade").fadeOut()
+		$("#snackbar").fadeOut()
+	}, 1500);
+	window.setTimeout(function(){
+		$("#snackbar-shade").remove()
+		$("#snackbar").remove()
+	}, 2500);
 
 	//PREVIEW TABLE SPECIFIC FUNCTIONS
 
@@ -574,13 +554,17 @@ function printFormattedTable(){ //Generate code and preview output
 		if(winner === "P1"){
 			addToPreview("<tr>")
 			addToPreview("<td align='right'>" + multiplyStock("P1",makePreviewFlair(P1Char),stockCount) + "</td>")
-			addToPreview("<td align='center'><code>==</code> " + makePreviewFlair(P1Char) + " <code>" + Stage + "</code> " + makePreviewFlair(P2Char) + " <code>==</code></td>")
+			addToPreview("<td align='center'><code>=</code> " + makePreviewFlair(P1Char) + "</td>")
+			addToPreview("<td align='center'>" + Stage + "</td>")
+			addToPreview("<td align='center'>" + makePreviewFlair(P2Char) + " <code>=</code></td>")
 			addToPreview("<td align='left'>---</td>")
 			addToPreview("</tr>")
 		}else if(winner === "P2"){
 			addToPreview("<tr>")
 			addToPreview("<td align='right'>---</td>")
-			addToPreview("<td align='center'><code>==</code> " + makePreviewFlair(P1Char) + " <code>" + Stage + "</code> " + makePreviewFlair(P2Char) + " <code>==</code></td>")
+			addToPreview("<td align='center'><code>=</code> " + makePreviewFlair(P1Char) + "</td>")
+			addToPreview("<td align='center'>" + Stage + "</td>")
+			addToPreview("<td align='center'>" + makePreviewFlair(P2Char) + " <code>=</code></td>")
 			addToPreview("<td align='left'>" + multiplyStock("P2",makePreviewFlair(P2Char),stockCount) + "</td>")
 			addToPreview("</tr>")
 		}else{
@@ -588,100 +572,68 @@ function printFormattedTable(){ //Generate code and preview output
 		}
 	}
 
-	function generatePlayerPreviewMedia(){
-
-		if(P1liquipedia != "" && P1liquipedia.slice(0, 4) != "http"){ //Fix broken liquipedia links
-			P1liquipedia = "http://" + P1liquipedia
-		}
-		if(P2liquipedia != "" && P2liquipedia.slice(0, 4) != "http"){ //Fix broken liquipedia links
-			P2liquipedia = "http://" + P2liquipedia
-		}
-
-		if(P1twitter != "" && P1twitter[0] === "@"){ //Remove @ from twitter handle
-			P1twitter = P1twitter.slice(1)
-		}
-		if(P2twitter != "" && P2twitter[0] === "@"){ //Remove @ from twitter handle
-			P2twitter = P2twitter.slice(1)
-		}
-
-		if(P1twitter != "" || P1twitch != "" || P1liquipedia){
-			if(P1name === ""){
-				P1name = P1;
-			}
-
-			P1previewmedia = "<b>" + P1name + "</b> // "
-
-			if(P1twitch != ""){
-				if(P1twitch.toLowerCase().indexOf("twitch.") === -1){
-					P1previewmedia = P1previewmedia.concat("<a href='http://twitch.tv/" + P1twitch + "' target='_blank'>Twitch</a>");
-				}else{
-					P1previewmedia = P1previewmedia.concat("<a href='" + P1twitch + "' target='_blank'>Twitch</a>");
-				}
-			}
-
-			if(P1twitter != ""){
-				if(P1twitch != ""){
-					P1previewmedia = P1previewmedia.concat(" | ")
-				}
-
-				if(P1twitter.toLowerCase().indexOf("twitter.") === -1){
-					P1previewmedia = P1previewmedia.concat("<a href='https://twitter.com/" + P1twitter + "' target='_blank'>Twitter</a>"); 
-				}else{
-					P1previewmedia = P1previewmedia.concat("<a href='" + P1twitter + "' target='_blank'>Twitter</a>");
-				}
-			}
-			if(P1liquipedia != ""){
-				if(P1twitter != "" || P1twitch != ""){
-					P1previewmedia = P1previewmedia.concat(" | ")
-				}
-				P1previewmedia = P1previewmedia.concat("<a href='" + P1liquipedia + "' target='_blank'>Liquipedia</a>");
-			}
-		}
-
-		if(P2twitter != "" || P2twitch != "" || P2liquipedia){
-			if(P2name === ""){
-				P2name = P2;
-			}
-
-			P2previewmedia = "<b>" + P2name + "</b> // "
-
-			if(P2twitch != ""){
-				if(P2twitch.toLowerCase().indexOf("twitch.") === -1){
-					P2previewmedia = P2previewmedia.concat("<a href='http://twitch.tv/" + P2twitch + "' target='_blank'>Twitch</a>");
-				}else{
-					P2previewmedia = P2previewmedia.concat("<a href='" + P2twitch + "' target='_blank'>Twitch</a>");
-				}
-			}
-
-			if(P2twitter != ""){
-				if(P2twitch != ""){
-					P2previewmedia = P2previewmedia.concat(" | ")
-				}
-				
-				if(P2twitter.toLowerCase().indexOf("twitter.") === -1){
-					P2previewmedia = P2previewmedia.concat("<a href='https://twitter.com/" + P2twitter + "' target='_blank'>Twitter</a>");
-				}else{
-					P2previewmedia = P2previewmedia.concat("<a href='" + P2twitter + "' target='_blank'>Twitter</a>");
-				}
-			}
-			if(P2liquipedia != ""){
-				if(P2twitter != "" || P2twitch != ""){
-					P2previewmedia = P2previewmedia.concat(" | ")
-				}
-				P2previewmedia = P2previewmedia.concat("<a href='" + P2liquipedia + "' target='_blank'>Liquipedia</a>");
-			}
-		}
+	function HTMLify(str){ //Converts reddit markup to HTML markup
+	    var b_tagType = "open";
+	    var i_tagType = "open";
+	    var code_tagType = "open";
+	    
+	    while(str.indexOf("`") > -1){
+	        if(code_tagType === "open"){
+	            str = str.replace(/`/ , "<code>");
+	            code_tagType = "close" 
+	        }else{
+	            str = str.replace(/`/ , "</code>");
+	            code_tagType = "open";
+	        }
+	    }
+	    
+	    while(str.indexOf("**") > -1){
+	        if(b_tagType === "open"){
+	            str = str.replace(/\*\*/ , "<b>");
+	            b_tagType = "close" 
+	        }else{
+	            str = str.replace(/\*\*/ , "</b>");
+	            b_tagType = "open";
+	        }
+	    }
+	    
+	    while(str.indexOf("*") > -1){
+	        if(i_tagType === "open"){
+	            str = str.replace(/\*/ , "<i>");
+	            i_tagType = "close" 
+	        }else{
+	            str = str.replace(/\*/ , "</i>");
+	            i_tagType = "open";
+	        }
+	    }
+	    
+	    while(str.indexOf("[") > -1 || str.indexOf("]") > -1 || str.indexOf("(") > -1 || str.indexOf(")") > -1){
+	        var link_opening = str.indexOf("[")
+	        var link_closing = str.indexOf(")") + 1
+	        
+	        var site = str.substring(str.indexOf("[") + 1, str.indexOf("]"))
+	        var link = str.substring(str.indexOf("(") + 1, str.indexOf(")"))
+	        
+	        var anchor = "<a href='" + link + "' target='_blank'>" + site + "</a>"
+	        
+	        str = str.replace(str.substring(link_opening, link_closing), anchor)
+	    }
+	    
+	    return str
 	}
 
+	P1previewmedia = HTMLify(P1media)
+	P2previewmedia = HTMLify(P2media)
 
 	//GENERATE TABLE PREVIEW
 
 
 	$("#preview-inner").empty(); //Clear last preview table
 
-	generatePlayerPreviewMedia()
-
 	addToPreview("<h1>" + round + "</h1>")
+
+	P1media = HTMLify(P1media)
+	P2media = HTMLify(P2media)
 
 	if(vodLink != ""){
 		addToPreview("<div><i>VoD: <a href='" + vodLink + "' target='_blank'>" + vodSite + "</i></div>")
@@ -697,7 +649,9 @@ function printFormattedTable(){ //Generate code and preview output
 	addToPreview("<table><thead>")
 	addToPreview("<tr>")
 	addToPreview("<th align='right'>" + P1mains.map(makePreviewFlair).toString().replace(/,/g , " ") + " " + P1 + "</th>")
+	addToPreview("<th align='center'></th>")
 	addToPreview("<th align='center'>" + getSetCount() + "</th>")
+	addToPreview("<th align='center'></th>")
 	addToPreview("<th align='left'>" + P2 + " " + P2mains.map(makePreviewFlair).toString().replace(/,/g , " ") + "</th>")
 	addToPreview("</tr>")
 	addToPreview("</thead><tbody>")

@@ -11,7 +11,7 @@
 <body>
 <h1 class="main-header">Tournament Tabler</h1>
 	<section class="container">
-		<span id="version">Ver. 3.0.5</span>
+		<span id="version">Ver. 3.2.0</span>
 		<!--===== Round Info =====-->
 		<section class="round-info">
 			<div><input type="text" id="Round" value="Grand Finals" placeholder="Round"></div>
@@ -134,12 +134,12 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="===== Battlefield =====" selected="selected">Battlefield</option>
-								<option value="== Final Destination ==">Final Destination</option>
-								<option value="==== Yoshi's Story ====">Yoshi's Story</option>
-								<option value="==== Dreamland 64 ====">Dreamland 64</option>
-								<option value="= Fountain of Dreams =">Fountain of Dreams</option>
-								<option value="=== Pokémon Stadium ===">Pokémon Stadium</option>
+								<option value="Battlefield" selected="selected">Battlefield</option>
+								<option value="Final Destination">Final Destination</option>
+								<option value="Yoshi's Story">Yoshi's Story</option>
+								<option value="Dreamland 64">Dreamland 64</option>
+								<option value="Fountain of Dreams">Fountain of Dreams</option>
+								<option value="Pokémon Stadium">Pokémon Stadium</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -156,7 +156,7 @@
 								<li onclick="changeStocksLeft('#GameOne', 4)">&bull;</li>
 							</ul>
 						</div>
-						<div class="clear-game-data" onclick="clearDataForGame(1)">Remove Game 1</div>
+						<div class="delete-game-data" onclick="deleteDataForGame(1)">Delete data for game 1</div>
 					</section>
 					<!--===== Game 2 Info =====-->
 					<section id="GameTwo">
@@ -179,12 +179,12 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="===== Battlefield =====">Battlefield</option>
-								<option value="== Final Destination ==">Final Destination</option>
-								<option value="==== Yoshi's Story ====">Yoshi's Story</option>
-								<option value="==== Dreamland 64 ====">Dreamland 64</option>
-								<option value="= Fountain of Dreams =">Fountain of Dreams</option>
-								<option value="=== Pokémon Stadium ===">Pokémon Stadium</option>
+								<option value="Battlefield">Battlefield</option>
+								<option value="Final Destination">Final Destination</option>
+								<option value="Yoshi's Story">Yoshi's Story</option>
+								<option value="Dreamland 64">Dreamland 64</option>
+								<option value="Fountain of Dreams">Fountain of Dreams</option>
+								<option value="Pokémon Stadium">Pokémon Stadium</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -201,7 +201,7 @@
 								<li onclick="changeStocksLeft('#GameTwo', 4)">&bull;</li>
 							</ul>
 						</div>
-						<div class="clear-game-data" onclick="clearDataForGame(2)">Remove Game 2</div>
+						<div class="delete-game-data" onclick="deleteDataForGame(2)">Delete data for game 2</div>
 					</section>
 					<!--===== Game 3 Info =====-->
 					<section id="GameThree">
@@ -224,12 +224,12 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="===== Battlefield =====">Battlefield</option>
-								<option value="== Final Destination ==">Final Destination</option>
-								<option value="==== Yoshi's Story ====">Yoshi's Story</option>
-								<option value="==== Dreamland 64 ====">Dreamland 64</option>
-								<option value="= Fountain of Dreams =">Fountain of Dreams</option>
-								<option value="=== Pokémon Stadium ===">Pokémon Stadium</option>
+								<option value="Battlefield">Battlefield</option>
+								<option value="Final Destination">Final Destination</option>
+								<option value="Yoshi's Story">Yoshi's Story</option>
+								<option value="Dreamland 64">Dreamland 64</option>
+								<option value="Fountain of Dreams">Fountain of Dreams</option>
+								<option value="Pokémon Stadium">Pokémon Stadium</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -246,7 +246,7 @@
 								<li onclick="changeStocksLeft('#GameThree', 4)">&bull;</li>
 							</ul>
 						</div>
-						<div class="clear-game-data" onclick="clearDataForGame(3)">Remove Game 3</div>
+						<div class="delete-game-data" onclick="deleteDataForGame(3)">Delete data for game 3</div>
 					</section>
 					<!--===== Game 4 Info =====-->
 					<section id="GameFour">
@@ -269,12 +269,12 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="===== Battlefield =====">Battlefield</option>
-								<option value="== Final Destination ==">Final Destination</option>
-								<option value="==== Yoshi's Story ====">Yoshi's Story</option>
-								<option value="==== Dreamland 64 ====">Dreamland 64</option>
-								<option value="= Fountain of Dreams =">Fountain of Dreams</option>
-								<option value="=== Pokémon Stadium ===">Pokémon Stadium</option>
+								<option value="Battlefield">Battlefield</option>
+								<option value="Final Destination">Final Destination</option>
+								<option value="Yoshi's Story">Yoshi's Story</option>
+								<option value="Dreamland 64">Dreamland 64</option>
+								<option value="Fountain of Dreams">Fountain of Dreams</option>
+								<option value="Pokémon Stadium">Pokémon Stadium</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -291,7 +291,7 @@
 								<li onclick="changeStocksLeft('#GameFour', 4)">&bull;</li>
 							</ul>
 						</div>
-						<div class="clear-game-data" onclick="clearDataForGame(4)">Remove Game 4</div>
+						<div class="delete-game-data" onclick="deleteDataForGame(4)">Delete data for game 4</div>
 					</section>
 					<!--===== Game 5 Info =====-->
 					<section id="GameFive">
@@ -314,12 +314,12 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="===== Battlefield =====">Battlefield</option>
-								<option value="== Final Destination ==">Final Destination</option>
-								<option value="==== Yoshi's Story ====">Yoshi's Story</option>
-								<option value="==== Dreamland 64 ====">Dreamland 64</option>
-								<option value="= Fountain of Dreams =">Fountain of Dreams</option>
-								<option value="=== Pokémon Stadium ===">Pokémon Stadium</option>
+								<option value="Battlefield">Battlefield</option>
+								<option value="Final Destination">Final Destination</option>
+								<option value="Yoshi's Story">Yoshi's Story</option>
+								<option value="Dreamland 64">Dreamland 64</option>
+								<option value="Fountain of Dreams">Fountain of Dreams</option>
+								<option value="Pokémon Stadium">Pokémon Stadium</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -336,7 +336,7 @@
 								<li onclick="changeStocksLeft('#GameFive', 4)">&bull;</li>
 							</ul>
 						</div>
-						<div class="clear-game-data" onclick="clearDataForGame(5)">Remove Game 5</div>
+						<div class="delete-game-data" onclick="deleteDataForGame(5)">Delete data for game 5</div>
 					</section>
 				</div>
 			</section>
@@ -349,7 +349,7 @@
 		<div id="results">
 			<div>
 				<h1>Reddit Comment Code</h1>
-				<div id="comment-code"></div>
+				<textarea id="comment-code" contenteditable="true"></textarea>
 			</div>
 			<div>
 				<h1>Preview</h1>
