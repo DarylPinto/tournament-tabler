@@ -449,8 +449,6 @@ function printFormattedTable(){ //Generate code and preview output
 			printLine(multiplyStock("P1",makeFlair(P1Char),stockCount) + " | `=` " + makeFlair(P1Char) + " | " + Stage + " | " + makeFlair(P2Char) + " `=` | ---")
 		}else if(winner === "P2"){
 			printLine("--- | `=` " + makeFlair(P1Char) + " | " + Stage + " | " + makeFlair(P2Char) + " `=` | " + multiplyStock("P2",makeFlair(P2Char),stockCount))
-		}else{
-			printLine("ERROR: WINNER NOT CHOSEN")
 		}
 	}
 
@@ -576,8 +574,6 @@ function printFormattedTable(){ //Generate code and preview output
 			addToPreview("<td align='center'>" + makePreviewFlair(P2Char) + " <code>=</code></td>")
 			addToPreview("<td align='left'>" + multiplyStock("P2",makePreviewFlair(P2Char),stockCount) + "</td>")
 			addToPreview("</tr>")
-		}else{
-			addToPreview("ERROR: WINNER NOT CHOSEN")
 		}
 	}
 

@@ -8,6 +8,10 @@ body{
 	transition: .5s;
 }
 
+h1, th, b{
+	font-weight: 600;
+}
+
 .clearfix{
 	clear: both;
 	height: 0;
@@ -103,6 +107,7 @@ option{
 	font-size: 24px;
 	border: 1px solid rgba(255, 255, 255, 0.3);
 	background-color: transparent;
+	min-width: 295px;
 }
 
 #Round{
@@ -118,11 +123,16 @@ option{
 
 /*===Player 1 & 2 Info===*/
 
-.player-one h1, .player-two h1{
+.player-one > h1, .player-two > h1{
 	background-color: rgba(0, 0, 0, 0.6);
 	line-height: 50px;
 	border-radius: 4px 4px 0px 0px;
 	margin-bottom: 20px;
+	font-size: 18px;
+}
+
+.player-one input, .player-two input{
+	width: 190px;
 }
 
 .player-one, .player-two, .game-wrapper{
@@ -222,11 +232,16 @@ option{
 	min-height: 610px;
 }
 
-.game-toggle h1{
+.game-toggle > h1{
 	background-color: rgba(0, 0, 0, 0.6);
 	height: 50px;
 	line-height: 50px;
 	border-radius: 4px 4px 0px 0px;
+	font-size: 18px;
+}
+
+.game-info div h1{
+	font-size: 13px;
 }
 
 .game-toggle div{
@@ -331,11 +346,17 @@ option{
 	background-color: transparent;
 	font-size: 13px;
 	line-height: 13px;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 .stage-select{
 	margin-top: 20px;
+}
+
+.Stage option{
+	margin: 0;
+	width: 200px;
+	cursor: pointer;
 }
 
 .winner{
@@ -492,6 +513,7 @@ button:active{
 	box-sizing: border-box;
 	width: 100%;
 	height: 110px;
+	font-size: 15px;
 	font-family: 'courier-new', monospace;
 	background-color: #fafafa;
 	padding: 20px;
