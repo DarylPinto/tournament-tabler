@@ -11,7 +11,7 @@
 <body>
 <h1 class="main-header">Tournament Tabler</h1>
 	<section class="container">
-		<span id="version">Ver. 3.2.2</span>
+		<span id="version">Ver. 3.2.3</span>
 		<!--===== Round Info =====-->
 		<section class="round-info">
 			<div><input type="text" id="Round" value="Grand Finals" placeholder="Round"></div>
@@ -349,7 +349,7 @@
 		<div id="results">
 			<div>
 				<h1>Reddit Comment Code</h1>
-				<textarea id="comment-code" contenteditable="true"></textarea>
+				<textarea id="comment-code" onclick="$('#comment-code').select()"></textarea>
 			</div>
 			<div>
 				<h1>Preview</h1>
@@ -362,7 +362,9 @@
 
 	<!--===== Footer =====-->
 
-	<p class="copyright">Made (with love) by <a href="http://reddit.com/u/darderp" target="_blank">/u/darderp</a> for <a href="http://reddit.com/r/smashbros" target="_blank">/r/smashbros</a></p>
+	<footer>
+		<p class="copyright">Made (with love) by <a href="http://reddit.com/u/darderp" target="_blank">/u/darderp</a> for <a href="http://reddit.com/r/smashbros" target="_blank">/r/smashbros</a></p>
+	</footer>
 
 	<!--===== Character Select Overlay =====-->
 	<div class="blackout" style="display: none">

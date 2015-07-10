@@ -3,7 +3,7 @@
 var codeLines = []
 var tablePreviewPieces = []
 
-var pressed = false
+var buttonHasBeenPressed = false
 var P1extras = false
 var P2extras = false
 var lastFieldClicked;
@@ -31,6 +31,21 @@ function printLine(content){ //Prints content into results box
 
 function addToPreview(content){ //Prints content into preview table
 	tablePreviewPieces.push(content);
+}
+
+function displaySnackbar(content){ //Display Android style snackbar notification
+	$("body").append("<div id='snackbar-shade' style='display: none' onclick=\"$('#comment-code').select()\"></div>")
+	$("#snackbar-shade").fadeIn()
+	$("body").append("<div id='snackbar' style='display: none' onclick=\"$('#comment-code').select()\"><span>" + content + "</span></div>")
+	$("#snackbar").fadeIn()
+	window.setTimeout(function(){
+		$("#snackbar-shade").fadeOut()
+		$("#snackbar").fadeOut()
+	}, 1500);
+	window.setTimeout(function(){
+		$("#snackbar-shade").remove()
+		$("#snackbar").remove()
+	}, 2500);
 }
 
 function openCharacterMenu(selector){ //Open character selection menu
@@ -257,35 +272,36 @@ function printFormattedTable(){ //Generate code and preview output
 	$("#results").css("display", "block"); //Show results code area
 	codeLines = [] //Clear last table code
 
-	if(!pressed){ //scroll to bottom on first button press
+	//if(!buttonHasBeenPressed){ //scroll to bottom on first button press
 		$("html, body").animate({ scrollTop: $(document).height() }, "slow");
-	}
-	pressed = true;
+	//}
+
+	buttonHasBeenPressed = true;
 
 	var round = $("#Round").val();
 	var vodLink = $("#vod-link").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
 
-	var P1 = $("#PlayerOne").val().replace("|", " ");
+	var P1 = $("#PlayerOne").val().replace(/\|/g, " ");
 	var P1mains = [];
 	if($("#P1Main1 div").attr("class") != undefined){
 		P1mains.push($("#P1Main1 div").attr("class"))
 	} if($("#P1Main2 div").attr("class") != undefined){
 		P1mains.push($("#P1Main2 div").attr("class"))
 	}
-	var P1name = $("#PlayerOneName").val().replace("|"," ");
+	var P1name = $("#PlayerOneName").val().replace(/\|/g, " ");
 	var P1twitch = $("#PlayerOneTwitch").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P1twitter = $("#PlayerOneTwitter").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P1liquipedia = $("#PlayerOneLiquipedia").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P1media = "";
 
-	var P2 = $("#PlayerTwo").val().replace("|"," ");
+	var P2 = $("#PlayerTwo").val().replace(/\|/g, " ");
 	var P2mains = [];
 	if($("#P2Main1 div").attr("class") != undefined){
 		P2mains.push($("#P2Main1 div").attr("class"))
 	} if($("#P2Main2 div").attr("class") != undefined){
 		P2mains.push($("#P2Main2 div").attr("class"))
 	}
-	var P2name = $("#PlayerTwoName").val().replace("|"," ");
+	var P2name = $("#PlayerTwoName").val().replace(/\|/g, " ");
 	var P2twitch = $("#PlayerTwoTwitch").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P2twitter = $("#PlayerTwoTwitter").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P2liquipedia = $("#PlayerTwoLiquipedia").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
@@ -526,22 +542,14 @@ function printFormattedTable(){ //Generate code and preview output
 
 
 	$("#comment-code").select() //Auto Highlight code text after "Generate Table" button is clicked
-
-	$("body").append("<div id='snackbar-shade' style='display: none' onclick=\"$('#comment-code').select()\"></div>")
-	$("#snackbar-shade").fadeIn()
-	$("body").append("<div id='snackbar' onclick=\"$('#comment-code').select()\"><span>Text selected! Ctrl+C to copy!</span></div>")
-	$("#snackbar").fadeIn()
-	window.setTimeout(function(){
-		$("#snackbar-shade").fadeOut()
-		$("#snackbar").fadeOut()
-	}, 1500);
-	window.setTimeout(function(){
-		$("#snackbar-shade").remove()
-		$("#snackbar").remove()
-	}, 2500);
+	
+	if( navigator.appVersion.indexOf("Mac") != -1){ //Let user know that they can press Ctrl+C/Command+C to copy reddit comment code
+		displaySnackbar("Code selected! Command+C to copy!")
+	}else{
+		displaySnackbar("Code selected! Ctrl+C to copy!")
+	}
 
 	//PREVIEW TABLE SPECIFIC FUNCTIONS
-
 
 	function makePreviewFlair(str){
 		if(str === undefined){
@@ -574,6 +582,7 @@ function printFormattedTable(){ //Generate code and preview output
 	}
 
 	function HTMLify(str){ //Converts reddit markup to HTML markup
+
 	    var b_tagType = "open";
 	    var i_tagType = "open";
 	    var code_tagType = "open";
@@ -619,7 +628,7 @@ function printFormattedTable(){ //Generate code and preview output
 	        
 	        str = str.replace(str.substring(link_opening, link_closing), anchor)
 	    }
-	    
+
 	    return str
 	}
 

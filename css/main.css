@@ -499,6 +499,7 @@ button:active{
 	border: none;
 	text-align: left;
 	overflow: hidden;
+	cursor: pointer;
 }
 
 #preview{
