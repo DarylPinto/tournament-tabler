@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="shortcut icon" href="http://img1.wikia.nocookie.net/__cb20150114084035/ssb/images/6/64/Favicon.ico" />
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Satisfy|Roboto:300,700,400|Merriweather:400,700italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Satisfy|Roboto:300,700,400|Merriweather:400,700italic|Droid+Serif:400italic' rel='stylesheet' type='text/css'>
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
 
 	<meta name="description" content='Easy to use GUI to generate tables for /r/smashbros tournament result threads. Fill in the game information while watching the set, click "Generate Table", and BAM. Instant table.'/>
@@ -15,7 +15,11 @@
 <body>
 <h1 class="main-header">Tournament Tabler</h1>
 	<section class="container">
-		<span id="version">Ver. 3.2.5</span>
+		<span id="version">Ver. 3.2.6</span>
+		<section id="tutorial-info">
+			<div class="close-X" onclick="$('#tutorial-info').fadeOut()">X</div>
+			<p>Tournament Tabler is an easy-to-use tool for generating in-depth set tables for /r/smashbros tournament result threads. Fill in the game information while watching the set, click "Generate Table", and BAM. Instant table.</p>
+		</section>
 		<!--===== Round Info =====-->
 		<section class="round-info">
 			<div><input type="text" id="Round" value="Grand Finals" placeholder="Round"></div>

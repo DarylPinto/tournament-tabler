@@ -92,6 +92,35 @@ option{
 	background-color: rgb(27, 27, 27);
 }
 
+/*===Tutorial Info===*/
+
+#tutorial-info{
+	line-height: 1.8;
+	color: rgba(255, 255, 255, 0.75);
+	font-style: italic;
+	font-family: 'Droid Serif' serif;
+	font-size: 13px;
+	position: relative;
+}
+
+#tutorial-info p{
+	max-width: 60%;
+	margin: 0 auto;
+}
+
+#tutorial-info .close-X{
+	position: absolute;
+	font-style: normal;
+	font-size: 18px;
+	top: 5px;
+	right: 15px;
+	transition: .2s;
+}
+
+#tutorial-info .close-X:hover{
+	color: white;
+}
+
 /*===Round Info (e.g. Grand Finals)===*/
 
 .round-info{
