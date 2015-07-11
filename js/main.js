@@ -524,7 +524,7 @@ function printFormattedTable(){ //Generate code and preview output
 		displayRow(game5Winner, game5P1Character, game5P2Character, game5Stage, game5StockCount)
 	}
 
-	printLine("*^^Generated ^^by [^^Tournament ^^Tabler](http://darylpinto.com/tournament-tabler)*");
+	printLine("*^^Generated ^^by [^^Tournament ^^Tabler](http://tournament-tabler.com/)*");
 
 	printLine("");
 	printLine("---");
