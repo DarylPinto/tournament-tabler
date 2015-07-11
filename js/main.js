@@ -1,5 +1,4 @@
 //Default values
-
 var codeLines = []
 var tablePreviewPieces = []
 
@@ -19,6 +18,8 @@ var game2StockCount;
 var game3StockCount;
 var game4StockCount;
 var game5StockCount;
+
+var games = ["#GameOne", "#GameTwo", "#GameThree", "#GameFour", "#GameFive"]
 
 function randomNumberBetween(low,high){ //Get a random int between low and high (including low, not including high)
 	return Math.floor(Math.random()*(high-low)+low);
@@ -55,6 +56,7 @@ function openCharacterMenu(selector){ //Open character selection menu
 }
 
 function chooseCharacter(character){ //Load selected character into box that was clicked to open the menu, then close the menu
+
 	$(lastFieldClicked).empty();
 	if(character != "clear"){
 		$(lastFieldClicked).append('<div class="' + character + '"></div>');
@@ -66,26 +68,19 @@ function chooseCharacter(character){ //Load selected character into box that was
 
 	if( (lastFieldClicked === "#P1Main1" || lastFieldClicked.split(" ")[1] === ".PlayerOneCharacter") && character != "clear"){ 
 		updateEmptyGameChars("P1", character)
-		updateStocksLeftIcons("#GameOne")
-		updateStocksLeftIcons("#GameTwo")
-		updateStocksLeftIcons("#GameThree")
-		updateStocksLeftIcons("#GameFour")
-		updateStocksLeftIcons("#GameFive")
+		games.forEach(function(game){
+			updateStocksLeftIcons(game)
+		});
 	}
 	if( (lastFieldClicked === "#P2Main1" || lastFieldClicked.split(" ")[1] === ".PlayerTwoCharacter") && character != "clear"){ 
 		updateEmptyGameChars("P2", character)
-		updateStocksLeftIcons("#GameOne")
-		updateStocksLeftIcons("#GameTwo")
-		updateStocksLeftIcons("#GameThree")
-		updateStocksLeftIcons("#GameFour")
-		updateStocksLeftIcons("#GameFive")
+		games.forEach(function(game){
+			updateStocksLeftIcons(game)
+		});
 	}
 }
 
 function updateEmptyGameChars(player, character){ //If mains or game characters are updated, automatically update the ones in the games that the user has not yet set themselves
-
-	var games = ['#GameOne', '#GameTwo', '#GameThree', '#GameFour', '#GameFive'];
-
 	games.forEach(function(game){
 		if( ( $(game + " .PlayerOneCharacter div").attr("class") === undefined || $(game + " .PlayerOneCharacter div").attr("autoset") === "true" ) && $("#P1Main1 div").attr("class") != undefined && player === "P1"){
 			$(game + " .PlayerOneCharacter").empty()
@@ -212,9 +207,6 @@ function clearExtra(extra){ //Clear an extras field
 }
 
 function deleteDataForGame(num){ //Clears all data entered for a specified game
-
-	var games = ["#GameOne", "#GameTwo", "#GameThree", "#GameFour", "#GameFive"]
-
 	var game = games[num - 1]
 
 	if(confirm("Are you sure you want to delete all data for Game " + num + "?") === true){
@@ -258,7 +250,6 @@ function showGame(num){ //Change which game user is currently looking at
 }
 
 function solidifyCharChoice(num){ //Choosing a game num solidifies character choices in afformentioned games' fields
-	var games = ['#GameOne', '#GameTwo', '#GameThree', '#GameFour', '#GameFive']
 
 	$(games[num - 1] + " .PlayerOneCharacter div").removeAttr("autoset")
 	$(games[num - 1] + " .PlayerTwoCharacter div").removeAttr("autoset")
@@ -533,7 +524,7 @@ function printFormattedTable(){ //Generate code and preview output
 		displayRow(game5Winner, game5P1Character, game5P2Character, game5Stage, game5StockCount)
 	}
 
-	printLine("*^^Generated ^^by [^^Tournament ^^Tabler](http://darylpinto.github.io)*");
+	printLine("*^^Generated ^^by [^^Tournament ^^Tabler](http://darylpinto.com/tournament-tabler)*");
 
 	printLine("");
 	printLine("---");

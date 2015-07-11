@@ -1,2 +1,7 @@
-# tournament-result-tabler
-An online GUI for generating reddit markup for /r/smashbros tournament result threads. I did all the hard work so that you don't have to! :)
+# Tournament Tabler
+
+Easy to use GUI created to generate tables for /r/smashbros tournament result threads.
+
+Fill in the game information while watching the set, click "Generate Table", and BAM. Instant table.
+
+[Click here to go to Tournament Tabler](http://darylpinto.com/tournament-tabler/)
