@@ -252,37 +252,83 @@ function setDynamicName(){ //Update player name throughout the page
 }
 
 function playerAutofill(playerNum){ //Search player-data.js. If a player's tag matches one of the entries in PlayerDatabase, autofill their credentials
+	
+	function fillFields(num, player){ //num refers to the player num (as in player 1 or 2) - player refers to a player object from the playerdatabase
+		if(num === 1){
+			var playerOfficialTag = player.name.slice(player.name.indexOf('"'), player.name.lastIndexOf('"') + 1)
+
+			displaySnackbar("Automatically loaded player data for " + playerOfficialTag + ".", 1500)
+			P1lastAutofill = player.aliases[0];
+
+			showExtras(1)
+
+			$("#PlayerOneName").val(player.name)
+			$("#P1Main1").empty()
+			$("#P1Main2").empty()
+			$("#P1Main1").append("<div class='" + player.characters[0] + "'></div>")
+			if(player.characters.length > 1){
+				$("#P1Main2").append("<div class='" + player.characters[1] + "'></div>")
+			}
+			$("#PlayerOneTwitch").val(player.twitch)
+			$("#PlayerOneTwitter").val(player.twitter)
+			$("#PlayerOneLiquipedia").val(player.wiki)
+			$("#PlayerOneSponsor").val(player.sponsor)
+
+			updateEmptyGameChars("P1", player.characters[0])
+
+			games.forEach(function(game){
+				updateStocksLeftIcons(game)
+			});
+		}else if(num === 2){
+			var playerOfficialTag = player.name.slice(player.name.indexOf('"'), player.name.lastIndexOf('"') + 1)
+
+			displaySnackbar("Automatically loaded player data for " + playerOfficialTag + ".", 1500)
+			P2lastAutofill = player.aliases[0];
+
+			showExtras(2)
+
+			$("#PlayerTwoName").val(player.name)
+			$("#P2Main1").empty()
+			$("#P2Main2").empty()
+			$("#P2Main1").append("<div class='" + player.characters[0] + "'></div>")
+			if(player.characters.length > 1){
+				$("#P2Main2").append("<div class='" + player.characters[1] + "'></div>")
+			}
+			$("#PlayerTwoTwitch").val(player.twitch)
+			$("#PlayerTwoTwitter").val(player.twitter)
+			$("#PlayerTwoLiquipedia").val(player.wiki)
+			$("#PlayerTwoSponsor").val(player.sponsor)
+
+			updateEmptyGameChars("P2", player.characters[0])
+
+			games.forEach(function(game){
+				updateStocksLeftIcons(game)
+			});
+		}
+	}
+
 	if(playerNum === 1){
 
 		PlayerDatabase.forEach(function(player){
-			var PlayerTagArray = $("#PlayerOne").val().toLowerCase().split(/\W+/g);
-			
-			PlayerTagArray.forEach(function(tagPiece){
+
+			player.aliases.forEach(function(alias){
 				
-				if(player.aliases.indexOf(tagPiece) > -1 && player.aliases[0] != P1lastAutofill){
+				var PlayerTagArray = $("#PlayerOne").val().toLowerCase().split(/\W+/g);
 
-					displaySnackbar("Automatically loaded player data for " + player.name.slice(player.name.indexOf('"'), player.name.lastIndexOf('"') + 1) + ".", 2500)
-					P1lastAutofill = player.aliases[0];
-
-					showExtras(1)
-
-					$("#PlayerOneName").val(player.name)
-					$("#P1Main1").empty()
-					$("#P1Main2").empty()
-					$("#P1Main1").append("<div class='" + player.characters[0] + "'></div>")
-					if(player.characters.length > 1){
-						$("#P1Main2").append("<div class='" + player.characters[1] + "'></div>")
+				if(player.aliases[0] != P1lastAutofill){ //Make sure that the previously auto-loaded player is not the same as the current one
+					
+					if(alias.indexOf(" ") === -1){ //If player object in playerdatabase has an alias WITHOUT a space in it, compare each word of the tag the user entered with each alias
+						PlayerTagArray.forEach(function(tagPiece){
+							if(player.aliases.indexOf(tagPiece) > -1){
+								fillFields(1, player)
+							}
+						});
+					}else if( $("#PlayerOne").val().toLowerCase().indexOf(alias) > -1){ //If player object in playerdatabase has an alias WITH a space in it, compare entire tag the user entered with each alias
+						fillFields(1, player)
+					}else if( $("#PlayerOne").val().toLowerCase().indexOf(alias.replace(/ /g, "")) > -1){ //If player object in playerdatabase has an alias with a space in it, also compare the tag the user entered with each alias WITH NO SPACES IN THEM
+						fillFields(1, player)
 					}
-					$("#PlayerOneTwitch").val(player.twitch)
-					$("#PlayerOneTwitter").val(player.twitter)
-					$("#PlayerOneLiquipedia").val(player.wiki)
-					$("#PlayerOneSponsor").val(player.sponsor)
-
-					updateEmptyGameChars("P1", player.characters[0])
-
-					games.forEach(function(game){
-						updateStocksLeftIcons(game)
-					});
+					
 				}
 
 			});
@@ -292,34 +338,25 @@ function playerAutofill(playerNum){ //Search player-data.js. If a player's tag m
 	}else if(playerNum === 2){
 
 		PlayerDatabase.forEach(function(player){
-			var PlayerTagArray = $("#PlayerTwo").val().toLowerCase().split(/\W+/g);
 			
-			PlayerTagArray.forEach(function(tagPiece){
+			player.aliases.forEach(function(alias){
 				
-				if(player.aliases.indexOf(tagPiece) > -1 && player.aliases[0] != P2lastAutofill){
+				var PlayerTagArray = $("#PlayerTwo").val().toLowerCase().split(/\W+/g);
 
-					displaySnackbar("Automatically loaded player data for " + player.name.slice(player.name.indexOf('"'), player.name.lastIndexOf('"') + 1) + ".", 2500)
-					P2lastAutofill = player.aliases[0];
+				if(player.aliases[0] != P2lastAutofill){ //Make sure that the previously auto-loaded player is not the same as the current one
 
-					showExtras(2)
-
-					$("#PlayerTwoName").val(player.name)
-					$("#P2Main1").empty()
-					$("#P2Main2").empty()
-					$("#P2Main1").append("<div class='" + player.characters[0] + "'></div>")
-					if(player.characters.length > 1){
-						$("#P2Main2").append("<div class='" + player.characters[1] + "'></div>")
+					if(alias.indexOf(" ") === -1){ //If player object in playerdatabase has an alias WITHOUT a space in it, compare each word of the tag the user entered with each alias
+						PlayerTagArray.forEach(function(tagPiece){
+							if(player.aliases.indexOf(tagPiece) > -1){
+								fillFields(2, player)
+							}
+						});
+					}else if( $("#PlayerTwo").val().toLowerCase().indexOf(alias) > -1){ //If player object in playerdatabase has an alias WITH a space in it, compare entire tag the user entered with each alias
+						fillFields(2, player)
+					}else if( $("#PlayerTwo").val().toLowerCase().indexOf(alias.replace(/ /g, "")) > -1){ //If player object in playerdatabase has an alias with a space in it, also compare the tag the user entered with each alias WITH NO SPACES IN THEM
+						fillFields(2, player)
 					}
-					$("#PlayerTwoTwitch").val(player.twitch)
-					$("#PlayerTwoTwitter").val(player.twitter)
-					$("#PlayerTwoLiquipedia").val(player.wiki)
-					$("#PlayerTwoSponsor").val(player.sponsor)
 
-					updateEmptyGameChars("P2", player.characters[0])
-
-					games.forEach(function(game){
-						updateStocksLeftIcons(game)
-					});
 				}
 
 			});
@@ -819,4 +856,24 @@ $("#PlayerOne").focusout(function(){
 $("#PlayerTwo").focusout(function(){
 	setDynamicName();
 	playerAutofill(2);
+});
+
+
+
+//Ad positioning
+
+function positionAd(){
+	if($(window).width() > 1330 ){
+		$("#ad-container").css( "height", ($(window).height() - 120).toString() + "px" )
+	}else{
+		$("#ad-container").css( "height", "125px" )
+	}
+}
+
+$(window).load(function(){
+	positionAd()
+});
+
+$( window ).resize(function(){
+	positionAd()
 });

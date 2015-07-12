@@ -10,8 +10,26 @@ function Player(aliases, characters, name, twitch, twitter, wiki, sponsor){
 
 var PlayerDatabase = [
 
+/*
+
+PLAYER OBJECT SYNTAX RULES
+
+---Aliases---
+
+-Must be in an array
+-Must be alphanumeric
+-Must be lowercase
+-If it has a space in it, don't bother including the version without a space ('silent wolf' is all that's needed, don't include 'silentWolf')
+    -If you are unsure whether or not the name is usually spelled with our without a space, spell it WITH a space ('kirbykaze' is traditionally spelled without a space, but because of uncertainty spell it 'kirby kaze' instead.)
+
+---Full Names---
+
+-Must include their tag between their first and last names surrounded by two double quotes ('Joseph "Mang0" Marquez')
+
+*/
+
 new Player(
-	['mango', 'mang0'], //Array of tags (MUST BE LOWER CASE)
+	['mango', 'mang0'], //Array of aliases
 	['Fox', 'Falco'], //Array of player's mains (2 max)
 	'Joseph "Mang0" Marquez', //Full name
 	'mang0', //Twitch Username
@@ -21,7 +39,7 @@ new Player(
 ),
 
 new Player(
-	['armada'], //Array of tags (MUST BE LOWER CASE)
+	['armada'], //Array of aliases
 	['Fox', 'Peach'], //Array of player's mains (2 max)
 	'Adam "Armada" Lindgren', //Full name
 	'ArmadaUGS', //Twitch Username
@@ -31,7 +49,7 @@ new Player(
 ),
 
 new Player(
-	['ppmd'], //Array of tags (MUST BE LOWER CASE)
+	['ppmd'], //Array of aliases
 	['Falco', 'Marth'], //Array of player's mains (2 max)
 	'Kevin "PPMD" Nanney', //Full name
 	'ppmd', //Twitch Username
@@ -41,7 +59,7 @@ new Player(
 ),
 
 new Player(
-	['mew2king', 'mewtwoking', 'm2k'], //Array of tags (MUST BE LOWER CASE)
+	['mew2king', 'mewtwoking', 'm2k'], //Array of aliases
 	['Sheik', 'Marth'], //Array of player's mains (2 max)
 	'Jason "Mew2King" Zimmerman', //Full name
 	'mew2king', //Twitch Username
@@ -51,7 +69,7 @@ new Player(
 ),
 
 new Player(
-	['hungrybox', 'hbox'], //Array of tags (MUST BE LOWER CASE)
+	['hungrybox', 'hbox'], //Array of aliases
 	['Puff'], //Array of player's mains (2 max)
 	'Juan "Hungrybox" Debiedma', //Full name
 	'Hungrybox', //Twitch Username
@@ -61,7 +79,7 @@ new Player(
 ),
 
 new Player(
-	['leffen'], //Array of tags (MUST BE LOWER CASE)
+	['leffen'], //Array of aliases
 	['Fox'], //Array of player's mains (2 max)
 	'William "Leffen" Hjelte', //Full name
 	'lffn', //Twitch Username
@@ -71,7 +89,7 @@ new Player(
 ),
 
 new Player(
-	['axe'], //Array of tags (MUST BE LOWER CASE)
+	['axe'], //Array of aliases
 	['Pikachu'], //Array of player's mains (2 max)
 	'Jeffrey "Axe" Williamson', //Full name
 	'', //Twitch Username
@@ -81,7 +99,7 @@ new Player(
 ),
 
 new Player(
-	['hax'], //Array of tags (MUST BE LOWER CASE)
+	['hax'], //Array of aliases
 	['Fox', 'CF'], //Array of player's mains (2 max)
 	'Aziz "Hax" Al-Yami', //Full name
 	'', //Twitch Username
@@ -91,7 +109,7 @@ new Player(
 ),
 
 new Player(
-	['westballz'], //Array of tags (MUST BE LOWER CASE)
+	['westballz'], //Array of aliases
 	['Falco'], //Array of player's mains (2 max)
 	'Weston "Westballz" Dennis', //Full name
 	'westballz', //Twitch Username
@@ -101,7 +119,7 @@ new Player(
 ),
 
 new Player(
-	['colbol'], //Array of tags (MUST BE LOWER CASE)
+	['colbol'], //Array of aliases
 	['Fox'], //Array of player's mains (2 max)
 	'Colin "Colbol" Green', //Full name
 	'', //Twitch Username
@@ -111,7 +129,7 @@ new Player(
 ),
 
 new Player(
-	['amanita'], //Array of tags (MUST BE LOWER CASE)
+	['fly amanita'], //Array of aliases
 	['Icies'], //Array of player's mains (2 max)
 	'Jeremy "Fly Amanita" Westfahl', //Full name
 	'FlyAgaric', //Twitch Username
@@ -121,7 +139,7 @@ new Player(
 ),
 
 new Player(
-	['lucky'], //Array of tags (MUST BE LOWER CASE)
+	['lucky'], //Array of aliases
 	['Fox'], //Array of player's mains (2 max)
 	'Joey "Lucky" Aldama', //Full name
 	'thenorwalkbat', //Twitch Username
@@ -131,7 +149,7 @@ new Player(
 ),
 
 new Player(
-	['pewpewu'], //Array of tags (MUST BE LOWER CASE)
+	['pewpewu'], //Array of aliases
 	['Marth'], //Array of player's mains (2 max)
 	'Kevin "PewPewU" Toy', //Full name
 	'pewpewu', //Twitch Username
@@ -141,7 +159,7 @@ new Player(
 ),
 
 new Player(
-	['shroomed'], //Array of tags (MUST BE LOWER CASE)
+	['shroomed'], //Array of aliases
 	['Sheik', 'DrMario'], //Array of player's mains (2 max)
 	'DaJuan "Shroomed" Jefferson McDaniel', //Full name
 	'', //Twitch Username
@@ -151,7 +169,7 @@ new Player(
 ),
 
 new Player(
-	['silentwolf', 'wolf'], //Array of tags (MUST BE LOWER CASE)
+	['silent wolf'], //Array of aliases
 	['Fox'], //Array of player's mains (2 max)
 	'Otto "Silent Wolf" Bisno', //Full name
 	'SilentWolf444', //Twitch Username
@@ -161,7 +179,7 @@ new Player(
 ),
 
 new Player(
-	['plup'], //Array of tags (MUST BE LOWER CASE)
+	['plup'], //Array of aliases
 	['Sheik', 'Samus'], //Array of player's mains (2 max)
 	'Justin "Plup" McGrath', //Full name
 	'', //Twitch Username
@@ -171,7 +189,7 @@ new Player(
 ),
 
 new Player(
-	['fiction'], //Array of tags (MUST BE LOWER CASE)
+	['fiction'], //Array of aliases
 	['Fox', 'Marth'], //Array of player's mains (2 max)
 	'Shephard "Fiction" Lima', //Full name
 	'', //Twitch Username
@@ -181,7 +199,7 @@ new Player(
 ),
 
 new Player(
-	['s2j', 'smoke2joints'], //Array of tags (MUST BE LOWER CASE)
+	['s2j', 'smoke2joints'], //Array of aliases
 	['CF'], //Array of player's mains (2 max)
 	'Johnny "S2J" Kim', //Full name
 	'', //Twitch Username
@@ -191,7 +209,7 @@ new Player(
 ),
 
 new Player(
-	['ice'], //Array of tags (MUST BE LOWER CASE)
+	['ice'], //Array of aliases
 	['Fox', 'Sheik'], //Array of player's mains (2 max)
 	'Mustafa "Ice" Akcakaya', //Full name
 	'', //Twitch Username
@@ -201,7 +219,7 @@ new Player(
 ),
 
 new Player(
-	['sfat'], //Array of tags (MUST BE LOWER CASE)
+	['sfat'], //Array of aliases
 	['Fox'], //Array of player's mains (2 max)
 	'Zachary "SFAT" Cordoni', //Full name
 	'', //Twitch Username
@@ -211,7 +229,7 @@ new Player(
 ),
 
 new Player(
-	['zhu'], //Array of tags (MUST BE LOWER CASE)
+	['zhu'], //Array of aliases
 	['Falco'], //Array of player's mains (2 max)
 	'Julian "Zhu" Zhu', //Full name
 	'smashpractice', //Twitch Username
@@ -221,7 +239,7 @@ new Player(
 ),
 
 new Player(
-	['amsa'], //Array of tags (MUST BE LOWER CASE)
+	['amsa'], //Array of aliases
 	['Yoshi'], //Array of player's mains (2 max)
 	'Masaya "aMSa" Chikamoto', //Full name
 	'amsayoshi', //Twitch Username
@@ -231,7 +249,7 @@ new Player(
 ),
 
 new Player(
-	['kirbykaze'], //Array of tags (MUST BE LOWER CASE)
+	['kirby kaze'], //Array of aliases
 	['Sheik'], //Array of player's mains (2 max)
 	'David "KirbyKaze" MacDonald', //Full name
 	'', //Twitch Username
@@ -241,7 +259,7 @@ new Player(
 ),
 
 new Player(
-	['nintendude'], //Array of tags (MUST BE LOWER CASE)
+	['nintendude'], //Array of aliases
 	['Icies'], //Array of player's mains (2 max)
 	'Michael "Nintendude" Brancato', //Full name
 	'', //Twitch Username
@@ -251,7 +269,7 @@ new Player(
 ),
 
 new Player(
-	['macd'], //Array of tags (MUST BE LOWER CASE)
+	['macd'], //Array of aliases
 	['Peach'], //Array of player's mains (2 max)
 	'McCain "MacD" LaVelle', //Full name
 	'MacDsmash', //Twitch Username
@@ -261,7 +279,7 @@ new Player(
 ),
 
 new Player(
-	['chillin', 'chillindude', 'chillindude829'], //Array of tags (MUST BE LOWER CASE)
+	['chillin', 'chillin dude', 'chillindude829'], //Array of aliases
 	['Fox'], //Array of player's mains (2 max)
 	'Kashan "Chillindude" Khan', //Full name
 	'chillindude', //Twitch Username
@@ -271,7 +289,7 @@ new Player(
 ),
 
 new Player(
-	['javi'], //Array of tags (MUST BE LOWER CASE)
+	['javi'], //Array of aliases
 	['Fox'], //Array of player's mains (2 max)
 	'Javier "Javi" Dantes', //Full name
 	'', //Twitch Username
@@ -281,7 +299,7 @@ new Player(
 ),
 
 new Player(
-	['kels'], //Array of tags (MUST BE LOWER CASE)
+	['kels'], //Array of aliases
 	['Fox'], //Array of player's mains (2 max)
 	'Kelly "Kels" Smith', //Full name
 	'', //Twitch Username
@@ -291,7 +309,7 @@ new Player(
 ),
 
 new Player(
-	['wizzrobe', 'wizzy'], //Array of tags (MUST BE LOWER CASE)
+	['wizzrobe', 'wizzy'], //Array of aliases
 	['CF'], //Array of player's mains (2 max)
 	'Justin "Wizzrobe" Hallett', //Full name
 	'Wizzzrobe', //Twitch Username
@@ -301,7 +319,7 @@ new Player(
 ),
 
 new Player(
-	['moon'], //Array of tags (MUST BE LOWER CASE)
+	['the moon'], //Array of aliases
 	['Marth'], //Array of player's mains (2 max)
 	'Ryan "The Moon" Coker-Welch', //Full name
 	'', //Twitch Username

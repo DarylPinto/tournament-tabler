@@ -913,3 +913,29 @@ button:active{
 	box-sizing: border-box;
 	border-radius: 100px;
 }
+
+/*--Ads--*/
+
+#ad-container{
+	border: 1px solid black;
+	display: inline-block;
+	width: 125px;
+	height: 550px;
+	position: fixed;
+	top: 60px;
+	right: 0;
+	overflow: hidden;
+}
+
+@media screen and (max-width: 1330px) {
+	/*--Ads--*/
+
+	#ad-container{
+		border: 1px solid black;
+		display: block;
+		width: 1040px;
+		height: 125px;
+		margin: 0 auto;
+		position: static;
+	}
+}
