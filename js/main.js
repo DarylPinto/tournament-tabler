@@ -2,6 +2,9 @@
 var codeLines = []
 var tablePreviewPieces = []
 
+var P1lastAutofill = "mango";
+var P2lastAutofill = "leffen";
+
 var buttonHasBeenPressed = false
 var P1extras = false
 var P2extras = false
@@ -34,7 +37,7 @@ function addToPreview(content){ //Prints content into preview table
 	tablePreviewPieces.push(content);
 }
 
-function displaySnackbar(content){ //Display Android style snackbar notification
+function displaySnackbar(content, duration){ //Display Android style snackbar notification
 	$("body").append("<div id='snackbar-shade' style='display: none' onclick=\"$('#comment-code').select()\"></div>")
 	$("#snackbar-shade").fadeIn()
 	$("body").append("<div id='snackbar' style='display: none' onclick=\"$('#comment-code').select()\"><span>" + content + "</span></div>")
@@ -42,11 +45,11 @@ function displaySnackbar(content){ //Display Android style snackbar notification
 	window.setTimeout(function(){
 		$("#snackbar-shade").fadeOut()
 		$("#snackbar").fadeOut()
-	}, 1500);
+	}, duration);
 	window.setTimeout(function(){
 		$("#snackbar-shade").remove()
 		$("#snackbar").remove()
-	}, 2500);
+	}, (duration + 1000));
 }
 
 function openCharacterMenu(selector){ //Open character selection menu
@@ -207,9 +210,21 @@ function clearExtra(extra){ //Clear an extras field
 }
 
 function deleteDataForGame(num){ //Clears all data entered for a specified game
-	var game = games[num - 1]
+	
+	if(num === "all"){
+		if(confirm("Are you sure you want to delete all data for the entire set?")){
+			games.forEach(function(game){
+				$(game + " .PlayerOneCharacter, " + game + " .PlayerTwoCharacter").empty()
+				$(game + " .Stage").val("---")
 
-	if(confirm("Are you sure you want to delete all data for Game " + num + "?") === true){
+				chooseWinner(game, null)
+
+				$(game + " .stock-count li").empty()
+				changeStocksLeft(game, 0)
+			});
+		}
+	}else if(confirm("Are you sure you want to delete data for Game " + num + "?") === true){
+		var game = games[num - 1]
 
 		$(game + " .PlayerOneCharacter, " + game + " .PlayerTwoCharacter").empty()
 		$(game + " .Stage").val("---")
@@ -236,8 +251,83 @@ function setDynamicName(){ //Update player name throughout the page
 	}
 }
 
-$("#PlayerOne").focusout(setDynamicName); //When player tag field loses focus, update the player name throughout the page
-$("#PlayerTwo").focusout(setDynamicName);
+function playerAutofill(playerNum){ //Search player-data.js. If a player's tag matches one of the entries in PlayerDatabase, autofill their credentials
+	if(playerNum === 1){
+
+		PlayerDatabase.forEach(function(player){
+			var PlayerTagArray = $("#PlayerOne").val().toLowerCase().split(/\W+/g);
+			
+			PlayerTagArray.forEach(function(tagPiece){
+				
+				if(player.aliases.indexOf(tagPiece) > -1 && player.aliases[0] != P1lastAutofill){
+
+					displaySnackbar("Automatically loaded player data for " + player.name.slice(player.name.indexOf('"'), player.name.lastIndexOf('"') + 1) + ".", 2500)
+					P1lastAutofill = player.aliases[0];
+
+					showExtras(1)
+
+					$("#PlayerOneName").val(player.name)
+					$("#P1Main1").empty()
+					$("#P1Main2").empty()
+					$("#P1Main1").append("<div class='" + player.characters[0] + "'></div>")
+					if(player.characters.length > 1){
+						$("#P1Main2").append("<div class='" + player.characters[1] + "'></div>")
+					}
+					$("#PlayerOneTwitch").val(player.twitch)
+					$("#PlayerOneTwitter").val(player.twitter)
+					$("#PlayerOneLiquipedia").val(player.wiki)
+					$("#PlayerOneSponsor").val(player.sponsor)
+
+					updateEmptyGameChars("P1", player.characters[0])
+
+					games.forEach(function(game){
+						updateStocksLeftIcons(game)
+					});
+				}
+
+			});
+
+		});
+
+	}else if(playerNum === 2){
+
+		PlayerDatabase.forEach(function(player){
+			var PlayerTagArray = $("#PlayerTwo").val().toLowerCase().split(/\W+/g);
+			
+			PlayerTagArray.forEach(function(tagPiece){
+				
+				if(player.aliases.indexOf(tagPiece) > -1 && player.aliases[0] != P2lastAutofill){
+
+					displaySnackbar("Automatically loaded player data for " + player.name.slice(player.name.indexOf('"'), player.name.lastIndexOf('"') + 1) + ".", 2500)
+					P2lastAutofill = player.aliases[0];
+
+					showExtras(2)
+
+					$("#PlayerTwoName").val(player.name)
+					$("#P2Main1").empty()
+					$("#P2Main2").empty()
+					$("#P2Main1").append("<div class='" + player.characters[0] + "'></div>")
+					if(player.characters.length > 1){
+						$("#P2Main2").append("<div class='" + player.characters[1] + "'></div>")
+					}
+					$("#PlayerTwoTwitch").val(player.twitch)
+					$("#PlayerTwoTwitter").val(player.twitter)
+					$("#PlayerTwoLiquipedia").val(player.wiki)
+					$("#PlayerTwoSponsor").val(player.sponsor)
+
+					updateEmptyGameChars("P2", player.characters[0])
+
+					games.forEach(function(game){
+						updateStocksLeftIcons(game)
+					});
+				}
+
+			});
+
+		});
+
+	}
+}
 
 function showGame(num){ //Change which game user is currently looking at
 	$(".game-toggle div").css("background-color", "rgba(0, 0, 0, 0.2)");
@@ -283,6 +373,7 @@ function printFormattedTable(){ //Generate code and preview output
 	var P1twitch = $("#PlayerOneTwitch").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P1twitter = $("#PlayerOneTwitter").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P1liquipedia = $("#PlayerOneLiquipedia").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
+	var P1sponsor = $("#PlayerOneSponsor").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P1media = "";
 
 	var P2 = $("#PlayerTwo").val().replace(/\|/g, " ");
@@ -296,6 +387,7 @@ function printFormattedTable(){ //Generate code and preview output
 	var P2twitch = $("#PlayerTwoTwitch").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P2twitter = $("#PlayerTwoTwitter").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P2liquipedia = $("#PlayerTwoLiquipedia").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
+	var P2sponsor = $("#PlayerTwoSponsor").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
 	var P2media = "";
 
 	var game1P1Character = $("#GameOne .PlayerOneCharacter div").attr("class");
@@ -324,12 +416,14 @@ function printFormattedTable(){ //Generate code and preview output
 		P1twitch = "";
 		P1twitter = "";
 		P1liquipedia = "";
+		P1sponsor = "";
 	}
 	if(!P2extras){//if P2 extras are hidden, don't use the pre-installed choices
 		P2name = "";
 		P2twitch = "";
 		P2twitter = "";
 		P2liquipedia = "";
+		P2sponsor = "";
 	}
 
 	function makeFlair(str){
@@ -359,6 +453,13 @@ function printFormattedTable(){ //Generate code and preview output
 			P2liquipedia = "http://" + P2liquipedia
 		}
 
+		if(P1sponsor != "" && P1sponsor.slice(0, 4) != "http"){ //Fix broken sponsor links
+			P1sponsor = "http://" + P1sponsor
+		}
+		if(P2sponsor != "" && P2sponsor.slice(0, 4) != "http"){ //Fix broken sponsor links
+			P2sponsor = "http://" + P2sponsor
+		}
+
 		if(P1twitter != "" && P1twitter[0] === "@"){ //Remove @ from twitter handle
 			P1twitter = P1twitter.slice(1)
 		}
@@ -366,72 +467,94 @@ function printFormattedTable(){ //Generate code and preview output
 			P2twitter = P2twitter.slice(1)
 		}
 
-		if(P1twitter != "" || P1twitch != "" || P1liquipedia){
-			if(P1name === ""){
-				P1name = P1;
-			}
+		//Player One Media String created below
+		if(P1name === ""){
+			P1name = P1;
+		}
 
+		P1media = "**" + P1name + "**"
+
+		if(P1twitter != "" || P1twitch != "" || P1liquipedia != "" || P1sponsor != ""){
 			P1media = "**" + P1name + "** // "
+		}
 
-			if(P1twitch != ""){
-				if(P1twitch.toLowerCase().indexOf("twitch.") === -1){
-					P1media = P1media.concat("[Twitch](http://twitch.tv/" + P1twitch + ")");
-				}else{
-					P1media = P1media.concat("[Twitch](" + P1twitch + ")");
-				}
-			}
-
-			if(P1twitter != ""){
-				if(P1twitch != ""){
-					P1media = P1media.concat(" | ")
-				}
-
-				if(P1twitter.toLowerCase().indexOf("twitter.") === -1){
-					P1media = P1media.concat("[Twitter](https://twitter.com/" + P1twitter + ")");
-				}else{
-					P1media = P1media.concat("[Twitter](" + P1twitter + ")");
-				}
-			}
-			if(P1liquipedia != ""){
-				if(P1twitter != "" || P1twitch != ""){
-					P1media = P1media.concat(" | ")
-				}
-				P1media = P1media.concat("[Liquipedia](" + P1liquipedia + ")");
+		if(P1twitch != ""){
+			if(P1twitch.toLowerCase().indexOf("twitch.") === -1){
+				P1media = P1media.concat("[Twitch](http://twitch.tv/" + P1twitch + ")");
+			}else{
+				P1media = P1media.concat("[Twitch](" + P1twitch + ")");
 			}
 		}
 
-		if(P2twitter != "" || P2twitch != "" || P2liquipedia){
-			if(P2name === ""){
-				P2name = P2;
+		if(P1twitter != ""){
+			if(P1twitch != ""){
+				P1media = P1media.concat(" | ")
 			}
 
+			if(P1twitter.toLowerCase().indexOf("twitter.") === -1){
+				P1media = P1media.concat("[Twitter](https://twitter.com/" + P1twitter + ")");
+			}else{
+				P1media = P1media.concat("[Twitter](" + P1twitter + ")");
+			}
+		}
+
+		if(P1liquipedia != ""){
+			if(P1twitter != "" || P1twitch != ""){
+				P1media = P1media.concat(" | ")
+			}
+			P1media = P1media.concat("[Liquipedia](" + P1liquipedia + ")");
+		}
+
+		if(P1sponsor != ""){
+			if(P1twitter != "" || P1twitch != "" || P1liquipedia != ""){
+				P1media = P1media.concat(" | ")
+			}
+			P1media = P1media.concat("[Sponsor](" + P1sponsor + ")");
+		}
+
+		//Player Two Media String created below
+		if(P2name === ""){
+			P2name = P2;
+		}
+
+		P2media = "**" + P2name + "**"
+
+		if(P2twitter != "" || P2twitch != "" || P2liquipedia != "" || P2sponsor != ""){
 			P2media = "**" + P2name + "** // "
+		}
 
-			if(P2twitch != ""){	
-				if(P2twitch.toLowerCase().indexOf("twitch.") === -1){
-					P2media = P2media.concat("[Twitch](http://twitch.tv/" + P2twitch + ")");
-				}else{
-					P2media = P2media.concat("[Twitch](" + P2twitch + ")");
-				}
+		if(P2twitch != ""){	
+			if(P2twitch.toLowerCase().indexOf("twitch.") === -1){
+				P2media = P2media.concat("[Twitch](http://twitch.tv/" + P2twitch + ")");
+			}else{
+				P2media = P2media.concat("[Twitch](" + P2twitch + ")");
 			}
+		}
 
-			if(P2twitter != ""){
-				if(P2twitch != ""){
-					P2media = P2media.concat(" | ")
-				}
-				
-				if(P2twitter.toLowerCase().indexOf("twitter.") === -1){
-					P2media = P2media.concat("[Twitter](https://twitter.com/" + P2twitter + ")");
-				}else{
-					P2media = P2media.concat("[Twitter](" + P2twitter + ")");
-				}
+		if(P2twitter != ""){
+			if(P2twitch != ""){
+				P2media = P2media.concat(" | ")
 			}
-			if(P2liquipedia != ""){
-				if(P2twitter != "" || P2twitch != ""){
-					P2media = P2media.concat(" | ")
-				}
-				P2media = P2media.concat("[Liquipedia](" + P2liquipedia + ")");
+			
+			if(P2twitter.toLowerCase().indexOf("twitter.") === -1){
+				P2media = P2media.concat("[Twitter](https://twitter.com/" + P2twitter + ")");
+			}else{
+				P2media = P2media.concat("[Twitter](" + P2twitter + ")");
 			}
+		}
+
+		if(P2liquipedia != ""){
+			if(P2twitter != "" || P2twitch != ""){
+				P2media = P2media.concat(" | ")
+			}
+			P2media = P2media.concat("[Liquipedia](" + P2liquipedia + ")");
+		}
+
+		if(P2sponsor != ""){
+			if(P2twitter != "" || P2twitch != "" || P2liquipedia != ""){
+				P2media = P2media.concat(" | ")
+			}
+			P2media = P2media.concat("[Sponsor](" + P2sponsor + ")");
 		}
 	}
 
@@ -471,6 +594,17 @@ function printFormattedTable(){ //Generate code and preview output
 	printLine("---");
 	printLine("#" + round);
 
+	if(P1media != ""){
+		printLine("")
+		printLine(P1media + "  ")
+	}
+
+	printLine("***vs***  ")
+
+	if(P2media != ""){
+		printLine(P2media + "  ")
+	}
+
 	if(vodLink != ""){
 		if(vodLink.slice(0, 4) != "http"){ //Fix broken vod links
 			vodLink = "http://" + vodLink
@@ -490,21 +624,10 @@ function printFormattedTable(){ //Generate code and preview output
 		}
 
 		printLine("")
-		printLine("*VoD: " + "[" + vodSite + "](" + vodLink + ")*")
-	}
-
-	if(P1media != ""){
-		printLine("")
-		printLine(P1media)
+		printLine("*Watch the set: " + "[" + vodSite + "](" + vodLink + ")*")
 	}
 
 	printLine("")
-
-	if(P2media != ""){
-		printLine(P2media)
-		printLine("")
-	}
-
 	printLine(P1mains.map(makeFlair).toString().replace(/,/g , " ") + " " + P1 + " | | " + getSetCount() + " | | " + P2 + " " + P2mains.map(makeFlair).toString().replace(/,/g , " "));
 	printLine("---:|:--:|:--:|:--:|:---");
 
@@ -533,9 +656,9 @@ function printFormattedTable(){ //Generate code and preview output
 	$("#comment-code").select() //Auto Highlight code text after "Generate Table" button is clicked
 	
 	if( navigator.appVersion.indexOf("Mac") != -1){ //Let user know that they can press Ctrl+C/Command+C to copy reddit comment code
-		displaySnackbar("Code selected! Command+C to copy!")
+		displaySnackbar("Code selected! Command+C to copy!", 1500)
 	}else{
-		displaySnackbar("Code selected! Ctrl+C to copy!")
+		displaySnackbar("Code selected! Ctrl+C to copy!", 1500)
 	}
 
 	//PREVIEW TABLE SPECIFIC FUNCTIONS
@@ -633,15 +756,13 @@ function printFormattedTable(){ //Generate code and preview output
 	P1media = HTMLify(P1media)
 	P2media = HTMLify(P2media)
 
-	if(vodLink != ""){
-		addToPreview("<div><i>VoD: <a href='" + vodLink + "' target='_blank'>" + vodSite + "</a></i></div>")
-	}
+	
+	addToPreview("<div>" + P1previewmedia + "</div>")
+	addToPreview("<div><b><i>vs</i></b></div>")
+	addToPreview("<div>" + P2previewmedia + "</div>")
 
-	if(P1media != ""){
-		addToPreview("<div>" + P1previewmedia + "</div>")
-	}
-	if(P2media != ""){
-		addToPreview("<div>" + P2previewmedia + "</div>")
+	if(vodLink != ""){
+		addToPreview("<div><i>Watch the set: <a href='" + vodLink + "' target='_blank'>" + vodSite + "</a></i></div>")
 	}
 
 	addToPreview("<table><thead>")
@@ -689,3 +810,13 @@ $(document).keydown(function(e) { //Escape Key closes character select screen
 setDynamicName()
 
 $("body").css("background-color", "rgb(" + randomNumberBetween(47,126).toString() + ", " + randomNumberBetween(47,126).toString() + ", " + randomNumberBetween(47,126).toString() + ")"); //Random background-color :D
+
+$("#PlayerOne").focusout(function(){
+	setDynamicName(); //When player tag field loses focus, update the player name throughout the page
+	playerAutofill(1); //When player tag field loses focus, check to see if player-data.js has any matching players. If it does, auto-fill all relevent fields
+});
+
+$("#PlayerTwo").focusout(function(){
+	setDynamicName();
+	playerAutofill(2);
+});

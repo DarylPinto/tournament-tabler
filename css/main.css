@@ -450,6 +450,40 @@ option{
 	transition: .6s;
 }
 
+.delete-this-game{
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	display: inline-block;
+	top: 0;
+	left: 0;
+	background-color: black;
+	opacity: 0;
+	color: white;
+	transition: .3s;
+}
+
+.delete-set{
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	display: inline-block;
+	top: 0;
+	right: 0;
+	background-color: black;
+	opacity: 0;
+	color: white;
+	transition: .3s;
+}
+
+.delete-game-data:hover div{
+	opacity: 1;
+}
+
+.delete-game-data div:hover{
+	background-color: rgb(140, 14, 14);
+}
+
 /*===Generate Markup Button===*/
 
 button{
@@ -519,7 +553,7 @@ button:active{
 	color: white;
 	font-family: "Roboto", sans-serif;
 	border-radius: 4px;
-	box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+	box-shadow: 0 0 30px black;
 }
 
 #results{
@@ -589,6 +623,17 @@ button:active{
 	font-size: 14px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+#preview-inner div:nth-child(2){
+	margin-bottom: 0;
+}
+#preview-inner div:nth-child(3){
+	margin-bottom: 3px;
+	margin-top: 3px;
+}
+#preview-inner div:nth-child(4){
+	margin-top: 0;
 }
 
 #preview-inner table{
