@@ -613,26 +613,26 @@ button:active{
 #preview-inner h1{
 	font-family: 'Verdana', 'Arial', 'Helvetica', sans-serif;
 	color: #222;
-	font-size: 19px;
+	font-size: 18px;
 	margin-bottom: 15px;
 }
 
 #preview-inner div{
 	font-family: 'Verdana', 'Arial', 'Helvetica', sans-serif;
 	color: #222;
-	font-size: 14px;
+	font-size: 13px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
-#preview-inner div:nth-child(2){
+#preview .P1previewmedia{
 	margin-bottom: 0;
 }
-#preview-inner div:nth-child(3){
+#preview .preview-vs{
 	margin-bottom: 3px;
 	margin-top: 3px;
 }
-#preview-inner div:nth-child(4){
+#preview .P2previewmedia{
 	margin-top: 0;
 }
 
@@ -646,7 +646,7 @@ button:active{
 	padding: 4px 9px;
 	color: #222;
 	border: 1px solid #CFCFCF;
-	font-size: 15px;
+	font-size: 13px;
 	font-family: 'Verdana', 'Arial', 'Helvetica', sans-serif;
 }
 
@@ -917,10 +917,11 @@ button:active{
 /*--Ads--*/
 
 #ad-container{
-	border: 1px solid black;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15) inset;
 	display: inline-block;
 	width: 125px;
 	height: 550px;
+	max-height: 1000px;
 	position: fixed;
 	top: 60px;
 	right: 0;
@@ -931,7 +932,6 @@ button:active{
 	/*--Ads--*/
 
 	#ad-container{
-		border: 1px solid black;
 		display: block;
 		width: 1040px;
 		height: 125px;

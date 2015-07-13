@@ -5,7 +5,6 @@ var tablePreviewPieces = []
 var P1lastAutofill = "mango";
 var P2lastAutofill = "leffen";
 
-var buttonHasBeenPressed = false
 var P1extras = false
 var P2extras = false
 var lastFieldClicked;
@@ -390,9 +389,7 @@ function printFormattedTable(){ //Generate code and preview output
 	$("#results").css("display", "block"); //Show results code area
 	codeLines = [] //Clear last table code
 
-	//if(!buttonHasBeenPressed){ //scroll to bottom on first button press
-		$("html, body").animate({ scrollTop: $(document).height() }, "slow");
-	//}
+	$("html, body").animate({ scrollTop: $(document).height() }, "slow");
 
 	buttonHasBeenPressed = true;
 
@@ -505,11 +502,14 @@ function printFormattedTable(){ //Generate code and preview output
 		}
 
 		//Player One Media String created below
-		if(P1name === ""){
+
+		if(P1name === "" && (P1twitch != "" || P1twitter != "" || P1liquipedia != "" || P1sponsor != "")){
 			P1name = P1;
 		}
 
-		P1media = "**" + P1name + "**"
+		if(P1name != P1 && P1name != ""){
+			P1media = "**" + P1name + "**"
+		}
 
 		if(P1twitter != "" || P1twitch != "" || P1liquipedia != "" || P1sponsor != ""){
 			P1media = "**" + P1name + "** // "
@@ -550,11 +550,13 @@ function printFormattedTable(){ //Generate code and preview output
 		}
 
 		//Player Two Media String created below
-		if(P2name === ""){
+		if(P2name === "" && (P2twitch != "" || P2twitter != "" || P2liquipedia != "" || P2sponsor != "")){
 			P2name = P2;
 		}
 
-		P2media = "**" + P2name + "**"
+		if(P2name != P2 && P2name != ""){
+			P2media = "**" + P2name + "**"
+		}
 
 		if(P2twitter != "" || P2twitch != "" || P2liquipedia != "" || P2sponsor != ""){
 			P2media = "**" + P2name + "** // "
@@ -636,7 +638,9 @@ function printFormattedTable(){ //Generate code and preview output
 		printLine(P1media + "  ")
 	}
 
-	printLine("***vs***  ")
+	if(P1media != "" && P2media != ""){
+		printLine("***vs***  ")
+	}
 
 	if(P2media != ""){
 		printLine(P2media + "  ")
@@ -661,7 +665,7 @@ function printFormattedTable(){ //Generate code and preview output
 		}
 
 		printLine("")
-		printLine("*Watch the set: " + "[" + vodSite + "](" + vodLink + ")*")
+		printLine("*Watch the set on " + "[" + vodSite + "](" + vodLink + ")*")
 	}
 
 	printLine("")
@@ -794,12 +798,16 @@ function printFormattedTable(){ //Generate code and preview output
 	P2media = HTMLify(P2media)
 
 	
-	addToPreview("<div>" + P1previewmedia + "</div>")
-	addToPreview("<div><b><i>vs</i></b></div>")
-	addToPreview("<div>" + P2previewmedia + "</div>")
+	addToPreview("<div class='P1previewmedia'>" + P1previewmedia + "</div>")
+
+	if(P1media != "" && P2media != ""){
+		addToPreview("<div class='preview-vs'><b><i>vs</i></b></div>")
+	}
+
+	addToPreview("<div class='P2previewmedia'>" + P2previewmedia + "</div>")
 
 	if(vodLink != ""){
-		addToPreview("<div><i>Watch the set: <a href='" + vodLink + "' target='_blank'>" + vodSite + "</a></i></div>")
+		addToPreview("<div><i>Watch the set on <a href='" + vodLink + "' target='_blank'>" + vodSite + "</a></i></div>")
 	}
 
 	addToPreview("<table><thead>")
