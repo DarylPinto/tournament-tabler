@@ -36,7 +36,7 @@ function positionAd(){
 
 		adOrientation = "vertical"
 	}else{
-		$("#ad-container").css( "height", "125px" )
+		$("#ad-container").css( "height", "100px" )
 
 		if(adOrientation === "vertical"){
 			reloadAd()

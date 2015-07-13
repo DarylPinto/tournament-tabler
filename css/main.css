@@ -937,14 +937,6 @@ button:active{
 		width: 1040px;
 		height: 100px;
 		margin: 0 auto;
-		top: 0;
-		right: 0;
-		position: relative;
-	}
-
-	#ad-container ins{
-		position: absolute;
-		bottom: 0;
-
+		position: static;
 	}
 }
