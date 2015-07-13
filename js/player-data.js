@@ -439,16 +439,6 @@ new Player(
 ),
 
 new Player(
-	['lord'], //Array of aliases
-	['CF'], //Array of player's mains (2 max)
-	'Erick "Lord" Lui', //Full name
-	'', //Twitch Username
-	'', //Twitter Handle
-	'http://wiki.teamliquid.net/smash/Lord', //Wiki Link
-	'' //Sponsor Link
-),
-
-new Player(
 	['cactuar', 'cactus'], //Array of aliases
 	['Fox', 'Marth'], //Array of player's mains (2 max)
 	'Charles "Cactuar" Meighen', //Full name
@@ -516,6 +506,6 @@ new Player(
 	'liquidkdj', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/KoreanDJ', //Wiki Link
 	'http://www.teamliquidpro.com/' //Sponsor Link
-),
+)
 
 ]
