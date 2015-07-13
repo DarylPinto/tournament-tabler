@@ -868,21 +868,3 @@ $("#PlayerTwo").focusout(function(){
 	setDynamicName();
 	playerAutofill(2);
 });
-
-//Ad positioning
-
-function positionAd(){
-	if($(window).width() > 1330 ){
-		$("#ad-container").css( "height", ($(window).height() - 120).toString() + "px" )
-	}else{
-		$("#ad-container").css( "height", "125px" )
-	}
-}
-
-$(window).load(function(){
-	positionAd()
-});
-
-$( window ).resize(function(){
-	positionAd()
-});

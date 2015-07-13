@@ -918,7 +918,7 @@ button:active{
 /*--Ads--*/
 
 #ad-container{
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15) inset;
+	/*box-shadow: 0 0 10px rgba(0, 0, 0, 0.15) inset;*/
 	display: inline-block;
 	width: 125px;
 	height: 550px;
@@ -935,8 +935,16 @@ button:active{
 	#ad-container{
 		display: block;
 		width: 1040px;
-		height: 125px;
+		height: 100px;
 		margin: 0 auto;
-		position: static;
+		top: 0;
+		right: 0;
+		position: relative;
+	}
+
+	#ad-container ins{
+		position: absolute;
+		bottom: 0;
+
 	}
 }
