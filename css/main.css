@@ -16,6 +16,7 @@ h1, th, b{
 	clear: both;
 	height: 0;
 	width: 0;
+	padding: 0;
 	background-color: transparent;
 }
 
@@ -530,7 +531,7 @@ button:active{
 #snackbar{
 	text-align: center;
 	position: fixed;
-	bottom: 320px;
+	bottom: 100px;
 	width: 100%;
 	z-index: 11;
 }
@@ -747,7 +748,6 @@ button:active{
 .Fox,
 .Ganon,
 .Icies,
-.Puff,
 .Kirby,
 .Link,
 .Luigi,
@@ -759,6 +759,7 @@ button:active{
 .Peach,
 .Pichu,
 .Pikachu,
+.Puff,
 .Yoshi,
 .Roy,
 .Samus,

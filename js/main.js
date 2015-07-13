@@ -37,9 +37,12 @@ function addToPreview(content){ //Prints content into preview table
 }
 
 function displaySnackbar(content, duration){ //Display Android style snackbar notification
+
+	var distanceFromBottom = ($(window).height() / 2 - 30).toString() + "px" //30 in this equation is half the height of the snackbar
+
 	$("body").append("<div id='snackbar-shade' style='display: none' onclick=\"$('#comment-code').select()\"></div>")
 	$("#snackbar-shade").fadeIn()
-	$("body").append("<div id='snackbar' style='display: none' onclick=\"$('#comment-code').select()\"><span>" + content + "</span></div>")
+	$("body").append("<div id='snackbar' style='bottom: " + distanceFromBottom + " ;display: none' onclick=\"$('#comment-code').select()\"><span>" + content + "</span></div>")
 	$("#snackbar").fadeIn()
 	window.setTimeout(function(){
 		$("#snackbar-shade").fadeOut()
@@ -697,9 +700,9 @@ function printFormattedTable(){ //Generate code and preview output
 	$("#comment-code").select() //Auto Highlight code text after "Generate Table" button is clicked
 	
 	if( navigator.appVersion.indexOf("Mac") != -1){ //Let user know that they can press Ctrl+C/Command+C to copy reddit comment code
-		displaySnackbar("Code selected! Command+C to copy!", 1500)
+		displaySnackbar("Code selected! Command+C to copy!", 2000)
 	}else{
-		displaySnackbar("Code selected! Ctrl+C to copy!", 1500)
+		displaySnackbar("Code selected! Ctrl+C to copy!", 2000)
 	}
 
 	//PREVIEW TABLE SPECIFIC FUNCTIONS
@@ -865,8 +868,6 @@ $("#PlayerTwo").focusout(function(){
 	setDynamicName();
 	playerAutofill(2);
 });
-
-
 
 //Ad positioning
 

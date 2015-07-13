@@ -323,9 +323,199 @@ new Player(
 	['Marth'], //Array of player's mains (2 max)
 	'Ryan "The Moon" Coker-Welch', //Full name
 	'', //Twitch Username
-	'', //Twitter Handle
+	'themoon112', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/The_Moon', //Wiki Link
 	'http://clashtournaments.gg/' //Sponsor Link
-)
+),
+
+new Player(
+	['eddy mexico'], //Array of aliases
+	['Luigi'], //Array of player's mains (2 max)
+	'Eduardo "Eddy Mexico" Lucatero Rincon', //Full name
+	'', //Twitch Username
+	'EddyMexico007', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/Eddy_Mexico', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['chudat'], //Array of aliases
+	['Icies'], //Array of player's mains (2 max)
+	'Daniel "ChuDat" Rodriguez', //Full name
+	'chudatz', //Twitch Username
+	'ChuDatz', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/ChuDat', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['bladewise'], //Array of aliases
+	['Peach'], //Array of player's mains (2 max)
+	'Theodore "Bladewise" Seybold', //Full name
+	'', //Twitch Username
+	'Bladewise00', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/Bladewise', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['abate'], //Array of aliases
+	['Luigi'], //Array of player's mains (2 max)
+	'Stephen "Abate" Abate', //Full name
+	'', //Twitch Username
+	'AbateSmash', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/Abate', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['zero'], //Array of aliases
+	['Fox'], //Array of player's mains (2 max)
+	'Gonzalo "ZeRo" Barrios', //Full name
+	'ZeRo', //Twitch Username
+	'ZeRoSSB', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/ZeRo', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['larry lurr', 'dehf'], //Array of aliases
+	['Falco'], //Array of player's mains (2 max)
+	'Larry "Larry Lurr" Holland', //Full name
+	'larrylurr', //Twitch Username
+	'LarryLurr', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/Larry_Lurr', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['hugs'], //Array of aliases
+	['Samus'], //Array of player's mains (2 max)
+	'Hugo "HugS" Gonzalez', //Full name
+	'HugS86', //Twitch Username
+	'HugS86', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/HugS', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['duck'], //Array of aliases
+	['Samus'], //Array of player's mains (2 max)
+	'James "Duck" Ma', //Full name
+	'', //Twitch Username
+	'ssbDuck', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/Duck', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['dj nintendo'], //Array of aliases
+	['Fox', 'Bowser'], //Array of player's mains (2 max)
+	'Hendrick "DJ Nintendo" Pilar', //Full name
+	'', //Twitch Username
+	'DJNintendo17', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/DJ_Nintendo', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['kalamazhu'], //Array of aliases
+	['Peach'], //Array of player's mains (2 max)
+	'Kyle "Kalamazhu" Zhu', //Full name
+	'', //Twitch Username
+	'MW_Buster', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/Kalamazhu', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['lord'], //Array of aliases
+	['CF'], //Array of player's mains (2 max)
+	'Erick "Lord" Lui', //Full name
+	'', //Twitch Username
+	'', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/Lord', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['lord'], //Array of aliases
+	['CF'], //Array of player's mains (2 max)
+	'Erick "Lord" Lui', //Full name
+	'', //Twitch Username
+	'', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/Lord', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['cactuar', 'cactus'], //Array of aliases
+	['Fox', 'Marth'], //Array of player's mains (2 max)
+	'Charles "Cactuar" Meighen', //Full name
+	'smashpractice', //Twitch Username
+	'cactussmash', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/Cactuar', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['weon-x', 'weonx'], //Array of aliases
+	['Fox'], //Array of player's mains (2 max)
+	'Camilo "Weon-X" Morales', //Full name
+	'', //Twitch Username
+	'', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/Weon-X', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['darkrain'], //Array of aliases
+	['CF'], //Array of player's mains (2 max)
+	'David "Darkrain" John', //Full name
+	'', //Twitch Username
+	'', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/Darkrain', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['kage', 'kage the warrior'], //Array of aliases
+	['Ganon'], //Array of player's mains (2 max)
+	'Roustane "Kage the Warrior" Benzeguir', //Full name
+	'', //Twitch Username
+	'kagethewarrior', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/Kage_the_Warrior', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['zanguzen'], //Array of aliases
+	['Falco'], //Array of player's mains (2 max)
+	'Alex "Zanguzen" Shnayder', //Full name
+	'', //Twitch Username
+	'zanguzen', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/Zanguzen', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['silent spectre'], //Array of aliases
+	['CF'], //Array of player's mains (2 max)
+	'Jeff "SilentSpectre" Leung', //Full name
+	'silentspectre', //Twitch Username
+	'jeffspectre', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/SilentSpectre', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['korean dj', 'kdj'], //Array of aliases
+	['Sheik', 'Marth'], //Array of player's mains (2 max)
+	'Daniel "KoreanDJ" Jung', //Full name
+	'liquidkdj', //Twitch Username
+	'liquidkdj', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/KoreanDJ', //Wiki Link
+	'http://www.teamliquidpro.com/' //Sponsor Link
+),
 
 ]
