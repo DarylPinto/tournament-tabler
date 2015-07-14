@@ -397,7 +397,7 @@ function printFormattedTable(){ //Generate code and preview output
 	buttonHasBeenPressed = true;
 
 	var round = $("#Round").val();
-	var vodLink = $("#vod-link").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
+	var vodLink = $("#vod-link").val().replace(/(\(|\)|\[|\])/g, "");
 
 	var P1 = $("#PlayerOne").val().replace(/\|/g, " ");
 	var P1mains = [];
@@ -407,10 +407,10 @@ function printFormattedTable(){ //Generate code and preview output
 		P1mains.push($("#P1Main2 div").attr("class"))
 	}
 	var P1name = $("#PlayerOneName").val().replace(/\|/g, " ");
-	var P1twitch = $("#PlayerOneTwitch").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
-	var P1twitter = $("#PlayerOneTwitter").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
-	var P1liquipedia = $("#PlayerOneLiquipedia").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
-	var P1sponsor = $("#PlayerOneSponsor").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
+	var P1twitch = $("#PlayerOneTwitch").val().replace(/(\(|\)|\[|\])/g, "");
+	var P1twitter = $("#PlayerOneTwitter").val().replace(/(\(|\)|\[|\])/g, "");
+	var P1liquipedia = $("#PlayerOneLiquipedia").val().replace(/(\(|\)|\[|\])/g, "");
+	var P1sponsor = $("#PlayerOneSponsor").val().replace(/(\(|\)|\[|\])/g, "");
 	var P1media = "";
 
 	var P2 = $("#PlayerTwo").val().replace(/\|/g, " ");
@@ -421,11 +421,12 @@ function printFormattedTable(){ //Generate code and preview output
 		P2mains.push($("#P2Main2 div").attr("class"))
 	}
 	var P2name = $("#PlayerTwoName").val().replace(/\|/g, " ");
-	var P2twitch = $("#PlayerTwoTwitch").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"").replace(/\[/g,"").replace(/\]/g,"");
-	var P2twitter = $("#PlayerTwoTwitter").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
-	var P2liquipedia = $("#PlayerTwoLiquipedia").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
-	var P2sponsor = $("#PlayerTwoSponsor").val().replace(/\(/g,"").replace(/\)/g,"").replace(/\[/g,"").replace(/\]/g,"");
+	var P2twitch = $("#PlayerTwoTwitch").val().replace(/(\(|\)|\[|\])/g, "");
+	var P2twitter = $("#PlayerTwoTwitter").val().replace(/(\(|\)|\[|\])/g, "");
+	var P2liquipedia = $("#PlayerTwoLiquipedia").val().replace(/(\(|\)|\[|\])/g, "");
+	var P2sponsor = $("#PlayerTwoSponsor").val().replace(/(\(|\)|\[|\])/g, "");
 	var P2media = "";
+
 
 	var game1P1Character = $("#GameOne .PlayerOneCharacter div").attr("class");
 	var game1P2Character = $("#GameOne .PlayerTwoCharacter div").attr("class");
