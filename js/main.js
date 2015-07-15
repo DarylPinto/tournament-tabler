@@ -273,7 +273,7 @@ function playerAutofill(playerNum){ //Search player-data.js. If a player's tag m
 			}
 			$("#PlayerOneTwitch").val(player.twitch)
 			$("#PlayerOneTwitter").val(player.twitter)
-			$("#PlayerOneLiquipedia").val(player.wiki)
+			$("#PlayerOneWiki").val(player.wiki)
 			$("#PlayerOneSponsor").val(player.sponsor)
 
 			updateEmptyGameChars("P1", player.characters[0])
@@ -298,7 +298,7 @@ function playerAutofill(playerNum){ //Search player-data.js. If a player's tag m
 			}
 			$("#PlayerTwoTwitch").val(player.twitch)
 			$("#PlayerTwoTwitter").val(player.twitter)
-			$("#PlayerTwoLiquipedia").val(player.wiki)
+			$("#PlayerTwoWiki").val(player.wiki)
 			$("#PlayerTwoSponsor").val(player.sponsor)
 
 			updateEmptyGameChars("P2", player.characters[0])
@@ -409,7 +409,7 @@ function printFormattedTable(){ //Generate code and preview output
 	var P1name = $("#PlayerOneName").val().replace(/\|/g, " ");
 	var P1twitch = $("#PlayerOneTwitch").val().replace(/(\(|\)|\[|\])/g, "");
 	var P1twitter = $("#PlayerOneTwitter").val().replace(/(\(|\)|\[|\])/g, "");
-	var P1liquipedia = $("#PlayerOneLiquipedia").val().replace(/(\(|\)|\[|\])/g, "");
+	var P1wiki = $("#PlayerOneWiki").val().replace(/(\(|\)|\[|\])/g, "");
 	var P1sponsor = $("#PlayerOneSponsor").val().replace(/(\(|\)|\[|\])/g, "");
 	var P1media = "";
 
@@ -423,7 +423,7 @@ function printFormattedTable(){ //Generate code and preview output
 	var P2name = $("#PlayerTwoName").val().replace(/\|/g, " ");
 	var P2twitch = $("#PlayerTwoTwitch").val().replace(/(\(|\)|\[|\])/g, "");
 	var P2twitter = $("#PlayerTwoTwitter").val().replace(/(\(|\)|\[|\])/g, "");
-	var P2liquipedia = $("#PlayerTwoLiquipedia").val().replace(/(\(|\)|\[|\])/g, "");
+	var P2wiki = $("#PlayerTwoWiki").val().replace(/(\(|\)|\[|\])/g, "");
 	var P2sponsor = $("#PlayerTwoSponsor").val().replace(/(\(|\)|\[|\])/g, "");
 	var P2media = "";
 
@@ -453,14 +453,14 @@ function printFormattedTable(){ //Generate code and preview output
 		P1name = "";
 		P1twitch = "";
 		P1twitter = "";
-		P1liquipedia = "";
+		P1wiki = "";
 		P1sponsor = "";
 	}
 	if(!P2extras){//if P2 extras are hidden, don't use the pre-installed choices
 		P2name = "";
 		P2twitch = "";
 		P2twitter = "";
-		P2liquipedia = "";
+		P2wiki = "";
 		P2sponsor = "";
 	}
 
@@ -484,11 +484,11 @@ function printFormattedTable(){ //Generate code and preview output
 
 	function generatePlayerMedia(){
 
-		if(P1liquipedia != "" && P1liquipedia.slice(0, 4) != "http"){ //Fix broken liquipedia links
-			P1liquipedia = "http://" + P1liquipedia
+		if(P1wiki != "" && P1wiki.slice(0, 4) != "http"){ //Fix broken wiki links
+			P1wiki = "http://" + P1wiki
 		}
-		if(P2liquipedia != "" && P2liquipedia.slice(0, 4) != "http"){ //Fix broken liquipedia links
-			P2liquipedia = "http://" + P2liquipedia
+		if(P2wiki != "" && P2wiki.slice(0, 4) != "http"){ //Fix broken wiki links
+			P2wiki = "http://" + P2wiki
 		}
 
 		if(P1sponsor != "" && P1sponsor.slice(0, 4) != "http"){ //Fix broken sponsor links
@@ -507,7 +507,7 @@ function printFormattedTable(){ //Generate code and preview output
 
 		//Player One Media String created below
 
-		if(P1name === "" && (P1twitch != "" || P1twitter != "" || P1liquipedia != "" || P1sponsor != "")){
+		if(P1name === "" && (P1twitch != "" || P1twitter != "" || P1wiki != "" || P1sponsor != "")){
 			P1name = P1;
 		}
 
@@ -515,7 +515,7 @@ function printFormattedTable(){ //Generate code and preview output
 			P1media = "**" + P1name + "**"
 		}
 
-		if(P1twitter != "" || P1twitch != "" || P1liquipedia != "" || P1sponsor != ""){
+		if(P1twitter != "" || P1twitch != "" || P1wiki != "" || P1sponsor != ""){
 			P1media = "**" + P1name + "** // "
 		}
 
@@ -539,22 +539,22 @@ function printFormattedTable(){ //Generate code and preview output
 			}
 		}
 
-		if(P1liquipedia != ""){
+		if(P1wiki != ""){
 			if(P1twitter != "" || P1twitch != ""){
 				P1media = P1media.concat(" | ")
 			}
-			P1media = P1media.concat("[Liquipedia](" + P1liquipedia + ")");
+			P1media = P1media.concat("[Wiki](" + P1wiki + ")");
 		}
 
 		if(P1sponsor != ""){
-			if(P1twitter != "" || P1twitch != "" || P1liquipedia != ""){
+			if(P1twitter != "" || P1twitch != "" || P1wiki != ""){
 				P1media = P1media.concat(" | ")
 			}
 			P1media = P1media.concat("[Sponsor](" + P1sponsor + ")");
 		}
 
 		//Player Two Media String created below
-		if(P2name === "" && (P2twitch != "" || P2twitter != "" || P2liquipedia != "" || P2sponsor != "")){
+		if(P2name === "" && (P2twitch != "" || P2twitter != "" || P2wiki != "" || P2sponsor != "")){
 			P2name = P2;
 		}
 
@@ -562,7 +562,7 @@ function printFormattedTable(){ //Generate code and preview output
 			P2media = "**" + P2name + "**"
 		}
 
-		if(P2twitter != "" || P2twitch != "" || P2liquipedia != "" || P2sponsor != ""){
+		if(P2twitter != "" || P2twitch != "" || P2wiki != "" || P2sponsor != ""){
 			P2media = "**" + P2name + "** // "
 		}
 
@@ -586,15 +586,15 @@ function printFormattedTable(){ //Generate code and preview output
 			}
 		}
 
-		if(P2liquipedia != ""){
+		if(P2wiki != ""){
 			if(P2twitter != "" || P2twitch != ""){
 				P2media = P2media.concat(" | ")
 			}
-			P2media = P2media.concat("[Liquipedia](" + P2liquipedia + ")");
+			P2media = P2media.concat("[Wiki](" + P2wiki + ")");
 		}
 
 		if(P2sponsor != ""){
-			if(P2twitter != "" || P2twitch != "" || P2liquipedia != ""){
+			if(P2twitter != "" || P2twitch != "" || P2wiki != ""){
 				P2media = P2media.concat(" | ")
 			}
 			P2media = P2media.concat("[Sponsor](" + P2sponsor + ")");
