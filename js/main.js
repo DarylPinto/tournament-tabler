@@ -1,3 +1,6 @@
+//Version Number
+var appVersion = "3.4.0"
+
 //Default values
 var codeLines = []
 var tablePreviewPieces = []
@@ -20,6 +23,17 @@ var game2StockCount;
 var game3StockCount;
 var game4StockCount;
 var game5StockCount;
+
+var game1P1Customs = "";
+var game1P2Customs = "";
+var game2P1Customs = "";
+var game2P2Customs = "";
+var game3P1Customs = "";
+var game3P2Customs = "";
+var game4P1Customs = "";
+var game4P2Customs = "";
+var game5P1Customs = "";
+var game5P2Customs = "";
 
 var games = ["#GameOne", "#GameTwo", "#GameThree", "#GameFour", "#GameFive"]
 
@@ -94,6 +108,17 @@ function updateEmptyGameChars(player, character){ //If mains or game characters 
 		if( ( $(game + " .PlayerTwoCharacter div").attr("class") === undefined || $(game + " .PlayerTwoCharacter div").attr("autoset") === "true" ) && $("#P2Main1 div").attr("class") != undefined && player === "P2"){
 			$(game + " .PlayerTwoCharacter").empty()
 			$(game + " .PlayerTwoCharacter").append("<div class='" + character + "' autoset='true'></div>")
+		}
+	});
+}
+
+function updateEmptyCustoms(player, customNum){ //If custom field loses focus, automatically update the ones in the games that the user has not yet set themselves
+	games.forEach(function(game){
+		if( ( $( game + " .PlayerOneCustoms").val() === "" || $( game + " .PlayerOneCustoms").attr("autoset") === "true" ) && player === "P1"){
+			$( game + " .PlayerOneCustoms").val(customNum)
+		}
+		if( ( $( game + " .PlayerTwoCustoms").val() === "" || $( game + " .PlayerTwoCustoms").attr("autoset") === "true" ) && player === "P2"){
+			$( game + " .PlayerTwoCustoms").val(customNum)
 		}
 	});
 }
@@ -217,6 +242,7 @@ function deleteDataForGame(num){ //Clears all data entered for a specified game
 		if(confirm("Are you sure you want to delete all data for the entire set?")){
 			games.forEach(function(game){
 				$(game + " .PlayerOneCharacter, " + game + " .PlayerTwoCharacter").empty()
+				$(game + " .PlayerOneCustoms, " + game + " .PlayerTwoCustoms").val("")
 				$(game + " .Stage").val("---")
 
 				chooseWinner(game, null)
@@ -229,6 +255,7 @@ function deleteDataForGame(num){ //Clears all data entered for a specified game
 		var game = games[num - 1]
 
 		$(game + " .PlayerOneCharacter, " + game + " .PlayerTwoCharacter").empty()
+		$(game + " .PlayerOneCustoms, " + game + " .PlayerTwoCustoms").val("")
 		$(game + " .Stage").val("---")
 
 		chooseWinner(game, null)
@@ -256,6 +283,13 @@ function setDynamicName(){ //Update player name throughout the page
 function playerAutofill(playerNum){ //Search player-data.js. If a player's tag matches one of the entries in PlayerDatabase, autofill their credentials
 	
 	function fillFields(num, player){ //num refers to the player num (as in player 1 or 2) - player refers to a player object from the playerdatabase
+		
+		if( $("#character-list td div:first-child").attr("class").slice(0,5) === "Sm4sh" ){
+			var characters = player.sm4sh_mains;
+		}else{
+			var characters = player.melee_mains;
+		}
+
 		if(num === 1){
 			var playerOfficialTag = player.name.slice(player.name.indexOf('"'), player.name.lastIndexOf('"') + 1)
 
@@ -267,16 +301,18 @@ function playerAutofill(playerNum){ //Search player-data.js. If a player's tag m
 			$("#PlayerOneName").val(player.name)
 			$("#P1Main1").empty()
 			$("#P1Main2").empty()
-			$("#P1Main1").append("<div class='" + player.characters[0] + "'></div>")
-			if(player.characters.length > 1){
-				$("#P1Main2").append("<div class='" + player.characters[1] + "'></div>")
+			if(characters.length > 0){
+				$("#P1Main1").append("<div class='" + characters[0] + "'></div>")
+			}
+			if(characters.length > 1){
+				$("#P1Main2").append("<div class='" + characters[1] + "'></div>")
 			}
 			$("#PlayerOneTwitch").val(player.twitch)
 			$("#PlayerOneTwitter").val(player.twitter)
 			$("#PlayerOneWiki").val(player.wiki)
 			$("#PlayerOneSponsor").val(player.sponsor)
 
-			updateEmptyGameChars("P1", player.characters[0])
+			updateEmptyGameChars("P1", characters[0])
 
 			games.forEach(function(game){
 				updateStocksLeftIcons(game)
@@ -292,16 +328,18 @@ function playerAutofill(playerNum){ //Search player-data.js. If a player's tag m
 			$("#PlayerTwoName").val(player.name)
 			$("#P2Main1").empty()
 			$("#P2Main2").empty()
-			$("#P2Main1").append("<div class='" + player.characters[0] + "'></div>")
-			if(player.characters.length > 1){
-				$("#P2Main2").append("<div class='" + player.characters[1] + "'></div>")
+			if(characters.length > 0){
+				$("#P2Main1").append("<div class='" + characters[0] + "'></div>")
+			}
+			if(characters.length > 1){
+				$("#P2Main2").append("<div class='" + characters[1] + "'></div>")
 			}
 			$("#PlayerTwoTwitch").val(player.twitch)
 			$("#PlayerTwoTwitter").val(player.twitter)
 			$("#PlayerTwoWiki").val(player.wiki)
 			$("#PlayerTwoSponsor").val(player.sponsor)
 
-			updateEmptyGameChars("P2", player.characters[0])
+			updateEmptyGameChars("P2", characters[0])
 
 			games.forEach(function(game){
 				updateStocksLeftIcons(game)
@@ -376,6 +414,7 @@ function showGame(num){ //Change which game user is currently looking at
 	$(".game-info section:nth-child(" + (num).toString() + ")").css("display", "block");
 
 	solidifyCharChoice(num)
+	solidifyCustomChoice(num)
 }
 
 function solidifyCharChoice(num){ //Choosing a game num solidifies character choices in afformentioned games' fields
@@ -385,6 +424,16 @@ function solidifyCharChoice(num){ //Choosing a game num solidifies character cho
 
 	$("#GameOne .PlayerOneCharacter div").removeAttr("autoset") //Since user never actually clicks game 1 (because they start on it), solidify game 1 characters when any game num is clicked
 	$("#GameOne .PlayerTwoCharacter div").removeAttr("autoset")
+
+}
+
+function solidifyCustomChoice(num){ //Choosing a game num solidifies character choices in afformentioned games' fields
+
+	$(games[num - 1] + " .PlayerOneCustoms").removeAttr("autoset")
+	$(games[num - 1] + " .PlayerTwoCustoms").removeAttr("autoset")
+
+	$("#GameOne .PlayerOneCustoms").removeAttr("autoset") //Since user never actually clicks game 1 (because they start on it), solidify game 1 characters when any game num is clicked
+	$("#GameOne .PlayerTwoCustoms").removeAttr("autoset")
 
 }
 
@@ -427,25 +476,49 @@ function printFormattedTable(){ //Generate code and preview output
 	var P2sponsor = $("#PlayerTwoSponsor").val().replace(/(\(|\)|\[|\])/g, "");
 	var P2media = "";
 
-
 	var game1P1Character = $("#GameOne .PlayerOneCharacter div").attr("class");
 	var game1P2Character = $("#GameOne .PlayerTwoCharacter div").attr("class");
+	if( $("#GameOne .PlayerOneCustoms").val() != undefined){
+		game1P1Customs = $("#GameOne .PlayerOneCustoms").val();
+	} if( $("#GameOne .PlayerTwoCustoms").val() != undefined){
+		game1P2Customs = $("#GameOne .PlayerTwoCustoms").val();
+	}
 	var game1Stage = $("#GameOne .Stage").val();
 
 	var game2P1Character = $("#GameTwo .PlayerOneCharacter div").attr("class");
 	var game2P2Character = $("#GameTwo .PlayerTwoCharacter div").attr("class");
+	if( $("#GameTwo .PlayerOneCustoms").val() != undefined){
+		game2P1Customs = $("#GameTwo .PlayerOneCustoms").val();
+	} if( $("#GameTwo .PlayerTwoCustoms").val() != undefined){
+		game2P2Customs = $("#GameTwo .PlayerTwoCustoms").val();
+	}
 	var game2Stage = $("#GameTwo .Stage").val();
 
 	var game3P1Character = $("#GameThree .PlayerOneCharacter div").attr("class");
 	var game3P2Character = $("#GameThree .PlayerTwoCharacter div").attr("class");
+	if( $("#GameThree .PlayerOneCustoms").val() != undefined){
+		game3P1Customs = $("#GameThree .PlayerOneCustoms").val();
+	} if( $("#GameThree .PlayerTwoCustoms").val() != undefined){
+		game3P2Customs = $("#GameThree .PlayerTwoCustoms").val();
+	}
 	var game3Stage = $("#GameThree .Stage").val();
 
 	var game4P1Character = $("#GameFour .PlayerOneCharacter div").attr("class");
 	var game4P2Character = $("#GameFour .PlayerTwoCharacter div").attr("class");
+	if( $("#GameFour .PlayerOneCustoms").val() != undefined){
+		game4P1Customs = $("#GameFour .PlayerOneCustoms").val();
+	} if( $("#GameFour .PlayerTwoCustoms").val() != undefined){
+		game4P2Customs = $("#GameFour .PlayerTwoCustoms").val();
+	}
 	var game4Stage = $("#GameFour .Stage").val();
 
 	var game5P1Character = $("#GameFive .PlayerOneCharacter div").attr("class");
 	var game5P2Character = $("#GameFive .PlayerTwoCharacter div").attr("class");
+	if( $("#GameFive .PlayerOneCustoms").val() != undefined){
+		game5P1Customs = $("#GameFive .PlayerOneCustoms").val();
+	} if( $("#GameFive .PlayerTwoCustoms").val() != undefined){
+		game5P2Customs = $("#GameFive .PlayerTwoCustoms").val();
+	}
 	var game5Stage = $("#GameFive .Stage").val();
 
 
@@ -466,9 +539,11 @@ function printFormattedTable(){ //Generate code and preview output
 
 	function makeFlair(str){
 		if(str === undefined){
-			return ""
+			return "" //No flair
+		}else if(str.slice(0,5) === "Sm4sh"){ 
+			return "[](#"+str+")"; //Smash 4 Flair
 		}else{
-			return "[](/"+str+")";
+			return "[](/"+str+")"; //Melee Flair
 		}
 	};
 
@@ -601,11 +676,11 @@ function printFormattedTable(){ //Generate code and preview output
 		}
 	}
 
-	function displayRow(winner, P1Char, P2Char, Stage, stockCount){ //Add a table row to code
+	function displayRow(winner, P1Char, P2Char, P1Customs, P2Customs, Stage, stockCount){ //Add a table row to code
 		if(winner === "P1"){
-			printLine(multiplyStock("P1",makeFlair(P1Char),stockCount) + " | `=` " + makeFlair(P1Char) + " | " + Stage + " | " + makeFlair(P2Char) + " `=` | ---")
+			printLine(multiplyStock("P1",makeFlair(P1Char),stockCount) + " | `=` " + P1Customs + " " + makeFlair(P1Char) + " | " + Stage + " | " + makeFlair(P2Char) + " " + P2Customs + " `=` | ---")
 		}else if(winner === "P2"){
-			printLine("--- | `=` " + makeFlair(P1Char) + " | " + Stage + " | " + makeFlair(P2Char) + " `=` | " + multiplyStock("P2",makeFlair(P2Char),stockCount))
+			printLine("--- | `=` " + P1Customs + " " + makeFlair(P1Char) + " | " + Stage + " | " + makeFlair(P2Char) + " " + P2Customs + " `=` | " + multiplyStock("P2",makeFlair(P2Char),stockCount))
 		}
 	}
 
@@ -677,19 +752,19 @@ function printFormattedTable(){ //Generate code and preview output
 	printLine("---:|:--:|:--:|:--:|:---");
 
 	if($("#GameOne .Stage").val() != "---"){
-		displayRow(game1Winner, game1P1Character, game1P2Character, game1Stage, game1StockCount)
+		displayRow(game1Winner, game1P1Character, game1P2Character, game1P1Customs, game1P2Customs, game1Stage, game1StockCount)
 	}
 	if($("#GameTwo .Stage").val() != "---"){
-		displayRow(game2Winner, game2P1Character, game2P2Character, game2Stage, game2StockCount)
+		displayRow(game2Winner, game2P1Character, game2P2Character, game2P1Customs, game2P2Customs, game2Stage, game2StockCount)
 	}
 	if($("#GameThree .Stage").val() != "---"){
-		displayRow(game3Winner, game3P1Character, game3P2Character, game3Stage, game3StockCount)
+		displayRow(game3Winner, game3P1Character, game3P2Character, game3P1Customs, game3P2Customs, game3Stage, game3StockCount)
 	}
 	if($("#GameFour .Stage").val() != "---"){
-		displayRow(game4Winner, game4P1Character, game4P2Character, game4Stage, game4StockCount)
+		displayRow(game4Winner, game4P1Character, game4P2Character, game4P1Customs, game4P2Customs, game4Stage, game4StockCount)
 	}
 	if($("#GameFive .Stage").val() != "---"){
-		displayRow(game5Winner, game5P1Character, game5P2Character, game5Stage, game5StockCount)
+		displayRow(game5Winner, game5P1Character, game5P2Character, game5P1Customs, game5P2Customs, game5Stage, game5StockCount)
 	}
 
 	printLine("*^^Generated ^^by [^^Tournament ^^Tabler](http://tournament-tabler.com/)*");
@@ -716,21 +791,21 @@ function printFormattedTable(){ //Generate code and preview output
 		}
 	}
 
-	function displayPreviewRow(winner, P1Char, P2Char, Stage, stockCount){ //Add a table row to preview
+	function displayPreviewRow(winner, P1Char, P2Char, P1Customs, P2Customs, Stage, stockCount){ //Add a table row to preview
 		if(winner === "P1"){
 			addToPreview("<tr>")
 			addToPreview("<td align='right'>" + multiplyStock("P1",makePreviewFlair(P1Char),stockCount) + "</td>")
-			addToPreview("<td align='center'><code>=</code> " + makePreviewFlair(P1Char) + "</td>")
+			addToPreview("<td align='center'><code>=</code> " + P1Customs + " " + makePreviewFlair(P1Char) + "</td>")
 			addToPreview("<td align='center'>" + Stage + "</td>")
-			addToPreview("<td align='center'>" + makePreviewFlair(P2Char) + " <code>=</code></td>")
+			addToPreview("<td align='center'>" + makePreviewFlair(P2Char) + " " + P2Customs + " <code>=</code></td>")
 			addToPreview("<td align='left'>---</td>")
 			addToPreview("</tr>")
 		}else if(winner === "P2"){
 			addToPreview("<tr>")
 			addToPreview("<td align='right'>---</td>")
-			addToPreview("<td align='center'><code>=</code> " + makePreviewFlair(P1Char) + "</td>")
+			addToPreview("<td align='center'><code>=</code> " + P1Customs + " " + makePreviewFlair(P1Char) + "</td>")
 			addToPreview("<td align='center'>" + Stage + "</td>")
-			addToPreview("<td align='center'>" + makePreviewFlair(P2Char) + " <code>=</code></td>")
+			addToPreview("<td align='center'>" + makePreviewFlair(P2Char) + " " + P2Customs + " <code>=</code></td>")
 			addToPreview("<td align='left'>" + multiplyStock("P2",makePreviewFlair(P2Char),stockCount) + "</td>")
 			addToPreview("</tr>")
 		}
@@ -825,19 +900,19 @@ function printFormattedTable(){ //Generate code and preview output
 	addToPreview("</thead><tbody>")
 
 	if($("#GameOne .Stage").val() != "---"){
-		displayPreviewRow(game1Winner, game1P1Character, game1P2Character, game1Stage, game1StockCount)
+		displayPreviewRow(game1Winner, game1P1Character, game1P2Character, game1P1Customs, game1P2Customs, game1Stage, game1StockCount)
 	}
 	if($("#GameTwo .Stage").val() != "---"){
-		displayPreviewRow(game2Winner, game2P1Character, game2P2Character, game2Stage, game2StockCount)
+		displayPreviewRow(game2Winner, game2P1Character, game2P2Character, game2P1Customs, game2P2Customs, game2Stage, game2StockCount)
 	}
 	if($("#GameThree .Stage").val() != "---"){
-		displayPreviewRow(game3Winner, game3P1Character, game3P2Character, game3Stage, game3StockCount)
+		displayPreviewRow(game3Winner, game3P1Character, game3P2Character, game3P1Customs, game3P2Customs, game3Stage, game3StockCount)
 	}
 	if($("#GameFour .Stage").val() != "---"){
-		displayPreviewRow(game4Winner, game4P1Character, game4P2Character, game4Stage, game4StockCount)
+		displayPreviewRow(game4Winner, game4P1Character, game4P2Character, game4P1Customs, game4P2Customs, game4Stage, game4StockCount)
 	}
 	if($("#GameFive .Stage").val() != "---"){
-		displayPreviewRow(game5Winner, game5P1Character, game5P2Character, game5Stage, game5StockCount)
+		displayPreviewRow(game5Winner, game5P1Character, game5P2Character, game5P1Customs, game5P2Customs, game5Stage, game5StockCount)
 	}
 
 	addToPreview("</tbody></table>")
@@ -868,4 +943,17 @@ $("#PlayerOne").focusout(function(){
 $("#PlayerTwo").focusout(function(){
 	setDynamicName();
 	playerAutofill(2);
+});
+
+games.forEach(function(game){ //When custom value loses focus, update autoset customs in other games
+	$( game + " .PlayerOneCustoms" ).focusout(function(){
+		updateEmptyCustoms( "P1", $( game + " .PlayerOneCustoms" ).val() )
+	});
+	$( game + " .PlayerTwoCustoms" ).focusout(function(){
+		updateEmptyCustoms( "P2", $( game + " .PlayerTwoCustoms" ).val() )
+	});
+});
+
+$( window ).load(function(){
+	$("#version").text("Ver. " + appVersion)
 });

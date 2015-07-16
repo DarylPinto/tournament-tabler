@@ -1,0 +1,67 @@
+/*Smash 4 specific styles*/
+
+.no-char{
+	height: 18px;
+	width: 18px;
+}
+
+.player-one, .player-two{
+	height: 635px;
+}
+
+.game-wrapper{
+	min-height: 635px;
+}
+
+.player-one div, .player-two div{
+	margin-top: 90px;
+}
+
+.PlayerOneCharacter, .PlayerTwoCharacter, #P1Main1, #P1Main2, #P2Main1, #P2Main2{
+	height: 35px;
+	width: 35px;
+}
+
+.PlayerOneCharacter div, .PlayerTwoCharacter div{
+	margin-top: 8.5px;
+	margin-left: 8.5px;
+}
+
+#P1Main1 div, #P1Main2 div, #P2Main1 div, #P2Main2 div{
+	margin-top: 8.5px;
+}
+
+.game-info li div{
+	position: relative;
+	top: 3px;
+	left: 3px;
+}
+
+.PlayerOneCustoms, .PlayerTwoCustoms{
+	width: 40px;
+	height: 10px;
+}
+
+.game-info .P1-char-wrap h1,.game-info .P2-char-wrap h1{
+	font-size: 17px;
+}
+
+.stage-select{
+	margin-top: 0;
+}
+
+.CustomWrap{
+	margin-top: 10px;
+}
+
+.P1-char-wrap .CustomWrap h2, .P2-char-wrap .CustomWrap h2{
+	margin-top: -7px;
+}
+
+.P1-char-wrap h2, .P2-char-wrap h2{
+	font-size: 13px;
+	font-weight: 100;
+	margin-top: 5px;
+	position: relative;
+	top: 4px;
+}
