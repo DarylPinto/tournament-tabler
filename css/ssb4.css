@@ -65,3 +65,7 @@
 	position: relative;
 	top: 4px;
 }
+
+#character-list td div{
+	transform: scale(1.5);
+}
