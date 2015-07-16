@@ -180,7 +180,7 @@ new Player(
 	'', //Twitch Username
 	'Shroomed08', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/Shroomed', //Wiki Link
-	'' //Sponsor Link
+	'http://www.winterfox.gg/' //Sponsor Link
 ),
 
 new Player(
@@ -246,7 +246,7 @@ new Player(
 	'', //Twitch Username
 	'MIOM_SFAT', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/SFAT', //Wiki Link
-	'http://www.meleeitonme.com/' //Sponsor Link
+	'' //Sponsor Link
 ),
 
 new Player(
