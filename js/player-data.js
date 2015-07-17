@@ -244,7 +244,7 @@ new Player(
 	[], //Array of player's sm4sh mains (2 max)
 	'Zachary "SFAT" Cordoni', //Full name
 	'', //Twitch Username
-	'MIOM_SFAT', //Twitter Handle
+	'SFAT17', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/SFAT', //Wiki Link
 	'' //Sponsor Link
 ),
