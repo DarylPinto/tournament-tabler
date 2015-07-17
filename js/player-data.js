@@ -29,6 +29,9 @@ PLAYER OBJECT SYNTAX RULES
 
 */
 
+
+//Melee Players
+
 new Player(
 	['mango', 'mang0'], //Array of aliases
 	['Fox', 'Falco'], //Array of player's melee mains (2 max)
@@ -65,7 +68,7 @@ new Player(
 new Player(
 	['mew2king', 'mewtwoking', 'm2k'], //Array of aliases
 	['Sheik', 'Marth'], //Array of player's melee mains (2 max)
-	[], //Array of player's sm4sh mains (2 max)
+	['Sm4shDiddy'], //Array of player's sm4sh mains (2 max)
 	'Jason "Mew2King" Zimmerman', //Full name
 	'mew2king', //Twitch Username
 	'MVG_Mew2King', //Twitter Handle
@@ -162,7 +165,7 @@ new Player(
 ),
 
 new Player(
-	['pewpewu'], //Array of aliases
+	['pew pew u'], //Array of aliases
 	['Marth'], //Array of player's melee mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Kevin "PewPewU" Toy', //Full name
@@ -417,7 +420,7 @@ new Player(
 new Player(
 	['larry lurr', 'dehf'], //Array of aliases
 	['Falco'], //Array of player's melee mains (2 max)
-	[], //Array of player's sm4sh mains (2 max)
+	['Sm4shFox', 'Sm4shSheik'], //Array of player's sm4sh mains (2 max)
 	'Larry "Larry Lurr" Holland', //Full name
 	'larrylurr', //Twitch Username
 	'LarryLurr', //Twitter Handle
@@ -555,6 +558,46 @@ new Player(
 	'liquidkdj', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/KoreanDJ', //Wiki Link
 	'http://www.teamliquidpro.com/' //Sponsor Link
-)
+),
+
+
+//Smash 4 players (some of them are already listed above)
+
+//(ZeRo already listed)
+
+new Player(
+	['nairo'], //Array of aliases
+	[], //Array of player's melee mains (2 max)
+	['Sm4shZSSamus', 'Sm4shDarkPit'], //Array of player's sm4sh mains (2 max)
+	'Nairoby "Nairo" Quezada', //Full name
+	'nairomk', //Twitch Username
+	'nairomk', //Twitter Handle
+	'http://www.ssbwiki.com/Nairo', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['dabuz'], //Array of aliases
+	[], //Array of player's melee mains (2 max)
+	['Sm4shRosalina'], //Array of player's sm4sh mains (2 max)
+	'Samuel "Dabuz" Buzby', //Full name
+	'Dabuz18', //Twitch Username
+	'DabuzSensei', //Twitter Handle
+	'http://www.ssbwiki.com/Dabuz', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['ally'], //Array of aliases
+	[], //Array of player's melee mains (2 max)
+	['Sm4shMario', 'Sm4shROB'], //Array of player's sm4sh mains (2 max)
+	'Elliot "Ally" Carroza-Oyarce', //Full name
+	'', //Twitch Username
+	'allyornotally', //Twitter Handle
+	'http://www.ssbwiki.com/Ally', //Wiki Link
+	'http://www.boreal.gg/' //Sponsor Link
+),
+
+//(Larry Lurr already listed)
 
 ]
