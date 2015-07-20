@@ -198,7 +198,7 @@ new Player(
 ),
 
 new Player(
-	['plup'], //Array of aliases
+	['plup', 'pluplue'], //Array of aliases
 	['Sheik', 'Samus'], //Array of player's melee mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Justin "Plup" McGrath', //Full name
@@ -602,7 +602,7 @@ new Player(
 
 new Player(
 	['esam'], //Array of aliases
-	[], //Array of player's melee mains (2 max)
+	['Samus', 'Fox'], //Array of player's melee mains (2 max)
 	['Sm4shPikachu'], //Array of player's sm4sh mains (2 max)
 	'Eric "ESAM" Lew', //Full name
 	'', //Twitch Username
