@@ -600,4 +600,15 @@ new Player(
 
 //(Larry Lurr already listed)
 
+new Player(
+	['esam'], //Array of aliases
+	[], //Array of player's melee mains (2 max)
+	['Sm4shPikachu'], //Array of player's sm4sh mains (2 max)
+	'Eric "ESAM" Lew', //Full name
+	'', //Twitch Username
+	'PG_ESAM', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/ESAM', //Wiki Link
+	'http://www.panda.gg/' //Sponsor Link
+),
+
 ]
