@@ -1,5 +1,5 @@
 //Version Number
-var appVersion = "3.4.2"
+var appVersion = "3.4.3"
 
 //Default values
 var codeLines = []
@@ -407,8 +407,8 @@ function playerAutofill(playerNum){ //Search player-data.js. If a player's tag m
 }
 
 function showGame(num){ //Change which game user is currently looking at
-	$(".game-toggle div").css("background-color", "rgba(0, 0, 0, 0.2)");
-	$(".game-toggle div:nth-child(" + (num+1).toString() + ")").css("background-color", "rgba(0, 0, 0, 0.6)");
+	$(".game-toggle div").removeClass("current-game")
+	$(".game-toggle div:nth-child(" + (num+1).toString() + ")").addClass("current-game")
 
 	$(".game-info section").css("display", "none");
 	$(".game-info section:nth-child(" + (num).toString() + ")").css("display", "block");
