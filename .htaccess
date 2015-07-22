@@ -1,0 +1,15 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+
+redirect /ssbm.html http://tournament-tabler.com/melee
+redirect /ssb4.html http://tournament-tabler.com/smash4
+redirect /sm4sh.html http://tournament-tabler.com/smash4
+
+# remove trailing slash
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+RewriteRule ^([a-zA-Z0-9]+)$ $1.html
