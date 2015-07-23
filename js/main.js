@@ -52,20 +52,18 @@ function addToPreview(content){ //Prints content into preview table
 
 function displaySnackbar(content, duration){ //Display Android style snackbar notification
 
-	var distanceFromBottom = ($(window).height() / 2 - 30).toString() + "px" //30 in this equation is half the height of the snackbar
-
 	$("body").append("<div id='snackbar-shade' style='display: none' onclick=\"$('#comment-code').select()\"></div>")
-	$("#snackbar-shade").fadeIn()
-	$("body").append("<div id='snackbar' style='bottom: " + distanceFromBottom + " ;display: none' onclick=\"$('#comment-code').select()\"><span>" + content + "</span></div>")
-	$("#snackbar").fadeIn()
-	window.setTimeout(function(){
-		$("#snackbar-shade").fadeOut()
-		$("#snackbar").fadeOut()
-	}, duration);
-	window.setTimeout(function(){
-		$("#snackbar-shade").remove()
-		$("#snackbar").remove()
-	}, (duration + 1000));
+	$("#snackbar-shade").append("<div id='snackbar' onclick=\"$('#comment-code').select()\"><span>" + content + "</span></div>")
+
+	var distanceFromBottom = ( ( $(window).height() / 2 ) - ( $("#snackbar").height() + $("#snackbar span").outerHeight() / 2 ) ).toString() + "px"
+	$("#snackbar").css("bottom", distanceFromBottom)
+
+	$("#snackbar-shade").fadeIn(400, function(){
+		$("#snackbar-shade").delay(duration).fadeOut(400, function(){
+			$("#snackbar-shade").remove()
+		})
+	})
+	
 }
 
 function openCharacterMenu(selector){ //Open character selection menu
@@ -438,7 +436,7 @@ function solidifyCustomChoice(num){ //Choosing a game num solidifies character c
 }
 
 function printFormattedTable(){ //Generate code and preview output
-	$("#results").css("display", "block"); //Show results code area
+	$("#results").fadeIn(800) //Show results code area	
 	codeLines = [] //Clear last table code
 
 	$("html, body").animate({ scrollTop: $(document).height() }, "slow");

@@ -20,7 +20,7 @@ PLAYER OBJECT SYNTAX RULES
 -Must be in an array
 -Must be alphanumeric
 -Must be lowercase
--If it has a space in it, don't bother including the version without a space ('silent wolf' is all that's needed, don't include 'silentWolf')
+-If it has a space in it, don't bother including the version without a space ('silent wolf' is all that's needed, don't include 'silentwolf')
     -If you are unsure whether or not the name is usually spelled with our without a space, spell it WITH a space ('kirbykaze' is traditionally spelled without a space, but because of uncertainty spell it 'kirby kaze' instead.)
 
 ---Full Names---
