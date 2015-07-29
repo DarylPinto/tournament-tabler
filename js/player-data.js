@@ -414,7 +414,7 @@ new Player(
 	'ZeRo', //Twitch Username
 	'ZeRoSSB', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/ZeRo', //Wiki Link
-	'' //Sponsor Link
+	'http://www.tsm.gg/' //Sponsor Link
 ),
 
 new Player(
