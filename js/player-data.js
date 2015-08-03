@@ -412,7 +412,7 @@ new Player(
 	['Sm4shSheik', 'Sm4shDiddy'], //Array of player's sm4sh mains (2 max)
 	'Gonzalo "ZeRo" Barrios', //Full name
 	'ZeRo', //Twitch Username
-	'ZeRoSSB', //Twitter Handle
+	'TSMZeRo', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/ZeRo', //Wiki Link
 	'http://www.tsm.gg/' //Sponsor Link
 ),
