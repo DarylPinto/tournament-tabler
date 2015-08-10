@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Melee - r/smashbros Tournament Tabler</title>
+	<title>Smash 64 - r/smashbros Tournament Tabler</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/character-icons.css">
+	<link rel="stylesheet" type="text/css" href="css/ssb64.css">
 	<link rel="shortcut icon" href="http://img1.wikia.nocookie.net/__cb20150114084035/ssb/images/6/64/Favicon.ico" />
 	<link href='http://fonts.googleapis.com/css?family=Satisfy|Roboto:300,700,400|Merriweather:400,700italic|Droid+Serif:400italic' rel='stylesheet' type='text/css'>
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
-	<link rel="canonical" href="http://tournament-tabler.com/melee" />
+	<link rel="canonical" href="http://tournament-tabler.com/smash64" />
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	
 	<meta charset="utf-8">
 	<meta name="description" content='Tournament Tabler is an easy-to-use tool made to generate detailed set tables for /r/smashbros tournament result threads. Fill in information for each game while watching the set, then once its over click "Generate Table" and BAM: Instant table.'/>
-	<meta name="keywords" content="reddit, table, tournament, generator, Super Smash Bros. Melee, /r/smashbros, Melee, SSBM, congratulations to the winner, tournament thread, Twitch, Twitter, Liquipedia, SSBWiki, VoD, Tournament Tabler, Table maker">
+	<meta name="keywords" content="reddit, table, tournament, generator, Super Smash Bros. , /r/smashbros, Smash64, SSB, SSB64, congratulations to the winner, tournament thread, Twitch, Twitter, Liquipedia, SSBWiki, VoD, Tournament Tabler, Table maker">
 </head>
 <body>
 <h1 class="main-header"><a href="http://tournament-tabler.com">Tournament Tabler</a></h1>
@@ -31,44 +32,44 @@
 				<h1>Player 1</h1>
 				<div class="player-name">
 					<h1>Tag</h1>
-					<input type="text" id="PlayerOne" value="C9 Mango">
+					<input type="text" id="PlayerOne" value="Isai">
 				</div>
 				<div id="PlayerOneMains">
 					<h1>Mains</h1>
 					<div class="character-main-wrapper">
 						<div id="P1Main1" onclick="openCharacterMenu('#P1Main1')">
-							<div class="MeleeFox"></div>
+							<div class="S64Pikachu"></div>
 						</div>
 
 						<div id="P1Main2" onclick="openCharacterMenu('#P1Main2')">
-							<div class="MeleeFalco"></div>
+							<div class="S64Kirby"></div>
 						</div>
 					</div>
 				</div>
 				<div class="clearfix"></div>
 				<div class="extra">
 					<h1>Full Name (optional)</h1>
-					<input type="text" id="PlayerOneName" value='Joseph "Mang0" Marquez'>
+					<input type="text" id="PlayerOneName" value='Joel "Isai" Alvarado'>
 					<div class="clear-extra" onclick="clearExtra('#PlayerOneName')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Twitch (optional)</h1>
-					<input type="text" id="PlayerOneTwitch" value="mang0">
+					<input type="text" id="PlayerOneTwitch" value="ssb64">
 					<div class="clear-extra" onclick="clearExtra('#PlayerOneTwitch')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Twitter (optional)</h1>
-					<input type="text" id="PlayerOneTwitter" value="c9mang0">
+					<input type="text" id="PlayerOneTwitter" value="">
 					<div class="clear-extra" onclick="clearExtra('#PlayerOneTwitter')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Wiki URL (optional)</h1>
-					<input type="text" id="PlayerOneWiki" value="http://wiki.teamliquid.net/smash/Mango">
+					<input type="text" id="PlayerOneWiki" value="http://www.ssbwiki.com/Isai">
 					<div class="clear-extra" onclick="clearExtra('#PlayerOneWiki')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Sponsor URL (optional)</h1>
-					<input type="text" id="PlayerOneSponsor" value="http://cloud9.gg/">
+					<input type="text" id="PlayerOneSponsor" value="">
 					<div class="clear-extra" onclick="clearExtra('#PlayerOneSponsor')"><span>x</span></div>
 				</div>
 				<div class="expand-extras" onclick="showExtras(1)">Add Extras</div>
@@ -78,13 +79,13 @@
 				<h1>Player 2</h1>
 				<div class="player-name">
 					<h1>Tag</h1>
-					<input type="text" id="PlayerTwo" value="TSM Leffen">
+					<input type="text" id="PlayerTwo" value="SuPeRbOoMfAn">
 				</div>
 				<div id="PlayerTwoMains">
 					<h1>Mains</h1>
 					<div class="character-main-wrapper">
 						<div id="P2Main1" onclick="openCharacterMenu('#P2Main1')">
-							<div class="MeleeFox"></div>
+							<div class="S64CaptainFalcon"></div>
 						</div>
 
 						<div id="P2Main2" onclick="openCharacterMenu('#P2Main2')">
@@ -94,27 +95,27 @@
 				<div class="clearfix"></div>
 				<div class="extra">
 					<h1>Full Name (optional)</h1>
-					<input type="text" id="PlayerTwoName" value='William "Leffen" Hjelte'>
+					<input type="text" id="PlayerTwoName" value='Daniel "SuPeRbOoMfAn" Hoyt'>
 					<div class="clear-extra" onclick="clearExtra('#PlayerTwoName')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Twitch (optional)</h1>
-					<input type="text" id="PlayerTwoTwitch" value="lffn">
+					<input type="text" id="PlayerTwoTwitch" value="">
 					<div class="clear-extra" onclick="clearExtra('#PlayerTwoTwitch')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Twitter (optional)</h1>
-					<input type="text" id="PlayerTwoTwitter" value="tsm_leffen">
+					<input type="text" id="PlayerTwoTwitter" value="">
 					<div class="clear-extra" onclick="clearExtra('#PlayerTwoTwitter')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Wiki URL (optional)</h1>
-					<input type="text" id="PlayerTwoWiki" value="http://wiki.teamliquid.net/smash/Leffen">
+					<input type="text" id="PlayerTwoWiki" value="http://www.ssbwiki.com/SuPeRbOoMfAn">
 					<div class="clear-extra" onclick="clearExtra('#PlayerTwoWiki')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Sponsor URL (optional)</h1>
-					<input type="text" id="PlayerTwoSponsor" value="http://www.tsm.gg/">
+					<input type="text" id="PlayerTwoSponsor" value="">
 					<div class="clear-extra" onclick="clearExtra('#PlayerTwoSponsor')"><span>x</span></div>
 				</div>
 				<div class="expand-extras" onclick="showExtras(2)">Add Extras</div>
@@ -137,13 +138,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameOne .PlayerOneCharacter')">
-									<div class="MeleeFalco" autoset="true"></div>
+									<div class="S64Pikachu" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameOne .PlayerTwoCharacter')">
-									<div class="MeleeFox" autoset="true"></div>
+									<div class="S64CaptainFalcon" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -152,12 +153,9 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="Battlefield" selected="selected">Battlefield</option>
-								<option value="Final Destination">Final Destination</option>
-								<option value="Yoshi's Story">Yoshi's Story</option>
-								<option value="Dreamland 64">Dreamland 64</option>
-								<option value="Fountain of Dreams">Fountain of Dreams</option>
-								<option value="Pokémon Stadium">Pokémon Stadium</option>
+								<option value="Dream Land" selected="selected">Dream Land</option>
+								<option value="Final Destination">Congo Jungle</option>
+								<option value="Yoshi's Story">Peach's Castle</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -168,10 +166,11 @@
 						<div class="stock-count">
 							<h1>Stocks Left</h1>
 							<ul>
-								<li onclick="changeStocksLeft('#GameOne', 1)"><div class="MeleeFalco"></div></li>
-								<li onclick="changeStocksLeft('#GameOne', 2)"><div class="MeleeFalco"></div></li>
-								<li onclick="changeStocksLeft('#GameOne', 3)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameOne', 1)"><div class="S64Pikachu"></div></li>
+								<li onclick="changeStocksLeft('#GameOne', 2)"><div class="S64Pikachu"></div></li>
+								<li onclick="changeStocksLeft('#GameOne', 3)"><div class="S64Pikachu"></div></li>
 								<li onclick="changeStocksLeft('#GameOne', 4)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameOne', 5)">&bull;</li>
 							</ul>
 						</div>
 						<div class="delete-game-data">
@@ -186,13 +185,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameTwo .PlayerOneCharacter')">
-									<div class="MeleeFalco" autoset="true"></div>
+									<div class="S64Pikachu" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameTwo .PlayerTwoCharacter')">
-									<div class="MeleeFox" autoset="true"></div>
+									<div class="S64CaptainFalcon" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -201,12 +200,9 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="Battlefield">Battlefield</option>
-								<option value="Final Destination">Final Destination</option>
-								<option value="Yoshi's Story">Yoshi's Story</option>
-								<option value="Dreamland 64">Dreamland 64</option>
-								<option value="Fountain of Dreams">Fountain of Dreams</option>
-								<option value="Pokémon Stadium">Pokémon Stadium</option>
+								<option value="Battlefield">Dream Land</option>
+								<option value="Final Destination">Congo Jungle</option>
+								<option value="Yoshi's Story">Peach's Castle</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -221,6 +217,7 @@
 								<li onclick="changeStocksLeft('#GameTwo', 2)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameTwo', 3)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameTwo', 4)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameTwo', 5)">&bull;</li>
 							</ul>
 						</div>
 						<div class="delete-game-data">
@@ -235,13 +232,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameThree .PlayerOneCharacter')">
-									<div class="MeleeFalco" autoset="true"></div>
+									<div class="S64Pikachu" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameThree .PlayerTwoCharacter')">
-									<div class="MeleeFox" autoset="true"></div>
+									<div class="S64CaptainFalcon" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -250,12 +247,9 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="Battlefield">Battlefield</option>
-								<option value="Final Destination">Final Destination</option>
-								<option value="Yoshi's Story">Yoshi's Story</option>
-								<option value="Dreamland 64">Dreamland 64</option>
-								<option value="Fountain of Dreams">Fountain of Dreams</option>
-								<option value="Pokémon Stadium">Pokémon Stadium</option>
+								<option value="Battlefield">Dream Land</option>
+								<option value="Final Destination">Congo Jungle</option>
+								<option value="Yoshi's Story">Peach's Castle</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -270,6 +264,7 @@
 								<li onclick="changeStocksLeft('#GameThree', 2)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameThree', 3)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameThree', 4)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameThree', 5)">&bull;</li>
 							</ul>
 						</div>
 						<div class="delete-game-data">
@@ -284,13 +279,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameFour .PlayerOneCharacter')">
-									<div class="MeleeFalco" autoset="true"></div>
+									<div class="S64Pikachu" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameFour .PlayerTwoCharacter')">
-									<div class="MeleeFox" autoset="true"></div>
+									<div class="S64CaptainFalcon" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -299,12 +294,9 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="Battlefield">Battlefield</option>
-								<option value="Final Destination">Final Destination</option>
-								<option value="Yoshi's Story">Yoshi's Story</option>
-								<option value="Dreamland 64">Dreamland 64</option>
-								<option value="Fountain of Dreams">Fountain of Dreams</option>
-								<option value="Pokémon Stadium">Pokémon Stadium</option>
+								<option value="Battlefield">Dream Land</option>
+								<option value="Final Destination">Congo Jungle</option>
+								<option value="Yoshi's Story">Peach's Castle</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -319,6 +311,7 @@
 								<li onclick="changeStocksLeft('#GameFour', 2)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameFour', 3)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameFour', 4)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameFour', 5)">&bull;</li>
 							</ul>
 						</div>
 						<div class="delete-game-data">
@@ -333,13 +326,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameFive .PlayerOneCharacter')">
-									<div class="MeleeFalco" autoset="true"></div>
+									<div class="S64Pikachu" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameFive .PlayerTwoCharacter')">
-									<div class="MeleeFox" autoset="true"></div>
+									<div class="S64CaptainFalcon" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -348,12 +341,9 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="Battlefield">Battlefield</option>
-								<option value="Final Destination">Final Destination</option>
-								<option value="Yoshi's Story">Yoshi's Story</option>
-								<option value="Dreamland 64">Dreamland 64</option>
-								<option value="Fountain of Dreams">Fountain of Dreams</option>
-								<option value="Pokémon Stadium">Pokémon Stadium</option>
+								<option value="Battlefield">Dream Land</option>
+								<option value="Final Destination">Congo Jungle</option>
+								<option value="Yoshi's Story">Peach's Castle</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -368,6 +358,7 @@
 								<li onclick="changeStocksLeft('#GameFive', 2)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameFive', 3)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameFive', 4)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameFive', 5)">&bull;</li>
 							</ul>
 						</div>
 						<div class="delete-game-data">
@@ -411,42 +402,22 @@
 			<div class="close-X" onclick="$('.blackout').css('display', 'none')">X</div>
 				<table id="character-list">
 					<tr>
-						<td><div class="MeleeFox" onclick="chooseCharacter('MeleeFox')"></div></td>
-						<td><div class="MeleeFalco" onclick="chooseCharacter('MeleeFalco')"></div></td>
-						<td><div class="MeleeSheik" onclick="chooseCharacter('MeleeSheik')"></div></td>
-						<td><div class="MeleeMarth" onclick="chooseCharacter('MeleeMarth')"></div></td>
-						<td><div class="MeleeJigglypuff" onclick="chooseCharacter('MeleeJigglypuff')"></div></td>
+						<td><div class="S64Pikachu" onclick="chooseCharacter('S64Pikachu')"></div></td>
+						<td><div class="S64Kirby" onclick="chooseCharacter('S64Kirby')"></div></td>
+						<td><div class="S64CaptainFalcon" onclick="chooseCharacter('S64CaptainFalcon')"></div></td>
+						<td><div class="S64Fox" onclick="chooseCharacter('S64Fox')"></div></td>
 					</tr>
 					<tr>
-						<td><div class="MeleePeach" onclick="chooseCharacter('MeleePeach')"></div></td>
-						<td><div class="MeleeCaptainFalcon" onclick="chooseCharacter('MeleeCaptainFalcon')"></div></td>
-						<td><div class="MeleeIceClimbers" onclick="chooseCharacter('MeleeIceClimbers')"></div></td>
-						<td><div class="MeleeDrMario" onclick="chooseCharacter('MeleeDrMario')"></div></td>
-						<td><div class="MeleePikachu" onclick="chooseCharacter('MeleePikachu')"></div></td>
+						<td><div class="S64Yoshi" onclick="chooseCharacter('S64Yoshi')"></div></td>
+						<td><div class="S64Jigglypuff" onclick="chooseCharacter('S64Jigglypuff')"></div></td>
+						<td><div class="S64Mario" onclick="chooseCharacter('S64Mario')"></div></td>
+						<td><div class="S64Samus" onclick="chooseCharacter('S64Samus')"></div></td>
 					</tr>
 					<tr>
-						<td><div class="MeleeSamus" onclick="chooseCharacter('MeleeSamus')"></div></td>
-						<td><div class="MeleeGanondorf" onclick="chooseCharacter('MeleeGanondorf')"></div></td>
-						<td><div class="MeleeLuigi" onclick="chooseCharacter('MeleeLuigi')"></div></td>
-						<td><div class="MeleeMario" onclick="chooseCharacter('MeleeMario')"></div></td>
-						<td><div class="MeleeYoungLink" onclick="chooseCharacter('MeleeYoungLink')"></div></td>
-					</tr>
-					<tr>
-						<td><div class="MeleeLink" onclick="chooseCharacter('MeleeLink')"></div></td>
-						<td><div class="MeleeDonkeyKong" onclick="chooseCharacter('MeleeDonkeyKong')"></div></td>
-						<td><div class="MeleeYoshi" onclick="chooseCharacter('MeleeYoshi')"></div></td>
-						<td><div class="MeleeZelda" onclick="chooseCharacter('MeleeZelda')"></div></td>
-						<td><div class="MeleeRoy" onclick="chooseCharacter('MeleeRoy')"></div></td>
-					</tr>
-					<tr>
-						<td><div class="MeleeMewtwo" onclick="chooseCharacter('MeleeMewtwo')"></div></td>
-						<td><div class="MeleeMrGameAndWatch" onclick="chooseCharacter('MeleeMrGameAndWatch')"></div></td>
-						<td><div class="MeleeNess" onclick="chooseCharacter('MeleeNess')"></div></td>
-						<td><div class="MeleeBowser" onclick="chooseCharacter('MeleeBowser')"></div></td>
-						<td><div class="MeleePichu" onclick="chooseCharacter('MeleePichu')"></div></td>
-					</tr>
-					<tr>
-						<td><div class="MeleeKirby" onclick="chooseCharacter('MeleeKirby')"></div></td>
+						<td><div class="S64DonkeyKong" onclick="chooseCharacter('S64DonkeyKong')"></div></td>
+						<td><div class="S64Ness" onclick="chooseCharacter('S64Ness')"></div></td>
+						<td><div class="S64Link" onclick="chooseCharacter('S64Link')"></div></td>
+						<td><div class="S64Luigi" onclick="chooseCharacter('S64Luigi')"></div></td>
 					</tr>
 				</table>
 			<div class="clear-char" onclick="chooseCharacter('clear')">Remove Character</div>
@@ -458,6 +429,11 @@
 	<script type="text/javascript" src="js/player-data.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/ad-placement.js"></script>
+
+	<script type="text/javascript">
+			var P1lastAutofill = "isai";
+			var P2lastAutofill = "superboomfan";
+		</script>
 
 
 	<!--Google Analytics-->

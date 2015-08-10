@@ -1,6 +1,9 @@
-function Player(aliases, melee_mains, sm4sh_mains, name, twitch, twitter, wiki, sponsor){
+function Player(aliases, s64_mains, melee_mains, brawl_mains, pm_mains, sm4sh_mains, name, twitch, twitter, wiki, sponsor){
 	this.aliases = aliases;
+	this.s64_mains = s64_mains;
 	this.melee_mains = melee_mains;
+	this.brawl_mains = brawl_mains;
+	this.pm_mains = pm_mains;
 	this.sm4sh_mains = sm4sh_mains;
 	this.name = name;
 	this.twitch = twitch;
@@ -34,7 +37,10 @@ PLAYER OBJECT SYNTAX RULES
 
 new Player(
 	['mango', 'mang0'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox', 'Falco'], //Array of player's melee mains (2 max)
+	['Falco'], //Array of player's brawl mains (2 max)
+	['Fox', 'Falco'], //Array of player's pm mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Joseph "Mang0" Marquez', //Full name
 	'mang0', //Twitch Username
@@ -45,7 +51,10 @@ new Player(
 
 new Player(
 	['armada'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox', 'Peach'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	['Fox', 'Pit'], //Array of player's pm mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Adam "Armada" Lindgren', //Full name
 	'ArmadaUGS', //Twitch Username
@@ -56,7 +65,10 @@ new Player(
 
 new Player(
 	['ppmd'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Falco', 'Marth'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Kevin "PPMD" Nanney', //Full name
 	'ppmd', //Twitch Username
@@ -67,8 +79,11 @@ new Player(
 
 new Player(
 	['mew2king', 'mewtwoking', 'm2k'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Sheik', 'Marth'], //Array of player's melee mains (2 max)
-	['Sm4shDiddy'], //Array of player's sm4sh mains (2 max)
+	['MetaKnight'], //Array of player's brawl mains (2 max)
+	['Fox'], //Array of player's pm mains (2 max)
+	['DiddyKong'], //Array of player's sm4sh mains (2 max)
 	'Jason "Mew2King" Zimmerman', //Full name
 	'mew2king', //Twitch Username
 	'MVG_Mew2King', //Twitter Handle
@@ -78,8 +93,11 @@ new Player(
 
 new Player(
 	['hungrybox', 'hbox'], //Array of aliases
-	['Puff'], //Array of player's melee mains (2 max)
-	['Sm4shJigglypuff'], //Array of player's sm4sh mains (2 max)
+	[], //Array of player's 64 mains (2 max)
+	['Jigglypuff'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
+	['Jigglypuff'], //Array of player's sm4sh mains (2 max)
 	'Juan "Hungrybox" Debiedma', //Full name
 	'Hungrybox', //Twitch Username
 	'LiquidHbox', //Twitter Handle
@@ -89,7 +107,10 @@ new Player(
 
 new Player(
 	['leffen'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'William "Leffen" Hjelte', //Full name
 	'lffn', //Twitch Username
@@ -100,7 +121,10 @@ new Player(
 
 new Player(
 	['axe'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Pikachu'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Jeffrey "Axe" Williamson', //Full name
 	'', //Twitch Username
@@ -111,7 +135,10 @@ new Player(
 
 new Player(
 	['hax'], //Array of aliases
-	['Fox', 'CF'], //Array of player's melee mains (2 max)
+	[], //Array of player's 64 mains (2 max)
+	['Fox', 'CaptainFalcon'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Aziz "Hax" Al-Yami', //Full name
 	'', //Twitch Username
@@ -122,7 +149,10 @@ new Player(
 
 new Player(
 	['westballz'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Falco'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Weston "Westballz" Dennis', //Full name
 	'westballz', //Twitch Username
@@ -133,7 +163,10 @@ new Player(
 
 new Player(
 	['colbol'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Colin "Colbol" Green', //Full name
 	'', //Twitch Username
@@ -144,7 +177,10 @@ new Player(
 
 new Player(
 	['fly amanita'], //Array of aliases
-	['Icies'], //Array of player's melee mains (2 max)
+	[], //Array of player's 64 mains (2 max)
+	['IceClimbers'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Jeremy "Fly Amanita" Westfahl', //Full name
 	'FlyAgaric', //Twitch Username
@@ -155,7 +191,10 @@ new Player(
 
 new Player(
 	['lucky'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Joey "Lucky" Aldama', //Full name
 	'thenorwalkbat', //Twitch Username
@@ -166,7 +205,10 @@ new Player(
 
 new Player(
 	['pew pew u'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Marth'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Kevin "PewPewU" Toy', //Full name
 	'pewpewu', //Twitch Username
@@ -177,7 +219,10 @@ new Player(
 
 new Player(
 	['shroomed'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Sheik', 'DrMario'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'DaJuan "Shroomed" Jefferson McDaniel', //Full name
 	'', //Twitch Username
@@ -188,7 +233,10 @@ new Player(
 
 new Player(
 	['silent wolf'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Otto "Silent Wolf" Bisno', //Full name
 	'SilentWolf444', //Twitch Username
@@ -199,7 +247,10 @@ new Player(
 
 new Player(
 	['plup', 'pluplue'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Sheik', 'Samus'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Justin "Plup" McGrath', //Full name
 	'', //Twitch Username
@@ -210,7 +261,10 @@ new Player(
 
 new Player(
 	['fiction'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox', 'Marth'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Shephard "Fiction" Lima', //Full name
 	'', //Twitch Username
@@ -221,7 +275,10 @@ new Player(
 
 new Player(
 	['s2j', 'smoke2joints'], //Array of aliases
-	['CF'], //Array of player's melee mains (2 max)
+	[], //Array of player's 64 mains (2 max)
+	['CaptainFalcon'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Johnny "S2J" Kim', //Full name
 	'', //Twitch Username
@@ -232,7 +289,10 @@ new Player(
 
 new Player(
 	['ice'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox', 'Sheik'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Mustafa "Ice" Akcakaya', //Full name
 	'', //Twitch Username
@@ -243,7 +303,10 @@ new Player(
 
 new Player(
 	['sfat'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Zachary "SFAT" Cordoni', //Full name
 	'', //Twitch Username
@@ -254,7 +317,10 @@ new Player(
 
 new Player(
 	['zhu'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Falco'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Julian "Zhu" Zhu', //Full name
 	'smashpractice', //Twitch Username
@@ -265,7 +331,10 @@ new Player(
 
 new Player(
 	['amsa'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Yoshi'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Masaya "aMSa" Chikamoto', //Full name
 	'amsayoshi', //Twitch Username
@@ -276,7 +345,10 @@ new Player(
 
 new Player(
 	['kirby kaze'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Sheik'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'David "KirbyKaze" MacDonald', //Full name
 	'', //Twitch Username
@@ -287,7 +359,10 @@ new Player(
 
 new Player(
 	['nintendude'], //Array of aliases
-	['Icies'], //Array of player's melee mains (2 max)
+	[], //Array of player's 64 mains (2 max)
+	['IceClimbers'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Michael "Nintendude" Brancato', //Full name
 	'', //Twitch Username
@@ -298,7 +373,10 @@ new Player(
 
 new Player(
 	['macd'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Peach'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'McCain "MacD" LaVelle', //Full name
 	'MacDsmash', //Twitch Username
@@ -309,7 +387,10 @@ new Player(
 
 new Player(
 	['chillin', 'chillin dude', 'chillindude829'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Kashan "Chillindude" Khan', //Full name
 	'chillindude', //Twitch Username
@@ -320,7 +401,10 @@ new Player(
 
 new Player(
 	['javi'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Javier "Javi" Dantes', //Full name
 	'', //Twitch Username
@@ -331,7 +415,10 @@ new Player(
 
 new Player(
 	['kels'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Kelly "Kels" Smith', //Full name
 	'', //Twitch Username
@@ -342,7 +429,10 @@ new Player(
 
 new Player(
 	['wizzrobe', 'wizzy'], //Array of aliases
-	['CF'], //Array of player's melee mains (2 max)
+	[], //Array of player's 64 mains (2 max)
+	['CaptainFalcon'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Justin "Wizzrobe" Hallett', //Full name
 	'Wizzzrobe', //Twitch Username
@@ -353,7 +443,10 @@ new Player(
 
 new Player(
 	['the moon'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Marth'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Ryan "The Moon" Coker-Welch', //Full name
 	'', //Twitch Username
@@ -364,7 +457,10 @@ new Player(
 
 new Player(
 	['eddy mexico'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Luigi'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Eduardo "Eddy Mexico" Lucatero Rincon', //Full name
 	'', //Twitch Username
@@ -375,7 +471,10 @@ new Player(
 
 new Player(
 	['chudat'], //Array of aliases
-	['Icies'], //Array of player's melee mains (2 max)
+	[], //Array of player's 64 mains (2 max)
+	['IceClimbers'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Daniel "ChuDat" Rodriguez', //Full name
 	'chudatz', //Twitch Username
@@ -386,7 +485,10 @@ new Player(
 
 new Player(
 	['bladewise'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Peach'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Theodore "Bladewise" Seybold', //Full name
 	'', //Twitch Username
@@ -397,7 +499,10 @@ new Player(
 
 new Player(
 	['abate'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Luigi'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Stephen "Abate" Abate', //Full name
 	'', //Twitch Username
@@ -408,8 +513,11 @@ new Player(
 
 new Player(
 	['zero'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox'], //Array of player's melee mains (2 max)
-	['Sm4shSheik', 'Sm4shDiddy'], //Array of player's sm4sh mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
+	['Sheik', 'DiddyKong'], //Array of player's sm4sh mains (2 max)
 	'Gonzalo "ZeRo" Barrios', //Full name
 	'ZeRo', //Twitch Username
 	'TSMZeRo', //Twitter Handle
@@ -419,8 +527,11 @@ new Player(
 
 new Player(
 	['larry lurr', 'dehf'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Falco'], //Array of player's melee mains (2 max)
-	['Sm4shFox', 'Sm4shSheik'], //Array of player's sm4sh mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
+	['Fox', 'Sheik'], //Array of player's sm4sh mains (2 max)
 	'Larry "Larry Lurr" Holland', //Full name
 	'larrylurr', //Twitch Username
 	'LarryLurr', //Twitter Handle
@@ -430,7 +541,10 @@ new Player(
 
 new Player(
 	['hugs'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Samus'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Hugo "HugS" Gonzalez', //Full name
 	'HugS86', //Twitch Username
@@ -441,7 +555,10 @@ new Player(
 
 new Player(
 	['duck'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Samus'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'James "Duck" Ma', //Full name
 	'', //Twitch Username
@@ -452,7 +569,10 @@ new Player(
 
 new Player(
 	['dj nintendo'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox', 'Bowser'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Hendrick "DJ Nintendo" Pilar', //Full name
 	'', //Twitch Username
@@ -462,8 +582,11 @@ new Player(
 ),
 
 new Player(
-	['kalamazhu'], //Array of aliases
+	['kalamazhu', 'kzhu'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Peach'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Kyle "Kalamazhu" Zhu', //Full name
 	'', //Twitch Username
@@ -474,7 +597,10 @@ new Player(
 
 new Player(
 	['lord'], //Array of aliases
-	['CF'], //Array of player's melee mains (2 max)
+	[], //Array of player's 64 mains (2 max)
+	['CaptainFalcon'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Erick "Lord" Lui', //Full name
 	'', //Twitch Username
@@ -485,7 +611,10 @@ new Player(
 
 new Player(
 	['cactuar', 'cactus'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox', 'Marth'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Charles "Cactuar" Meighen', //Full name
 	'smashpractice', //Twitch Username
@@ -496,7 +625,10 @@ new Player(
 
 new Player(
 	['weon-x', 'weonx'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Fox'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Camilo "Weon-X" Morales', //Full name
 	'', //Twitch Username
@@ -507,7 +639,10 @@ new Player(
 
 new Player(
 	['darkrain'], //Array of aliases
-	['CF'], //Array of player's melee mains (2 max)
+	[], //Array of player's 64 mains (2 max)
+	['CaptainFalcon'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'David "Darkrain" John', //Full name
 	'', //Twitch Username
@@ -518,7 +653,10 @@ new Player(
 
 new Player(
 	['kage', 'kage the warrior'], //Array of aliases
-	['Ganon'], //Array of player's melee mains (2 max)
+	[], //Array of player's 64 mains (2 max)
+	['Ganondorf'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Roustane "Kage the Warrior" Benzeguir', //Full name
 	'', //Twitch Username
@@ -529,7 +667,10 @@ new Player(
 
 new Player(
 	['zanguzen'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Falco'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Alex "Zanguzen" Shnayder', //Full name
 	'', //Twitch Username
@@ -540,7 +681,10 @@ new Player(
 
 new Player(
 	['silent spectre'], //Array of aliases
-	['CF'], //Array of player's melee mains (2 max)
+	[], //Array of player's 64 mains (2 max)
+	['CaptainFalcon'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Jeff "SilentSpectre" Leung', //Full name
 	'silentspectre', //Twitch Username
@@ -551,7 +695,10 @@ new Player(
 
 new Player(
 	['korean dj', 'kdj'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Sheik', 'Marth'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Daniel "KoreanDJ" Jung', //Full name
 	'liquidkdj', //Twitch Username
@@ -567,8 +714,11 @@ new Player(
 
 new Player(
 	['nairo'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	[], //Array of player's melee mains (2 max)
-	['Sm4shZSSamus', 'Sm4shDarkPit'], //Array of player's sm4sh mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
+	['ZeroSuitSamus', 'DarkPit'], //Array of player's sm4sh mains (2 max)
 	'Nairoby "Nairo" Quezada', //Full name
 	'nairomk', //Twitch Username
 	'nairomk', //Twitter Handle
@@ -578,8 +728,11 @@ new Player(
 
 new Player(
 	['dabuz'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	[], //Array of player's melee mains (2 max)
-	['Sm4shRosalina'], //Array of player's sm4sh mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
+	['Rosalina'], //Array of player's sm4sh mains (2 max)
 	'Samuel "Dabuz" Buzby', //Full name
 	'Dabuz18', //Twitch Username
 	'DabuzSensei', //Twitter Handle
@@ -589,8 +742,11 @@ new Player(
 
 new Player(
 	['ally'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	[], //Array of player's melee mains (2 max)
-	['Sm4shMario', 'Sm4shROB'], //Array of player's sm4sh mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
+	['Mario', 'ROB'], //Array of player's sm4sh mains (2 max)
 	'Elliot "Ally" Carroza-Oyarce', //Full name
 	'', //Twitch Username
 	'allyornotally', //Twitter Handle
@@ -602,8 +758,11 @@ new Player(
 
 new Player(
 	['esam'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
 	['Samus', 'Fox'], //Array of player's melee mains (2 max)
-	['Sm4shPikachu'], //Array of player's sm4sh mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
+	['Pikachu'], //Array of player's sm4sh mains (2 max)
 	'Eric "ESAM" Lew', //Full name
 	'', //Twitch Username
 	'PG_ESAM', //Twitter Handle

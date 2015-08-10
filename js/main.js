@@ -1,9 +1,10 @@
 //Version Number
-var appVersion = "3.4.3"
+var appVersion = "3.6.0"
 
 //Default values
 var codeLines = []
 var tablePreviewPieces = []
+var customs_enabled = false
 
 var P1lastAutofill = "mango";
 var P2lastAutofill = "leffen";
@@ -108,6 +109,23 @@ function updateEmptyGameChars(player, character){ //If mains or game characters 
 			$(game + " .PlayerTwoCharacter").append("<div class='" + character + "' autoset='true'></div>")
 		}
 	});
+}
+
+function toggleCustoms(mode){
+	if(mode === "on"){
+		customs_enabled = true
+		$("#custom-toggle span:nth-child(2)").removeClass("selected-custom-mode")
+		$("#custom-toggle span:nth-child(3)").addClass("selected-custom-mode")
+		$(".game-info .CustomWrap").css("display", "block")
+		$(".stage-select").css("margin-top", "-5px")
+	}if(mode === "off"){
+		customs_enabled = false
+		$("#custom-toggle span:nth-child(2)").addClass("selected-custom-mode")
+		$("#custom-toggle span:nth-child(3)").removeClass("selected-custom-mode")
+		$(".game-info .CustomWrap").css("display", "none")
+		$(".stage-select").css("margin-top", "20px")
+	}
+
 }
 
 function updateEmptyCustoms(player, customNum){ //If custom field loses focus, automatically update the ones in the games that the user has not yet set themselves
@@ -240,7 +258,9 @@ function deleteDataForGame(num){ //Clears all data entered for a specified game
 		if(confirm("Are you sure you want to delete all data for the entire set?")){
 			games.forEach(function(game){
 				$(game + " .PlayerOneCharacter, " + game + " .PlayerTwoCharacter").empty()
-				$(game + " .PlayerOneCustoms, " + game + " .PlayerTwoCustoms").val("")
+				if(customs_enabled){
+					$(game + " .PlayerOneCustoms, " + game + " .PlayerTwoCustoms").val("")
+				}
 				$(game + " .Stage").val("---")
 
 				chooseWinner(game, null)
@@ -253,7 +273,9 @@ function deleteDataForGame(num){ //Clears all data entered for a specified game
 		var game = games[num - 1]
 
 		$(game + " .PlayerOneCharacter, " + game + " .PlayerTwoCharacter").empty()
-		$(game + " .PlayerOneCustoms, " + game + " .PlayerTwoCustoms").val("")
+		if(customs_enabled){
+			$(game + " .PlayerOneCustoms, " + game + " .PlayerTwoCustoms").val("")
+		}
 		$(game + " .Stage").val("---")
 
 		chooseWinner(game, null)
@@ -282,10 +304,18 @@ function playerAutofill(playerNum){ //Search player-data.js. If a player's tag m
 	
 	function fillFields(num, player){ //num refers to the player num (as in player 1 or 2) - player refers to a player object from the playerdatabase
 		
-		if( $("#character-list td div:first-child").attr("class").slice(0,5) === "Sm4sh" ){
-			var characters = player.sm4sh_mains;
+		if( $("#character-list td div:first-child").attr("class").slice(0,3) === "S64" ){
+			var characters = player.s64_mains.map(function(character){return "S64" + character});
+		}else if( $("#character-list td div:first-child").attr("class").slice(0,5) === "Melee" ){
+			var characters = player.melee_mains.map(function(character){return "Melee" + character});
+		}else if( $("#character-list td div:first-child").attr("class").slice(0,5) === "Brawl" ){
+			var characters = player.brawl_mains.map(function(character){return "Brawl" + character});
+		}else if( $("#character-list td div:first-child").attr("class").slice(0,2) === "Pm" ){
+			var characters = player.pm_mains.map(function(character){return "Pm" + character});
+		}else if( $("#character-list td div:first-child").attr("class").slice(0,5) === "Sm4sh" ){
+			var characters = player.sm4sh_mains.map(function(character){return "Sm4sh" + character});
 		}else{
-			var characters = player.melee_mains;
+			var characters = player.melee_mains.map(function(character){return "Melee" + character});
 		}
 
 		if(num === 1){
@@ -476,46 +506,66 @@ function printFormattedTable(){ //Generate code and preview output
 
 	var game1P1Character = $("#GameOne .PlayerOneCharacter div").attr("class");
 	var game1P2Character = $("#GameOne .PlayerTwoCharacter div").attr("class");
-	if( $("#GameOne .PlayerOneCustoms").val() != undefined){
+	if(customs_enabled){
 		game1P1Customs = $("#GameOne .PlayerOneCustoms").val();
-	} if( $("#GameOne .PlayerTwoCustoms").val() != undefined){
+	}else{
+		game1P1Customs = ""
+	} if(customs_enabled){
 		game1P2Customs = $("#GameOne .PlayerTwoCustoms").val();
+	}else{
+		game1P2Customs = ""
 	}
 	var game1Stage = $("#GameOne .Stage").val();
 
 	var game2P1Character = $("#GameTwo .PlayerOneCharacter div").attr("class");
 	var game2P2Character = $("#GameTwo .PlayerTwoCharacter div").attr("class");
-	if( $("#GameTwo .PlayerOneCustoms").val() != undefined){
+	if(customs_enabled){
 		game2P1Customs = $("#GameTwo .PlayerOneCustoms").val();
-	} if( $("#GameTwo .PlayerTwoCustoms").val() != undefined){
+	}else{
+		game2P1Customs = ""
+	} if(customs_enabled){
 		game2P2Customs = $("#GameTwo .PlayerTwoCustoms").val();
+	}else{
+		game2P2Customs = ""
 	}
 	var game2Stage = $("#GameTwo .Stage").val();
 
 	var game3P1Character = $("#GameThree .PlayerOneCharacter div").attr("class");
 	var game3P2Character = $("#GameThree .PlayerTwoCharacter div").attr("class");
-	if( $("#GameThree .PlayerOneCustoms").val() != undefined){
+	if(customs_enabled){
 		game3P1Customs = $("#GameThree .PlayerOneCustoms").val();
-	} if( $("#GameThree .PlayerTwoCustoms").val() != undefined){
+	}else{
+		game3P1Customs = ""
+	} if(customs_enabled){
 		game3P2Customs = $("#GameThree .PlayerTwoCustoms").val();
+	}else{
+		game3P2Customs = ""
 	}
 	var game3Stage = $("#GameThree .Stage").val();
 
 	var game4P1Character = $("#GameFour .PlayerOneCharacter div").attr("class");
 	var game4P2Character = $("#GameFour .PlayerTwoCharacter div").attr("class");
-	if( $("#GameFour .PlayerOneCustoms").val() != undefined){
+	if(customs_enabled){
 		game4P1Customs = $("#GameFour .PlayerOneCustoms").val();
-	} if( $("#GameFour .PlayerTwoCustoms").val() != undefined){
+	}else{
+		game4P1Customs = ""
+	} if(customs_enabled){
 		game4P2Customs = $("#GameFour .PlayerTwoCustoms").val();
+	}else{
+		game4P2Customs = ""
 	}
 	var game4Stage = $("#GameFour .Stage").val();
 
 	var game5P1Character = $("#GameFive .PlayerOneCharacter div").attr("class");
 	var game5P2Character = $("#GameFive .PlayerTwoCharacter div").attr("class");
-	if( $("#GameFive .PlayerOneCustoms").val() != undefined){
+	if(customs_enabled){
 		game5P1Customs = $("#GameFive .PlayerOneCustoms").val();
-	} if( $("#GameFive .PlayerTwoCustoms").val() != undefined){
+	}else{
+		game5P1Customs = ""
+	} if(customs_enabled){
 		game5P2Customs = $("#GameFive .PlayerTwoCustoms").val();
+	}else{
+		game5P2Customs = ""
 	}
 	var game5Stage = $("#GameFive .Stage").val();
 
@@ -538,10 +588,8 @@ function printFormattedTable(){ //Generate code and preview output
 	function makeFlair(str){
 		if(str === undefined){
 			return "" //No flair
-		}else if(str.slice(0,5) === "Sm4sh"){ 
-			return "[](#"+str+")"; //Smash 4 Flair
 		}else{
-			return "[](/"+str+")"; //Melee Flair
+			return "[](#"+str+")"; //Melee Flair
 		}
 	};
 
@@ -931,7 +979,7 @@ $(document).keydown(function(e) { //Escape Key closes character select screen
 
 setDynamicName()
 
-$("body").css("background-color", "rgb(" + randomNumberBetween(47,126).toString() + ", " + randomNumberBetween(47,126).toString() + ", " + randomNumberBetween(47,126).toString() + ")"); //Random background-color :D
+$("body").css("background-color", "rgb(" + randomNumberBetween(80,140).toString() + ", " + randomNumberBetween(80,140).toString() + ", " + randomNumberBetween(80,140).toString() + ")"); //Random background-color :D
 
 $("#PlayerOne").focusout(function(){
 	setDynamicName(); //When player tag field loses focus, update the player name throughout the page

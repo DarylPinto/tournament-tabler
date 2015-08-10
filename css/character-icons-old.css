@@ -1,0 +1,836 @@
+/*Misc*/
+
+.no-char{
+    height: 24px;
+    width: 24px;
+    background-color: rgb(219, 104, 104);
+    border: 3px solid rgb(153, 56, 56);
+    box-sizing: border-box;
+    border-radius: 100px;
+}
+
+/*Melee Characters*/
+
+.Bowser,
+.CF,
+.DK,
+.DrMario,
+.Falco,
+.Fox,
+.Ganon,
+.Icies,
+.Kirby,
+.Link,
+.Luigi,
+.Mario,
+.Marth,
+.Mewtwo,
+.GNW,
+.Ness,
+.Peach,
+.Pichu,
+.Pikachu,
+.Puff,
+.Yoshi,
+.Roy,
+.Samus,
+.Sheik,
+.YL,
+.Zelda {
+    background-image: url("../images/melee-char-spritesheet.png");
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px
+}
+.Bowser {
+    width: 24px;
+    height: 24px;
+    background-position: -5px -5px
+}
+.CF {
+    width: 24px;
+    height: 24px;
+    background-position: -39px -5px
+}
+.DK {
+    width: 24px;
+    height: 24px;
+    background-position: -73px -5px
+}
+.DrMario {
+    width: 24px;
+    height: 24px;
+    background-position: -107px -5px
+}
+.Falco {
+    width: 24px;
+    height: 24px;
+    background-position: -141px -5px
+}
+.Fox {
+    width: 24px;
+    height: 24px;
+    background-position: -5px -39px
+}
+.Ganon {
+    width: 24px;
+    height: 24px;
+    background-position: -39px -39px
+}
+.Icies {
+    width: 24px;
+    height: 24px;
+    background-position: -73px -39px
+}
+.Puff {
+    width: 24px;
+    height: 24px;
+    background-position: -107px -39px
+}
+.Kirby {
+    width: 24px;
+    height: 24px;
+    background-position: -141px -39px
+}
+.Link {
+    width: 24px;
+    height: 24px;
+    background-position: -5px -73px
+}
+.Luigi {
+    width: 24px;
+    height: 24px;
+    background-position: -39px -73px
+}
+.Mario {
+    width: 24px;
+    height: 24px;
+    background-position: -73px -73px
+}
+.Marth {
+    width: 24px;
+    height: 24px;
+    background-position: -107px -73px
+}
+.Mewtwo {
+    width: 24px;
+    height: 24px;
+    background-position: -141px -73px
+}
+.GNW {
+    width: 24px;
+    height: 24px;
+    background-position: -5px -107px
+}
+.Ness {
+    width: 24px;
+    height: 24px;
+    background-position: -39px -107px
+}
+.Peach {
+    width: 24px;
+    height: 24px;
+    background-position: -73px -107px
+}
+.Pichu {
+    width: 24px;
+    height: 24px;
+    background-position: -107px -107px
+}
+.Pikachu {
+    width: 24px;
+    height: 24px;
+    background-position: -141px -107px
+}
+.Roy {
+    width: 24px;
+    height: 24px;
+    background-position: -5px -141px
+}
+.Samus {
+    width: 24px;
+    height: 24px;
+    background-position: -39px -141px
+}
+.Sheik {
+    width: 24px;
+    height: 24px;
+    background-position: -5px -175px
+}
+.Yoshi {
+    width: 24px;
+    height: 24px;
+    background-position: -73px -141px
+}
+.YL {
+    width: 24px;
+    height: 24px;
+    background-position: -107px -141px
+}
+.Zelda {
+    width: 24px;
+    height: 24px;
+    background-position: -141px -141px
+}
+
+/*Project M Characters*/
+
+.PmWario,
+.PmMario,
+.PmLuigi,
+.PmPeach,
+.PmBowser,
+.PmYoshi,
+.PmDonkeyKong,
+.PmDiddyKong,
+.PmCaptainFalcon,
+.PmWolf,
+.PmFox,
+.PmFalco,
+.PmIceClimbers,
+.PmZelda,
+.PmSheik,
+.PmLink,
+.PmToonLink,
+.PmGanondorf,
+.PmMewtwo,
+.PmLucario,
+.PmPikachu,
+.PmJigglypuff,
+.PmSquirtle,
+.PmIvysaur,
+.PmCharizard,
+.PmSamus,
+.PmZSS,
+.PmLucas,
+.PmNess,
+.PmPit,
+.PmKirby,
+.PmMetaKnight,
+.PmKingDeDeDe,
+.PmIke,
+.PmMarth,
+.PmRoy,
+.PmOlimar,
+.PmROB,
+.PmGNW,
+.PmSnake,
+.PmSonic {
+    background-image: url("../images/projectm-char-spritesheet.png");
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px
+}
+.PmWario {
+    width: 24px;
+    height: 24px;
+    background-position: -5px -5px
+}
+.PmMario {
+    width: 24px;
+    height: 24px;
+    background-position: -39px -5px
+}
+.PmLuigi {
+    width: 24px;
+    height: 24px;
+    background-position: -73px -5px
+}
+.PmPeach {
+    width: 24px;
+    height: 24px;
+    background-position: -107px -5px
+}
+.PmBowser {
+    width: 24px;
+    height: 24px;
+    background-position: -141px -5px
+}
+.PmYoshi {
+    width: 24px;
+    height: 24px;
+    background-position: -5px -39px
+}
+.PmDonkeyKong {
+    width: 24px;
+    height: 24px;
+    background-position: -39px -39px
+}
+.PmDiddyKong {
+    width: 24px;
+    height: 24px;
+    background-position: -73px -39px
+}
+.PmCaptainFalcon {
+    width: 24px;
+    height: 24px;
+    background-position: -107px -39px
+}
+.PmWolf {
+    width: 24px;
+    height: 24px;
+    background-position: -141px -39px
+}
+.PmFox {
+    width: 24px;
+    height: 24px;
+    background-position: -5px -73px
+}
+.PmFalco {
+    width: 24px;
+    height: 24px;
+    background-position: -39px -73px
+}
+.PmIceClimbers {
+    width: 24px;
+    height: 24px;
+    background-position: -73px -73px
+}
+.PmZelda {
+    width: 24px;
+    height: 24px;
+    background-position: -107px -73px
+}
+.PmSheik {
+    width: 24px;
+    height: 24px;
+    background-position: -141px -73px
+}
+.PmLink {
+    width: 24px;
+    height: 24px;
+    background-position: -5px -107px
+}
+.PmToonLink {
+    width: 24px;
+    height: 24px;
+    background-position: -39px -107px
+}
+.PmGanondorf {
+    width: 24px;
+    height: 24px;
+    background-position: -73px -107px
+}
+.PmMewtwo {
+    width: 24px;
+    height: 24px;
+    background-position: -107px -107px
+}
+.PmLucario {
+    width: 24px;
+    height: 24px;
+    background-position: -141px -107px
+}
+.PmPikachu {
+    width: 24px;
+    height: 24px;
+    background-position: -5px -141px
+}
+.PmJigglypuff {
+    width: 24px;
+    height: 24px;
+    background-position: -39px -141px
+}
+.PmSquirtle {
+    width: 24px;
+    height: 24px;
+    background-position: -73px -141px
+}
+.PmIvysaur {
+    width: 24px;
+    height: 24px;
+    background-position: -107px -141px
+}
+.PmCharizard {
+    width: 24px;
+    height: 24px;
+    background-position: -141px -141px
+}
+.PmSamus {
+    width: 24px;
+    height: 24px;
+    background-position: -5px -175px
+}
+.PmZSS {
+    width: 24px;
+    height: 24px;
+    background-position: -39px -175px
+}
+.PmLucas {
+    width: 24px;
+    height: 24px;
+    background-position: -73px -175px
+}
+.PmNess {
+    width: 24px;
+    height: 24px;
+    background-position: -107px -175px
+}
+.PmPit {
+    width: 24px;
+    height: 24px;
+    background-position: -141px -175px
+}
+.PmKirby {
+    width: 24px;
+    height: 24px;
+    background-position: -5px -209px
+}
+.PmMetaKnight {
+    width: 24px;
+    height: 24px;
+    background-position: -39px -209px
+}
+.PmKingDeDeDe {
+    width: 24px;
+    height: 24px;
+    background-position: -73px -209px
+}
+.PmIke {
+    width: 24px;
+    height: 24px;
+    background-position: -107px -209px
+}
+.PmMarth {
+    width: 24px;
+    height: 24px;
+    background-position: -141px -209px
+}
+.PmRoy {
+    width: 24px;
+    height: 24px;
+    background-position: -5px -243px
+}
+.PmOlimar {
+    width: 24px;
+    height: 24px;
+    background-position: -39px -243px
+}
+.PmROB {
+    width: 24px;
+    height: 24px;
+    background-position: -73px -243px
+}
+.PmGNW {
+    width: 24px;
+    height: 24px;
+    background-position: -107px -243px
+}
+.PmSnake {
+    width: 24px;
+    height: 24px;
+    background-position: -141px -243px
+}
+.PmSonic {
+    width: 24px;
+    height: 24px;
+    background-position: -5px -277px
+}
+
+/*Smash 4 Characters*/
+
+.Sm4shMegaman,
+.Sm4shGreninja,
+.Sm4shMario,
+.Sm4shLuigi,
+.Sm4shDiddy,
+.Sm4shROB,
+.Sm4shPeach,
+.Sm4shBowser,
+.Sm4shYoshi,
+.Sm4shRosalina,
+.Sm4shBowserJr,
+.Sm4shLarry,
+.Sm4shRoyKoopa,
+.Sm4shWendy,
+.Sm4shIggy,
+.Sm4shMorton,
+.Sm4shLemmy,
+.Sm4shLudwig,
+.Sm4shWario,
+.Sm4shDonkeyKong,
+.Sm4shMrG\&W,
+.Sm4shLittleMac,
+.Sm4shLink,
+.Sm4shZelda,
+.Sm4shSheik,
+.Sm4shGanondorf,
+.Sm4shToonLink,
+.Sm4shSamus,
+.Sm4shZSSamus,
+.Sm4shPit,
+.Sm4shPalutena,
+.Sm4shMarth,
+.Sm4shIke,
+.Sm4shMaleRobin,
+.Sm4shFemaleRobin,
+.Sm4shDuckHunt,
+.Sm4shKirby,
+.Sm4shKingDeDeDe,
+.Sm4shMetaKnight,
+.Sm4shFox,
+.Sm4shFalco,
+.Sm4shPikachu,
+.Sm4shCharizard,
+.Sm4shLucario,
+.Sm4shJigglypuff,
+.Sm4shNess,
+.Sm4shCaptainFalcon,
+.Sm4shMaleVillager,
+.Sm4shFemaleVillager,
+.Sm4shOlimar,
+.Sm4shAlph,
+.Sm4shMaleWiiFitTrainer,
+.Sm4shFemaleWiiFitTrainer,
+.Sm4shShulk,
+.Sm4shDrMario,
+.Sm4shDarkPit,
+.Sm4shLucina,
+.Sm4shPacman,
+.Sm4shSonic,
+.Sm4shMewtwo,
+.Sm4shLucas,
+.Sm4shRoy,
+.Sm4shRyu,
+.Sm4shMiiBrawler,
+.Sm4shMiiSwordfighter,
+.Sm4shMiiGunner {
+    background-image: url("../images/smashbros-userflair-spritesheet.png");
+    display: inline-block;
+    vertical-align: middle;
+    width: 18px;
+    height: 18px
+}
+
+.Sm4shMegaman {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -4002px
+}
+.Sm4shGreninja {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -2513px
+}
+.Sm4shMario {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -3852px
+}
+.Sm4shLuigi {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -3704px
+}
+.Sm4shDiddy {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -1693px
+}
+.Sm4shROB {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -5285px
+}
+.Sm4shPeach {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -4799px
+}
+.Sm4shBowser {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -1505px
+}
+.Sm4shYoshi {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -6482px
+}
+.Sm4shRosalina {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -5323px
+}
+.Sm4shBowserJr {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -1392px
+}
+.Sm4shLarry {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -1202px
+}
+.Sm4shRoyKoopa {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -1354px
+}
+.Sm4shWendy {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -1430px
+}
+.Sm4shIggy {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -1164px
+}
+.Sm4shMorton {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -1315px
+}
+.Sm4shLemmy {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -1240px
+}
+.Sm4shLudwig {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -1278px
+}
+.Sm4shWario {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -6221px
+}
+.Sm4shDonkeyKong {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -1841px
+}
+.Sm4shMrG\&W {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -2624px
+}
+.Sm4shLittleMac {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -3370px
+}
+.Sm4shLink {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -3332px
+}
+.Sm4shZelda {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -6631px
+}
+.Sm4shSheik {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -5733px
+}
+.Sm4shGanondorf {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -2475px
+}
+.Sm4shToonLink {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -5995px
+}
+.Sm4shSamus {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -5621px
+}
+.Sm4shZSSamus {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -6706px
+}
+.Sm4shPit {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -5060px
+}
+.Sm4shPalutena {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -4687px
+}
+.Sm4shMarth {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -3964px
+}
+.Sm4shIke {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -2776px
+}
+.Sm4shMaleRobin {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -5247px
+}
+.Sm4shFemaleRobin {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -5209px
+}
+.Sm4shDuckHunt {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -1954px
+}
+.Sm4shKirby {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -3184px
+}
+.Sm4shKingDeDeDe {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -3036px
+}
+.Sm4shMetaKnight {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -4077px
+}
+.Sm4shFox {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -2363px
+}
+.Sm4shFalco {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -2214px
+}
+.Sm4shPikachu {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -4985px
+}
+.Sm4shCharizard {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -1580px
+}
+.Sm4shLucario {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -3445px
+}
+.Sm4shJigglypuff {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -2961px
+}
+.Sm4shNess {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -4498px
+}
+.Sm4shCaptainFalcon {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -2176px
+}
+.Sm4shMaleVillager {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -6071px
+}
+.Sm4shFemaleVillager {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -6033px
+}
+.Sm4shOlimar {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -4611px
+}
+.Sm4shAlph {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -4536px
+}
+.Sm4shMaleWiiFitTrainer {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -6297px
+}
+.Sm4shFemaleWiiFitTrainer {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -6258px
+}
+.Sm4shShulk {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -5771px
+}
+.Sm4shDrMario {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -1916px
+}
+.Sm4shDarkPit {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -1618px
+}
+.Sm4shLucina {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -3556px
+}
+.Sm4shPacman {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -4649px
+}
+.Sm4shSonic {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -5883px
+}
+.Sm4shMewtwo {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -4192px
+}
+.Sm4shLucas {
+    width: 18px;
+    height: 18px;
+    background-position: 0px -3519px
+}
+.Sm4shRoy {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -5436px
+}
+.Sm4shRyu {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -5474px
+}
+.Sm4shMiiBrawler {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -4230px
+}
+.Sm4shMiiSwordfighter {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -4350px
+}
+.Sm4shMiiGunner {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -4312px
+}

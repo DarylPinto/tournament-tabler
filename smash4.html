@@ -25,6 +25,11 @@
 		<section class="round-info">
 			<div><input type="text" id="Round" value="Grand Finals" placeholder="Round"></div>
 			<div><input type="text" id="vod-link" placeholder="VoD link (optional but recommended)"></div>
+			<div id="custom-toggle">
+				<h1>Customs:</h1>
+				<span class="selected-custom-mode" onclick="toggleCustoms('off')">OFF</span>
+				<span onclick="toggleCustoms('on')">ON</span>
+			</div>
 		</section>
 		<!--===== Player 1 Information =====-->
 		<div>
@@ -42,7 +47,7 @@
 						</div>
 
 						<div id="P1Main2" onclick="openCharacterMenu('#P1Main2')">
-							<div class="Sm4shDiddy"></div>
+							<div class="Sm4shDiddyKong"></div>
 						</div>
 					</div>
 				</div>
@@ -477,10 +482,10 @@
 			<div class="close-X" onclick="$('.blackout').css('display', 'none')">X</div>
 				<table id="character-list">
 					<tr>
-						<td><div class="Sm4shDiddy" onclick="chooseCharacter('Sm4shDiddy')"></div></td>
+						<td><div class="Sm4shDiddyKong" onclick="chooseCharacter('Sm4shDiddyKong')"></div></td>
 						<td><div class="Sm4shSheik" onclick="chooseCharacter('Sm4shSheik')"></div></td>
 						<td><div class="Sm4shRosalina" onclick="chooseCharacter('Sm4shRosalina')"></div></td>
-						<td><div class="Sm4shZSSamus" onclick="chooseCharacter('Sm4shZSSamus')"></div></td>
+						<td><div class="Sm4shZeroSuitSamus" onclick=" chooseCharacter('Sm4shZeroSuitSamus')"></div></td>
 						<td><div class="Sm4shSonic" onclick="chooseCharacter('Sm4shSonic')"></div></td>
 						<td><div class="Sm4shLuigi" onclick="chooseCharacter('Sm4shLuigi')"></div></td>
 						<td><div class="Sm4shPikachu" onclick="chooseCharacter('Sm4shPikachu')"></div></td>
@@ -531,7 +536,7 @@
 					<tr>
 						<td><div class="Sm4shFalco" onclick="chooseCharacter('Sm4shFalco')"></div></td>
 						<td><div class="Sm4shLucina" onclick="chooseCharacter('Sm4shLucina')"></div></td>
-						<td><div class="Sm4shMrG&W" onclick="chooseCharacter('Sm4shMrG&W')"></div></td>
+						<td><div class="Sm4shMrGameAndWatch" onclick="chooseCharacter('Sm4shMrGameAndWatch')"></div></td>
 						<td><div class="Sm4shDonkeyKong" onclick="chooseCharacter('Sm4shDonkeyKong')"></div></td>
 						<td><div class="Sm4shMetaKnight" onclick="chooseCharacter('Sm4shMetaKnight')"></div></td>
 						<td><div class="Sm4shSamus" onclick="chooseCharacter('Sm4shSamus')"></div></td>
