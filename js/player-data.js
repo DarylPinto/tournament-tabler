@@ -3,7 +3,11 @@ function Player(aliases, s64_mains, melee_mains, brawl_mains, pm_mains, sm4sh_ma
 	this.s64_mains = s64_mains;
 	this.melee_mains = melee_mains;
 	this.brawl_mains = brawl_mains;
-	this.pm_mains = pm_mains;
+	if(pm_mains.length > 0){
+		this.pm_mains = pm_mains;	
+	}else{
+		this.pm_mains = melee_mains;
+	}
 	this.sm4sh_mains = sm4sh_mains;
 	this.name = name;
 	this.twitch = twitch;
@@ -40,7 +44,7 @@ new Player(
 	[], //Array of player's 64 mains (2 max)
 	['Fox', 'Falco'], //Array of player's melee mains (2 max)
 	['Falco'], //Array of player's brawl mains (2 max)
-	['Fox', 'Falco'], //Array of player's pm mains (2 max)
+	[], //Array of player's pm mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Joseph "Mang0" Marquez', //Full name
 	'mang0', //Twitch Username
@@ -723,7 +727,7 @@ new Player(
 	'nairomk', //Twitch Username
 	'nairomk', //Twitter Handle
 	'http://www.ssbwiki.com/Nairo', //Wiki Link
-	'' //Sponsor Link
+	'http://www.teamliquidpro.com/' //Sponsor Link
 ),
 
 new Player(
@@ -769,5 +773,65 @@ new Player(
 	'http://wiki.teamliquid.net/smash/ESAM', //Wiki Link
 	'http://www.panda.gg/' //Sponsor Link
 ),
+
+//Smash 64 Players
+
+new Player(
+	['isai'], //Array of aliases
+	['Pikachu', 'Kirby'], //Array of player's 64 mains (2 max)
+	['CaptainFalcon'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
+	[], //Array of player's sm4sh mains (2 max)
+	'Joel "Isai" Alvarado', //Full name
+	'ssb64', //Twitch Username
+	'', //Twitter Handle
+	'http://www.ssbwiki.com/Isai', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['superboomfan'], //Array of aliases
+	['CaptainFalcon'], //Array of player's 64 mains (2 max)
+	[], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
+	[], //Array of player's sm4sh mains (2 max)
+	'Daniel "SuPeRbOoMfAn" Hoyt', //Full name
+	'', //Twitch Username
+	'', //Twitter Handle
+	'http://www.ssbwiki.com/SuPeRbOoMfAn', //Wiki Link
+	'' //Sponsor Link
+),
+
+//Project M Players
+
+new Player(
+	['junebug'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
+	[], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	['DiddyKong', 'Ganondorf'], //Array of player's PM mains (2 max)
+	[], //Array of player's sm4sh mains (2 max)
+	'Arjun "Junebug" Rao', //Full name
+	'arjunebug', //Twitch Username
+	'arjunebug', //Twitter Handle
+	'http://www.ssbwiki.com/Smasher:Junebug', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['sethlon'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
+	[], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	['Roy'], //Array of player's PM mains (2 max)
+	[], //Array of player's sm4sh mains (2 max)
+	'Alexander "Sethlon" Maguire', //Full name
+	'', //Twitch Username
+	's3thlon', //Twitter Handle
+	'http://www.ssbwiki.com/Smasher:Sethlon', //Wiki Link
+	'' //Sponsor Link
+)
 
 ]

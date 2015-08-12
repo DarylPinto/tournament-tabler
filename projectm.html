@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Smash 64 - r/smashbros Tournament Tabler</title>
+	<title>Project M - r/smashbros Tournament Tabler</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/character-icons.css">
-	<link rel="stylesheet" type="text/css" href="css/ssb64.css">
 	<link rel="shortcut icon" href="http://img1.wikia.nocookie.net/__cb20150114084035/ssb/images/6/64/Favicon.ico" />
 	<link href='http://fonts.googleapis.com/css?family=Satisfy|Roboto:300,700,400|Merriweather:400,700italic|Droid+Serif:400italic' rel='stylesheet' type='text/css'>
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
-	<link rel="canonical" href="http://tournament-tabler.com/smash64" />
+	<link rel="canonical" href="http://tournament-tabler.com/projectm" />
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	
 	<meta charset="utf-8">
 	<meta name="description" content='Tournament Tabler is an easy-to-use tool made to generate detailed set tables for /r/smashbros tournament result threads. Fill in information for each game while watching the set, then once its over click "Generate Table" and BAM: Instant table.'/>
-	<meta name="keywords" content="reddit, table, tournament, generator, Super Smash Bros. , /r/smashbros, Smash64, SSB, SSB64, congratulations to the winner, tournament thread, Twitch, Twitter, Liquipedia, SSBWiki, VoD, Tournament Tabler, Table maker">
+	<meta name="keywords" content="reddit, table, tournament, generator, Super Smash Bros. Project M, /r/smashbros, PM, SSBPM, congratulations to the winner, tournament thread, Twitch, Twitter, Liquipedia, SSBWiki, VoD, Tournament Tabler, Table maker">
 </head>
 <body>
 <h1 class="main-header"><a href="http://tournament-tabler.com">Tournament Tabler</a></h1>
@@ -32,39 +31,39 @@
 				<h1>Player 1</h1>
 				<div class="player-name">
 					<h1>Tag</h1>
-					<input type="text" id="PlayerOne" value="Isai">
+					<input type="text" id="PlayerOne" value="Junebug">
 				</div>
 				<div id="PlayerOneMains">
 					<h1>Mains</h1>
 					<div class="character-main-wrapper">
 						<div id="P1Main1" onclick="openCharacterMenu('#P1Main1')">
-							<div class="S64Pikachu"></div>
+							<div class="PmDiddyKong"></div>
 						</div>
 
 						<div id="P1Main2" onclick="openCharacterMenu('#P1Main2')">
-							<div class="S64Kirby"></div>
+							<div class="PmGanondorf"></div>
 						</div>
 					</div>
 				</div>
 				<div class="clearfix"></div>
 				<div class="extra">
 					<h1>Full Name (optional)</h1>
-					<input type="text" id="PlayerOneName" value='Joel "Isai" Alvarado'>
+					<input type="text" id="PlayerOneName" value='Arjun "Junebug" Rao'>
 					<div class="clear-extra" onclick="clearExtra('#PlayerOneName')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Twitch (optional)</h1>
-					<input type="text" id="PlayerOneTwitch" value="ssb64">
+					<input type="text" id="PlayerOneTwitch" value="arjunebug">
 					<div class="clear-extra" onclick="clearExtra('#PlayerOneTwitch')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Twitter (optional)</h1>
-					<input type="text" id="PlayerOneTwitter" value="">
+					<input type="text" id="PlayerOneTwitter" value="arjunebug">
 					<div class="clear-extra" onclick="clearExtra('#PlayerOneTwitter')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Wiki URL (optional)</h1>
-					<input type="text" id="PlayerOneWiki" value="http://www.ssbwiki.com/Isai">
+					<input type="text" id="PlayerOneWiki" value="http://www.ssbwiki.com/Smasher:Junebug">
 					<div class="clear-extra" onclick="clearExtra('#PlayerOneWiki')"><span>x</span></div>
 				</div>
 				<div class="extra">
@@ -79,13 +78,13 @@
 				<h1>Player 2</h1>
 				<div class="player-name">
 					<h1>Tag</h1>
-					<input type="text" id="PlayerTwo" value="SuPeRbOoMfAn">
+					<input type="text" id="PlayerTwo" value="Sethlon">
 				</div>
 				<div id="PlayerTwoMains">
 					<h1>Mains</h1>
 					<div class="character-main-wrapper">
 						<div id="P2Main1" onclick="openCharacterMenu('#P2Main1')">
-							<div class="S64CaptainFalcon"></div>
+							<div class="PmRoy"></div>
 						</div>
 
 						<div id="P2Main2" onclick="openCharacterMenu('#P2Main2')">
@@ -95,7 +94,7 @@
 				<div class="clearfix"></div>
 				<div class="extra">
 					<h1>Full Name (optional)</h1>
-					<input type="text" id="PlayerTwoName" value='Daniel "SuPeRbOoMfAn" Hoyt'>
+					<input type="text" id="PlayerTwoName" value='Alexander "Sethlon" Maguire'>
 					<div class="clear-extra" onclick="clearExtra('#PlayerTwoName')"><span>x</span></div>
 				</div>
 				<div class="extra">
@@ -105,12 +104,12 @@
 				</div>
 				<div class="extra">
 					<h1>Twitter (optional)</h1>
-					<input type="text" id="PlayerTwoTwitter" value="">
+					<input type="text" id="PlayerTwoTwitter" value="s3thlon">
 					<div class="clear-extra" onclick="clearExtra('#PlayerTwoTwitter')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Wiki URL (optional)</h1>
-					<input type="text" id="PlayerTwoWiki" value="http://www.ssbwiki.com/SuPeRbOoMfAn">
+					<input type="text" id="PlayerTwoWiki" value="http://www.ssbwiki.com/Smasher:Sethlon">
 					<div class="clear-extra" onclick="clearExtra('#PlayerTwoWiki')"><span>x</span></div>
 				</div>
 				<div class="extra">
@@ -138,13 +137,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameOne .PlayerOneCharacter')">
-									<div class="S64Pikachu" autoset="true"></div>
+									<div class="PmDiddyKong" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameOne .PlayerTwoCharacter')">
-									<div class="S64CaptainFalcon" autoset="true"></div>
+									<div class="PmRoy" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -153,9 +152,19 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="Dream Land" selected="selected">Dream Land</option>
-								<option value="Final Destination">Congo Jungle</option>
-								<option value="Yoshi's Story">Peach's Castle</option>
+								<option value="Pokémon Stadium 2" selected="selected">Pokémon Stadium 2</option>
+								<option value="Wario Ware Inc.">Wario Ware Inc.</option>
+								<option value="Fountain of Dreams">Fountain of Dreams</option>
+								<option value="Final Destination">Final Destination</option>
+								<option value="Yoshi's Island">Yoshi's Island (Brawl)</option>
+								<option value="Distant Planet">Distant Planet</option>
+								<option value="Norfair">Norfair</option>
+								<option value="Yoshi's Story">Yoshi's Story (Melee)</option>
+								<option value="Green Hill Zone">Green Hill Zone</option>
+								<option value="Smashville">Smashville</option>
+								<option value="Battlefield">Battlefield</option>
+								<option value="Delfino's Secret">Delfino's Secret</option>
+								<option value="Dreamland">Dreamland</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -166,11 +175,10 @@
 						<div class="stock-count">
 							<h1>Stocks Left</h1>
 							<ul>
-								<li onclick="changeStocksLeft('#GameOne', 1)"><div class="S64Pikachu"></div></li>
-								<li onclick="changeStocksLeft('#GameOne', 2)"><div class="S64Pikachu"></div></li>
-								<li onclick="changeStocksLeft('#GameOne', 3)"><div class="S64Pikachu"></div></li>
+								<li onclick="changeStocksLeft('#GameOne', 1)"><div class="PmDiddyKong"></div></li>
+								<li onclick="changeStocksLeft('#GameOne', 2)"><div class="PmDiddyKong"></div></li>
+								<li onclick="changeStocksLeft('#GameOne', 3)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameOne', 4)">&bull;</li>
-								<li onclick="changeStocksLeft('#GameOne', 5)">&bull;</li>
 							</ul>
 						</div>
 						<div class="delete-game-data">
@@ -185,13 +193,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameTwo .PlayerOneCharacter')">
-									<div class="S64Pikachu" autoset="true"></div>
+									<div class="PmDiddyKong" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameTwo .PlayerTwoCharacter')">
-									<div class="S64CaptainFalcon" autoset="true"></div>
+									<div class="PmRoy" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -200,9 +208,19 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="Battlefield">Dream Land</option>
-								<option value="Final Destination">Congo Jungle</option>
-								<option value="Yoshi's Story">Peach's Castle</option>
+								<option value="Pokémon Stadium 2">Pokémon Stadium 2</option>
+								<option value="Wario Ware Inc.">Wario Ware Inc.</option>
+								<option value="Fountain of Dreams">Fountain of Dreams</option>
+								<option value="Final Destination">Final Destination</option>
+								<option value="Yoshi's Island">Yoshi's Island (Brawl)</option>
+								<option value="Distant Planet">Distant Planet</option>
+								<option value="Norfair">Norfair</option>
+								<option value="Yoshi's Story">Yoshi's Story (Melee)</option>
+								<option value="Green Hill Zone">Green Hill Zone</option>
+								<option value="Smashville">Smashville</option>
+								<option value="Battlefield">Battlefield</option>
+								<option value="Delfino's Secret">Delfino's Secret</option>
+								<option value="Dreamland">Dreamland</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -217,7 +235,6 @@
 								<li onclick="changeStocksLeft('#GameTwo', 2)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameTwo', 3)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameTwo', 4)">&bull;</li>
-								<li onclick="changeStocksLeft('#GameTwo', 5)">&bull;</li>
 							</ul>
 						</div>
 						<div class="delete-game-data">
@@ -232,13 +249,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameThree .PlayerOneCharacter')">
-									<div class="S64Pikachu" autoset="true"></div>
+									<div class="PmDiddyKong" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameThree .PlayerTwoCharacter')">
-									<div class="S64CaptainFalcon" autoset="true"></div>
+									<div class="PmRoy" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -247,9 +264,19 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="Battlefield">Dream Land</option>
-								<option value="Final Destination">Congo Jungle</option>
-								<option value="Yoshi's Story">Peach's Castle</option>
+								<option value="Pokémon Stadium 2">Pokémon Stadium 2</option>
+								<option value="Wario Ware Inc.">Wario Ware Inc.</option>
+								<option value="Fountain of Dreams">Fountain of Dreams</option>
+								<option value="Final Destination">Final Destination</option>
+								<option value="Yoshi's Island">Yoshi's Island (Brawl)</option>
+								<option value="Distant Planet">Distant Planet</option>
+								<option value="Norfair">Norfair</option>
+								<option value="Yoshi's Story">Yoshi's Story (Melee)</option>
+								<option value="Green Hill Zone">Green Hill Zone</option>
+								<option value="Smashville">Smashville</option>
+								<option value="Battlefield">Battlefield</option>
+								<option value="Delfino's Secret">Delfino's Secret</option>
+								<option value="Dreamland">Dreamland</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -264,7 +291,6 @@
 								<li onclick="changeStocksLeft('#GameThree', 2)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameThree', 3)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameThree', 4)">&bull;</li>
-								<li onclick="changeStocksLeft('#GameThree', 5)">&bull;</li>
 							</ul>
 						</div>
 						<div class="delete-game-data">
@@ -279,13 +305,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameFour .PlayerOneCharacter')">
-									<div class="S64Pikachu" autoset="true"></div>
+									<div class="PmDiddyKong" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameFour .PlayerTwoCharacter')">
-									<div class="S64CaptainFalcon" autoset="true"></div>
+									<div class="PmRoy" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -294,9 +320,19 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="Battlefield">Dream Land</option>
-								<option value="Final Destination">Congo Jungle</option>
-								<option value="Yoshi's Story">Peach's Castle</option>
+								<option value="Pokémon Stadium 2">Pokémon Stadium 2</option>
+								<option value="Wario Ware Inc.">Wario Ware Inc.</option>
+								<option value="Fountain of Dreams">Fountain of Dreams</option>
+								<option value="Final Destination">Final Destination</option>
+								<option value="Yoshi's Island">Yoshi's Island (Brawl)</option>
+								<option value="Distant Planet">Distant Planet</option>
+								<option value="Norfair">Norfair</option>
+								<option value="Yoshi's Story">Yoshi's Story (Melee)</option>
+								<option value="Green Hill Zone">Green Hill Zone</option>
+								<option value="Smashville">Smashville</option>
+								<option value="Battlefield">Battlefield</option>
+								<option value="Delfino's Secret">Delfino's Secret</option>
+								<option value="Dreamland">Dreamland</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -311,7 +347,6 @@
 								<li onclick="changeStocksLeft('#GameFour', 2)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameFour', 3)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameFour', 4)">&bull;</li>
-								<li onclick="changeStocksLeft('#GameFour', 5)">&bull;</li>
 							</ul>
 						</div>
 						<div class="delete-game-data">
@@ -326,13 +361,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameFive .PlayerOneCharacter')">
-									<div class="S64Pikachu" autoset="true"></div>
+									<div class="PmDiddyKong" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameFive .PlayerTwoCharacter')">
-									<div class="S64CaptainFalcon" autoset="true"></div>
+									<div class="PmRoy" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -341,9 +376,19 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="Battlefield">Dream Land</option>
-								<option value="Final Destination">Congo Jungle</option>
-								<option value="Yoshi's Story">Peach's Castle</option>
+								<option value="Pokémon Stadium 2">Pokémon Stadium 2</option>
+								<option value="Wario Ware Inc.">Wario Ware Inc.</option>
+								<option value="Fountain of Dreams">Fountain of Dreams</option>
+								<option value="Final Destination">Final Destination</option>
+								<option value="Yoshi's Island">Yoshi's Island (Brawl)</option>
+								<option value="Distant Planet">Distant Planet</option>
+								<option value="Norfair">Norfair</option>
+								<option value="Yoshi's Story">Yoshi's Story (Melee)</option>
+								<option value="Green Hill Zone">Green Hill Zone</option>
+								<option value="Smashville">Smashville</option>
+								<option value="Battlefield">Battlefield</option>
+								<option value="Delfino's Secret">Delfino's Secret</option>
+								<option value="Dreamland">Dreamland</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -358,7 +403,6 @@
 								<li onclick="changeStocksLeft('#GameFive', 2)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameFive', 3)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameFive', 4)">&bull;</li>
-								<li onclick="changeStocksLeft('#GameFive', 5)">&bull;</li>
 							</ul>
 						</div>
 						<div class="delete-game-data">
@@ -402,22 +446,57 @@
 			<div class="close-X" onclick="$('.blackout').css('display', 'none')">X</div>
 				<table id="character-list">
 					<tr>
-						<td><div class="S64Pikachu" onclick="chooseCharacter('S64Pikachu')"></div></td>
-						<td><div class="S64Kirby" onclick="chooseCharacter('S64Kirby')"></div></td>
-						<td><div class="S64CaptainFalcon" onclick="chooseCharacter('S64CaptainFalcon')"></div></td>
-						<td><div class="S64Fox" onclick="chooseCharacter('S64Fox')"></div></td>
+						<td><div class="PmWario" onclick="chooseCharacter('PmWario')"></div></td>
+						<td><div class="PmMario" onclick="chooseCharacter('PmMario')"></div></td>
+						<td><div class="PmLuigi" onclick="chooseCharacter('PmLuigi')"></div></td>
+						<td><div class="PmPeach" onclick="chooseCharacter('PmPeach')"></div></td>
+						<td><div class="PmBowser" onclick="chooseCharacter('PmBowser')"></div></td>
+						<td><div class="PmYoshi" onclick="chooseCharacter('PmYoshi')"></div></td>
+						<td><div class="PmDonkeyKong" onclick="chooseCharacter('PmDonkeyKong')"></div></td>
+						<td><div class="PmDiddyKong" onclick="chooseCharacter('PmDiddyKong')"></div></td>
 					</tr>
 					<tr>
-						<td><div class="S64Yoshi" onclick="chooseCharacter('S64Yoshi')"></div></td>
-						<td><div class="S64Jigglypuff" onclick="chooseCharacter('S64Jigglypuff')"></div></td>
-						<td><div class="S64Mario" onclick="chooseCharacter('S64Mario')"></div></td>
-						<td><div class="S64Samus" onclick="chooseCharacter('S64Samus')"></div></td>
+						<td><div class="PmCaptainFalcon" onclick="chooseCharacter('PmCaptainFalcon')"></div></td>
+						<td><div class="PmWolf" onclick="chooseCharacter('PmWolf')"></div></td>
+						<td><div class="PmFox" onclick="chooseCharacter('PmFox')"></div></td>
+						<td><div class="PmFalco" onclick="chooseCharacter('PmFalco')"></div></td>
+						<td><div class="PmIceClimbers" onclick="chooseCharacter('PmIceClimbers')"></div></td>
+						<td><div class="PmZelda" onclick="chooseCharacter('PmZelda')"></div></td>
+						<td><div class="PmSheik" onclick="chooseCharacter('PmSheik')"></div></td>
+						<td><div class="PmLink" onclick="chooseCharacter('PmLink')"></div></td>
 					</tr>
 					<tr>
-						<td><div class="S64DonkeyKong" onclick="chooseCharacter('S64DonkeyKong')"></div></td>
-						<td><div class="S64Ness" onclick="chooseCharacter('S64Ness')"></div></td>
-						<td><div class="S64Link" onclick="chooseCharacter('S64Link')"></div></td>
-						<td><div class="S64Luigi" onclick="chooseCharacter('S64Luigi')"></div></td>
+						<td><div class="PmToonLink" onclick="chooseCharacter('PmToonLink')"></div></td>
+						<td><div class="PmGanondorf" onclick="chooseCharacter('PmGanondorf')"></div></td>
+						<td><div class="PmMewtwo" onclick="chooseCharacter('PmMewtwo')"></div></td>
+						<td><div class="PmLucario" onclick="chooseCharacter('PmLucario')"></div></td>
+						<td><div class="PmPikachu" onclick="chooseCharacter('PmPikachu')"></div></td>
+						<td><div class="PmJigglypuff" onclick="chooseCharacter('PmJigglypuff')"></div></td>
+						<td><div class="PmSquirtle" onclick="chooseCharacter('PmSquirtle')"></div></td>
+						<td><div class="PmIvysaur" onclick="chooseCharacter('PmIvysaur')"></div></td>
+					</tr>
+					<tr>
+						<td><div class="PmCharizard" onclick="chooseCharacter('PmCharizard')"></div></td>
+						<td><div class="PmSamus" onclick="chooseCharacter('PmSamus')"></div></td>
+						<td><div class="PmZeroSuitSamus" onclick="chooseCharacter('PmZeroSuitSamus')"></div></td>
+						<td><div class="PmLucas" onclick="chooseCharacter('PmLucas')"></div></td>
+						<td><div class="PmNess" onclick="chooseCharacter('PmNess')"></div></td>
+						<td><div class="PmPit" onclick="chooseCharacter('PmPit')"></div></td>
+						<td><div class="PmKirby" onclick="chooseCharacter('PmKirby')"></div></td>
+						<td><div class="PmMetaKnight" onclick="chooseCharacter('PmMetaKnight')"></div></td>
+					</tr>
+					<tr>
+						<td><div class="PmKingDeDeDe" onclick="chooseCharacter('PmKingDeDeDe')"></div></td>
+						<td><div class="PmIke" onclick="chooseCharacter('PmIke')"></div></td>
+						<td><div class="PmMarth" onclick="chooseCharacter('PmMarth')"></div></td>
+						<td><div class="PmRoy" onclick="chooseCharacter('PmRoy')"></div></td>
+						<td><div class="PmOlimar" onclick="chooseCharacter('PmOlimar')"></div></td>
+						<td><div class="PmROB" onclick="chooseCharacter('PmROB')"></div></td>
+						<td><div class="PmMrGameAndWatch" onclick="chooseCharacter('PmMrGameAndWatch')"></div></td>
+						<td><div class="PmSnake" onclick="chooseCharacter('PmSnake')"></div></td>
+					</tr>
+					<tr>
+						<td><div class="PmSonic" onclick="chooseCharacter('PmSonic')"></div></td>
 					</tr>
 				</table>
 			<div class="clear-char" onclick="chooseCharacter('clear')">Remove Character</div>
@@ -431,10 +510,9 @@
 	<script type="text/javascript" src="js/ad-placement.js"></script>
 
 	<script type="text/javascript">
-			var P1lastAutofill = "isai";
-			var P2lastAutofill = "superboomfan";
-			var game1StockCount = 3;
-		</script>
+			var P1lastAutofill = "junebug";
+			var P2lastAutofill = "sethlon";
+	</script>
 
 
 	<!--Google Analytics-->

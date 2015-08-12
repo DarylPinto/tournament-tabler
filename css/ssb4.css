@@ -18,7 +18,7 @@
 
 .game-info li div{
 	position: relative;
-	top: 3px;
+	top: -1px;
 }
 
 .PlayerOneCustoms, .PlayerTwoCustoms{

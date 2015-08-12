@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Smash 64 - r/smashbros Tournament Tabler</title>
+	<title>Brawl - r/smashbros Tournament Tabler</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/character-icons.css">
-	<link rel="stylesheet" type="text/css" href="css/ssb64.css">
 	<link rel="shortcut icon" href="http://img1.wikia.nocookie.net/__cb20150114084035/ssb/images/6/64/Favicon.ico" />
 	<link href='http://fonts.googleapis.com/css?family=Satisfy|Roboto:300,700,400|Merriweather:400,700italic|Droid+Serif:400italic' rel='stylesheet' type='text/css'>
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
-	<link rel="canonical" href="http://tournament-tabler.com/smash64" />
+	<link rel="canonical" href="http://tournament-tabler.com/brawl" />
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	
 	<meta charset="utf-8">
 	<meta name="description" content='Tournament Tabler is an easy-to-use tool made to generate detailed set tables for /r/smashbros tournament result threads. Fill in information for each game while watching the set, then once its over click "Generate Table" and BAM: Instant table.'/>
-	<meta name="keywords" content="reddit, table, tournament, generator, Super Smash Bros. , /r/smashbros, Smash64, SSB, SSB64, congratulations to the winner, tournament thread, Twitch, Twitter, Liquipedia, SSBWiki, VoD, Tournament Tabler, Table maker">
+	<meta name="keywords" content="reddit, table, tournament, generator, Super Smash Bros. Brawl, /r/smashbros, SSBB, Brawl, congratulations to the winner, tournament thread, Twitch, Twitter, Liquipedia, SSBWiki, VoD, Tournament Tabler, Table maker">
 </head>
 <body>
 <h1 class="main-header"><a href="http://tournament-tabler.com">Tournament Tabler</a></h1>
@@ -32,44 +31,43 @@
 				<h1>Player 1</h1>
 				<div class="player-name">
 					<h1>Tag</h1>
-					<input type="text" id="PlayerOne" value="Isai">
+					<input type="text" id="PlayerOne" value="COG Mew2King">
 				</div>
 				<div id="PlayerOneMains">
 					<h1>Mains</h1>
 					<div class="character-main-wrapper">
 						<div id="P1Main1" onclick="openCharacterMenu('#P1Main1')">
-							<div class="S64Pikachu"></div>
+							<div class="BrawlMetaKnight"></div>
 						</div>
 
 						<div id="P1Main2" onclick="openCharacterMenu('#P1Main2')">
-							<div class="S64Kirby"></div>
 						</div>
 					</div>
 				</div>
 				<div class="clearfix"></div>
 				<div class="extra">
 					<h1>Full Name (optional)</h1>
-					<input type="text" id="PlayerOneName" value='Joel "Isai" Alvarado'>
+					<input type="text" id="PlayerOneName" value='Jason "Mew2King" Zimmerman'>
 					<div class="clear-extra" onclick="clearExtra('#PlayerOneName')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Twitch (optional)</h1>
-					<input type="text" id="PlayerOneTwitch" value="ssb64">
+					<input type="text" id="PlayerOneTwitch" value="mew2king">
 					<div class="clear-extra" onclick="clearExtra('#PlayerOneTwitch')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Twitter (optional)</h1>
-					<input type="text" id="PlayerOneTwitter" value="">
+					<input type="text" id="PlayerOneTwitter" value="MVG_Mew2King">
 					<div class="clear-extra" onclick="clearExtra('#PlayerOneTwitter')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Wiki URL (optional)</h1>
-					<input type="text" id="PlayerOneWiki" value="http://www.ssbwiki.com/Isai">
+					<input type="text" id="PlayerOneWiki" value="http://wiki.teamliquid.net/smash/Mew2King">
 					<div class="clear-extra" onclick="clearExtra('#PlayerOneWiki')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Sponsor URL (optional)</h1>
-					<input type="text" id="PlayerOneSponsor" value="">
+					<input type="text" id="PlayerOneSponsor" value="http://cognitive-gaming.com/">
 					<div class="clear-extra" onclick="clearExtra('#PlayerOneSponsor')"><span>x</span></div>
 				</div>
 				<div class="expand-extras" onclick="showExtras(1)">Add Extras</div>
@@ -79,13 +77,13 @@
 				<h1>Player 2</h1>
 				<div class="player-name">
 					<h1>Tag</h1>
-					<input type="text" id="PlayerTwo" value="SuPeRbOoMfAn">
+					<input type="text" id="PlayerTwo" value="Boreal Ally">
 				</div>
 				<div id="PlayerTwoMains">
 					<h1>Mains</h1>
 					<div class="character-main-wrapper">
 						<div id="P2Main1" onclick="openCharacterMenu('#P2Main1')">
-							<div class="S64CaptainFalcon"></div>
+							<div class="BrawlSnake"></div>
 						</div>
 
 						<div id="P2Main2" onclick="openCharacterMenu('#P2Main2')">
@@ -95,7 +93,7 @@
 				<div class="clearfix"></div>
 				<div class="extra">
 					<h1>Full Name (optional)</h1>
-					<input type="text" id="PlayerTwoName" value='Daniel "SuPeRbOoMfAn" Hoyt'>
+					<input type="text" id="PlayerTwoName" value='Elliot "Ally" Carroza-Oyarce'>
 					<div class="clear-extra" onclick="clearExtra('#PlayerTwoName')"><span>x</span></div>
 				</div>
 				<div class="extra">
@@ -105,17 +103,17 @@
 				</div>
 				<div class="extra">
 					<h1>Twitter (optional)</h1>
-					<input type="text" id="PlayerTwoTwitter" value="">
+					<input type="text" id="PlayerTwoTwitter" value="allyornotally">
 					<div class="clear-extra" onclick="clearExtra('#PlayerTwoTwitter')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Wiki URL (optional)</h1>
-					<input type="text" id="PlayerTwoWiki" value="http://www.ssbwiki.com/SuPeRbOoMfAn">
+					<input type="text" id="PlayerTwoWiki" value="http://www.ssbwiki.com/Ally">
 					<div class="clear-extra" onclick="clearExtra('#PlayerTwoWiki')"><span>x</span></div>
 				</div>
 				<div class="extra">
 					<h1>Sponsor URL (optional)</h1>
-					<input type="text" id="PlayerTwoSponsor" value="">
+					<input type="text" id="PlayerTwoSponsor" value="http://www.boreal.gg/">
 					<div class="clear-extra" onclick="clearExtra('#PlayerTwoSponsor')"><span>x</span></div>
 				</div>
 				<div class="expand-extras" onclick="showExtras(2)">Add Extras</div>
@@ -138,13 +136,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameOne .PlayerOneCharacter')">
-									<div class="S64Pikachu" autoset="true"></div>
+									<div class="BrawlMetaKnight" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameOne .PlayerTwoCharacter')">
-									<div class="S64CaptainFalcon" autoset="true"></div>
+									<div class="BrawlSnake" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -153,9 +151,14 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="Dream Land" selected="selected">Dream Land</option>
-								<option value="Final Destination">Congo Jungle</option>
-								<option value="Yoshi's Story">Peach's Castle</option>
+								<option value="Battlefield" selected="selected">Battlefield</option>
+								<option value="Final Destination">Final Destination</option>
+								<option value="Lylat Cruise">Lylat Cruise</option>
+								<option value="Smashville">Smashville</option>
+								<option value="Yoshi's Island">Yoshi's Island</option>
+								<option value="Halberd">Halberd</option>
+								<option value="Pokémon Stadium">Pokémon Stadium</option>
+								<option value="Castle Siege">Castle Siege</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -166,11 +169,9 @@
 						<div class="stock-count">
 							<h1>Stocks Left</h1>
 							<ul>
-								<li onclick="changeStocksLeft('#GameOne', 1)"><div class="S64Pikachu"></div></li>
-								<li onclick="changeStocksLeft('#GameOne', 2)"><div class="S64Pikachu"></div></li>
-								<li onclick="changeStocksLeft('#GameOne', 3)"><div class="S64Pikachu"></div></li>
-								<li onclick="changeStocksLeft('#GameOne', 4)">&bull;</li>
-								<li onclick="changeStocksLeft('#GameOne', 5)">&bull;</li>
+								<li onclick="changeStocksLeft('#GameOne', 1)"><div class="BrawlMetaKnight"></div></li>
+								<li onclick="changeStocksLeft('#GameOne', 2)"><div class="BrawlMetaKnight"></div></li>
+								<li onclick="changeStocksLeft('#GameOne', 3)">&bull;</li>
 							</ul>
 						</div>
 						<div class="delete-game-data">
@@ -185,13 +186,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameTwo .PlayerOneCharacter')">
-									<div class="S64Pikachu" autoset="true"></div>
+									<div class="BrawlMetaKnight" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameTwo .PlayerTwoCharacter')">
-									<div class="S64CaptainFalcon" autoset="true"></div>
+									<div class="BrawlSnake" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -200,9 +201,14 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="Battlefield">Dream Land</option>
-								<option value="Final Destination">Congo Jungle</option>
-								<option value="Yoshi's Story">Peach's Castle</option>
+								<option value="Battlefield">Battlefield</option>
+								<option value="Final Destination">Final Destination</option>
+								<option value="Lylat Cruise">Lylat Cruise</option>
+								<option value="Smashville">Smashville</option>
+								<option value="Yoshi's Island">Yoshi's Island</option>
+								<option value="Halberd">Halberd</option>
+								<option value="Pokémon Stadium">Pokémon Stadium</option>
+								<option value="Castle Siege">Castle Siege</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -216,8 +222,6 @@
 								<li onclick="changeStocksLeft('#GameTwo', 1)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameTwo', 2)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameTwo', 3)">&bull;</li>
-								<li onclick="changeStocksLeft('#GameTwo', 4)">&bull;</li>
-								<li onclick="changeStocksLeft('#GameTwo', 5)">&bull;</li>
 							</ul>
 						</div>
 						<div class="delete-game-data">
@@ -232,13 +236,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameThree .PlayerOneCharacter')">
-									<div class="S64Pikachu" autoset="true"></div>
+									<div class="BrawlMetaKnight" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameThree .PlayerTwoCharacter')">
-									<div class="S64CaptainFalcon" autoset="true"></div>
+									<div class="BrawlSnake" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -247,9 +251,14 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="Battlefield">Dream Land</option>
-								<option value="Final Destination">Congo Jungle</option>
-								<option value="Yoshi's Story">Peach's Castle</option>
+								<option value="Battlefield">Battlefield</option>
+								<option value="Final Destination">Final Destination</option>
+								<option value="Lylat Cruise">Lylat Cruise</option>
+								<option value="Smashville">Smashville</option>
+								<option value="Yoshi's Island">Yoshi's Island</option>
+								<option value="Halberd">Halberd</option>
+								<option value="Pokémon Stadium">Pokémon Stadium</option>
+								<option value="Castle Siege">Castle Siege</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -263,8 +272,6 @@
 								<li onclick="changeStocksLeft('#GameThree', 1)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameThree', 2)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameThree', 3)">&bull;</li>
-								<li onclick="changeStocksLeft('#GameThree', 4)">&bull;</li>
-								<li onclick="changeStocksLeft('#GameThree', 5)">&bull;</li>
 							</ul>
 						</div>
 						<div class="delete-game-data">
@@ -279,13 +286,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameFour .PlayerOneCharacter')">
-									<div class="S64Pikachu" autoset="true"></div>
+									<div class="BrawlMetaKnight" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameFour .PlayerTwoCharacter')">
-									<div class="S64CaptainFalcon" autoset="true"></div>
+									<div class="BrawlSnake" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -294,9 +301,14 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="Battlefield">Dream Land</option>
-								<option value="Final Destination">Congo Jungle</option>
-								<option value="Yoshi's Story">Peach's Castle</option>
+								<option value="Battlefield">Battlefield</option>
+								<option value="Final Destination">Final Destination</option>
+								<option value="Lylat Cruise">Lylat Cruise</option>
+								<option value="Smashville">Smashville</option>
+								<option value="Yoshi's Island">Yoshi's Island</option>
+								<option value="Halberd">Halberd</option>
+								<option value="Pokémon Stadium">Pokémon Stadium</option>
+								<option value="Castle Siege">Castle Siege</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -310,8 +322,6 @@
 								<li onclick="changeStocksLeft('#GameFour', 1)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameFour', 2)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameFour', 3)">&bull;</li>
-								<li onclick="changeStocksLeft('#GameFour', 4)">&bull;</li>
-								<li onclick="changeStocksLeft('#GameFour', 5)">&bull;</li>
 							</ul>
 						</div>
 						<div class="delete-game-data">
@@ -326,13 +336,13 @@
 							<div class="P1-char-wrap">
 								<h1><span class="P1-dynamic-name">P1</span>'s<br> character</h1>
 								<div class="PlayerOneCharacter" onclick="openCharacterMenu('#GameFive .PlayerOneCharacter')">
-									<div class="S64Pikachu" autoset="true"></div>
+									<div class="BrawlMetaKnight" autoset="true"></div>
 								</div>
 							</div>
 							<div class="P2-char-wrap">
 								<h1><span class="P2-dynamic-name">P2</span>'s<br> character</h1>
 								<div class="PlayerTwoCharacter" onclick="openCharacterMenu('#GameFive .PlayerTwoCharacter')">
-									<div class="S64CaptainFalcon" autoset="true"></div>
+									<div class="BrawlSnake" autoset="true"></div>
 								</div>
 							</div>
 						</div>
@@ -341,9 +351,14 @@
 							<h1>Stage</h1>
 							<select class="Stage">
 								<option value="---">---</option>
-								<option value="Battlefield">Dream Land</option>
-								<option value="Final Destination">Congo Jungle</option>
-								<option value="Yoshi's Story">Peach's Castle</option>
+								<option value="Battlefield">Battlefield</option>
+								<option value="Final Destination">Final Destination</option>
+								<option value="Lylat Cruise">Lylat Cruise</option>
+								<option value="Smashville">Smashville</option>
+								<option value="Yoshi's Island">Yoshi's Island</option>
+								<option value="Halberd">Halberd</option>
+								<option value="Pokémon Stadium">Pokémon Stadium</option>
+								<option value="Castle Siege">Castle Siege</option>
 							</select>
 						</div>
 						<div class="winner">
@@ -357,8 +372,6 @@
 								<li onclick="changeStocksLeft('#GameFive', 1)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameFive', 2)">&bull;</li>
 								<li onclick="changeStocksLeft('#GameFive', 3)">&bull;</li>
-								<li onclick="changeStocksLeft('#GameFive', 4)">&bull;</li>
-								<li onclick="changeStocksLeft('#GameFive', 5)">&bull;</li>
 							</ul>
 						</div>
 						<div class="delete-game-data">
@@ -402,22 +415,53 @@
 			<div class="close-X" onclick="$('.blackout').css('display', 'none')">X</div>
 				<table id="character-list">
 					<tr>
-						<td><div class="S64Pikachu" onclick="chooseCharacter('S64Pikachu')"></div></td>
-						<td><div class="S64Kirby" onclick="chooseCharacter('S64Kirby')"></div></td>
-						<td><div class="S64CaptainFalcon" onclick="chooseCharacter('S64CaptainFalcon')"></div></td>
-						<td><div class="S64Fox" onclick="chooseCharacter('S64Fox')"></div></td>
+						<td><div class="BrawlMetaKnight" onclick="chooseCharacter('BrawlMetaKnight')"></div></td>
+						<td><div class="BrawlIceClimbers" onclick="chooseCharacter('BrawlIceClimbers')"></div></td>
+						<td><div class="BrawlOlimar" onclick="chooseCharacter('BrawlOlimar')"></div></td>
+						<td><div class="BrawlDiddyKong" onclick="chooseCharacter('BrawlDiddyKong')"></div></td>
+						<td><div class="BrawlMarth" onclick="chooseCharacter('BrawlMarth')"></div></td>
+						<td><div class="BrawlSnake" onclick="chooseCharacter('BrawlSnake')"></div></td>
+						<td><div class="BrawlFalco" onclick="chooseCharacter('BrawlFalco')"></div></td>
+						<td><div class="BrawlPikachu" onclick="chooseCharacter('BrawlPikachu')"></div></td>
 					</tr>
 					<tr>
-						<td><div class="S64Yoshi" onclick="chooseCharacter('S64Yoshi')"></div></td>
-						<td><div class="S64Jigglypuff" onclick="chooseCharacter('S64Jigglypuff')"></div></td>
-						<td><div class="S64Mario" onclick="chooseCharacter('S64Mario')"></div></td>
-						<td><div class="S64Samus" onclick="chooseCharacter('S64Samus')"></div></td>
+						<td><div class="BrawlZeroSuitSamus" onclick="chooseCharacter('BrawlZeroSuitSamus')"></div></td>
+						<td><div class="BrawlWario" onclick="chooseCharacter('BrawlWario')"></div></td>
+						<td><div class="BrawlLucario" onclick="chooseCharacter('BrawlLucario')"></div></td>
+						<td><div class="BrawlKingDeDeDe" onclick="chooseCharacter('BrawlKingDeDeDe')"></div></td>
+						<td><div class="BrawlToonLink" onclick="chooseCharacter('BrawlToonLink')"></div></td>
+						<td><div class="BrawlWolf" onclick="chooseCharacter('BrawlWolf')"></div></td>
+						<td><div class="BrawlFox" onclick="chooseCharacter('BrawlFox')"></div></td>
+						<td><div class="BrawlMrGameAndWatch" onclick="chooseCharacter('BrawlMrGameAndWatch')"></div></td>
 					</tr>
 					<tr>
-						<td><div class="S64DonkeyKong" onclick="chooseCharacter('S64DonkeyKong')"></div></td>
-						<td><div class="S64Ness" onclick="chooseCharacter('S64Ness')"></div></td>
-						<td><div class="S64Link" onclick="chooseCharacter('S64Link')"></div></td>
-						<td><div class="S64Luigi" onclick="chooseCharacter('S64Luigi')"></div></td>
+						<td><div class="BrawlPit" onclick="chooseCharacter('BrawlPit')"></div></td>
+						<td><div class="BrawlROB" onclick="chooseCharacter('BrawlROB')"></div></td>
+						<td><div class="BrawlPeach" onclick="chooseCharacter('BrawlPeach')"></div></td>
+						<td><div class="BrawlKirby" onclick="chooseCharacter('BrawlKirby')"></div></td>
+						<td><div class="BrawlDonkeyKong" onclick="chooseCharacter('BrawlDonkeyKong')"></div></td>
+						<td><div class="BrawlSonic" onclick="chooseCharacter('BrawlSonic')"></div></td>
+						<td><div class="BrawlIke" onclick="chooseCharacter('BrawlIke')"></div></td>
+						<td><div class="BrawlSheik" onclick="chooseCharacter('BrawlSheik')"></div></td>
+					</tr>
+					<tr>
+						<td><div class="BrawlNess" onclick="chooseCharacter('BrawlNess')"></div></td>
+						<td><div class="BrawlYoshi" onclick="chooseCharacter('BrawlYoshi')"></div></td>
+						<td><div class="BrawlLuigi" onclick="chooseCharacter('BrawlLuigi')"></div></td>
+						<td><div class="BrawlSquirtle" onclick="chooseCharacter('BrawlSquirtle')"></div></td>
+						<td><div class="BrawlIvysaur" onclick="chooseCharacter('BrawlIvysaur')"></div></td>
+						<td><div class="BrawlCharizard" onclick="chooseCharacter('BrawlCharizard')"></div></td>
+						<td><div class="BrawlLucas" onclick="chooseCharacter('BrawlLucas')"></div></td>
+						<td><div class="BrawlMario" onclick="chooseCharacter('BrawlMario')"></div></td>
+					</tr>
+					<tr>
+						<td><div class="BrawlSamus" onclick="chooseCharacter('BrawlSamus')"></div></td>
+						<td><div class="BrawlBowser" onclick="chooseCharacter('BrawlBowser')"></div></td>
+						<td><div class="BrawlCaptainFalcon" onclick="chooseCharacter('BrawlCaptainFalcon')"></div></td>
+						<td><div class="BrawlLink" onclick="chooseCharacter('BrawlLink')"></div></td>
+						<td><div class="BrawlJigglypuff" onclick="chooseCharacter('BrawlJigglypuff')"></div></td>
+						<td><div class="BrawlZelda" onclick="chooseCharacter('BrawlZelda')"></div></td>
+						<td><div class="BrawlGanondorf" onclick="chooseCharacter('BrawlGanondorf')"></div></td>
 					</tr>
 				</table>
 			<div class="clear-char" onclick="chooseCharacter('clear')">Remove Character</div>
@@ -431,10 +475,9 @@
 	<script type="text/javascript" src="js/ad-placement.js"></script>
 
 	<script type="text/javascript">
-			var P1lastAutofill = "isai";
-			var P2lastAutofill = "superboomfan";
-			var game1StockCount = 3;
-		</script>
+			var P1lastAutofill = "mew2king";
+			var P2lastAutofill = "ally";
+	</script>
 
 
 	<!--Google Analytics-->
