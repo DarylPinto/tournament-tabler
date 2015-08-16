@@ -725,7 +725,7 @@ new Player(
 	['ZeroSuitSamus', 'DarkPit'], //Array of player's sm4sh mains (2 max)
 	'Nairoby "Nairo" Quezada', //Full name
 	'nairomk', //Twitch Username
-	'nairomk', //Twitter Handle
+	'Liquid_Nairo', //Twitter Handle
 	'http://www.ssbwiki.com/Nairo', //Wiki Link
 	'http://www.teamliquidpro.com/' //Sponsor Link
 ),
