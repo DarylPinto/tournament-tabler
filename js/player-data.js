@@ -302,7 +302,7 @@ new Player(
 	'', //Twitch Username
 	'Ice_fights', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/Ice', //Wiki Link
-	'' //Sponsor Link
+	'http://myinsanity.eu/' //Sponsor Link
 ),
 
 new Player(
