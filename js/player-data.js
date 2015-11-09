@@ -131,7 +131,7 @@ new Player(
 	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'Jeffrey "Axe" Williamson', //Full name
-	'', //Twitch Username
+	'az_axe', //Twitch Username
 	'TempoAxe', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/Axe', //Wiki Link
 	'https://tempostorm.com/' //Sponsor Link
