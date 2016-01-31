@@ -82,6 +82,7 @@
 .Sm4shBowserJr,
 .Sm4shCaptainFalcon,
 .Sm4shCharizard,
+.Sm4shCloud,
 .Sm4shDarkPit,
 .Sm4shDiddyKong,
 .Sm4shDonkeyKong,
@@ -650,6 +651,12 @@
     width: 28px;
     height: 28px;
     background-position: -308px -168px;
+}
+
+.Sm4shCloud {
+    width: 28px;
+    height: 28px;
+    background-position: -336px -28px;
 }
 
 .Sm4shDarkPit {

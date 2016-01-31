@@ -87,7 +87,7 @@ new Player(
 	['Sheik', 'Marth'], //Array of player's melee mains (2 max)
 	['MetaKnight'], //Array of player's brawl mains (2 max)
 	['Fox'], //Array of player's pm mains (2 max)
-	['DiddyKong'], //Array of player's sm4sh mains (2 max)
+	['Cloud'], //Array of player's sm4sh mains (2 max)
 	'Jason "Mew2King" Zimmerman', //Full name
 	'mew2king', //Twitch Username
 	'MVG_Mew2King', //Twitter Handle
