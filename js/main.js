@@ -1,5 +1,5 @@
 //Version Number
-var appVersion = "3.6.2"
+var appVersion = "3.6.3"
 
 //Default values
 var codeLines = []

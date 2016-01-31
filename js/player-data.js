@@ -87,7 +87,7 @@ new Player(
 	['Sheik', 'Marth'], //Array of player's melee mains (2 max)
 	['MetaKnight'], //Array of player's brawl mains (2 max)
 	['Fox'], //Array of player's pm mains (2 max)
-	['Cloud'], //Array of player's sm4sh mains (2 max)
+	['Cloud', 'Sheik'], //Array of player's sm4sh mains (2 max)
 	'Jason "Mew2King" Zimmerman', //Full name
 	'mew2king', //Twitch Username
 	'MVG_Mew2King', //Twitter Handle
@@ -288,7 +288,7 @@ new Player(
 	'', //Twitch Username
 	'S2JFALCON', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/S2J', //Wiki Link
-	'' //Sponsor Link
+	'http://www.meleeitonme.com/' //Sponsor Link
 ),
 
 new Player(
@@ -314,9 +314,9 @@ new Player(
 	[], //Array of player's sm4sh mains (2 max)
 	'Zachary "SFAT" Cordoni', //Full name
 	'', //Twitch Username
-	'SFAT17', //Twitter Handle
+	'SFAT', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/SFAT', //Wiki Link
-	'' //Sponsor Link
+	'http://clgaming.net/' //Sponsor Link
 ),
 
 new Player(
@@ -372,7 +372,7 @@ new Player(
 	'', //Twitch Username
 	'NintendudeSSB', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/Nintendude', //Wiki Link
-	'' //Sponsor Link
+	'https://splyce.gg' //Sponsor Link
 ),
 
 new Player(
@@ -386,7 +386,7 @@ new Player(
 	'MacDsmash', //Twitch Username
 	'MacDsmash', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/MacD', //Wiki Link
-	'' //Sponsor Link
+	'https://splyce.gg' //Sponsor Link
 ),
 
 new Player(
@@ -772,6 +772,34 @@ new Player(
 	'PG_ESAM', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/ESAM', //Wiki Link
 	'http://www.panda.gg/' //Sponsor Link
+),
+
+new Player(
+	['vinnie'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
+	[], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
+	['Sheik'], //Array of player's sm4sh mains (2 max)
+	'Vincent "Vinnie" Cannino', //Full name
+	'Vinnie516', //Twitch Username
+	'Vinnie516', //Twitter Handle
+	'http://www.ssbwiki.com/smasher:Vinnie', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['nakat'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
+	[], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
+	['Ness'], //Array of player's sm4sh mains (2 max)
+	'Tyrell "Nakat" Coleman', //Full name
+	'nakat973', //Twitch Username
+	'clgnakat_', //Twitter Handle
+	'http://www.ssbwiki.com/Nakat', //Wiki Link
+	'http://clgaming.net/' //Sponsor Link
 ),
 
 //Smash 64 Players
