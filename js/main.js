@@ -325,7 +325,6 @@ function playerAutofill(playerNum){ //Search player-data.js. If a player's tag m
 			P1lastAutofill = player.aliases[0];
 
 			showExtras(1);
-			showExtras(2);
 
 			$("#PlayerOneName").val(player.name)
 			$("#P1Main1").empty()
@@ -352,7 +351,6 @@ function playerAutofill(playerNum){ //Search player-data.js. If a player's tag m
 			displaySnackbar("Automatically loaded player data for " + playerOfficialTag + ".", 1500)
 			P2lastAutofill = player.aliases[0];
 
-			showExtras(1);
 			showExtras(2);
 
 			$("#PlayerTwoName").val(player.name)
