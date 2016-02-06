@@ -78,6 +78,7 @@
 .MeleeYoungLink, .YL,
 .MeleeZelda, .Zelda,
 .Sm4shAlph,
+.Sm4shBayonetta,
 .Sm4shBowser,
 .Sm4shBowserJr,
 .Sm4shCaptainFalcon,
@@ -89,6 +90,7 @@
 .Sm4shDrMario,
 .Sm4shDuckHunt,
 .Sm4shFalco,
+.Sm4shFemaleCorrin,
 .Sm4shFemaleRobin,
 .Sm4shFemaleVillager,
 .Sm4shFemaleWiiFitTrainer,
@@ -109,6 +111,7 @@
 .Sm4shLucina,
 .Sm4shLudwig,
 .Sm4shLuigi,
+.Sm4shMaleCorrin,
 .Sm4shMaleRobin,
 .Sm4shMaleVillager,
 .Sm4shMaleWiiFitTrainer,
@@ -629,6 +632,12 @@
     background-position: -196px -168px;
 }
 
+.Sm4shBayonetta {
+    width: 28px;
+    height: 28px;
+    background-position: -336px -112px;
+}
+
 .Sm4shBowser {
     width: 28px;
     height: 28px;
@@ -693,6 +702,12 @@
     width: 28px;
     height: 28px;
     background-position: -140px -196px;
+}
+
+.Sm4shFemaleCorrin {
+    width: 28px;
+    height: 28px;
+    background-position: -336px -84px;
 }
 
 .Sm4shFemaleRobin {
@@ -813,6 +828,12 @@
     width: 28px;
     height: 28px;
     background-position: -28px -252px;
+}
+
+.Sm4shMaleCorrin {
+    width: 28px;
+    height: 28px;
+    background-position: -336px -56px;
 }
 
 .Sm4shMaleRobin {
