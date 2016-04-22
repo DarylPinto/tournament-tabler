@@ -1,5 +1,5 @@
 //Version Number
-var appVersion = "3.6.5"
+var appVersion = "3.6.8"
 
 //Default values
 var codeLines = []
@@ -37,6 +37,23 @@ var game5P1Customs = "";
 var game5P2Customs = "";
 
 var games = ["#GameOne", "#GameTwo", "#GameThree", "#GameFour", "#GameFive"]
+
+var sponsorMap = {
+	'Alliance'   : ["Alliance", "http://thealliance.gg/"],
+	'CT'         : ["CT", "ClashTournaments", "http://clashtournaments.gg/"],
+	'C9'         : ["C9", "Cloud9", "http://cloud9.gg/"],
+	'Subreddit'  : ["Subreddit", "Reddit", "https://www.reddit.com/r/smashbros"],
+	'COG'        : ["COG", "CognitiveGaming", "http://www.cognitive-gaming.com/"],
+	'EG'         : ["EG", "EvilGeniuses", "http://www.evilgeniuses.gg/"],
+	'HypestTeam' : ["HypestTeam", "http://hypestteam.com/"],
+	'TL'         : ["TL", "TeamLiquid", "Liquid`", "http://www.teamliquidpro.com/"],
+	'MIOM'       : ["MIOM", "Melee It On Me", "http://www.meleeitonme.com/"],
+	'MVG'        : ["MVG", "MostValuableGaming", "https://mvgleague.com/"],
+	'PG'         : ["PG", "PandaGlobal", "Panda", "http://panda.gg/"],
+	'TSM'        : ["TSM", "TeamSoloMid", "http://www.tsm.gg/"],
+	'Twitch'     : ["Twitch", "https://www.twitch.tv/"],
+	'VGBC'       : ["VGBC", "VideoGameBootCamp", "http://vgbootcamp.com/"]
+}
 
 function randomNumberBetween(low,high){ //Get a random int between low and high (including low, not including high)
 	return Math.floor(Math.random()*(high-low)+low);
@@ -749,9 +766,28 @@ function printFormattedTable(){ //Generate code and preview output
 		return P1score.toString() + " - " + P2score.toString();
 	}
 
+	//Add sponsor flair to end of player name
+	for(sponsor in sponsorMap){
+		if(sponsorMap.hasOwnProperty(sponsor)){
+			sponsorMap[sponsor].forEach(function(alias){
+
+				P1 = (P1.indexOf('[](#Sponsor') == -1 && P1sponsor.length > 0) ? P1.replace(alias, '') : P1;
+
+				if(P1sponsor.indexOf(alias) > -1){
+					P1 = P1 + ' [](#Sponsor' + sponsor + ')';
+				}
+
+				P2 = (P2.indexOf('[](#Sponsor') == -1 && P2sponsor.length > 0) ? P2.replace(alias, '') : P2;
+
+				if(P2sponsor.indexOf(alias) > -1){
+					P2 = '[](#Sponsor' + sponsor + ') ' + P2;
+				}
+
+			});
+		}
+	}
 
 	//GENERATE REDDIT MARKUP
-
 
 	generatePlayerMedia();
 

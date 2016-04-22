@@ -246,7 +246,7 @@ new Player(
 	'SilentWolf444', //Twitch Username
 	'SilentWolf444', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/Silent_Wolf', //Wiki Link
-	'' //Sponsor Link
+	'http://teamsecret.gg/' //Sponsor Link
 ),
 
 new Player(
@@ -711,6 +711,33 @@ new Player(
 	'http://www.teamliquidpro.com/' //Sponsor Link
 ),
 
+new Player(
+	['wobbles'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
+	['IceClimbers'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's pm mains (2 max)
+	[], //Array of player's sm4sh mains (2 max)
+	'Robert "Wobbles" Wright', //Full name
+	'icwobbles', //Twitch Username
+	'PG_Wobbles', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/Wobbles', //Wiki Link
+	'http://www.panda.gg/' //Sponsor Link
+),
+
+new Player(
+	['swedish delight'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
+	['Sheik'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's pm mains (2 max)
+	[], //Array of player's sm4sh mains (2 max)
+	'James "Swedish Delight" Liu', //Full name
+	'', //Twitch Username
+	'SSB_Swedish', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/Swedish_Delight', //Wiki Link
+	'' //Sponsor Link
+),
 
 //Smash 4 players (some of them are already listed above)
 
