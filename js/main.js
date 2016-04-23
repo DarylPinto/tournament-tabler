@@ -7,7 +7,7 @@ var tablePreviewPieces = []
 var customs_enabled = false
 
 var P1lastAutofill = "mango";
-var P2lastAutofill = "leffen";
+var P2lastAutofill = "armada";
 
 var P1extras = false
 var P2extras = false
@@ -506,6 +506,7 @@ function printFormattedTable(){ //Generate code and preview output
 	var P1wiki = $("#PlayerOneWiki").val().replace(/(\(|\)|\[|\])/g, "");
 	var P1sponsor = $("#PlayerOneSponsor").val().replace(/(\(|\)|\[|\])/g, "");
 	var P1media = "";
+	var P1sponsorflair = "";
 
 	var P2 = $("#PlayerTwo").val().replace(/\|/g, " ");
 	var P2mains = [];
@@ -520,6 +521,7 @@ function printFormattedTable(){ //Generate code and preview output
 	var P2wiki = $("#PlayerTwoWiki").val().replace(/(\(|\)|\[|\])/g, "");
 	var P2sponsor = $("#PlayerTwoSponsor").val().replace(/(\(|\)|\[|\])/g, "");
 	var P2media = "";
+	var P2sponsorflair = "";
 
 	var game1P1Character = $("#GameOne .PlayerOneCharacter div").attr("class");
 	var game1P2Character = $("#GameOne .PlayerTwoCharacter div").attr("class");
@@ -602,6 +604,21 @@ function printFormattedTable(){ //Generate code and preview output
 		P2sponsor = "";
 	}
 
+	//Determine Sponsor Flairs
+	for(sponsor in sponsorMap){
+		if(sponsorMap.hasOwnProperty(sponsor)){
+			sponsorMap[sponsor].forEach(function(alias){
+
+				P1 = (P1sponsor.length > 0) ? P1.replace(alias, '') : P1;
+				P1sponsorflair = (P1sponsor.indexOf(alias) > -1) ? sponsor : P1sponsorflair;
+
+				P2 = (P2sponsor.length > 0) ? P2.replace(alias, '') : P2;
+				P2sponsorflair = (P2sponsor.indexOf(alias) > -1) ? sponsor : P2sponsorflair;
+
+			});
+		}
+	}
+
 	function makeFlair(str){
 		if(str === undefined){
 			return "" //No flair
@@ -609,6 +626,22 @@ function printFormattedTable(){ //Generate code and preview output
 			return "[](#"+str+")"; //Melee Flair
 		}
 	};
+
+	function makeSponsorFlairCode(str){
+		if(str.length == 0){
+			return "";
+		}else{
+			return '[](#Sponsor'+str+')';
+		}
+	}
+
+	function makeSponsorFlairDisplay(str){
+		if(str.length == 0){
+			return "";
+		}else{
+			return '<div class="Sponsor'+str+'"></div>';
+		}
+	}
 
 	function multiplyStock(winner,stock,num){
 		var str = "";
@@ -766,27 +799,6 @@ function printFormattedTable(){ //Generate code and preview output
 		return P1score.toString() + " - " + P2score.toString();
 	}
 
-	//Add sponsor flair to end of player name
-	for(sponsor in sponsorMap){
-		if(sponsorMap.hasOwnProperty(sponsor)){
-			sponsorMap[sponsor].forEach(function(alias){
-
-				P1 = (P1.indexOf('[](#Sponsor') == -1 && P1sponsor.length > 0) ? P1.replace(alias, '') : P1;
-
-				if(P1sponsor.indexOf(alias) > -1){
-					P1 = P1 + ' [](#Sponsor' + sponsor + ')';
-				}
-
-				P2 = (P2.indexOf('[](#Sponsor') == -1 && P2sponsor.length > 0) ? P2.replace(alias, '') : P2;
-
-				if(P2sponsor.indexOf(alias) > -1){
-					P2 = '[](#Sponsor' + sponsor + ') ' + P2;
-				}
-
-			});
-		}
-	}
-
 	//GENERATE REDDIT MARKUP
 
 	generatePlayerMedia();
@@ -830,7 +842,7 @@ function printFormattedTable(){ //Generate code and preview output
 	}
 
 	printLine("")
-	printLine(P1mains.map(makeFlair).toString().replace(/,/g , " ") + " " + P1 + " | | " + getSetCount() + " | | " + P2 + " " + P2mains.map(makeFlair).toString().replace(/,/g , " "));
+	printLine(P1mains.map(makeFlair).toString().replace(/,/g , " ") + " " + P1 + " " + makeSponsorFlairCode(P1sponsorflair) + " | | " + getSetCount() + " | | " + makeSponsorFlairCode(P2sponsorflair) + " " + P2 + " " + P2mains.map(makeFlair).toString().replace(/,/g , " "));
 	printLine("---:|:--:|:--:|:--:|:---");
 
 	if($("#GameOne .Stage").val() != "---"){
@@ -973,11 +985,11 @@ function printFormattedTable(){ //Generate code and preview output
 
 	addToPreview("<table><thead>")
 	addToPreview("<tr>")
-	addToPreview("<th align='right'>" + P1mains.map(makePreviewFlair).toString().replace(/,/g , " ") + " " + P1 + "</th>")
+	addToPreview("<th align='right'>" + P1mains.map(makePreviewFlair).toString().replace(/,/g , " ") + " " + P1 + " " + makeSponsorFlairDisplay(P1sponsorflair) + "</th>")
 	addToPreview("<th align='center'></th>")
 	addToPreview("<th align='center'>" + getSetCount() + "</th>")
 	addToPreview("<th align='center'></th>")
-	addToPreview("<th align='left'>" + P2 + " " + P2mains.map(makePreviewFlair).toString().replace(/,/g , " ") + "</th>")
+	addToPreview("<th align='left'>" + makeSponsorFlairDisplay(P2sponsorflair) + " " + P2 + " " + P2mains.map(makePreviewFlair).toString().replace(/,/g , " ") + "</th>")
 	addToPreview("</tr>")
 	addToPreview("</thead><tbody>")
 

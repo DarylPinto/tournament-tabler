@@ -140,7 +140,7 @@ new Player(
 new Player(
 	['hax'], //Array of aliases
 	[], //Array of player's 64 mains (2 max)
-	['Fox', 'CaptainFalcon'], //Array of player's melee mains (2 max)
+	['Fox'], //Array of player's melee mains (2 max)
 	[], //Array of player's brawl mains (2 max)
 	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
