@@ -49,7 +49,7 @@ var sponsorMap = {
 	'TL'         : ["TL", "TeamLiquid", "Liquid`", "http://www.teamliquidpro.com/"],
 	'MIOM'       : ["MIOM", "Melee It On Me", "http://www.meleeitonme.com/"],
 	'MVG'        : ["MVG", "MostValuableGaming", "https://mvgleague.com/"],
-	'PG'         : ["PG", "PandaGlobal", "Panda", "http://www.panda.gg/"],
+	'PG'         : ["PG", "PandaGlobal", "Panda", "http://www.panda.gg/", "http://panda.gg/"],
 	'TSM'        : ["TSM", "TeamSoloMid", "http://www.tsm.gg/"],
 	'Twitch'     : ["Twitch", "https://www.twitch.tv/"],
 	'VGBC'       : ["VGBC", "VideoGameBootCamp", "http://vgbootcamp.com/"]

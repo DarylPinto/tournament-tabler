@@ -260,7 +260,7 @@ new Player(
 	'', //Twitch Username
 	'PG_Plup', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/Plup', //Wiki Link
-	'http://panda.gg/' //Sponsor Link
+	'http://www.panda.gg/' //Sponsor Link
 ),
 
 new Player(
