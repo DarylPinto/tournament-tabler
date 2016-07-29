@@ -39,20 +39,20 @@ var game5P2Customs = "";
 var games = ["#GameOne", "#GameTwo", "#GameThree", "#GameFour", "#GameFive"]
 
 var sponsorMap = {
-	'Alliance'   : ["Alliance", "http://thealliance.gg/"],
-	'CT'         : ["CT", "ClashTournaments", "http://clashtournaments.gg/"],
-	'C9'         : ["C9", "Cloud9", "http://cloud9.gg/"],
-	'Subreddit'  : ["Subreddit", "Reddit", "https://www.reddit.com/r/smashbros"],
-	'COG'        : ["COG", "CognitiveGaming", "http://www.cognitive-gaming.com/"],
-	'EG'         : ["EG", "EvilGeniuses", "http://www.evilgeniuses.gg/"],
-	'HypestTeam' : ["HypestTeam", "http://hypestteam.com/"],
-	'TL'         : ["TL", "TeamLiquid", "Liquid`", "http://www.teamliquidpro.com/"],
-	'MIOM'       : ["MIOM", "Melee It On Me", "http://www.meleeitonme.com/"],
-	'MVG'        : ["MVG", "MostValuableGaming", "https://mvgleague.com/"],
-	'PG'         : ["PG", "PandaGlobal", "Panda", "http://www.panda.gg/", "http://panda.gg/"],
-	'TSM'        : ["TSM", "TeamSoloMid", "http://www.tsm.gg/"],
-	'Twitch'     : ["Twitch", "https://www.twitch.tv/"],
-	'VGBC'       : ["VGBC", "VideoGameBootCamp", "http://vgbootcamp.com/"]
+	'Alliance'   : ["Alliance", "thealliance.gg"],
+	'CT'         : ["CT", "ClashTournaments", "clashtournaments.gg"],
+	'C9'         : ["C9", "Cloud9", "cloud9.gg"],
+	'Subreddit'  : ["Subreddit", "Reddit", "reddit.com/r/smashbros"],
+	'COG'        : ["COG", "CognitiveGaming", "cognitive-gaming.com"],
+	'EG'         : ["EG", "EvilGeniuses", "evilgeniuses.gg"],
+	'HypestTeam' : ["HypestTeam", "hypestteam.com"],
+	'TL'         : ["TL", "TeamLiquid", "Liquid`", "teamliquidpro.com"],
+	'MIOM'       : ["MIOM", "Melee It On Me", "meleeitonme.com"],
+	'MVG'        : ["MVG", "MostValuableGaming", "mvgleague.com"],
+	'PG'         : ["PG", "PandaGlobal", "Panda", "panda.gg"],
+	'TSM'        : ["TSM", "TeamSoloMid", "tsm.gg"],
+	'Twitch'     : ["Twitch", "twitch.tv"],
+	'VGBC'       : ["VGBC", "VideoGameBootCamp", "vgbootcamp.com"]
 }
 
 function randomNumberBetween(low,high){ //Get a random int between low and high (including low, not including high)

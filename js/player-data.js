@@ -92,7 +92,7 @@ new Player(
 	'mew2king', //Twitch Username
 	'MVG_Mew2King', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/Mew2King', //Wiki Link
-	'http://cognitive-gaming.com/' //Sponsor Link
+	'http://echofox.gg/' //Sponsor Link
 ),
 
 new Player(
@@ -160,9 +160,9 @@ new Player(
 	[], //Array of player's sm4sh mains (2 max)
 	'Weston "Westballz" Dennis', //Full name
 	'westballz', //Twitch Username
-	'TempoWestBallz', //Twitter Handle
+	'G2Westballz', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/Westballz', //Wiki Link
-	'https://tempostorm.com/' //Sponsor Link
+	'http://www.g2esports.com/' //Sponsor Link
 ),
 
 new Player(
@@ -204,7 +204,7 @@ new Player(
 	'thenorwalkbat', //Twitch Username
 	'LegendofLucky', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/Lucky', //Wiki Link
-	'' //Sponsor Link
+	'http://selfless.gg/' //Sponsor Link
 ),
 
 new Player(
@@ -286,9 +286,9 @@ new Player(
 	[], //Array of player's sm4sh mains (2 max)
 	'Johnny "S2J" Kim', //Full name
 	'', //Twitch Username
-	'S2JFALCON', //Twitter Handle
+	'Tempo_S2J', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/S2J', //Wiki Link
-	'http://www.meleeitonme.com/' //Sponsor Link
+	'https://tempostorm.com/' //Sponsor Link
 ),
 
 new Player(
@@ -328,7 +328,7 @@ new Player(
 	[], //Array of player's sm4sh mains (2 max)
 	'Julian "Zhu" Zhu', //Full name
 	'smashpractice', //Twitch Username
-	'Poor_Zhu', //Twitter Handle
+	'poorzhu', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/Zhu', //Wiki Link
 	'https://youtu.be/pD_imYhNoQ4?t=11' //Sponsor Link
 ),
@@ -456,7 +456,7 @@ new Player(
 	'', //Twitch Username
 	'themoon112', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/The_Moon', //Wiki Link
-	'http://clashtournaments.gg/' //Sponsor Link
+	'' //Sponsor Link
 ),
 
 new Player(
@@ -565,10 +565,10 @@ new Player(
 	[], //Array of player's PM mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
 	'James "Duck" Ma', //Full name
-	'', //Twitch Username
+	'ssbduck', //Twitch Username
 	'ssbDuck', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/Duck', //Wiki Link
-	'' //Sponsor Link
+	'http://www.meleeitonme.com/' //Sponsor Link
 ),
 
 new Player(
