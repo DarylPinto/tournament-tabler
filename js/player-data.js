@@ -56,7 +56,7 @@ new Player(
 new Player(
 	['armada'], //Array of aliases
 	[], //Array of player's 64 mains (2 max)
-	['Fox', 'Peach'], //Array of player's melee mains (2 max)
+	['Peach', 'Fox'], //Array of player's melee mains (2 max)
 	[], //Array of player's brawl mains (2 max)
 	['Fox', 'Pit'], //Array of player's pm mains (2 max)
 	[], //Array of player's sm4sh mains (2 max)
@@ -535,7 +535,7 @@ new Player(
 	['Falco'], //Array of player's melee mains (2 max)
 	[], //Array of player's brawl mains (2 max)
 	[], //Array of player's PM mains (2 max)
-	['Fox', 'Sheik'], //Array of player's sm4sh mains (2 max)
+	['Fox', 'DonkeyKong'], //Array of player's sm4sh mains (2 max)
 	'Larry "Larry Lurr" Holland', //Full name
 	'larrylurr', //Twitch Username
 	'LarryLurr', //Twitter Handle
@@ -568,7 +568,7 @@ new Player(
 	'ssbduck', //Twitch Username
 	'ssbDuck', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/Duck', //Wiki Link
-	'http://www.meleeitonme.com/' //Sponsor Link
+	'http://www.denialesports.com/' //Sponsor Link
 ),
 
 new Player(
@@ -666,7 +666,7 @@ new Player(
 	'', //Twitch Username
 	'kagethewarrior', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/Kage_the_Warrior', //Wiki Link
-	'' //Sponsor Link
+	'http://www.synthetik.org/' //Sponsor Link
 ),
 
 new Player(
@@ -739,9 +739,79 @@ new Player(
 	'' //Sponsor Link
 ),
 
+new Player(
+	['n0ne', 'none'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
+	['CaptainFalcon', 'Ganondorf'], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's pm mains (2 max)
+	[], //Array of player's sm4sh mains (2 max)
+	'Edgard "n0ne" Sheleby', //Full name
+	'', //Twitch Username
+	'n0ned', //Twitter Handle
+	'http://wiki.teamliquid.net/smash/N0ne', //Wiki Link
+	'https://www.facebook.com/EvenMatchupGaming/' //Sponsor Link
+),
+
 //Smash 4 players (some of them are already listed above)
 
 //(ZeRo already listed)
+
+new Player(
+	['ally'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
+	[], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
+	['Mario', 'Cloud'], //Array of player's sm4sh mains (2 max)
+	'Elliot "Ally" Carroza-Oyarce', //Full name
+	'', //Twitch Username
+	'allyornotally', //Twitter Handle
+	'http://www.ssbwiki.com/Ally', //Wiki Link
+	'http://cloud9.gg/' //Sponsor Link
+),
+
+new Player(
+	['kamemushi'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
+	[], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
+	['Megaman'], //Array of player's sm4sh mains (2 max)
+	'Takuto "Kamemushi" Ono', //Full name
+	'', //Twitch Username
+	'', //Twitter Handle
+	'http://www.ssbwiki.com/Smasher:Kamemushi', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['void'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
+	[], //Array of player's melee mains (2 max)
+	[], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
+	['Sheik'], //Array of player's sm4sh mains (2 max)
+	'James "VoiD" Makekau-Tyson', //Full name
+	'gsmvoid', //Twitch Username
+	'gsmVoiD', //Twitter Handle
+	'http://www.ssbwiki.com/Smasher:VoiD', //Wiki Link
+	'http://clgaming.net/' //Sponsor Link
+),
+
+new Player(
+	['ranai'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
+	[], //Array of player's melee mains (2 max)
+	['Pikachu'], //Array of player's brawl mains (2 max)
+	[], //Array of player's PM mains (2 max)
+	['Villager'], //Array of player's sm4sh mains (2 max)
+	'Ryuto "Ranai" Hayashi', //Full name
+	'hysranai', //Twitch Username
+	'hysranai', //Twitter Handle
+	'http://www.ssbwiki.com/Smasher:Ranai', //Wiki Link
+	'http://clgaming.net/' //Sponsor Link
+),
 
 new Player(
 	['nairo'], //Array of aliases
@@ -749,12 +819,12 @@ new Player(
 	[], //Array of player's melee mains (2 max)
 	[], //Array of player's brawl mains (2 max)
 	[], //Array of player's PM mains (2 max)
-	['ZeroSuitSamus', 'DarkPit'], //Array of player's sm4sh mains (2 max)
+	['ZeroSuitSamus', 'Cloud'], //Array of player's sm4sh mains (2 max)
 	'Nairoby "Nairo" Quezada', //Full name
 	'nairomk', //Twitch Username
-	'Liquid_Nairo', //Twitter Handle
+	'nairomk', //Twitter Handle
 	'http://www.ssbwiki.com/Nairo', //Wiki Link
-	'http://www.teamliquidpro.com/' //Sponsor Link
+	'http://www.nrg.gg/' //Sponsor Link
 ),
 
 new Player(
@@ -772,20 +842,46 @@ new Player(
 ),
 
 new Player(
-	['ally'], //Array of aliases
+	['mr. r', 'mr r'], //Array of aliases
 	[], //Array of player's 64 mains (2 max)
 	[], //Array of player's melee mains (2 max)
-	[], //Array of player's brawl mains (2 max)
-	[], //Array of player's PM mains (2 max)
-	['Mario', 'ROB'], //Array of player's sm4sh mains (2 max)
-	'Elliot "Ally" Carroza-Oyarce', //Full name
-	'', //Twitch Username
-	'allyornotally', //Twitter Handle
-	'http://www.ssbwiki.com/Ally', //Wiki Link
-	'http://www.boreal.gg/' //Sponsor Link
+	['Marth'], //Array of player's brawl mains (2 max)
+	['Lucario'], //Array of player's PM mains (2 max)
+	['Sheik'], //Array of player's sm4sh mains (2 max)
+	'Ramin "Mr. R" Delshad', //Full name
+	'mr_rsmash', //Twitch Username
+	'Mr_RSmash', //Twitter Handle
+	'http://www.ssbwiki.com/Smasher:Mr._R', //Wiki Link
+	'' //Sponsor Link
 ),
 
-//(Larry Lurr already listed)
+new Player(
+	['abadango'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
+	[], //Array of player's melee mains (2 max)
+	['Wario', 'Olimar'], //Array of player's brawl mains (2 max)
+	[''], //Array of player's PM mains (2 max)
+	['Mewtwo', 'MetaKnight'], //Array of player's sm4sh mains (2 max)
+	'Yuta "Abadango" Kawamura', //Full name
+	'abadango', //Twitch Username
+	'Abadango_', //Twitter Handle
+	'http://www.ssbwiki.com/Smasher:Abadango', //Wiki Link
+	'' //Sponsor Link
+),
+
+new Player(
+	['anti'], //Array of aliases
+	[], //Array of player's 64 mains (2 max)
+	[], //Array of player's melee mains (2 max)
+	['MetaKnight', 'Marth'], //Array of player's brawl mains (2 max)
+	[''], //Array of player's PM mains (2 max)
+	['Mario', 'Cloud'], //Array of player's sm4sh mains (2 max)
+	'Jason "ANTi" Bates', //Full name
+	'', //Twitch Username
+	'Anti', //Twitter Handle
+	'http://www.ssbwiki.com/Smasher:ANTi', //Wiki Link
+	'http://www.dreamteam.gg/' //Sponsor Link
+),
 
 new Player(
 	['esam'], //Array of aliases

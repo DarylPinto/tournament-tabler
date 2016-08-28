@@ -1068,68 +1068,190 @@
 }
 
 .SponsorAlliance{
-    background-position: -2px -2px;
+    background-position:-2px -2px
+}
+
+.SponsorAlphaDraft{
+    background-position:-30px -2px
+}
+
+.SponsorAntiBeat{
+    background-position:-58px -2px
+}
+
+.SponsorAtrakt{
+    background-position:-86px -2px
+}
+
+.SponsorBeefySmashDoods{
+    background-position:-114px -2px
+}
+
+.SponsorCounterLogicGaming,
+.SponsorCLG{
+    background-position:-142px -2px
 }
 
 .SponsorClashTournaments,
 .SponsorCT{
-    background-position: -30px -2px;
+    background-position:-2px -30px
 }
 
-.SponsorCloud9,
-.SponsorC9{
-    background-position: -58px -2px;
+.SponsorC9,
+.SponsorCloud9{
+    background-position:-30px -30px
 }
 
 .SponsorCognitiveGaming,
 .SponsorCOG{
-    background-position: -2px -30px;
+    background-position:-58px -30px
+}
+
+.SponsorCurse{
+    background-position:-86px -30px
+}
+
+.SponsorDoubleJump{
+    background-position:-114px -30px
+}
+
+.SponsorDreamTeam{
+    background-position:-142px -30px
+}
+
+.SponsorEvenMatchupGaming,
+.SponsorEMG{
+    background-position:-2px -58px
+}
+
+.SponsorEchoFox{
+    background-position:-30px -58px
 }
 
 .SponsorEvilGeniuses,
 .SponsorEG{
-    background-position: -30px -30px;
+    background-position:-58px -58px
+}
+
+.SponsorG2{
+    background-position:-86px -58px
+}
+
+.SponsorHTC{
+    background-position:-114px -58px
+}
+
+.SponsorHeir{
+    background-position:-142px -58px
 }
 
 .SponsorHypestTeam{
-    background-position: -58px -30px;
+    background-position:-2px -86px
+}
+
+.SponsorLeet{
+    background-position:-30px -86px
 }
 
 .SponsorMeleeItOnMe,
 .SponsorMIOM{
-    background-position: -2px -58px;
+    background-position:-58px -86px
 }
 
 .SponsorMostValuableGaming,
 .SponsorMVG{
-    background-position: -30px -58px;
+    background-position:-86px -86px
+}
+
+.SponsorMyInsanity,
+.SponsorMyI{
+    background-position:-114px -86px
+}
+
+.SponsorNoble{
+    background-position:-142px -86px
 }
 
 .SponsorPandaGlobal,
 .SponsorPG{
-    background-position: -58px -58px;
+    background-position:-2px -114px
+}
+
+.SponsorPrismatic{
+    background-position:-30px -114px
+}
+
+.SponsorRedbull{
+    background-position:-58px -114px
+}
+
+.SponsorRevolution{
+    background-position:-86px -114px
+}
+
+.SponsorSDS{
+    background-position:-114px -114px
+}
+
+.SponsorSecret{
+    background-position:-142px -114px
+}
+
+.SponsorSelfless{
+    background-position:-2px -142px
+}
+
+.SponsorSmashPad{
+    background-position:-30px -142px
+}
+
+.SponsorSmashStudios,
+.SponsorSS{
+    background-position:-58px -142px
+}
+
+.SponsorSplyce,
+.SponsorSpy{
+    background-position:-86px -142px
 }
 
 .SponsorSubreddit,
 .SponsorReddit{
-    background-position: -86px -2px;
+    background-position:-114px -142px
 }
 
 .SponsorTeamLiquid,
 .SponsorTL{
-    background-position: -86px -30px;
+    background-position:-142px -142px
 }
 
 .SponsorTeamSoloMid,
 .SponsorTSM{
-    background-position: -86px -58px;
+    background-position:-170px -2px
+}
+
+.SponsorTempostorm,
+.SponsorTempo{
+    background-position:-170px -30px
 }
 
 .SponsorTwitch{
-    background-position: -2px -86px;
+    background-position:-170px -58px
+}
+
+.SponsorVWS{
+    background-position:-170px -86px
 }
 
 .SponsorVideoGameBootCamp,
 .SponsorVGBC{
-    background-position: -30px -86px;
+    background-position:-170px -114px
+}
+
+.SponsorWebShare{
+    background-position:-170px -142px
+}
+
+.SponsorWinterFox{
+    background-position:-2px -170px
 }
