@@ -891,7 +891,7 @@ new Player(
 	[], //Array of player's PM mains (2 max)
 	['Pikachu'], //Array of player's sm4sh mains (2 max)
 	'Eric "ESAM" Lew', //Full name
-	'', //Twitch Username
+	'https://www.twitch.tv/trixiesam', //Twitch Username
 	'PG_ESAM', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/ESAM', //Wiki Link
 	'http://www.panda.gg/' //Sponsor Link
