@@ -43,7 +43,7 @@ var sponsorMap = {
 	'AlphaDraft'      : ["AlphaDraft", "alphadraft.com"],
 	'AntiBeat'        : ["AntiBeat", "twitter.com/antibeat_multi"],
 	'Atrakt'          : ["Atrakt", "twitter.com/Atrakt_"],
-	'BeefySmashDoods' : ["BSD", "BeefySmashDoods", "Beefy Smash Doods", "twitter.com/beefysmashdoods"],
+	'BeefySmashDoods' : ["BSD", "BeefySmashDoods", "Beefy Smash Doods", "Beefy", "beefysmashdoods.com"],
 	'CLG'             : ["CLG", "Counter Logic", "Counter Logic Gaming", "clgaming.net"],
 	'COG'             : ["COG", "CognitiveGaming", "cognitive-gaming.com"],
 	'Curse'           : ["Curse", "curse.com"],
