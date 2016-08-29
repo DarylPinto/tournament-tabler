@@ -554,7 +554,7 @@ new Player(
 	'HugS86', //Twitch Username
 	'HugS86', //Twitter Handle
 	'http://wiki.teamliquid.net/smash/HugS', //Wiki Link
-	'' //Sponsor Link
+	'http://www.dreamteam.gg/' //Sponsor Link
 ),
 
 new Player(
