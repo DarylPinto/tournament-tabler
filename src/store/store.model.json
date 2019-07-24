@@ -1,0 +1,34 @@
+{
+	"smashTitle": "Melee",
+	"bracketRound": "Grand Finals",
+	"vodLink": "https://youtube.com/...",
+	"bracketLink": "https://...",
+	"players": [
+		{
+			"port": 1,
+			"tag": "Mango",
+			"mains": ["Fox", "Falco"],
+			"name": "Joseph 'Mang0' Marquez",
+			"sponsor": "Cloud 9",
+			"links": [
+				{
+					"name": "Twitch",
+					"URL": "https://axe.pizza"
+				}
+			]
+		}
+	],
+	"setData": [
+		{
+			"players": [
+				{ "port": 1, "character": "Pikachu" },
+				{ "port": 2, "character": "Falco" }
+			],
+			"stage": "Battlefield",
+			"winnerPort": 1,
+			"timeout": false,
+			"stocksRemaining": 4,
+			"percentRemaining": 100
+		}
+	]
+}

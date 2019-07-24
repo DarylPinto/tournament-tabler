@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import initializeStore from "store/init-store.js";
-import Layout from "pages/_Layout.js";
+import configureStore from "store/configureStore";
+import Layout from "pages/_layout";
 
-const store = initializeStore();
+const store = configureStore();
 
 ReactDOM.render(
 	<Provider store={store}>

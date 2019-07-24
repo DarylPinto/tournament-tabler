@@ -4,7 +4,10 @@
 		"es6": true,
 		"node": true
 	},
-	"extends": "eslint:recommended",
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended"
+	],
 	"globals": {
 		"Atomics": "readonly",
 		"SharedArrayBuffer": "readonly"
@@ -22,9 +25,15 @@
 		"react-hooks",
 		"import"
 	],
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
 	"rules": {
-		"react/jsx-uses-vars": "error",
 		"import/no-relative-parent-imports": "error",
+		"react/jsx-uses-vars": "error",
+		"react/prop-types": 0,
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
 		"indent": [
