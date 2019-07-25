@@ -1,26 +1,26 @@
-import React from "react";
-import { connect } from "react-redux";
-import { UPDATE_TOURNAMENT_INFO } from "store/types";
+import React, { useState } from "react";
+import smasher from "data/smasher";
 
-const HomePage = ({ dispatch }) => {
-	let input;
+const HomePage = () => {
+	const [searchInput, setSearchInput] = useState("mango");
+
+	const getit = async () => {
+		let res = await smasher(searchInput);
+		// eslint-disable-next-line no-console
+		console.log(res);
+	};
 
 	return (
 		<div>
 			<h1>Tournament Tabler</h1>
-			<input ref={node => (input = node)} />
-			<button
-				onClick={() =>
-					dispatch({
-						type: UPDATE_TOURNAMENT_INFO,
-						payload: { name: input.value }
-					})
-				}
-			>
-				Update Name
-			</button>
+			<input
+				type="text"
+				value={searchInput}
+				onChange={e => setSearchInput(e.target.value)}
+			/>
+			<button onClick={getit}>Get the smasher</button>
 		</div>
 	);
 };
 
-export default connect()(HomePage);
+export default HomePage;

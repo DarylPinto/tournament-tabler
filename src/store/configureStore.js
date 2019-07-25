@@ -14,9 +14,12 @@ const reducer = combineReducers({
 	// }
 });
 
-const devTools =
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+// prettier-ignore
+const devToolsEnabled = (
+	window.__REDUX_DEVTOOLS_EXTENSION__ &&
+	window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-const configureStore = () => createStore(reducer, {}, devTools);
+const configureStore = () => createStore(reducer, {}, devToolsEnabled);
 
 export default configureStore;
