@@ -1,22 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
-import { CHANGE_SMASH_TITLE } from "store/types";
+import { UPDATE_TOURNAMENT_INFO } from "store/types";
 
-const HomePage = ({ smashTitle, dispatch }) => {
-	const updateGame = e => {
-		dispatch({
-			type: CHANGE_SMASH_TITLE,
-			payload: e.target.value
-		});
-	};
+const HomePage = ({ dispatch }) => {
+	let input;
 
 	return (
 		<div>
 			<h1>Tournament Tabler</h1>
-			<input value={smashTitle} onChange={updateGame} />
+			<input ref={node => (input = node)} />
+			<button
+				onClick={() =>
+					dispatch({
+						type: UPDATE_TOURNAMENT_INFO,
+						payload: { name: input.value }
+					})
+				}
+			>
+				Update Name
+			</button>
 		</div>
 	);
 };
 
-const mapState = ({ smashTitle }) => ({ smashTitle });
-export default connect(mapState)(HomePage);
+export default connect()(HomePage);
