@@ -26,14 +26,17 @@ const HomePage = () => {
 				e.preventDefault();
 				updateTournamentName();
 			}}
+			style={{ padding: "15px" }}
 		>
 			<h1>Tournament Tabler</h1>
 			<input
 				type="text"
 				value={searchInput}
+				placeholder="Smash player tag"
 				onChange={e => setSearchInput(e.target.value)}
+				style={{ marginRight: "5px" }}
 			/>
-			<button>Get the smasher</button>
+			<button className="primary">Get the smasher</button>
 		</form>
 	);
 };

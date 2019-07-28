@@ -1,0 +1,63 @@
+@import "_reset.scss";
+@import "_variables.scss";
+
+// Global styles (not for individual components)
+// Design language based on Shards React + Ant Design
+* {
+  font-family: _drhg_,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Arial,sans-serif;
+  color: $offwhite;
+}
+
+body {
+  background-color: $background;
+}
+
+// Headings
+h1 {
+  font-size: 42px;
+  margin: 10px 0;
+}
+
+// Forms
+input {
+  height: auto;
+  padding: .5rem 1rem;
+  font-size: .95rem;
+  line-height: 1.5;
+  color: $offwhite;
+  background-color: $slate;
+  border: 1px solid $offblack;
+  will-change: border-color,box-shadow;
+  border-radius: .825rem;
+  box-shadow: none;
+  transition: box-shadow 250ms cubic-bezier(.27,.01,.38,1.06),border 250ms cubic-bezier(.27,.01,.38,1.06);
+  outline: 0;
+  &:focus {
+    background-color: $slate;
+    border-color: $blue;
+    box-shadow: 0 0.313rem 0.719rem rgba(0,123,255,.1), 0 0.156rem 0.125rem rgba(0,0,0,.06);
+  }
+}
+
+button {
+  font-weight: 300;
+  border: 1px solid transparent;
+  padding: .75rem 1.25rem;
+  font-size: .875rem;
+  line-height: 1.125;
+  border-radius: 1000px;
+  transition: all 250ms cubic-bezier(.27,.01,.38,1.06);
+  outline: 0;
+  cursor: pointer;
+  &.primary {
+    color: white;
+    border-color: $blue;
+    background-color: $blue;
+    box-shadow: 0 5px 15px rgba(32,41,83,.15), 0 15px 40px rgba(45,83,254,.2);
+  }
+  &:hover {
+    background-color: white;
+    border-color: white;
+    color: $blue;
+  }
+}

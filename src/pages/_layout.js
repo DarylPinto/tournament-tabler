@@ -5,8 +5,8 @@ import HomePage from "pages/home";
 function App() {
 	return (
 		<Router>
-			<div className="App">	
-				<Route path="/" component={HomePage} exact />	
+			<div className="App">
+				<Route path="/" component={HomePage} exact />
 			</div>
 		</Router>
 	);
