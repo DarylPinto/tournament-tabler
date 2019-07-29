@@ -16,6 +16,7 @@ const HomePage = () => {
 	};
 
 	// Update redux store
+	// eslint-disable-next-line no-unused-vars
 	const updateTournamentName = () => {
 		dispatch(tournament.updateInfo({ name: "Big House 5" }));
 	};
@@ -24,9 +25,8 @@ const HomePage = () => {
 		<form
 			onSubmit={e => {
 				e.preventDefault();
-				updateTournamentName();
+				fetchFromApi();
 			}}
-			style={{ padding: "15px" }}
 		>
 			<h1>Tournament Tabler</h1>
 			<input

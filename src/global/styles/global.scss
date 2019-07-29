@@ -10,15 +10,26 @@
 
 body {
   background-color: $background;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px; 
+}
+
+.container {
+  width: 90vw;
+  max-width: 1000px;
+  background-color: $card-color;
+  border-radius: 4px;
+  padding: 40px;
 }
 
 // Headings
 h1 {
   font-size: 42px;
-  margin: 10px 0;
+  margin-bottom: 10px;
 }
 
-// Forms
+// Form input elements
 input {
   height: auto;
   padding: .5rem 1rem;
@@ -28,7 +39,7 @@ input {
   background-color: $slate;
   border: 1px solid $offblack;
   will-change: border-color,box-shadow;
-  border-radius: .825rem;
+  border-radius: 4px;
   box-shadow: none;
   transition: box-shadow 250ms cubic-bezier(.27,.01,.38,1.06),border 250ms cubic-bezier(.27,.01,.38,1.06);
   outline: 0;
@@ -42,7 +53,8 @@ input {
 button {
   font-weight: 300;
   border: 1px solid transparent;
-  padding: .75rem 1.25rem;
+  margin-top: 1px;
+  padding: .65rem 1.25rem;
   font-size: .875rem;
   line-height: 1.125;
   border-radius: 1000px;

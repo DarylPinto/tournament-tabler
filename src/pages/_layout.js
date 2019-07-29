@@ -5,7 +5,7 @@ import HomePage from "pages/home";
 function App() {
 	return (
 		<Router>
-			<div className="App">
+			<div className="container">
 				<Route path="/" component={HomePage} exact />
 			</div>
 		</Router>

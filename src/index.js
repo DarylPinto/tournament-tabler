@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import store from "store/configureStore";
+import store from "store";
 import Layout from "pages/_layout";
 import "global/styles/global.scss";
 
