@@ -11,6 +11,31 @@ module.exports = {
 				}
 			},
 			{
+				test: /\.css$/i,
+				use: [
+					"style-loader",
+					{
+						loader: "css-loader",
+						options: {
+							modules: true
+						}
+					}
+				]
+			},
+			{
+				test: /\.s[ac]ss$/i,
+				use: [
+					"style-loader",
+					{
+						loader: "css-loader",
+						options: {
+							modules: true
+						}
+					},
+					"sass-loader"
+				]
+			},
+			{
 				test: /\.html$/,
 				use: [
 					{
