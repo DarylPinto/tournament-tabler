@@ -3,10 +3,10 @@ import s from "./PlayerCard.module.scss";
 
 // Fields to render in this PlayerCard
 const fields = [
-	{ name: "tag", label: "Tag", required: true },
-	{ name: "twitch", label: "Twitch", required: false },
-	{ name: "twitter", label: "Twitter", required: false },
-	{ name: "wiki", label: "Wiki URL", required: false },
+	{ name: "tag",     label: "Tag",         required: true },
+	{ name: "twitch",  label: "Twitch",      required: false },
+	{ name: "twitter", label: "Twitter",     required: false },
+	{ name: "wiki",    label: "Wiki URL",    required: false },
 	{ name: "sponsor", label: "Sponsor URL", required: false }
 ];
 
@@ -54,7 +54,6 @@ const PlayerCard = ({ playerIndex, player, setPlayers }) => {
 								<span>{field.label} (optional)</span>
 								<input
 									type="text"
-									value={player[field.name]}
 									value={player[field.name]}
 									onChange={e =>
 										setPlayerProp({ [field.name]: e.target.value })
