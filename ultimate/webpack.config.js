@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
 	module: {
@@ -68,6 +69,13 @@ module.exports = {
 				removeComments: true,
 				removeRedundantAttributes: true
 			}
-		})
+		}),
+		new CopyPlugin([
+			{
+				context: "./public",
+				from: "**/*.!(html)",
+				to: "./"
+			}
+		])
 	]
 };
