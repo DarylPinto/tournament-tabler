@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import s from "./App.module.scss";
+import RoundInfoCard from "./components/RoundInfoCard";
 import PlayerCard from "./components/PlayerCard";
 import MatchesCard from "./components/MatchesCard";
 import {
@@ -34,22 +35,12 @@ const App = () => {
 		<main>
 			<h1 className={s.logo}>Tournament Tabler</h1>
 			<section className={s.mainSection}>
-				<div className={s.roundInfo}>
-					<input
-						className={s.round}
-						type="text"
-						placeholder="Round"
-						required
-						value={round}
-						onChange={e => setRound(e.target.value)}
-					/>
-					<input
-						type="text"
-						placeholder="Stream Link (optional but recommended)"
-						value={streamLink}
-						onChange={e => setStreamLink(e.target.value)}
-					/>
-				</div>
+				<RoundInfoCard
+					round={round}
+					setRound={setRound}
+					streamLink={streamLink}
+					setStreamLink={setStreamLink}
+				/>
 				<div className={s.setInfo}>
 					{players.map((player, i) => (
 						<PlayerCard

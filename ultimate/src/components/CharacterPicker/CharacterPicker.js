@@ -7,7 +7,7 @@ const CharacterPicker = ({ value, onChange }) => {
 	const [modalOpen, setModalOpen] = useState(false);
 
 	return (
-		<div>
+		<div>	
 			<div className={s.selectionBox} onClick={() => setModalOpen(true)}>
 				{value}
 			</div>
