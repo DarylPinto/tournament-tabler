@@ -25,7 +25,7 @@ const DebugTab = ({ ...data }) => {
 };
 
 const App = () => {
-	const [round, setRound] = useState("");
+	const [round, setRound] = useState("Grand Finals");
 	const [streamLink, setStreamLink] = useState("");
 	const [players, setPlayers] = useState(defaultPlayers);
 	const [matches, setMatches] = useState(defaultMatches);

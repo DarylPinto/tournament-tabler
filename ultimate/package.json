@@ -8,6 +8,7 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "@use-it/event-listener": "^0.1.3",
     "preact": "^10.1.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
