@@ -4,7 +4,7 @@
 		[
 			"@babel/plugin-transform-react-jsx",
 			{
-				"pragmaFrag": "Fragment"
+				"pragmaFrag": "React.Fragment"
 			}
 		]
 	]

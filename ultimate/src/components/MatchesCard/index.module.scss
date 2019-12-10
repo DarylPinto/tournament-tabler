@@ -1,0 +1,73 @@
+.matchesCard {
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	flex-direction: column;
+	background-color: rgba(0, 0, 0, 0.35);
+	width: calc(33.33% - (40px / 3));
+	border-radius: 4px;
+	overflow: hidden;
+
+	.gameNumSelect {
+		display: flex;
+		width: 100%;
+		li {
+			display: flex;
+			width: calc(100% / 5);
+			height: 50px;
+			justify-content: center;
+			align-items: center;
+			background-color: rgba(0, 0, 0, 0.2);
+			color: white;
+			font-size: 20px;
+			cursor: pointer;
+		}
+	}
+
+	h2 {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: rgba(0, 0, 0, 0.6);
+		color: white;
+		width: 100%;
+		text-align: center;
+		height: 50px;
+		font-size: 18px;
+	}
+
+	label {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 70%;
+		margin: 20px 0 7px 0;
+		&:last-of-type {
+			margin-bottom: 50px;
+		}
+		span {
+			display: block;
+			color: white;
+			text-align: center;
+			font-weight: bold;
+			font-size: 14px;
+			margin-bottom: 10px;
+		}
+		input {
+			width: 100%;
+		}
+	}
+}
+
+.extrasBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.2);
+	color: white;
+	width: 100%;
+	text-align: center;
+	height: 50px;
+	font-size: 12px;
+	cursor: pointer;
+}
