@@ -7,10 +7,9 @@ const gameDummyArr = Array(gameCount).fill(null);
 
 const MatchesCard = () => {
 	const [gameNum, setGameNum] = useState(1);
+	const [p1char, setP1Char] = useState(null);
+	const [p2char, setP2Char] = useState(null);
 	
-	const handleCharChange = char => {
-		console.log(char);
-	};
 
 	return (
 		<div className={s.matchesCard}>
@@ -25,7 +24,8 @@ const MatchesCard = () => {
 					</li>
 				))}
 			</ul>	
-			<CharacterPicker value={null} onChange={handleCharChange} />
+			<CharacterPicker value={p1char} onChange={setP1Char} />
+			<CharacterPicker value={p2char} onChange={setP2Char} />
 		</div>
 	);
 };

@@ -8,6 +8,25 @@
 	margin: auto;
 	background-color: rgba(0, 0, 0, 0.3);
 	border-radius: 3px;
+	background-position: center center;
+	background-repeat: no-repeat;
 	border: 1px solid rgba(255, 255, 255, 0.75);
+	cursor: pointer;
+}
+
+.stockIcon {
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+
+.removeCharacterBtn {
+	text-align: center;
+	margin-top: 20px;
+	padding: 8px;
+	border: 1px solid black;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 4px;
 	cursor: pointer;
 }

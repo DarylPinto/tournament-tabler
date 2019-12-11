@@ -1,25 +1,57 @@
 import React, { useState } from "react";
+import chunk from "lodash.chunk";
 import s from "./CharacterPicker.module.scss";
 import Modal from "../Modal";
 import characterData from "../../data/characters";
 
+const characterRows = chunk(characterData, 12);
+
 const CharacterPicker = ({ value, onChange }) => {
-	const [modalOpen, setModalOpen] = useState(true);
+	const [modalOpen, setModalOpen] = useState(false);
+
+	// When a stock icon is clicked pass the character
+	// to the callback and close the modal
+	const handleStockClick = character => {
+		onChange(character);
+		setModalOpen(false);
+	};
 
 	return (
 		<div>
-			<div className={s.selectionBox} onClick={() => setModalOpen(true)}>
-				{value}
-			</div>
-			<img src="images/stocks/ultimate/Yoshi.png" alt="" />
+			{/* Input box */}
+			<div
+				className={s.selectionBox}
+				onClick={() => setModalOpen(true)}
+				style={{
+					backgroundImage: value
+						? `url(images/stocks/ultimate/${value}.png)`
+						: ""
+				}}
+			/>
+
+			{/* Modal to select character */}
 			<Modal isOpen={modalOpen} close={() => setModalOpen(false)}>
-				{characterData.map(character => (
-					<img
-						src={`images/stocks/ultimate/${character}.png`}
-						alt={character}
-						className={s.stockIcon}
-					/>
+				{/* Characters are in rows of 12, similar to in-game CSS */}
+				{characterRows.map(row => (
+					<div>
+						{row.map(character => (
+							<img
+								src={`images/stocks/ultimate/${character}.png`}
+								alt={character}
+								className={s.stockIcon}
+								onClick={() => handleStockClick(character)}
+							/>
+						))}
+					</div>
 				))}
+
+				{/* Button to clear character */}
+				<div
+					className={s.removeCharacterBtn}
+					onClick={() => handleStockClick(null)}
+				>
+					Remove Character
+				</div>
 			</Modal>
 		</div>
 	);
