@@ -1,6 +1,13 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
+const cssLoader = {
+	loader: "css-loader",
+	options: {
+		modules: true	
+	}
+}
+
 module.exports = {
 	module: {
 		rules: [
@@ -15,24 +22,14 @@ module.exports = {
 				test: /\.css$/i,
 				use: [
 					"style-loader",
-					{
-						loader: "css-loader",
-						options: {
-							modules: true
-						}
-					}
+					cssLoader
 				]
 			},
 			{
 				test: /\.s[ac]ss$/i,
 				use: [
 					"style-loader",
-					{
-						loader: "css-loader",
-						options: {
-							modules: true
-						}
-					},
+					cssLoader,
 					"sass-loader"
 				]
 			},

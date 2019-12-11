@@ -17,7 +17,7 @@ const CharacterPicker = ({ value, onChange }) => {
 	};
 
 	return (
-		<div>
+		<>
 			{/* Input box */}
 			<div
 				className={s.selectionBox}
@@ -33,7 +33,7 @@ const CharacterPicker = ({ value, onChange }) => {
 			<Modal isOpen={modalOpen} close={() => setModalOpen(false)}>
 				{/* Characters are in rows of 12, similar to in-game CSS */}
 				{characterRows.map(row => (
-					<div>
+					<div className={s.stockRow}>
 						{row.map(character => (
 							<img
 								src={`images/stocks/ultimate/${character}.png`}
@@ -53,7 +53,7 @@ const CharacterPicker = ({ value, onChange }) => {
 					Remove Character
 				</div>
 			</Modal>
-		</div>
+		</>
 	);
 };
 

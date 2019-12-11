@@ -43,6 +43,17 @@
 	}
 }
 
+.characterPickerWrap {
+	display: inline-block;
+	text-align: center;	
+	:global(> div) {
+		margin-left: 10px;	
+		&:first-of-type {
+			margin-left: 0;
+		}
+	}
+}
+
 .extrasBtn {
 	display: flex;
 	align-items: center;

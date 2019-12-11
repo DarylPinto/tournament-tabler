@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import s from "./PlayerCard.module.scss";
+import CharacterPicker from "../CharacterPicker";
 
 // Fields to render in this PlayerCard
 const fields = [
-	{ name: "tag",     label: "Tag",         required: true },
-	{ name: "twitch",  label: "Twitch",      required: false },
-	{ name: "twitter", label: "Twitter",     required: false },
-	{ name: "wiki",    label: "Wiki URL",    required: false },
+	{ name: "tag", label: "Tag", required: true },
+	{ name: "twitch", label: "Twitch", required: false },
+	{ name: "twitter", label: "Twitter", required: false },
+	{ name: "wiki", label: "Wiki URL", required: false },
 	{ name: "sponsor", label: "Sponsor URL", required: false }
 ];
 
@@ -25,10 +26,20 @@ const PlayerCard = ({ playerIndex, player, setPlayers }) => {
 		});
 	};
 
+	// Update a player's main character by index
+	// ex: setMain(0, "Yoshi") sets the player's first main to Yoshi
+	const setMain = (index, character) => {
+		setPlayers(prevPlayers => {
+			let nextPlayers = JSON.parse(JSON.stringify(prevPlayers));
+			let player = nextPlayers[playerIndex];
+			player.mains.ultimate[index] = character;
+			return nextPlayers;
+		});
+	};
+
 	return (
 		<div className={s.playerCard}>
 			<h2>Player {playerIndex + 1}</h2>
-
 			{/* Mandatory Fields */}
 			{fields
 				.filter(field => field.required)
@@ -43,6 +54,21 @@ const PlayerCard = ({ playerIndex, player, setPlayers }) => {
 						/>
 					</label>
 				))}
+
+			{/* Main character selection */}
+			<label>
+				<span>Mains</span>
+				<div className={s.characterPickerWrap}>
+					<CharacterPicker
+						value={player.mains.ultimate[0]}
+						onChange={character => setMain(0, character)}
+					/>
+					<CharacterPicker
+						value={player.mains.ultimate[1]}
+						onChange={character => setMain(1, character)}
+					/>
+				</div>
+			</label>
 
 			{/* Extra Fields */}
 			{extrasShown && (
@@ -63,7 +89,6 @@ const PlayerCard = ({ playerIndex, player, setPlayers }) => {
 						))}
 				</>
 			)}
-
 			{/* Show Extras Button */}
 			{!extrasShown && (
 				<button className={s.extrasBtn} onClick={() => setExtrasShown(true)}>

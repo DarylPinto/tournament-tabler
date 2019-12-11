@@ -2,7 +2,7 @@ export const players = [
 	{
 		tag: "MKLeo",
 		mains: {
-			ultimate: ["Joker"]
+			ultimate: ["Joker", null]
 		},
 		name: "Leonardo Lopez Perez",
 		twitch: "mkleo_fox",
@@ -13,7 +13,7 @@ export const players = [
 	{
 		tag: "Tweek",
 		mains: {
-			ultimate: ["Joker"]
+			ultimate: ["Joker", null]
 		},
 		name: "Gavin Dempsey",
 		twitch: "tweekssb",
