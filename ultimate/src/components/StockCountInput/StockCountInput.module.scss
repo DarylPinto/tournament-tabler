@@ -1,0 +1,17 @@
+.stockCountInput {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.75);
+	border-radius: 4px;
+	padding: 4px 0;
+	li {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 40px;
+		width: 40px;
+		color: white;
+	}
+}

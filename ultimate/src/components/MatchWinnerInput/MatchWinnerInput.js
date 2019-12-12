@@ -1,16 +1,23 @@
 import React from "react";
+import s from "./MatchWinnerInput.module.scss";
 
 /**
  * MatchWinnerInput Component
- * 
- * Custom input field for selecting the winner of a match. 
+ *
+ * Custom input field for selecting the winner of a match.
  */
 
-const MatchWinnerInput = ({ choices, value, onChange }) => {
+const MatchWinnerInput = ({ options, value, onChange }) => {
 	return (
-		<div>
-			{choices.map(option => (
-				<span key={option}>{option}</span>
+		<div className={s.matchWinnerInput}>
+			{options.map((option, i) => (
+				<span
+					key={i}
+					className={option === options[value] ? s.selected : ""}
+					onClick={() => onChange(i)}
+				>
+					{option}
+				</span>
 			))}
 		</div>
 	);

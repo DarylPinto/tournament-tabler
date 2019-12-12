@@ -1,0 +1,24 @@
+.matchWinnerInput {
+	span {
+		text-align: center;
+		border: 0;
+		padding-top: 7px;
+		padding-bottom: 7px;
+		border-radius: 3px;
+		font-size: 15px !important;
+		padding-left: 10px;
+		padding-right: 10px;	
+		border: 1px solid transparent;
+		color: white;
+		font-weight: normal !important;
+		margin-bottom: 5px !important;
+		cursor: pointer;
+		&.selected {
+			background-color: rgba(0, 0, 0, 0.15);
+			border-color: rgba(255, 255, 255, 0.75);
+		}
+		&:last-of-type {
+			margin-bottom: 0 !important;
+		}
+	}
+}

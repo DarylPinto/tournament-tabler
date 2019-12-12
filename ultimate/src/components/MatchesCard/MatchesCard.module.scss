@@ -64,6 +64,21 @@
 	}
 }
 
+.characterSelect {
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-start;
+	width: 70%;
+	margin-bottom: 7px;
+	label, label:last-of-type {
+		margin-bottom: 0;
+		span {
+			font-size: 13px;
+			line-height: 1.2em;
+		}
+	}
+}
+
 .extrasBtn {
 	display: flex;
 	align-items: center;

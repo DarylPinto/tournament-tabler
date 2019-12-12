@@ -13,7 +13,7 @@ export const players = [
 	{
 		tag: "Tweek",
 		mains: {
-			ultimate: ["Joker", null]
+			ultimate: ["Wario", null]
 		},
 		name: "Gavin Dempsey",
 		twitch: "tweekssb",
@@ -25,9 +25,15 @@ export const players = [
 
 export const matches = [
 	{
-		characters: ["Joker", "Wario"],
+		characters: [
+			// Player 1's first main
+			players[0].mains.ultimate[0],
+			// Player 2's first main
+			players[1].mains.ultimate[0]
+		],
 		stage: "Battlefield",
-		winner: 0,
+		// Player 1's tag
+		winnerIndex: 0,
 		stocksRemaining: 2
 	}
 ];

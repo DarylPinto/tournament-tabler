@@ -3,7 +3,7 @@ import s from "./PlayerCard.module.scss";
 import CharacterInput from "../CharacterInput";
 
 /**
- * MatchesCard Component
+ * PlayerCard Component
  * 
  * The first two cards on the left for setting player data 
  * including tag, mains, full name, twitch acc etc. 
