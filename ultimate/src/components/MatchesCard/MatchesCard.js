@@ -19,44 +19,25 @@ const MatchesCard = ({ matches, setMatches, players }) => {
 	const P1 = players[0];
 	const P2 = players[1];
 
+	// Update a particular property of the current match
+	// Ex: setMatchProp("stage", "Yoshi's Island") sets the stage for
+	// the current match to Yoshi's Island
+	const setMatchProp = (matchProp, value) => {
+		setMatches(prevMatches => {
+			let nextMatches = JSON.parse(JSON.stringify(matches));
+			let match = nextMatches[matchIndex];
+			match[matchProp] = value;
+			return nextMatches;
+		});
+	};
+
 	// Update current match's character by index
-	// ex: setCharacter(0, "Yoshi") sets the match's first character to Yoshi
+	// ex: setCharacter(0, "Yoshi") sets P1's char in the match to Yoshi
 	const setCharacter = (index, character) => {
 		setMatches(prevMatches => {
 			let nextMatches = JSON.parse(JSON.stringify(matches));
 			let match = nextMatches[matchIndex];
 			match.characters[index] = character;
-			return nextMatches;
-		});
-	};
-
-	// Update current match's stage
-	// ex: setStage("Battlefield") sets the match's stage to Battlefield
-	const setStage = stage => {
-		setMatches(prevMatches => {
-			let nextMatches = JSON.parse(JSON.stringify(matches));
-			let match = nextMatches[matchIndex];
-			match.stage = stage;
-			return nextMatches;
-		});
-	};
-
-	// Update current match's winner
-	// ex: setWinnerIndex(0) sets the match's winner to the first player
-	const setWinnerIndex = winnerIndex => {
-		setMatches(prevMatches => {
-			let nextMatches = JSON.parse(JSON.stringify(matches));
-			let match = nextMatches[matchIndex];
-			match.winnerIndex = winnerIndex;
-			return nextMatches;
-		});
-	};
-
-	const setStocksRemaining = stockCount => {
-		setMatches(prevMatches => {
-			let nextMatches = JSON.parse(JSON.stringify(matches));
-			let match = nextMatches[matchIndex];
-			match.stocksRemaining = stockCount;
 			return nextMatches;
 		});
 	};
@@ -107,7 +88,10 @@ const MatchesCard = ({ matches, setMatches, players }) => {
 			{/* Stage Select */}
 			<label className={s.stageSelect}>
 				<span>Stage</span>
-				<select value={match.stage} onChange={e => setStage(e.target.value)}>
+				<select
+					value={match.stage}
+					onChange={e => setMatchProp("stage", e.target.value)}
+				>
 					{stages.map(stage => (
 						<option key={stage} value={stage}>
 							{stage}
@@ -122,7 +106,7 @@ const MatchesCard = ({ matches, setMatches, players }) => {
 				<MatchWinnerInput
 					options={players.map(p => p.tag)}
 					value={match.winnerIndex}
-					onChange={winnerIndex => setWinnerIndex(winnerIndex)}
+					onChange={winnerIndex => setMatchProp("winnerIndex", winnerIndex)}
 				/>
 			</label>
 
@@ -133,7 +117,7 @@ const MatchesCard = ({ matches, setMatches, players }) => {
 					stockIcon={match.characters[match.winnerIndex]}
 					value={match.stocksRemaining}
 					maxValue={3}
-					onChange={stockCount => setStocksRemaining(stockCount)}
+					onChange={stockCount => setMatchProp("stocksRemaining", stockCount)}
 				/>
 			</label>
 		</div>

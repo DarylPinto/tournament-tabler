@@ -24,12 +24,12 @@ const PlayerCard = ({ playerIndex, player, setPlayers }) => {
 
 	// Update a particular property of the player object
 	// that's been passed to this component
-	// ex: setPlayerProp({ twitch: "c9mang0" });
-	const setPlayerProp = playerProp => {
+	// ex: setPlayerProp("twitch", "c9mang0");
+	const setPlayerProp = (playerProp, value) => {
 		setPlayers(prevPlayers => {
 			let nextPlayers = JSON.parse(JSON.stringify(prevPlayers));
 			let player = nextPlayers[playerIndex];
-			nextPlayers[playerIndex] = { ...player, ...playerProp };
+			player[playerProp] = value;
 			return nextPlayers;
 		});
 	};
@@ -58,7 +58,7 @@ const PlayerCard = ({ playerIndex, player, setPlayers }) => {
 							type="text"
 							required
 							value={player[field.name]}
-							onChange={e => setPlayerProp({ [field.name]: e.target.value })}
+							onChange={e => setPlayerProp(field.name, e.target.value)}
 						/>
 					</label>
 				))}
@@ -90,7 +90,7 @@ const PlayerCard = ({ playerIndex, player, setPlayers }) => {
 									type="text"
 									value={player[field.name]}
 									onChange={e =>
-										setPlayerProp({ [field.name]: e.target.value })
+										setPlayerProp(field.name, e.target.value)
 									}
 								/>
 							</label>

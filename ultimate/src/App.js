@@ -62,8 +62,8 @@ const App = () => {
 				<DebugTab
 					// round={round}
 					// streamLink={streamLink}
-					// players={players}
-					matches={matches}
+					players={players}
+					// matches={matches}
 				/>
 			)}
 		</main>
