@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import s from "./PlayerCard.module.scss";
-import CharacterPicker from "../CharacterPicker";
+import CharacterInput from "../CharacterInput";
 
 // Fields to render in this PlayerCard
 const fields = [
@@ -58,12 +58,12 @@ const PlayerCard = ({ playerIndex, player, setPlayers }) => {
 			{/* Main character selection */}
 			<label>
 				<span>Mains</span>
-				<div className={s.characterPickerWrap}>
-					<CharacterPicker
+				<div className={s.characterInputWrap}>
+					<CharacterInput
 						value={player.mains.ultimate[0]}
 						onChange={character => setMain(0, character)}
 					/>
-					<CharacterPicker
+					<CharacterInput
 						value={player.mains.ultimate[1]}
 						onChange={character => setMain(1, character)}
 					/>

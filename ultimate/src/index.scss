@@ -25,26 +25,39 @@ a {
 }
 
 // HTML5 display-role reset for older browsers
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
 }
 
 body {
 	line-height: 1;
 }
 
-ol, ul {
+ol,
+ul {
 	list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
 	quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
 	content: none;
 }
 
@@ -53,8 +66,9 @@ table {
 	border-spacing: 0;
 }
 
-input, textarea {
-	border-radius: 0
+input,
+textarea {
+	border-radius: 0;
 }
 
 /**
@@ -73,11 +87,30 @@ input {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	border-radius: 3px;
-	background-color: rgba(255, 255, 255, 0.75);
 	font-size: 15px;
 	padding-left: 10px;
 	padding-right: 10px;
 	background-color: rgba(0, 0, 0, 0.15);
 	border: 1px solid rgba(255, 255, 255, 0.75);
 	color: white;
+}
+
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	border: 0;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 3px;
+	font-size: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: rgba(0, 0, 0, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.75);
+	color: white;
+	text-align: center;
+	text-align-last: center;	
 }

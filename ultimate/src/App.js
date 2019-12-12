@@ -16,7 +16,7 @@ const DebugTab = ({ ...data }) => {
 		lineHeight: "1.6em",
 		fontFamily: "monospace",
 		position: "fixed",
-		bottom: 0,
+		top: 0,
 		right: 0
 	};
 

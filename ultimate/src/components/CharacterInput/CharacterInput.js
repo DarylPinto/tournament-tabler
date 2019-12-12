@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import chunk from "lodash.chunk";
-import s from "./CharacterPicker.module.scss";
+import s from "./CharacterInput.module.scss";
 import Modal from "../Modal";
 import characterData from "../../data/characters";
 
 const characterRows = chunk(characterData, 12);
 
-const CharacterPicker = ({ value, onChange }) => {
+const CharacterInput = ({ value, onChange }) => {
 	const [modalOpen, setModalOpen] = useState(false);
 
 	// When a stock icon is clicked pass the character
@@ -57,4 +57,4 @@ const CharacterPicker = ({ value, onChange }) => {
 	);
 };
 
-export default CharacterPicker;
+export default CharacterInput;
