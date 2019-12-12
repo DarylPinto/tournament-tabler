@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import s from "./PlayerCard.module.scss";
 import CharacterInput from "../CharacterInput";
 
+/**
+ * MatchesCard Component
+ * 
+ * The first two cards on the left for setting player data 
+ * including tag, mains, full name, twitch acc etc. 
+ */
+
 // Fields to render in this PlayerCard
 const fields = [
 	{ name: "tag", label: "Tag", required: true },
+	{ name: "name", label: "Full Name", required: false },
 	{ name: "twitch", label: "Twitch", required: false },
 	{ name: "twitter", label: "Twitter", required: false },
 	{ name: "wiki", label: "Wiki URL", required: false },
@@ -44,7 +52,7 @@ const PlayerCard = ({ playerIndex, player, setPlayers }) => {
 			{fields
 				.filter(field => field.required)
 				.map(field => (
-					<label>
+					<label key={field.name}>
 						<span>{field.label}</span>
 						<input
 							type="text"
@@ -76,7 +84,7 @@ const PlayerCard = ({ playerIndex, player, setPlayers }) => {
 					{fields
 						.filter(field => !field.required)
 						.map(field => (
-							<label>
+							<label key={field.name}>
 								<span>{field.label} (optional)</span>
 								<input
 									type="text"
@@ -89,6 +97,7 @@ const PlayerCard = ({ playerIndex, player, setPlayers }) => {
 						))}
 				</>
 			)}
+			
 			{/* Show Extras Button */}
 			{!extrasShown && (
 				<button className={s.extrasBtn} onClick={() => setExtrasShown(true)}>

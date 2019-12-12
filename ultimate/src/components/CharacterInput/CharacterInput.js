@@ -4,13 +4,22 @@ import s from "./CharacterInput.module.scss";
 import Modal from "../Modal";
 import characterData from "../../data/characters";
 
+/**
+ * CharacterInput Component
+ * 
+ * Custom input field for selecting a smash character.
+ * includes input box and modal with stock icons 
+ */
+
+// Chunk the characters into rows similar to the
+// in-game character select screen
 const characterRows = chunk(characterData, 12);
 
 const CharacterInput = ({ value, onChange }) => {
 	const [modalOpen, setModalOpen] = useState(false);
 
 	// When a stock icon is clicked pass the character
-	// to the callback and close the modal
+	// to the callback `onChange` and close the modal
 	const handleStockClick = character => {
 		onChange(character);
 		setModalOpen(false);
@@ -31,11 +40,12 @@ const CharacterInput = ({ value, onChange }) => {
 
 			{/* Modal to select character */}
 			<Modal isOpen={modalOpen} close={() => setModalOpen(false)}>
-				{/* Characters are in rows of 12, similar to in-game CSS */}
-				{characterRows.map(row => (
-					<div className={s.stockRow}>
+				{/* Grid of character stock icons */}
+				{characterRows.map((row, i) => (
+					<div key={i} className={s.stockRow}>
 						{row.map(character => (
 							<img
+								key={character}
 								src={`images/stocks/ultimate/${character}.png`}
 								alt={character}
 								className={s.stockIcon}
@@ -45,7 +55,7 @@ const CharacterInput = ({ value, onChange }) => {
 					</div>
 				))}
 
-				{/* Button to clear character */}
+				{/* Button to clear selected character */}
 				<div
 					className={s.removeCharacterBtn}
 					onClick={() => handleStockClick(null)}

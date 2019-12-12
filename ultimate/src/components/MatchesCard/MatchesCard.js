@@ -4,7 +4,15 @@ import CharacterInput from "../CharacterInput";
 import MatchWinnerInput from "../MatchWinnerInput";
 import stages from "../../data/stages";
 
-const MatchesCard = ({ matches, setMatches }) => {
+/**
+ * MatchesCard Component
+ * 
+ * The right-most card for selecting tournament
+ * set data including character, stage, winner,
+ * stocks remaining etc. 
+ */
+
+const MatchesCard = ({ matches, setMatches, players }) => {
 	const [matchIndex, setMatchIndex] = useState(0);
 	const currentMatch = matches[matchIndex];
 
@@ -38,6 +46,7 @@ const MatchesCard = ({ matches, setMatches }) => {
 			<ul className={s.currentMatchSelect}>
 				{[0, 1, 2, 3, 4].map((_, i) => (
 					<li
+						key={i}
 						className={matchIndex === i ? s.activeTab : ""}
 						onClick={() => setMatchIndex(i)}
 					>
@@ -47,10 +56,12 @@ const MatchesCard = ({ matches, setMatches }) => {
 			</ul>
 
 			{/* Character Select */}
+			<p>{players[0].tag}</p>
 			<CharacterInput
 				value={currentMatch.characters[0]}
 				onChange={character => setCharacter(0, character)}
-			/>
+				/>
+			<p>{players[1].tag}</p>
 			<CharacterInput
 				value={currentMatch.characters[1]}
 				onChange={character => setCharacter(1, character)}
@@ -64,7 +75,7 @@ const MatchesCard = ({ matches, setMatches }) => {
 					onChange={e => setStage(e.target.value)}
 				>
 					{stages.map(stage => (
-						<option value={stage}>{stage}</option>
+						<option key={stage} value={stage}>{stage}</option>
 					))}
 				</select>
 			</label>
@@ -73,8 +84,8 @@ const MatchesCard = ({ matches, setMatches }) => {
 			<label>
 				<span>Winner</span>
 				<MatchWinnerInput
-					choices={["Daryl", "Letty"]}
-					value="Daryl"
+					choices={[players[0].tag, players[1].tag]}
+					value={players[0].tag}
 					onChange={() => {}}
 				/>
 			</label>

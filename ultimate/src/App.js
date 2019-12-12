@@ -50,7 +50,11 @@ const App = () => {
 							setPlayers={setPlayers}
 						/>
 					))}
-					<MatchesCard matches={matches} setMatches={setMatches} />
+					<MatchesCard
+						matches={matches}
+						setMatches={setMatches}
+						players={players}
+					/>
 				</div>
 				<button className={s.btn}>Generate Table</button>
 			</section>
