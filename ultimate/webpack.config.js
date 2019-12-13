@@ -1,5 +1,7 @@
+const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const SpritesmithPlugin = require("webpack-spritesmith");
 
 const cssLoader = {
 	loader: "css-loader",
@@ -49,7 +51,11 @@ module.exports = {
 			"react-dom/test-utils": "preact/test-utils",
 			"react-dom": "preact/compat"
 			// Must be below test-utils
-		}
+		},
+		modules: [
+			"node_modules",
+			"spritesmith-generated"
+		]
 	},
 	devServer: {
 		contentBase: __dirname,
@@ -73,6 +79,19 @@ module.exports = {
 				from: "**/*.!(html)",
 				to: "./"
 			}
-		])
+		]),
+		new SpritesmithPlugin({
+			src: {
+				cwd: path.resolve(__dirname, "public/images/stocks/ultimate"),
+				glob: "*.png"
+			},
+			target: {
+				image: path.resolve(__dirname, "public/images/spritesheets/ultimate.png"),
+				css: path.resolve(__dirname, "public/images/spritesheets/sprite.scss")
+			},
+			apiOptions: {
+				cssImageRef: "~sprite.png"
+			}
+		})
 	]
 };

@@ -114,3 +114,11 @@ select {
 	text-align: center;
 	text-align-last: center;	
 }
+
+option {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	background-color: rgb(27, 27, 27);
+}
