@@ -3,12 +3,13 @@ import s from "./App.module.scss";
 import RoundInfoCard from "./components/RoundInfoCard";
 import PlayerCard from "./components/PlayerCard";
 import MatchesCard from "./components/MatchesCard";
+import MarkdownCode from "./components/MarkdownCode";
 import {
 	players as defaultPlayers,
 	matches as defaultMatches
 } from "./data/defaults.js";
 
-const DEBUG = true;
+const DEBUG = false;
 const DebugTab = ({ ...data }) => {
 	const style = {
 		color: "white",
@@ -57,13 +58,19 @@ const App = () => {
 					/>
 				</div>
 				<button className={s.btn}>Generate Table</button>
+				<MarkdownCode
+					round={round}
+					streamLink={streamLink}
+					players={players}
+					matches={matches}
+				/>
 			</section>
 			{DEBUG && (
 				<DebugTab
 					// round={round}
 					// streamLink={streamLink}
-					players={players}
-					// matches={matches}
+					// players={players}
+					matches={matches}
 				/>
 			)}
 		</main>

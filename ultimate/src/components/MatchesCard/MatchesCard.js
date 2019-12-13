@@ -24,18 +24,54 @@ const MatchesCard = ({ matches, setMatches, players }) => {
 	// the current match to Yoshi's Island
 	const setMatchProp = (matchProp, value) => {
 		setMatches(prevMatches => {
-			let nextMatches = JSON.parse(JSON.stringify(matches));
+			let nextMatches = JSON.parse(JSON.stringify(prevMatches));
 			let match = nextMatches[matchIndex];
 			match[matchProp] = value;
 			return nextMatches;
 		});
 	};
 
+	// Switches the current match
+	const selectMatch = index => {
+		// If there's no match data in the selected index
+		// if (!matches[index]) {
+		// 	// Find most recent previous existing match to use as a template
+		// 	let previousMatches = matches.filter((match, i) => !!match && i < index);
+		// 	let mostRecentMatch = previousMatches[previousMatches.length - 1];
+
+		// 	// Insert a blank match at the index with relevant values
+		// 	// (like characters) copied from the most recent match
+		// 	setMatches(prevMatches => {
+		// 		let nextMatches = JSON.parse(JSON.stringify(prevMatches));
+		// 		nextMatches[index] = {
+		// 			...defaultMatches[0],
+		// 			characters: mostRecentMatch.characters,
+		// 			stage: "",
+		// 			stocksRemaining: 0
+		// 		};
+		// 		return nextMatches;
+		// 	});
+		// }
+
+		// If selected match has no characters,
+		// Find the most recent existing match to pull
+		// characters from
+		/*
+		let nextMatchCharacters = matches[index].characters;
+		if(nextMatchCharacters[0] === null && nextMatchCharacters[1] === null) {
+			setMatches
+		}
+		*/
+
+		// Update match index
+		setMatchIndex(index);
+	};
+
 	// Update current match's character by index
 	// ex: setCharacter(0, "Yoshi") sets P1's char in the match to Yoshi
 	const setCharacter = (index, character) => {
 		setMatches(prevMatches => {
-			let nextMatches = JSON.parse(JSON.stringify(matches));
+			let nextMatches = JSON.parse(JSON.stringify(prevMatches));
 			let match = nextMatches[matchIndex];
 			match.characters[index] = character;
 			return nextMatches;
@@ -48,11 +84,11 @@ const MatchesCard = ({ matches, setMatches, players }) => {
 
 			{/* Match # Selector */}
 			<ul className={s.currentMatchSelect}>
-				{[0, 1, 2, 3, 4].map((_, i) => (
+				{matches.map((_, i) => (
 					<li
 						key={i}
 						className={matchIndex === i ? s.activeTab : ""}
-						onClick={() => setMatchIndex(i)}
+						onClick={() => selectMatch(i)}
 					>
 						{i + 1}
 					</li>
@@ -92,6 +128,7 @@ const MatchesCard = ({ matches, setMatches, players }) => {
 					value={match.stage}
 					onChange={e => setMatchProp("stage", e.target.value)}
 				>
+					<option value="" disabled>---</option>
 					{stages.map(stage => (
 						<option key={stage} value={stage}>
 							{stage}
