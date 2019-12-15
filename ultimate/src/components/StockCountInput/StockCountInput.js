@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./StockCountInput.module.scss";
+import StockIcon from "../StockIcon";
 
 /**
  * StockCountInput component
@@ -17,8 +18,8 @@ const StockCountInput = ({ stockIcon, value, maxValue, onChange }) => {
 			{/* Filled clickable spaces */}
 			<>
 				{icons.map((_, i) => (
-					<li key={i} onClick={() => onChange(i + 1)}>
-						<div className={s[stockIcon]} />	
+					<li key={i} onClick={() => onChange(i + 1)}>	
+						<StockIcon smashTitle="ultimate" character={stockIcon} />
 					</li>
 				))}
 			</>

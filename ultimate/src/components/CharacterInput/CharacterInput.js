@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import chunk from "lodash.chunk";
-import c from "classnames";
 import s from "./CharacterInput.module.scss";
-// import icon from "../../assets/styles/_stocks.scss";
 import Modal from "../Modal";
+import StockIcon from "../StockIcon";
 import characterData from "../../data/characters";
 
 /**
@@ -15,7 +14,7 @@ import characterData from "../../data/characters";
 
 // Chunk the characters into rows similar to the
 // in-game character select screen
-const characterRows = chunk(characterData, 12);
+const characterRows = chunk(characterData, 13);
 
 const CharacterInput = ({ value, onChange }) => {
 	const [modalOpen, setModalOpen] = useState(false);
@@ -30,12 +29,11 @@ const CharacterInput = ({ value, onChange }) => {
 	return (
 		<>
 			{/* Input box */}
-			<div
-				className={s.selectionBox}
-				onClick={() => setModalOpen(true)}
-			>
-				<div className={s[value]}></div>
+			<div className={s.selectionBox} onClick={() => setModalOpen(true)}>	
+				<StockIcon smashTitle="ultimate" character={value} />
 			</div>
+
+			{/* <StockIcon smashTitle="ultimate" character="Yoshi" /> */}
 
 			{/* Modal to select character */}
 			<Modal isOpen={modalOpen} close={() => setModalOpen(false)}>
@@ -43,9 +41,10 @@ const CharacterInput = ({ value, onChange }) => {
 				{characterRows.map((row, i) => (
 					<div key={i} className={s.stockRow}>
 						{row.map(character => (
-							<div
+							<StockIcon
 								key={character}
-								className={c(s.stockIcon, s[character])}
+								smashTitle="ultimate"
+								character={character}
 								onClick={() => handleStockClick(character)}
 							/>
 						))}

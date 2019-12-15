@@ -54,11 +54,7 @@ export default [
 	"WiiFitTrainer",
 	"Rosalina",
 	"LittleMac",
-	"Greninja",
-	"MiiFighter",
-	// "MiiBrawler",
-	// "MiiSwordfighter",
-	// "MiiGunner",
+	"Greninja",	
 	"Palutena",
 	"Pacman",
 	"Robin",
@@ -81,5 +77,9 @@ export default [
 	"Joker",
 	"Hero",
 	"Banjo",
-	"Terry"
+	"Terry",
+	"MiiFighter",
+	// "MiiBrawler",
+	// "MiiSwordfighter",
+	// "MiiGunner"
 ];

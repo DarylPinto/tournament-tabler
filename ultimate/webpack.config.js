@@ -76,18 +76,15 @@ module.exports = {
 		]),
 		new SpritesmithPlugin({
 			src: {
-				cwd: path.resolve(__dirname, "src/assets/images/stocks/ultimate"),
-				glob: "*.png"
+				cwd: path.resolve(__dirname, "src/assets/images/stocks"),
+				glob: "**/*.png"
 			},
 			target: {
-				image: path.resolve(
-					__dirname,
-					"src/assets/images/spritesheets/stocks-spritesheet.png"
-				),
-				css: path.resolve(__dirname, "src/assets/styles/_stocks.scss")
+				image: path.resolve(__dirname, "src/components/StockIcon/sprites.png"),
+				css: path.resolve(__dirname, "src/components/StockIcon/_sprites.scss")
 			},
 			apiOptions: {
-				cssImageRef: "../../assets/images/spritesheets/stocks-spritesheet.png"
+				cssImageRef: "sprites.png"
 			}
 		})
 	]
