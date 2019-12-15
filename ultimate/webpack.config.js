@@ -6,7 +6,10 @@ const SpritesmithPlugin = require("webpack-spritesmith");
 const cssLoader = {
 	loader: "css-loader",
 	options: {
-		modules: true
+		modules: {
+			mode: "local",
+			localIdentName: "[hash:base64:5]"
+		}
 	}
 };
 
