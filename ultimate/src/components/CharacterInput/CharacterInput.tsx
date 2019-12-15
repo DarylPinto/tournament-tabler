@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import chunk from "lodash.chunk";
 import s from "./CharacterInput.module.scss";
 import Modal from "../Modal";
@@ -68,4 +68,4 @@ const CharacterInput = ({ value, onChange }: Props) => {
 	);
 };
 
-export default CharacterInput;
+export default memo(CharacterInput);

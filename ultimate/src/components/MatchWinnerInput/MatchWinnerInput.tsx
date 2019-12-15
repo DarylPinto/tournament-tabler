@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import s from "./MatchWinnerInput.module.scss";
 
 /**
@@ -7,13 +7,19 @@ import s from "./MatchWinnerInput.module.scss";
  * Custom input field for selecting the winner of a match.
  */
 
-const MatchWinnerInput = ({ options, value, onChange }) => {
+interface Props {
+	options: String[];
+	value: String;
+	onChange: (newValue: Number) => any;
+}
+
+const MatchWinnerInput = ({ options, value, onChange }: Props) => {
 	return (
 		<div className={s.matchWinnerInput}>
 			{options.map((option, i) => (
 				<span
 					key={i}
-					className={option === options[value] ? s.selected : ""}
+					className={option === options[value as string] ? s.selected : ""}
 					onClick={() => onChange(i)}
 				>
 					{option}
@@ -23,4 +29,4 @@ const MatchWinnerInput = ({ options, value, onChange }) => {
 	);
 };
 
-export default MatchWinnerInput;
+export default memo(MatchWinnerInput);

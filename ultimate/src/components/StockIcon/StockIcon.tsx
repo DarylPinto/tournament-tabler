@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import s from "./StockIcon.module.scss";
 
 /**
@@ -26,4 +26,4 @@ const StockIcon = ({ smashTitle, character, onClick }: Props) => {
 	);
 };
 
-export default StockIcon;
+export default memo(StockIcon);

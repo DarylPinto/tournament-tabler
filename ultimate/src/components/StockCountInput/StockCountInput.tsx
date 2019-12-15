@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import s from "./StockCountInput.module.scss";
 import StockIcon from "../StockIcon";
 
@@ -9,6 +9,13 @@ import StockIcon from "../StockIcon";
  * Click on one of the spaces to select a value
  */
 
+interface Props {
+	stockIcon: String,
+	value: Number,
+	maxValue: Number,
+	onChange: (newValue: Number) => any;
+}
+
 const StockCountInput = ({ stockIcon, value, maxValue, onChange }) => {
 	const icons = Array(value).fill(null);
 	const blanks = Array(maxValue - value).fill(null);
@@ -18,7 +25,7 @@ const StockCountInput = ({ stockIcon, value, maxValue, onChange }) => {
 			{/* Filled clickable spaces */}
 			<>
 				{icons.map((_, i) => (
-					<li key={i} onClick={() => onChange(i + 1)}>	
+					<li key={i} onClick={() => onChange(i + 1)}>
 						<StockIcon smashTitle="Ultimate" character={stockIcon} />
 					</li>
 				))}
@@ -36,4 +43,4 @@ const StockCountInput = ({ stockIcon, value, maxValue, onChange }) => {
 	);
 };
 
-export default StockCountInput;
+export default memo(StockCountInput);
