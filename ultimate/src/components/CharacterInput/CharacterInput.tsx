@@ -16,7 +16,12 @@ import characterData from "../../data/characters";
 // in-game character select screen
 const characterRows = chunk(characterData, 13);
 
-const CharacterInput = ({ value, onChange }) => {
+interface Props {
+	value: String;
+	onChange: (character: String) => void;
+}
+
+const CharacterInput = ({ value, onChange }: Props) => {
 	const [modalOpen, setModalOpen] = useState(false);
 
 	// When a stock icon is clicked pass the character
@@ -29,8 +34,8 @@ const CharacterInput = ({ value, onChange }) => {
 	return (
 		<>
 			{/* Input box */}
-			<div className={s.selectionBox} onClick={() => setModalOpen(true)}>	
-				<StockIcon smashTitle="ultimate" character={value} />
+			<div className={s.selectionBox} onClick={() => setModalOpen(true)}>
+				<StockIcon smashTitle="Ultimate" character={value} />
 			</div>
 
 			{/* <StockIcon smashTitle="ultimate" character="Yoshi" /> */}
@@ -43,7 +48,7 @@ const CharacterInput = ({ value, onChange }) => {
 						{row.map(character => (
 							<StockIcon
 								key={character}
-								smashTitle="ultimate"
+								smashTitle="Ultimate"
 								character={character}
 								onClick={() => handleStockClick(character)}
 							/>

@@ -19,7 +19,7 @@ const DebugTab = ({ ...data }) => {
 		position: "fixed",
 		top: 0,
 		right: 0
-	};
+	} as React.CSSProperties;
 
 	data = Object.values(data);
 

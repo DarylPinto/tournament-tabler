@@ -19,7 +19,7 @@ const StockCountInput = ({ stockIcon, value, maxValue, onChange }) => {
 			<>
 				{icons.map((_, i) => (
 					<li key={i} onClick={() => onChange(i + 1)}>	
-						<StockIcon smashTitle="ultimate" character={stockIcon} />
+						<StockIcon smashTitle="Ultimate" character={stockIcon} />
 					</li>
 				))}
 			</>

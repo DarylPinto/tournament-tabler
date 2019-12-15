@@ -17,6 +17,20 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				test: /\.ts(x?)$/,
+				exclude: /node_modules/,
+				use: [
+					{
+						loader: "ts-loader"
+					}
+				]
+			},
+			{
+				enforce: "pre",
+				test: /\.js$/,
+				loader: "source-map-loader"
+			},
+			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				use: {
@@ -49,8 +63,10 @@ module.exports = {
 			"react-dom": "preact/compat"
 			// Must be below test-utils
 		},
-		modules: ["node_modules", "spritesmith-generated"]
+		modules: ["node_modules", "spritesmith-generated"],
+		extensions: [".ts", ".tsx", ".js"]
 	},
+	devtool: "source-map",
 	devServer: {
 		contentBase: __dirname,
 		compress: true,

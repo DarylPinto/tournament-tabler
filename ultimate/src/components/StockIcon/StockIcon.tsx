@@ -9,10 +9,18 @@ import s from "./StockIcon.module.scss";
  * character name
  */
 
-const StockIcon = ({ smashTitle, character, onClick }) => {	
+type SmashTitle = "64" | "Melee" | "Brawl" | "PM" | "Smash4" | "Ultimate";
+
+interface Props {
+	smashTitle: SmashTitle;
+	character: String;
+	onClick?: () => void;
+};
+
+const StockIcon = ({ smashTitle, character, onClick }: Props) => {	
 	return (
 		<i
-			className={`${s.stockIcon} ${s[character]}`}
+			className={`${s.stockIcon} ${s[character as string]}`}
 			onClick={onClick}
 		/>
 	);
