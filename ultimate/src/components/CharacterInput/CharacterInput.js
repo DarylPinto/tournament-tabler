@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import chunk from "lodash.chunk";
+import c from "classnames";
 import s from "./CharacterInput.module.scss";
+// import icon from "../../assets/styles/_stocks.scss";
 import Modal from "../Modal";
 import characterData from "../../data/characters";
 
 /**
  * CharacterInput Component
- * 
+ *
  * Custom input field for selecting a smash character.
- * includes input box and modal with stock icons 
+ * includes input box and modal with stock icons
  */
 
 // Chunk the characters into rows similar to the
@@ -31,12 +33,9 @@ const CharacterInput = ({ value, onChange }) => {
 			<div
 				className={s.selectionBox}
 				onClick={() => setModalOpen(true)}
-				style={{
-					backgroundImage: value
-						? `url(images/stocks/ultimate/${value}.png)`
-						: ""
-				}}
-			/>
+			>
+				<div className={s[value]}></div>
+			</div>
 
 			{/* Modal to select character */}
 			<Modal isOpen={modalOpen} close={() => setModalOpen(false)}>
@@ -44,11 +43,9 @@ const CharacterInput = ({ value, onChange }) => {
 				{characterRows.map((row, i) => (
 					<div key={i} className={s.stockRow}>
 						{row.map(character => (
-							<img
+							<div
 								key={character}
-								src={`images/stocks/ultimate/${character}.png`}
-								alt={character}
-								className={s.stockIcon}
+								className={c(s.stockIcon, s[character])}
 								onClick={() => handleStockClick(character)}
 							/>
 						))}

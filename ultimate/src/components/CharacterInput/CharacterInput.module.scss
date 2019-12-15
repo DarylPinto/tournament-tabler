@@ -1,3 +1,6 @@
+@import "../../assets/styles/_stocks.scss";
+@include sprites($spritesheet-sprites);
+
 .selectionBox {
 	display: inline-flex;
 	height: 50px;
@@ -19,6 +22,7 @@
 }
 
 .stockIcon {
+	display: inline-block;
 	width: 40px;
 	height: 40px;
 	cursor: pointer;

@@ -6,9 +6,9 @@ const SpritesmithPlugin = require("webpack-spritesmith");
 const cssLoader = {
 	loader: "css-loader",
 	options: {
-		modules: true	
+		modules: true
 	}
-}
+};
 
 module.exports = {
 	module: {
@@ -22,18 +22,11 @@ module.exports = {
 			},
 			{
 				test: /\.css$/i,
-				use: [
-					"style-loader",
-					cssLoader
-				]
+				use: ["style-loader", cssLoader]
 			},
 			{
 				test: /\.s[ac]ss$/i,
-				use: [
-					"style-loader",
-					cssLoader,
-					"sass-loader"
-				]
+				use: ["style-loader", cssLoader, "sass-loader"]
 			},
 			{
 				test: /\.html$/,
@@ -42,7 +35,8 @@ module.exports = {
 						loader: "html-loader"
 					}
 				]
-			}
+			},
+			{ test: /\.png$/, use: ["file-loader?name=images/[hash].[ext]"] }
 		]
 	},
 	resolve: {
@@ -52,10 +46,7 @@ module.exports = {
 			"react-dom": "preact/compat"
 			// Must be below test-utils
 		},
-		modules: [
-			"node_modules",
-			"spritesmith-generated"
-		]
+		modules: ["node_modules", "spritesmith-generated"]
 	},
 	devServer: {
 		contentBase: __dirname,
@@ -82,15 +73,18 @@ module.exports = {
 		]),
 		new SpritesmithPlugin({
 			src: {
-				cwd: path.resolve(__dirname, "public/images/stocks/ultimate"),
+				cwd: path.resolve(__dirname, "src/assets/images/stocks/ultimate"),
 				glob: "*.png"
 			},
 			target: {
-				image: path.resolve(__dirname, "public/images/spritesheets/ultimate.png"),
-				css: path.resolve(__dirname, "public/images/spritesheets/sprite.scss")
+				image: path.resolve(
+					__dirname,
+					"src/assets/images/spritesheets/stocks-spritesheet.png"
+				),
+				css: path.resolve(__dirname, "src/assets/styles/_stocks.scss")
 			},
 			apiOptions: {
-				cssImageRef: "~sprite.png"
+				cssImageRef: "../../assets/images/spritesheets/stocks-spritesheet.png"
 			}
 		})
 	]

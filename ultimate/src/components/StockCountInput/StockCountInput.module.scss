@@ -1,3 +1,6 @@
+@import "../../assets/styles/_stocks.scss";
+@include sprites($spritesheet-sprites);
+
 .stockCountInput {
 	display: flex;
 	justify-content: center;

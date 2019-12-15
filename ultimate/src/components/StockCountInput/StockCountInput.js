@@ -18,7 +18,7 @@ const StockCountInput = ({ stockIcon, value, maxValue, onChange }) => {
 			<>
 				{icons.map((_, i) => (
 					<li key={i} onClick={() => onChange(i + 1)}>
-						<img src={`images/stocks/ultimate/${stockIcon}.png`} alt="" />
+						<div className={s[stockIcon]} />	
 					</li>
 				))}
 			</>
