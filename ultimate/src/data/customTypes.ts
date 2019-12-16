@@ -1,0 +1,1 @@
+export type SmashTitle = "s64" | "melee" | "brawl" | "pm" | "smash4" | "ultimate";

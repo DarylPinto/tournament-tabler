@@ -1,9 +1,10 @@
-import React, { useState, memo } from "react";
+import React, { useState } from "react";
 import chunk from "lodash.chunk";
 import s from "./CharacterInput.module.scss";
 import Modal from "../Modal";
 import StockIcon from "../StockIcon";
 import characterData from "../../data/characters";
+import { useSelector } from "react-redux";
 
 /**
  * CharacterInput Component
@@ -23,6 +24,7 @@ interface Props {
 
 const CharacterInput = ({ value, onChange }: Props) => {
 	const [modalOpen, setModalOpen] = useState(false);
+	const smashTitle = useSelector(state => state.tournament.smashTitle);
 
 	// When a stock icon is clicked pass the character
 	// to the callback `onChange` and close the modal
@@ -35,10 +37,8 @@ const CharacterInput = ({ value, onChange }: Props) => {
 		<>
 			{/* Input box */}
 			<div className={s.selectionBox} onClick={() => setModalOpen(true)}>
-				<StockIcon smashTitle="Ultimate" character={value} />
-			</div>
-
-			{/* <StockIcon smashTitle="ultimate" character="Yoshi" /> */}
+				<StockIcon smashTitle={smashTitle} character={value} />
+			</div>	
 
 			{/* Modal to select character */}
 			<Modal isOpen={modalOpen} close={() => setModalOpen(false)}>
@@ -48,7 +48,7 @@ const CharacterInput = ({ value, onChange }: Props) => {
 						{row.map(character => (
 							<StockIcon
 								key={character}
-								smashTitle="Ultimate"
+								smashTitle={smashTitle}
 								character={character}
 								onClick={() => handleStockClick(character)}
 							/>
@@ -68,4 +68,4 @@ const CharacterInput = ({ value, onChange }: Props) => {
 	);
 };
 
-export default memo(CharacterInput);
+export default CharacterInput;

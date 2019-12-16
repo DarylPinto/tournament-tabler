@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import s from "./StockIcon.module.scss";
+import { SmashTitle } from "../../data/customTypes";
 
 /**
  * StockIcon component
@@ -8,8 +9,6 @@ import s from "./StockIcon.module.scss";
  * Pass in a smashTitle (i.e Melee, Ultimate etc.) and a
  * character name
  */
-
-type SmashTitle = "64" | "Melee" | "Brawl" | "PM" | "Smash4" | "Ultimate";
 
 interface Props {
 	smashTitle: SmashTitle;

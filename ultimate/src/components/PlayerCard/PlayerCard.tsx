@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import s from "./PlayerCard.module.scss";
 import CharacterInput from "../CharacterInput";
+import { actions as playerActions } from "../../store/slices/players";
+import { useSelector, useDispatch } from "react-redux";
 
 /**
  * PlayerCard Component
- * 
- * The first two cards on the left for setting player data 
- * including tag, mains, full name, twitch acc etc. 
+ *
+ * The first two cards on the left for setting player data
+ * including tag, mains, full name, twitch acc etc.
  */
 
 // Fields to render in this PlayerCard
@@ -19,30 +21,33 @@ const fields = [
 	{ name: "sponsor", label: "Sponsor URL", required: false }
 ];
 
-const PlayerCard = ({ playerIndex, player, setPlayers }) => {
+interface Props {
+	playerIndex: number;
+}
+
+const PlayerCard = ({ playerIndex }: Props) => {
 	const [extrasShown, setExtrasShown] = useState(false);
+	const player = useSelector(state => state.players[playerIndex]);
+	const dispatch = useDispatch();
 
 	// Update a particular property of the player object
 	// that's been passed to this component
-	// ex: setPlayerProp("twitch", "c9mang0");
-	const setPlayerProp = (playerProp, value) => {
-		setPlayers(prevPlayers => {
-			let nextPlayers = JSON.parse(JSON.stringify(prevPlayers));
-			let player = nextPlayers[playerIndex];
-			player[playerProp] = value;
-			return nextPlayers;
-		});
+	// ex: setPlayerProp({twitch: "c9mang0"});
+	const setPlayerProp = update => {
+		dispatch(playerActions.updatePlayer({ playerIndex, update }));
 	};
 
 	// Update a player's main character by index
 	// ex: setMain(0, "Yoshi") sets the player's first main to Yoshi
 	const setMain = (index, character) => {
-		setPlayers(prevPlayers => {
-			let nextPlayers = JSON.parse(JSON.stringify(prevPlayers));
-			let player = nextPlayers[playerIndex];
-			player.mains.ultimate[index] = character;
-			return nextPlayers;
-		});
+		dispatch(
+			playerActions.updateMains({
+				playerIndex,
+				smashTitle: "ultimate",
+				mainIndex: index,
+				character
+			})
+		);
 	};
 
 	return (
@@ -58,7 +63,7 @@ const PlayerCard = ({ playerIndex, player, setPlayers }) => {
 							type="text"
 							required
 							value={player[field.name]}
-							onChange={e => setPlayerProp(field.name, e.target.value)}
+							onChange={e => setPlayerProp({ [field.name]: e.target.value })}
 						/>
 					</label>
 				))}
@@ -90,14 +95,14 @@ const PlayerCard = ({ playerIndex, player, setPlayers }) => {
 									type="text"
 									value={player[field.name]}
 									onChange={e =>
-										setPlayerProp(field.name, e.target.value)
+										setPlayerProp({ [field.name]: e.target.value })
 									}
 								/>
 							</label>
 						))}
 				</>
 			)}
-			
+
 			{/* Show Extras Button */}
 			{!extrasShown && (
 				<button className={s.extrasBtn} onClick={() => setExtrasShown(true)}>

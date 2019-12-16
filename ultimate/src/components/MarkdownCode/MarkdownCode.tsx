@@ -1,10 +1,13 @@
 import React from "react";
 import s from "./MarkdownCode.module.scss";
+import { useSelector } from "react-redux";
 
-const MarkdownCode = ({ round, streamLink, players, matches }) => {
+const MarkdownCode = () => {
+	const { tournament, players, matches } = useSelector(state => state);
+
 	let markdown = `
 	---
-	#${round}
+	#${tournament.round}
 
 	[](#MeleeFox) [](#MeleeFalco) Mango  | | 1 - 0 | |  Armada [](#MeleePeach) [](#MeleeFox)
 	---:|:--:|:--:|:--:|:---

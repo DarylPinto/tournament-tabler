@@ -1,6 +1,7 @@
-import React, { memo } from "react";
+import React from "react";
 import s from "./StockCountInput.module.scss";
 import StockIcon from "../StockIcon";
+import { useSelector } from "react-redux";
 
 /**
  * StockCountInput component
@@ -11,14 +12,15 @@ import StockIcon from "../StockIcon";
 
 interface Props {
 	stockIcon: String,
-	value: Number,
-	maxValue: Number,
+	value: number,
+	maxValue: number,
 	onChange: (newValue: Number) => any;
 }
 
-const StockCountInput = ({ stockIcon, value, maxValue, onChange }) => {
+const StockCountInput = ({ stockIcon, value, maxValue, onChange }: Props) => {
 	const icons = Array(value).fill(null);
 	const blanks = Array(maxValue - value).fill(null);
+	const smashTitle = useSelector(state => state.tournament.smashTitle);
 
 	return (
 		<ul className={s.stockCountInput}>
@@ -26,7 +28,7 @@ const StockCountInput = ({ stockIcon, value, maxValue, onChange }) => {
 			<>
 				{icons.map((_, i) => (
 					<li key={i} onClick={() => onChange(i + 1)}>
-						<StockIcon smashTitle="Ultimate" character={stockIcon} />
+						<StockIcon smashTitle={smashTitle} character={stockIcon} />
 					</li>
 				))}
 			</>
@@ -43,4 +45,4 @@ const StockCountInput = ({ stockIcon, value, maxValue, onChange }) => {
 	);
 };
 
-export default memo(StockCountInput);
+export default StockCountInput;

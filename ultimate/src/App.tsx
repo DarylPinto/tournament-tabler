@@ -4,75 +4,23 @@ import RoundInfoCard from "./components/RoundInfoCard";
 import PlayerCard from "./components/PlayerCard";
 import MatchesCard from "./components/MatchesCard";
 import MarkdownCode from "./components/MarkdownCode";
-import {
-	players as defaultPlayers,
-	matches as defaultMatches
-} from "./data/defaults.js";
-
-const DEBUG = false;
-const DebugTab = ({ ...data }) => {
-	const style = {
-		color: "white",
-		fontSize: 12,
-		lineHeight: "1.6em",
-		fontFamily: "monospace",
-		position: "fixed",
-		top: 0,
-		right: 0
-	} as React.CSSProperties;
-
-	data = Object.values(data);
-
-	return <span style={style}>{data.map(datum => JSON.stringify(datum))}</span>;
-};
+import { useSelector } from "react-redux";
 
 const App = () => {
-	const [round, setRound] = useState("Grand Finals");
-	const [streamLink, setStreamLink] = useState("");
-	const [players, setPlayers] = useState(defaultPlayers);
-	const [matches, setMatches] = useState(defaultMatches);
+	const players = useSelector(state => state.players);
 
 	return (
 		<main>
 			<h1 className={s.logo}>Tournament Tabler</h1>
 			<section className={s.mainSection}>
-				<RoundInfoCard
-					round={round}
-					setRound={setRound}
-					streamLink={streamLink}
-					setStreamLink={setStreamLink}
-				/>
+				<RoundInfoCard />
 				<div className={s.setInfo}>
-					{players.map((player, i) => (
-						<PlayerCard
-							key={i}
-							playerIndex={i}
-							player={player}
-							setPlayers={setPlayers}
-						/>
-					))}
-					<MatchesCard
-						matches={matches}
-						setMatches={setMatches}
-						players={players}
-					/>
+					{players.map((_, i) => <PlayerCard key={i} playerIndex={i} />)}
+					<MatchesCard />
 				</div>
 				<button className={s.btn}>Generate Table</button>
-				<MarkdownCode
-					round={round}
-					streamLink={streamLink}
-					players={players}
-					matches={matches}
-				/>
+				<MarkdownCode />
 			</section>
-			{DEBUG && (
-				<DebugTab
-					// round={round}
-					// streamLink={streamLink}
-					// players={players}
-					matches={matches}
-				/>
-			)}
 		</main>
 	);
 };

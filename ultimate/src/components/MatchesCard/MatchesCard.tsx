@@ -3,6 +3,8 @@ import s from "./MatchesCard.module.scss";
 import CharacterInput from "../CharacterInput";
 import MatchWinnerInput from "../MatchWinnerInput";
 import StockCountInput from "../StockCountInput";
+import { actions as matchActions } from "../../store/slices/matches";
+import { useSelector, useDispatch } from "react-redux";
 import stages from "../../data/stages";
 
 /**
@@ -13,22 +15,20 @@ import stages from "../../data/stages";
  * stocks remaining etc.
  */
 
-const MatchesCard = ({ matches, setMatches, players }) => {
+const MatchesCard = () => {
 	const [matchIndex, setMatchIndex] = useState(0);
+	const matches = useSelector(state => state.matches);
 	const match = matches[matchIndex];
+	const players = useSelector(state => state.players);	
 	const P1 = players[0];
 	const P2 = players[1];
+	const dispatch = useDispatch();
 
 	// Update a particular property of the current match
-	// Ex: setMatchProp("stage", "Yoshi's Island") sets the stage for
+	// Ex: setMatchProp({stage: "Yoshi's Island"}) sets the stage for
 	// the current match to Yoshi's Island
-	const setMatchProp = (matchProp, value) => {
-		setMatches(prevMatches => {
-			let nextMatches = JSON.parse(JSON.stringify(prevMatches));
-			let match = nextMatches[matchIndex];
-			match[matchProp] = value;
-			return nextMatches;
-		});
+	const setMatchProp = update => {
+		dispatch(matchActions.updateMatch({ matchIndex, update }));
 	};
 
 	// Switches the current match
@@ -64,18 +64,19 @@ const MatchesCard = ({ matches, setMatches, players }) => {
 		*/
 
 		// Update match index
-		setMatchIndex(index);
+		setMatchIndex(index);	
 	};
 
 	// Update current match's character by index
 	// ex: setCharacter(0, "Yoshi") sets P1's char in the match to Yoshi
 	const setCharacter = (index, character) => {
-		setMatches(prevMatches => {
-			let nextMatches = JSON.parse(JSON.stringify(prevMatches));
-			let match = nextMatches[matchIndex];
-			match.characters[index] = character;
-			return nextMatches;
-		});
+		dispatch(
+			matchActions.updateCharacters({
+				matchIndex,	
+				characterIndex: index,
+				character
+			})
+		);
 	};
 
 	return (
@@ -126,7 +127,7 @@ const MatchesCard = ({ matches, setMatches, players }) => {
 				<span>Stage</span>
 				<select
 					value={match.stage}
-					onChange={e => setMatchProp("stage", e.target.value)}
+					onChange={e => setMatchProp({stage: e.target.value})}
 				>
 					<option value="" disabled>---</option>
 					{stages.map(stage => (
@@ -143,7 +144,7 @@ const MatchesCard = ({ matches, setMatches, players }) => {
 				<MatchWinnerInput
 					options={players.map(p => p.tag)}
 					value={match.winnerIndex}
-					onChange={winnerIndex => setMatchProp("winnerIndex", winnerIndex)}
+					onChange={winnerIndex => setMatchProp({winnerIndex: winnerIndex})}
 				/>
 			</label>
 
@@ -154,7 +155,7 @@ const MatchesCard = ({ matches, setMatches, players }) => {
 					stockIcon={match.characters[match.winnerIndex]}
 					value={match.stocksRemaining}
 					maxValue={3}
-					onChange={stockCount => setMatchProp("stocksRemaining", stockCount)}
+					onChange={stockCount => setMatchProp({stocksRemaining: stockCount})}
 				/>
 			</label>
 		</div>
