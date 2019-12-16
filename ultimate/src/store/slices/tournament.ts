@@ -3,8 +3,8 @@ import { SmashTitle } from "../../data/customTypes";
 
 interface Tournament {
 	smashTitle: SmashTitle;
-	round: String;
-	streamLink: String;
+	round: string;
+	streamLink: string;
 }
 
 const initialState: Tournament = {

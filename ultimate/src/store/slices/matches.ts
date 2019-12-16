@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const MATCH_COUNT = 5;
 
 interface Match {
-	characters: String[];
-	stage: String;
-	winnerIndex: Number;
-	stocksRemaining: Number;
+	characters: string[];
+	stage: string;
+	winnerIndex: number;
+	stocksRemaining: number;
 }
 
 const blankMatch: Match = {

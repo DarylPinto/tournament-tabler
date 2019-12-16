@@ -11,10 +11,10 @@ import { useSelector } from "react-redux";
  */
 
 interface Props {
-	stockIcon: String,
+	stockIcon: string,
 	value: number,
 	maxValue: number,
-	onChange: (newValue: Number) => any;
+	onChange: (newValue: number) => any;
 }
 
 const StockCountInput = ({ stockIcon, value, maxValue, onChange }: Props) => {

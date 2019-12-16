@@ -12,7 +12,7 @@ import { SmashTitle } from "../../data/customTypes";
 
 interface Props {
 	smashTitle: SmashTitle;
-	character: String;
+	character: string;
 	onClick?: () => void;
 };
 

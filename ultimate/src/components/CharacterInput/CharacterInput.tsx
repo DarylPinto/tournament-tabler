@@ -18,8 +18,8 @@ import { useSelector } from "react-redux";
 const characterRows = chunk(characterData, 13);
 
 interface Props {
-	value: String;
-	onChange: (character: String) => void;
+	value: string;
+	onChange: (character: string) => void;
 }
 
 const CharacterInput = ({ value, onChange }: Props) => {

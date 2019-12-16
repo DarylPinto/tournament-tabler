@@ -8,9 +8,9 @@ import s from "./MatchWinnerInput.module.scss";
  */
 
 interface Props {
-	options: String[];
-	value: String;
-	onChange: (newValue: Number) => any;
+	options: string[];
+	value: string;
+	onChange: (newValue: number) => any;
 }
 
 const MatchWinnerInput = ({ options, value, onChange }: Props) => {
@@ -19,7 +19,7 @@ const MatchWinnerInput = ({ options, value, onChange }: Props) => {
 			{options.map((option, i) => (
 				<span
 					key={i}
-					className={option === options[value as string] ? s.selected : ""}
+					className={option === options[value] ? s.selected : ""}
 					onClick={() => onChange(i)}
 				>
 					{option}
