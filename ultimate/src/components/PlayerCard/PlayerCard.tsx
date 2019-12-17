@@ -17,8 +17,8 @@ const fields = [
 	{ name: "name", label: "Full Name", required: false },
 	{ name: "twitch", label: "Twitch", required: false },
 	{ name: "twitter", label: "Twitter", required: false },
-	{ name: "wiki", label: "Wiki URL", required: false },
-	{ name: "sponsor", label: "Sponsor URL", required: false }
+	{ name: "wiki", label: "Wiki", required: false },
+	{ name: "team", label: "Team Website URL", required: false }
 ];
 
 interface Props {
