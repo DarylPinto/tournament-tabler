@@ -8,8 +8,8 @@ const initialState: Player[] = [
 			ultimate: ["Joker", null]
 		},
 		name: "Leonardo Lopez Perez",
-		twitch: "mkleo_fox",
-		twitter: "Mkleosb",
+		twitch: "https://twitch.tv/mkleo_fox",
+		twitter: "https://twitter.com/Mkleosb",
 		wiki: "https://liquipedia.net/smash/MKLeo",
 		team: "https://twitter.com/echofoxgg"
 	},
@@ -19,8 +19,8 @@ const initialState: Player[] = [
 			ultimate: ["Wario", null]
 		},
 		name: "Gavin Dempsey",
-		twitch: "tweekssb",
-		twitter: "TweekSsb",
+		twitch: "https://twitch.tv/tweekssb",
+		twitter: "https://twitter.com/TweekSsb",
 		wiki: "https://liquipedia.net/smash/Tweek",
 		team: "https://tsm.gg/"
 	}

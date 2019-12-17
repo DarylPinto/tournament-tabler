@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import s from "./MarkdownCode.module.scss";
 import { useSelector } from "react-redux";
 import { Match } from "../../data/customTypes";
+import toTitleCase from "../../util/toTitleCase";
 
 const MarkdownCode = () => {
 	const { tournament, players, matches } = useSelector(state => state);
@@ -39,7 +40,7 @@ const MarkdownCode = () => {
 		let ret = `**${name ? name : tag}**`;
 		if (!Object.values(fields).every(field => field === "")) ret += " // ";
 		let social = Object.entries(fields)
-			.map(field => `[${field[0]}](${field[1]})`)
+			.map(field => `[${toTitleCase(field[0])}](${field[1]})`)
 			.join(" | ");
 		return ret + social;
 	};

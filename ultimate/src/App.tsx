@@ -7,8 +7,15 @@ import MarkdownCode from "./components/MarkdownCode";
 import { useSelector } from "react-redux";
 
 const App = () => {
-	const [markdownShown, setMarkdownShown] = useState(true);
+	const [markdownShown, setMarkdownShown] = useState(false);
 	const players = useSelector(state => state.players);
+
+	const handleGenerateBtnClick = () => {
+		setMarkdownShown(true);
+		setTimeout(() => {
+			window.scrollTo(0,document.body.scrollHeight);
+		}, 250);
+	};
 
 	return (
 		<main>
@@ -21,7 +28,7 @@ const App = () => {
 					))}
 					<MatchesCard />
 				</div>
-				<button className={s.btn} onClick={() => setMarkdownShown(true)}>
+				<button className={s.btn} onClick={handleGenerateBtnClick}>
 					Generate Table
 				</button>
 				{markdownShown && <MarkdownCode />}
