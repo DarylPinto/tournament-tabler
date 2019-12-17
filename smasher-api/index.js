@@ -78,19 +78,17 @@ app.get("/:smasher", async (req, res) => {
 		tag: tag,
 		name: fullName,
 		mains: {
-			ssb64: mains("SSB64"),
+			s64: mains("SSB64"),
 			melee: mains("Melee"),
 			brawl: mains("Brawl"),
 			pm: mains("Project M"),
 			smash4: mains("SSB4"),
 			ultimate: mains("Ultimate")
 		},
-		links: {
-			twitter: twitter ? twitter : null,
-			twitch: twitch ? twitch : null,
-			wiki,
-			sponsor
-		}
+		twitter: twitter ? twitter : null,
+		twitch: twitch ? twitch : null,
+		wiki,
+		team: sponsor
 	});
 });
 
