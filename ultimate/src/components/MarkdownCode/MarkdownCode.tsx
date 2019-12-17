@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import s from "./MarkdownCode.module.scss";
 import { useSelector } from "react-redux";
 import { Match } from "../../data/customTypes";
@@ -6,6 +6,7 @@ import { Match } from "../../data/customTypes";
 const MarkdownCode = () => {
 	const { tournament, players, matches } = useSelector(state => state);
 	const codeBox = useRef(null);
+	useEffect(() => codeBox.current.select(), []);
 
 	/**
 	 * Stock Icon markdown with appropriate smashTitle prefix & alt text
@@ -109,6 +110,12 @@ const MarkdownCode = () => {
 
 	// Final markdown
 	let markdown = `
+	${
+		tournament.streamLink.length > 0
+			? `---\n\n#[Watch Live](${tournament.streamLink})`
+			: ""
+	}
+
 	---
 	#${tournament.round}
 
@@ -134,7 +141,7 @@ const MarkdownCode = () => {
 			ref={codeBox}
 			className={s.markdownCode}
 			value={markdown}
-			onClick={() => codeBox.current ? codeBox.current.select() : null}
+			onClick={() => (codeBox.current ? codeBox.current.select() : null)}
 		/>
 	);
 };
