@@ -9,6 +9,11 @@
 	width: 100vw;
 	margin: 0 !important;
 	background-color: rgba(0, 0, 0, 0.8);
+	opacity: 0;
+}
+
+.visible {
+	opacity: 1;
 }
 
 .modal {

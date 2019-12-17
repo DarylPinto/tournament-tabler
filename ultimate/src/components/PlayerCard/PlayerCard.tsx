@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import s from "./PlayerCard.module.scss";
 import CharacterInput from "../CharacterInput";
+import Modal from "../Modal";
 import { actions as playerActions } from "../../store/slices/players";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -26,7 +27,7 @@ interface Props {
 }
 
 const PlayerCard = ({ playerIndex }: Props) => {
-	const [extrasShown, setExtrasShown] = useState(false);
+	const [additonalInfoShown, setAdditonalInfoShown] = useState(false);
 	const player = useSelector(state => state.players[playerIndex]);
 	const dispatch = useDispatch();
 
@@ -53,62 +54,72 @@ const PlayerCard = ({ playerIndex }: Props) => {
 	return (
 		<div className={s.playerCard}>
 			<h2>Player {playerIndex + 1}</h2>
-			{/* Mandatory Fields */}
-			{fields
-				.filter(field => field.required)
-				.map(field => (
-					<label key={field.name}>
-						<span>{field.label}</span>
-						<input
-							type="text"
-							required
-							value={player[field.name]}
-							onChange={e => setPlayerProp({ [field.name]: e.target.value })}
+			<div className={s.requiredInfo}>
+				{/* Mandatory Fields */}
+				{fields
+					.filter(field => field.required)
+					.map(field => (
+						<label key={field.name}>
+							<span>{field.label}</span>
+							<input
+								type="text"
+								required
+								value={player[field.name]}
+								onChange={e => setPlayerProp({ [field.name]: e.target.value })}
+							/>
+						</label>
+					))}
+
+				{/* Main character selection */}
+				<label>
+					<span>Mains</span>
+					<div className={s.characterInputWrap}>
+						<CharacterInput
+							value={player.mains.ultimate[0]}
+							onChange={character => setMain(0, character)}
 						/>
-					</label>
-				))}
+						<CharacterInput
+							value={player.mains.ultimate[1]}
+							onChange={character => setMain(1, character)}
+						/>
+					</div>
+				</label>
+			</div>
 
-			{/* Main character selection */}
-			<label>
-				<span>Mains</span>
-				<div className={s.characterInputWrap}>
-					<CharacterInput
-						value={player.mains.ultimate[0]}
-						onChange={character => setMain(0, character)}
-					/>
-					<CharacterInput
-						value={player.mains.ultimate[1]}
-						onChange={character => setMain(1, character)}
-					/>
-				</div>
-			</label>
-
-			{/* Extra Fields */}
-			{extrasShown && (
-				<>
-					{fields
-						.filter(field => !field.required)
-						.map(field => (
-							<label key={field.name}>
-								<span>{field.label} (optional)</span>
-								<input
-									type="text"
-									value={player[field.name]}
-									onChange={e =>
-										setPlayerProp({ [field.name]: e.target.value })
-									}
-								/>
-							</label>
-						))}
-				</>
-			)}
+			{/* Additional Info Modal */}
+			<Modal
+				isOpen={additonalInfoShown}
+				close={() => setAdditonalInfoShown(false)}
+			>
+				<section className={s.additionalInfo}>
+					<h1>{player.tag ? player.tag : `Player ${playerIndex + 1}`}</h1>
+					<div>
+						{fields
+							.filter(field => !field.required)
+							.map(field => (
+								<label key={field.name}>
+									<span>{field.label}</span>
+									<input
+										type="text"
+										value={player[field.name]}
+										onChange={e =>
+											setPlayerProp({ [field.name]: e.target.value })
+										}
+									/>
+								</label>
+							))}
+					</div>
+					<button onClick={() => setAdditonalInfoShown(false)}>Done</button>
+				</section>
+			</Modal>
 
 			{/* Show Extras Button */}
-			{!extrasShown && (
-				<button className={s.extrasBtn} onClick={() => setExtrasShown(true)}>
-					Add Extras
-				</button>
-			)}
+			<button
+				className={s.extrasBtn}
+				onClick={() => setAdditonalInfoShown(true)}
+			>
+				Additional Info
+			</button>
 		</div>
 	);
 };

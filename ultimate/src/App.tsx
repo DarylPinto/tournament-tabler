@@ -13,8 +13,8 @@ const App = () => {
 	const handleGenerateBtnClick = () => {
 		setMarkdownShown(true);
 		setTimeout(() => {
-			window.scrollTo(0,document.body.scrollHeight);
-		}, 250);
+			window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+		}, 50);
 	};
 
 	return (

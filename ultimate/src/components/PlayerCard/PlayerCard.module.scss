@@ -1,12 +1,23 @@
 .playerCard {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;	
 	flex-direction: column;
 	background-color: rgba(0, 0, 0, 0.35);
 	width: calc(33.33% - (40px / 3));
+	height: 100%;
 	border-radius: 4px;
 	overflow: hidden;
+
+	.requiredInfo {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		flex: 1;
+		justify-content: flex-start;
+		align-items: center;
+		padding-top: 20%;
+	}
 
 	h2 {
 		display: flex;
@@ -56,6 +67,7 @@
 
 .extrasBtn {
 	display: flex;
+	align-self: flex-end;
 	align-items: center;
 	justify-content: center;
 	background-color: rgba(0, 0, 0, 0.2);
@@ -66,4 +78,61 @@
 	font-size: 12px;
 	outline: 0;
 	cursor: pointer;
+}
+
+.additionalInfo {	
+	width: 600px;
+	padding: 20px;
+
+	h1 {
+		font-size: 45px;
+		font-weight: 100;
+		color: rgba(0, 0, 0, 0.8);
+		margin-bottom: 25px;
+	}
+
+	div {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	label {
+		width: 47%;
+		span, input {
+			text-align: left;
+		}
+		input {
+			background-color: transparent;
+			border: none;
+			border-radius: 0;
+			border-bottom: 1px solid gray;
+			padding-left: 0;
+			color: rgba(0, 0, 0, 0.8);
+			outline: 0;
+			transition: .2s;
+			&:focus {
+				border-color: #75b6c5;
+			}
+		}
+		span {
+			color: rgba(0, 0, 0, 0.5);
+			font-weight: 300;
+			margin-bottom: 5px;
+		}
+	}
+
+	button {
+		border: none;
+		padding: 10px 30px;
+		color: white;	
+		display: block;	
+		cursor: pointer;
+		font-size: 20px;
+		border-radius: 3px;
+		background-color: #1589d0;
+		font-family: "Roboto", sans-serif;
+		font-weight: 100;		
+		transition: 0.3s;	
+	}
 }

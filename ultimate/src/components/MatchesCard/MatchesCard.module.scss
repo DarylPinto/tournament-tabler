@@ -1,10 +1,11 @@
 .matchesCard {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
 	background-color: rgba(0, 0, 0, 0.35);
 	width: calc(33.33% - (40px / 3));
+	height: 100%;
 	border-radius: 4px;
 	overflow: hidden;
 
