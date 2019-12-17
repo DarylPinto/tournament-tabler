@@ -1,21 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-interface Player {
-	tag: string;
-	mains: {
-		s64?: string[];
-		melee?: string[];
-		brawl?: string[];
-		pm?: string[];
-		smash4?: string[];
-		ultimate?: string[];
-	};
-	name: string;
-	twitch: string;
-	twitter: string;
-	wiki: string;
-	team: string;
-}
+import { Player } from "../../data/customTypes";
 
 const initialState: Player[] = [
 	{

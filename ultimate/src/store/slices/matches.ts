@@ -1,13 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Match } from "../../data/customTypes";
 
 const MATCH_COUNT = 5;
-
-interface Match {
-	characters: string[];
-	stage: string;
-	winnerIndex: number;
-	stocksRemaining: number;
-}
 
 const blankMatch: Match = {
 	characters: [null, null],

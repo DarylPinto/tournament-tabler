@@ -50,7 +50,7 @@ export default [
 	"ToonLink",
 	"Wolf",
 	"Villager",
-	"MegaMan",
+	"Megaman",
 	"WiiFitTrainer",
 	"Rosalina",
 	"LittleMac",

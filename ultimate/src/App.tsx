@@ -7,6 +7,7 @@ import MarkdownCode from "./components/MarkdownCode";
 import { useSelector } from "react-redux";
 
 const App = () => {
+	const [markdownShown, setMarkdownShown] = useState(true);
 	const players = useSelector(state => state.players);
 
 	return (
@@ -15,11 +16,15 @@ const App = () => {
 			<section className={s.mainSection}>
 				<RoundInfoCard />
 				<div className={s.setInfo}>
-					{players.map((_, i) => <PlayerCard key={i} playerIndex={i} />)}
+					{players.map((_, i) => (
+						<PlayerCard key={i} playerIndex={i} />
+					))}
 					<MatchesCard />
 				</div>
-				<button className={s.btn}>Generate Table</button>
-				<MarkdownCode />
+				<button className={s.btn} onClick={() => setMarkdownShown(true)}>
+					Generate Table
+				</button>
+				{markdownShown && <MarkdownCode />}
 			</section>
 		</main>
 	);
