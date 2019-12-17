@@ -22,7 +22,7 @@ const MatchWinnerInput = ({ options, value, onChange }: Props) => {
 					className={option === options[value] ? s.selected : ""}
 					onClick={() => onChange(i)}
 				>
-					{option}
+					{option.length > 0 ? option : `Player ${i + 1}`}
 				</span>
 			))}
 		</div>

@@ -51,6 +51,24 @@ const PlayerCard = ({ playerIndex }: Props) => {
 		);
 	};
 
+	// Autofill a player using `smasher-api`
+	const autofillPlayer = async (tag: string) => {
+		let data;
+		try {
+			const res = await fetch(`http://localhost:3001/${tag}`);
+			data = await res.json();
+		}catch (err) {
+			if(err?.message === "Not Found") return;
+			else console.error(err.message);
+		}
+		// Truncate mains to 2 maximum
+		for (const smashTitle in data.mains) {
+			data.mains[smashTitle] = data.mains[smashTitle].slice(0, 2);
+		}
+		// Update store
+		dispatch(playerActions.updatePlayer({ playerIndex, update: data }));
+	};
+
 	return (
 		<div className={s.playerCard}>
 			<h2>Player {playerIndex + 1}</h2>
@@ -66,6 +84,9 @@ const PlayerCard = ({ playerIndex }: Props) => {
 								required
 								value={player[field.name]}
 								onChange={e => setPlayerProp({ [field.name]: e.target.value })}
+								onBlur={e =>
+									field.name === "tag" ? autofillPlayer(e.target.value) : null
+								}
 							/>
 						</label>
 					))}
