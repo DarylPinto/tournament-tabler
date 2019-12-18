@@ -27,7 +27,7 @@ interface Props {
 }
 
 const PlayerCard = ({ playerIndex }: Props) => {
-	const [additonalInfoShown, setAdditonalInfoShown] = useState(false);
+	const [additionalInfoShown, setAdditionalInfoShown] = useState(false);
 	const player = useSelector(state => state.players[playerIndex]);
 	const dispatch = useDispatch();
 
@@ -109,8 +109,8 @@ const PlayerCard = ({ playerIndex }: Props) => {
 
 			{/* Additional Info Modal */}
 			<Modal
-				isOpen={additonalInfoShown}
-				close={() => setAdditonalInfoShown(false)}
+				isOpen={additionalInfoShown}
+				close={() => setAdditionalInfoShown(false)}
 			>
 				<section className={s.additionalInfo}>
 					<h1>{player.tag ? player.tag : `Player ${playerIndex + 1}`}</h1>
@@ -130,14 +130,14 @@ const PlayerCard = ({ playerIndex }: Props) => {
 								</label>
 							))}
 					</div>
-					<button onClick={() => setAdditonalInfoShown(false)}>Done</button>
+					<button onClick={() => setAdditionalInfoShown(false)}>Done</button>
 				</section>
 			</Modal>
 
 			{/* Show Extras Button */}
 			<button
 				className={s.extrasBtn}
-				onClick={() => setAdditonalInfoShown(true)}
+				onClick={() => setAdditionalInfoShown(true)}
 			>
 				Additional Info
 			</button>
