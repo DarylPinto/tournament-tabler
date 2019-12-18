@@ -36,18 +36,19 @@ const MarkdownCode = () => {
 	const playerSummary = (playerIndex: number) => {
 		const { tag, name, twitch, twitter, wiki, team } = players[playerIndex];
 		const fields = { twitch, twitter, wiki, team };
-		
+
 		let fullname;
-		if (name.length > 0)  {
+		if (name.length > 0) {
 			const first = name.substr(0, name.indexOf(" ")).trim();
 			const last = name.substr(name.indexOf(" ")).trim();
-			fullname = `${first} "${tag}" ${last}`
+			fullname = `${first} "${tag}" ${last}`;
 		} else {
 			fullname = tag;
 		}
 		let ret = `**${fullname}**`;
 		if (!Object.values(fields).every(field => field === "")) ret += " // ";
 		let social = Object.entries(fields)
+			.filter(field => field[1] !== null && field[1].length > 0)
 			.map(field => `[${toTitleCase(field[0])}](${field[1]})`)
 			.join(" | ");
 		return ret + social;
