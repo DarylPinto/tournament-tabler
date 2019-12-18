@@ -78,8 +78,8 @@ export default [
 	"Hero",
 	"Banjo",
 	"Terry",
-	"MiiFighter",
-	// "MiiBrawler",
-	// "MiiSwordfighter",
-	// "MiiGunner"
+	// "MiiFighter",
+	"MiiBrawler",
+	"MiiGunner",
+	"MiiSwordfighter"
 ];
