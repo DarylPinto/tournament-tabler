@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import s from "./MatchesCard.module.scss";
 import CharacterInput from "../CharacterInput";
 import MatchWinnerInput from "../MatchWinnerInput";
@@ -19,7 +19,7 @@ const MatchesCard = () => {
 	const [matchIndex, setMatchIndex] = useState(0);
 	const matches = useSelector(state => state.matches);
 	const match = matches[matchIndex];
-	const players = useSelector(state => state.players);	
+	const players = useSelector(state => state.players);
 	const P1 = players[0];
 	const P2 = players[1];
 	const dispatch = useDispatch();
@@ -31,53 +31,39 @@ const MatchesCard = () => {
 		dispatch(matchActions.updateMatch({ matchIndex, update }));
 	};
 
-	// Switches the current match
-	const selectMatch = index => {
-		// If there's no match data in the selected index
-		// if (!matches[index]) {
-		// 	// Find most recent previous existing match to use as a template
-		// 	let previousMatches = matches.filter((match, i) => !!match && i < index);
-		// 	let mostRecentMatch = previousMatches[previousMatches.length - 1];
-
-		// 	// Insert a blank match at the index with relevant values
-		// 	// (like characters) copied from the most recent match
-		// 	setMatches(prevMatches => {
-		// 		let nextMatches = JSON.parse(JSON.stringify(prevMatches));
-		// 		nextMatches[index] = {
-		// 			...defaultMatches[0],
-		// 			characters: mostRecentMatch.characters,
-		// 			stage: "",
-		// 			stocksRemaining: 0
-		// 		};
-		// 		return nextMatches;
-		// 	});
-		// }
-
-		// If selected match has no characters,
-		// Find the most recent existing match to pull
-		// characters from
-		/*
-		let nextMatchCharacters = matches[index].characters;
-		if(nextMatchCharacters[0] === null && nextMatchCharacters[1] === null) {
-			setMatches
-		}
-		*/
-
-		// Update match index
-		setMatchIndex(index);	
-	};
-
 	// Update current match's character by index
 	// ex: setCharacter(0, "Yoshi") sets P1's char in the match to Yoshi
 	const setCharacter = (index, character) => {
 		dispatch(
-			matchActions.updateCharacters({
-				matchIndex,	
+			matchActions.updateCharacter({
+				matchIndex,
 				characterIndex: index,
 				character
 			})
 		);
 	};
+
+	// When matchIndex changes, automatically load characters from previous match
+	// into current match if the current match has no characters selected
+	useEffect(() => {
+		if (match.characters.includes(null)) {
+			const previousMatches = matches.filter(
+				(m, i) => i < matchIndex && !m.characters.includes(null)
+			);
+			const mostRecentMatch = previousMatches[previousMatches.length - 1];
+			[P1, P2].forEach((_, index) => {
+				if (match.characters[index] === null) {
+					dispatch(
+						matchActions.updateCharacter({
+							matchIndex,
+							characterIndex: index,
+							character: mostRecentMatch.characters[index]
+						})
+					);
+				}
+			});
+		}
+	}, [matchIndex]);
 
 	return (
 		<div className={s.matchesCard}>
@@ -89,7 +75,7 @@ const MatchesCard = () => {
 					<li
 						key={i}
 						className={matchIndex === i ? s.activeTab : ""}
-						onClick={() => selectMatch(i)}
+						onClick={() => setMatchIndex(i)}
 					>
 						{i + 1}
 					</li>
@@ -127,9 +113,11 @@ const MatchesCard = () => {
 				<span>Stage</span>
 				<select
 					value={match.stage}
-					onChange={e => setMatchProp({stage: e.target.value})}
+					onChange={e => setMatchProp({ stage: e.target.value })}
 				>
-					<option value="" disabled>---</option>
+					<option value="" disabled>
+						---
+					</option>
 					{stages.map(stage => (
 						<option key={stage} value={stage}>
 							{stage}
@@ -144,7 +132,7 @@ const MatchesCard = () => {
 				<MatchWinnerInput
 					options={players.map(p => p.tag)}
 					value={match.winnerIndex}
-					onChange={winnerIndex => setMatchProp({winnerIndex: winnerIndex})}
+					onChange={winnerIndex => setMatchProp({ winnerIndex: winnerIndex })}
 				/>
 			</label>
 
@@ -155,7 +143,7 @@ const MatchesCard = () => {
 					stockIcon={match.characters[match.winnerIndex]}
 					value={match.stocksRemaining}
 					maxValue={3}
-					onChange={stockCount => setMatchProp({stocksRemaining: stockCount})}
+					onChange={stockCount => setMatchProp({ stocksRemaining: stockCount })}
 				/>
 			</label>
 		</div>

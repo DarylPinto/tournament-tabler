@@ -30,7 +30,7 @@ const matchesSlice = createSlice({
 			state[matchIndex] = targetMatch;
 			return state;
 		},
-		updateCharacters: (state, action) => {
+		updateCharacter: (state, action) => {
 			const { matchIndex, characterIndex, character } = action.payload;
 			let targetMatch = state[matchIndex];
 			targetMatch.characters[characterIndex] = character;
