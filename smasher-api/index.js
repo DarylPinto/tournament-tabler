@@ -66,7 +66,7 @@ app.get("/:smasher", async (req, res) => {
 
 	// prettier-ignore
 	const sponsor = sponsorName
-		? `https://duckduckgo.com/?q=!ducky+${encodeURIComponent(sponsorName)}+eSports+website`
+		? `https://duckduckgo.com/?q=!ducky+${encodeURIComponent(sponsorName)}+gaming+website`
 		: null;
 
 	const twitter = $("li a.external:contains('Twitter')").attr("href");
