@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import c from "classnames";
 import s from "./Modal.module.scss";
 import useEventListener from "@use-it/event-listener";
@@ -30,26 +31,26 @@ const Modal = ({ isOpen, close, children }: Props) => {
 		},
 		document.body
 	);
-	
+
 	// Side effects for when `isOpen` prop changes
-	// (Adjusting whether modal should be rendered and visible, locking scroll)	
+	// (Adjusting whether modal should be rendered and visible, locking scroll)
 	useEffect(() => {
 		document.body.style.overflow = isOpen ? "hidden" : "visible";
 		if (isOpen) {
-			setRendered(true);	
-			setTimeout(() => setVisible(true), MINIMUM_BROWSER_TRANSITION_TIME);	
+			setRendered(true);
+			setTimeout(() => setVisible(true), MINIMUM_BROWSER_TRANSITION_TIME);
 		} else {
 			setVisible(false);
-			setTimeout(() => setRendered(false), TRANSITION_TIME);	
+			setTimeout(() => setRendered(false), TRANSITION_TIME);
 		}
-		return () => document.body.style.overflow = "visible";
+		return () => (document.body.style.overflow = "visible");
 	}, [isOpen]);
 
 	// Render nothing if closed
 	if (!rendered) return null;
 
 	// Render modal if open
-	return (
+	return createPortal(
 		<div
 			className={c(s.modalShade, { [s.visible]: visible })}
 			style={{ transition: `${TRANSITION_TIME}ms` }}
@@ -61,7 +62,8 @@ const Modal = ({ isOpen, close, children }: Props) => {
 				</span>
 				{children}
 			</div>
-		</div>
+		</div>,
+		document.getElementById("modal-root")
 	);
 };
 

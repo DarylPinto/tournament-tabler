@@ -3,7 +3,7 @@ import { Player } from "../../data/customTypes";
 
 const initialState: Player[] = [
 	{
-		tag: "MKLeo",
+		tag: "MkLeo",
 		mains: {
 			ultimate: ["Joker", null]
 		},
@@ -11,7 +11,7 @@ const initialState: Player[] = [
 		twitch: "https://twitch.tv/mkleo_fox",
 		twitter: "https://twitter.com/Mkleosb",
 		wiki: "https://liquipedia.net/smash/MKLeo",
-		team: "https://twitter.com/echofoxgg"
+		team: ""
 	},
 	{
 		tag: "Tweek",

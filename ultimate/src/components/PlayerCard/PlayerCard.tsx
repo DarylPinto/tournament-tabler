@@ -28,6 +28,7 @@ interface Props {
 
 const PlayerCard = ({ playerIndex }: Props) => {
 	const [additionalInfoShown, setAdditionalInfoShown] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 	const player = useSelector(state => state.players[playerIndex]);
 	const dispatch = useDispatch();
 
@@ -53,20 +54,23 @@ const PlayerCard = ({ playerIndex }: Props) => {
 
 	// Autofill a player using `smasher-api`
 	const autofillPlayer = async (tag: string) => {
-		let data;
+		setIsLoading(true);
 		try {
 			const res = await fetch(`http://localhost:3001/${tag}`);
-			data = await res.json();
-		}catch (err) {
-			if(err?.message === "Not Found") return;
-			else console.error(err.message);
+			const data = await res.json();
+
+			// Truncate mains to 2 maximum
+			for (const smashTitle in data.mains) {
+				data.mains[smashTitle] = data.mains[smashTitle].slice(0, 2);
+			}
+
+			// Update store
+			dispatch(playerActions.updatePlayer({ playerIndex, update: data }));
+		} catch (err) {
+			if (err?.message !== "Not Found") console.error('bruh', err.message);
+		} finally {
+			setIsLoading(false);
 		}
-		// Truncate mains to 2 maximum
-		for (const smashTitle in data.mains) {
-			data.mains[smashTitle] = data.mains[smashTitle].slice(0, 2);
-		}
-		// Update store
-		dispatch(playerActions.updatePlayer({ playerIndex, update: data }));
 	};
 
 	return (
@@ -141,6 +145,8 @@ const PlayerCard = ({ playerIndex }: Props) => {
 			>
 				Additional Info
 			</button>
+
+			{isLoading && <div className={s.loading}>Loading player data...</div>}
 		</div>
 	);
 };
