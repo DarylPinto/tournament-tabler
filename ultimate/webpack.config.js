@@ -53,7 +53,7 @@ module.exports = {
 					}
 				]
 			},
-			{ test: /\.png$/, use: ["file-loader?name=images/[hash].[ext]"] }
+			{ test: /\.(pn|sv)g$/, use: ["file-loader?name=images/[hash].[ext]"] }
 		]
 	},
 	resolve: {
@@ -66,7 +66,7 @@ module.exports = {
 		modules: ["node_modules", "spritesmith-generated"],
 		extensions: [".ts", ".tsx", ".js"]
 	},
-	devtool: "source-map",
+	// devtool: "source-map",
 	devServer: {
 		contentBase: __dirname,
 		compress: true,

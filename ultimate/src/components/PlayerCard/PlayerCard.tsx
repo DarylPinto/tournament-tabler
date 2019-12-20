@@ -4,6 +4,7 @@ import CharacterInput from "../CharacterInput";
 import Modal from "../Modal";
 import { actions as playerActions } from "../../store/slices/players";
 import { useSelector, useDispatch } from "react-redux";
+import loading from "../../assets/images/loading.svg";
 
 /**
  * PlayerCard Component
@@ -67,7 +68,7 @@ const PlayerCard = ({ playerIndex }: Props) => {
 			// Update store
 			dispatch(playerActions.updatePlayer({ playerIndex, update: data }));
 		} catch (err) {
-			if (err?.message !== "Not Found") console.error('bruh', err.message);
+			if (err?.message !== "Not Found") console.error(err.message);
 		} finally {
 			setIsLoading(false);
 		}
@@ -138,15 +139,16 @@ const PlayerCard = ({ playerIndex }: Props) => {
 				</section>
 			</Modal>
 
-			{/* Show Extras Button */}
+			{/* Additional Info Button */}
 			<button
 				className={s.extrasBtn}
 				onClick={() => setAdditionalInfoShown(true)}
 			>
 				Additional Info
 			</button>
-
-			{isLoading && <div className={s.loading}>Loading player data...</div>}
+	
+			{/* Loading Spinner */}
+			{isLoading && <img src={loading} className={s.loading} alt="Loading..." /> }
 		</div>
 	);
 };
