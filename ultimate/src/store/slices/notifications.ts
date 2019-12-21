@@ -1,10 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-type NotificationKind = "info" | "success" | "warning" | "error";
-
 interface Notification {
 	id: string;
-	kind: NotificationKind;
 	content: string;
 }
 
@@ -24,18 +21,14 @@ const notificationsSlice = createSlice({
 	}
 });
 
-export const showNotification = (
-	kind: NotificationKind,
-	content: string,
-	duration: number
-) => {
+export const showNotification = (content: string, duration: number) => {
 	const { actions } = notificationsSlice;
 	const { createNotification, destroyNotification } = actions;
 
 	const id = Date.now().toString();
 
 	return dispatch => {
-		dispatch(createNotification({ id, kind, content }));
+		dispatch(createNotification({ id, content }));
 		setTimeout(() => {
 			dispatch(destroyNotification({ id }));
 		}, duration);

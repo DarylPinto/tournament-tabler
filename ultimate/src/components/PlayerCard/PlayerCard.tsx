@@ -70,9 +70,8 @@ const PlayerCard = ({ playerIndex }: Props) => {
 			dispatch(playerActions.updatePlayer({ playerIndex, update: data }));
 			dispatch(
 				showNotification(
-					"info",
 					`Automatically loaded smasher data for player ${playerIndex + 1}`,
-					2000
+					4000
 				)
 			);
 		} catch (err) {

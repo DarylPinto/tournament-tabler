@@ -17,7 +17,7 @@ const App = () => {
 	const handleGenerateBtnClick = () => {
 		setMarkdownShown(true);
 		dispatch(
-			showNotification("info", "Code selected! Command+C to copy!", 10000)
+			showNotification("Code selected! Ctrl+C to copy!", 3000)
 		);
 		setTimeout(() => {
 			window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
