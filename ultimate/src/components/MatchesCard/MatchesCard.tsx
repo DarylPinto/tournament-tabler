@@ -3,7 +3,7 @@ import s from "./MatchesCard.module.scss";
 import CharacterInput from "../CharacterInput";
 import MatchWinnerInput from "../MatchWinnerInput";
 import StockCountInput from "../StockCountInput";
-import { actions as matchActions } from "../../store/slices/matches";
+import { updateMatch, updateCharacter } from "../../store/slices/matches";
 import { useSelector, useDispatch } from "react-redux";
 import stages from "../../data/stages";
 
@@ -24,45 +24,40 @@ const MatchesCard = () => {
 	const P2 = players[1];
 	const dispatch = useDispatch();
 
-	// Update a particular property of the current match
-	// Ex: setMatchProp({stage: "Yoshi's Island"}) sets the stage for
-	// the current match to Yoshi's Island
+	/**
+	 * Update a particular property of the current match
+	 * ex: setMatchProp({stage: "Yoshi's Island"});
+	 * @param update update object
+	 */
 	const setMatchProp = update => {
-		dispatch(matchActions.updateMatch({ matchIndex, update }));
+		dispatch(updateMatch({ matchIndex, update }));
 	};
 
-	// Update current match's character by index
-	// ex: setCharacter(0, "Yoshi") sets P1's char in the match to Yoshi
+	/**
+	 * Update a character in the current match
+	 * ex: setCharacter(0, "Yoshi");
+	 * @param index Index of character in match to update (think of it like a port)
+	 * @param character character to set
+	 */
 	const setCharacter = (index, character) => {
-		dispatch(
-			matchActions.updateCharacter({
-				matchIndex,
-				characterIndex: index,
-				character
-			})
-		);
+		dispatch(updateCharacter({ matchIndex, characterIndex: index, character }));
 	};
 
-	// When matchIndex changes, automatically load characters from previous match
-	// into current match if the current match has no characters selected
+	// When user changes to a new match (one with no characters currently selected)
+	// Automatically pre-populate the characters with ones from the most recent match
 	useEffect(() => {
-		if (match.characters.includes(null)) {
-			const previousMatches = matches.filter(
-				(m, i) => i < matchIndex && !m.characters.includes(null)
-			);
-			const mostRecentMatch = previousMatches[previousMatches.length - 1];
-			[P1, P2].forEach((_, index) => {
-				if (match.characters[index] === null) {
-					dispatch(
-						matchActions.updateCharacter({
-							matchIndex,
-							characterIndex: index,
-							character: mostRecentMatch.characters[index]
-						})
-					);
-				}
-			});
-		}
+		if (!match.characters.includes(null)) return;
+		const previousMatches = matches.filter(
+			(m, i) => i < matchIndex && !m.characters.includes(null)
+		);
+		const mostRecentMatch = previousMatches[previousMatches.length - 1];
+
+		[P1, P2].forEach((_, index) => {
+			if (match.characters[index] !== null) return;
+			const character = mostRecentMatch.characters[index];
+			const payload = { matchIndex, characterIndex: index, character };
+			dispatch(updateCharacter(payload));
+		});
 	}, [matchIndex]);
 
 	return (

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import s from "./PlayerCard.module.scss";
 import CharacterInput from "../CharacterInput";
 import Modal from "../Modal";
-import { actions as playerActions } from "../../store/slices/players";
+import { updateMains, updatePlayer } from "../../store/slices/players";
 import { showNotification } from "../../store/slices/notifications";
 import { useSelector, useDispatch } from "react-redux";
 import loading from "../../assets/images/loading.svg";
@@ -38,23 +38,22 @@ const PlayerCard = ({ playerIndex }: Props) => {
 	// that's been passed to this component
 	// ex: setPlayerProp({twitch: "c9mang0"});
 	const setPlayerProp = update => {
-		dispatch(playerActions.updatePlayer({ playerIndex, update }));
+		dispatch(updatePlayer({ playerIndex, update }));
 	};
 
 	// Update a player's main character by index
 	// ex: setMain(0, "Yoshi") sets the player's first main to Yoshi
 	const setMain = (index, character) => {
-		dispatch(
-			playerActions.updateMains({
-				playerIndex,
-				smashTitle: "ultimate",
-				mainIndex: index,
-				character
-			})
-		);
+		const payload = {
+			playerIndex,
+			smashTitle: "ultimate",
+			mainIndex: index,
+			character
+		};
+		dispatch(updateMains(payload));
 	};
 
-	// Autofill a player using `smasher-api`
+	// Autofill all a player's data using `smasher-api`
 	const autofillPlayer = async (tag: string) => {
 		setIsLoading(true);
 		// Query API for player data
@@ -68,7 +67,7 @@ const PlayerCard = ({ playerIndex }: Props) => {
 			data.mains[smashTitle] = data.mains[smashTitle].slice(0, 2);
 		}
 		// Update player data in store
-		dispatch(playerActions.updatePlayer({ playerIndex, update: data }));
+		dispatch(updatePlayer({ playerIndex, update: data }));
 		// Show toast notification
 		// prettier-ignore
 		const toastMsg = `Automatically loaded smasher data for player ${playerIndex + 1}`;

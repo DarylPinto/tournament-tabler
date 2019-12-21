@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const MAX_NOTIFICATION_COUNT = 5;
+
 interface Notification {
 	id: string;
 	content: string;
@@ -12,7 +14,7 @@ const notificationsSlice = createSlice({
 	initialState: initialState,
 	reducers: {
 		createNotification: (state, action) => {
-			if (state.length > 2) state.pop();
+			if (state.length === MAX_NOTIFICATION_COUNT) state.pop();
 			state.push(action.payload);
 		},
 		destroyNotification: (state, action) => {
@@ -22,6 +24,9 @@ const notificationsSlice = createSlice({
 	}
 });
 
+// Thunk action-creator to show an action
+// dispatches `createNotification` and then dispatches `destroyNotification`
+// after `duration` ms
 export const showNotification = (content: string, duration: number) => {
 	const { actions } = notificationsSlice;
 	const { createNotification, destroyNotification } = actions;
@@ -36,5 +41,4 @@ export const showNotification = (content: string, duration: number) => {
 	};
 };
 
-export const { actions, reducer } = notificationsSlice;
-export default reducer;
+export default notificationsSlice.reducer;

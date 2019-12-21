@@ -24,5 +24,5 @@ const tournamentSlice = createSlice({
 	}
 });
 
-export const { actions, reducer } = tournamentSlice;
-export default reducer;
+export const { updateTournament } = tournamentSlice.actions;
+export default tournamentSlice.reducer;

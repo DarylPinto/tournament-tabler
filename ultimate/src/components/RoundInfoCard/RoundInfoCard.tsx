@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./RoundInfoCard.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { actions as tournament } from "../../store/slices/tournament";
+import { updateTournament } from "../../store/slices/tournament";
 
 /**
  * RoundInfoCard Component
@@ -11,8 +11,8 @@ import { actions as tournament } from "../../store/slices/tournament";
 
 const RoundInfoCard = () => {
 	const round = useSelector(state => state.tournament.round);
-	const streamLink = useSelector(state => state.tournament.streamLink);	
-	const dispatch = useDispatch();	
+	const streamLink = useSelector(state => state.tournament.streamLink);
+	const dispatch = useDispatch();
 
 	return (
 		<div className={s.roundInfoCard}>
@@ -22,16 +22,14 @@ const RoundInfoCard = () => {
 				placeholder="Round"
 				required
 				value={round}
-				onChange={e =>
-					dispatch(tournament.updateTournament({ round: e.target.value }))
-				}
+				onChange={e => dispatch(updateTournament({ round: e.target.value }))}
 			/>
 			<input
 				type="text"
 				placeholder="Stream Link (optional but recommended)"
-				value={streamLink}	
+				value={streamLink}
 				onChange={e =>
-					dispatch(tournament.updateTournament({ streamLink: e.target.value }))
+					dispatch(updateTournament({ streamLink: e.target.value }))
 				}
 			/>
 		</div>

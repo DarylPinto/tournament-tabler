@@ -45,5 +45,5 @@ const playersSlice = createSlice({
 	}
 });
 
-export const { actions, reducer } = playersSlice;
-export default reducer;
+export const { updatePlayer, updateMains } = playersSlice.actions;
+export default playersSlice.reducer;

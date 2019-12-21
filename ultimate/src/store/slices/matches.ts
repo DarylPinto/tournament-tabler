@@ -38,5 +38,5 @@ const matchesSlice = createSlice({
 	}
 });
 
-export const { actions, reducer } = matchesSlice;
-export default reducer;
+export const { updateMatch, updateCharacter } = matchesSlice.actions;
+export default matchesSlice.reducer;
