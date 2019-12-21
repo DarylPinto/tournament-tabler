@@ -3,6 +3,7 @@ import s from "./PlayerCard.module.scss";
 import CharacterInput from "../CharacterInput";
 import Modal from "../Modal";
 import { actions as playerActions } from "../../store/slices/players";
+import { showNotification } from "../../store/slices/notifications";
 import { useSelector, useDispatch } from "react-redux";
 import loading from "../../assets/images/loading.svg";
 
@@ -67,6 +68,13 @@ const PlayerCard = ({ playerIndex }: Props) => {
 
 			// Update store
 			dispatch(playerActions.updatePlayer({ playerIndex, update: data }));
+			dispatch(
+				showNotification(
+					"info",
+					`Automatically loaded smasher data for player ${playerIndex + 1}`,
+					2000
+				)
+			);
 		} catch (err) {
 			if (err?.message !== "Not Found") console.error(err.message);
 		} finally {
@@ -146,9 +154,11 @@ const PlayerCard = ({ playerIndex }: Props) => {
 			>
 				Additional Info
 			</button>
-	
+
 			{/* Loading Spinner */}
-			{isLoading && <img src={loading} className={s.loading} alt="Loading..." /> }
+			{isLoading && (
+				<img src={loading} className={s.loading} alt="Loading..." />
+			)}
 		</div>
 	);
 };
