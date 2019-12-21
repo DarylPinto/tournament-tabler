@@ -8,14 +8,19 @@ const MarkdownCode = ({ refContainer }) => {
 	const players = useSelector(state => state.players);
 	const matches = useSelector(state => state.matches);
 	const markdown = generateMarkdown(tournament, players, matches);
-	
+
 	return (
-		<textarea
-			ref={refContainer}
-			className={s.markdownCode}
-			value={markdown}
-			onClick={() => (refContainer.current ? refContainer.current.select() : null)}
-		/>
+		<>
+			<h2 className={s.title}>Reddit Comment Code</h2>
+			<textarea
+				ref={refContainer}
+				className={s.markdownCode}
+				value={markdown}
+				onClick={() =>
+					refContainer.current ? refContainer.current.select() : null
+				}
+			/>
+		</>
 	);
 };
 

@@ -12,6 +12,7 @@ const notificationsSlice = createSlice({
 	initialState: initialState,
 	reducers: {
 		createNotification: (state, action) => {
+			if (state.length > 2) state.pop();
 			state.push(action.payload);
 		},
 		destroyNotification: (state, action) => {

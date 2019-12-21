@@ -57,28 +57,23 @@ const PlayerCard = ({ playerIndex }: Props) => {
 	// Autofill a player using `smasher-api`
 	const autofillPlayer = async (tag: string) => {
 		setIsLoading(true);
-		try {
-			const res = await fetch(`http://localhost:3001/${tag}`);
-			const data = await res.json();
+		// Query API for player data
+		const res = await fetch(`http://localhost:3001/${tag}`);
+		const data = await res.json();
+		// If player data is not found, exit early
+		if (data.message === "Not Found") return setIsLoading(false);
 
-			// Truncate mains to 2 maximum
-			for (const smashTitle in data.mains) {
-				data.mains[smashTitle] = data.mains[smashTitle].slice(0, 2);
-			}
-
-			// Update store
-			dispatch(playerActions.updatePlayer({ playerIndex, update: data }));
-			dispatch(
-				showNotification(
-					`Automatically loaded smasher data for player ${playerIndex + 1}`,
-					4000
-				)
-			);
-		} catch (err) {
-			if (err?.message !== "Not Found") console.error(err.message);
-		} finally {
-			setIsLoading(false);
+		// Truncate mains to 2 maximum
+		for (const smashTitle in data.mains) {
+			data.mains[smashTitle] = data.mains[smashTitle].slice(0, 2);
 		}
+		// Update player data in store
+		dispatch(playerActions.updatePlayer({ playerIndex, update: data }));
+		// Show toast notification
+		// prettier-ignore
+		const toastMsg = `Automatically loaded smasher data for player ${playerIndex + 1}`;
+		dispatch(showNotification(toastMsg, 4000));
+		setIsLoading(false);
 	};
 
 	return (
@@ -119,6 +114,14 @@ const PlayerCard = ({ playerIndex }: Props) => {
 				</label>
 			</div>
 
+			{/* Additional Info Button */}
+			<button
+				className={s.extrasBtn}
+				onClick={() => setAdditionalInfoShown(true)}
+			>
+				Additional Info
+			</button>
+
 			{/* Additional Info Modal */}
 			<Modal
 				isOpen={additionalInfoShown}
@@ -145,14 +148,6 @@ const PlayerCard = ({ playerIndex }: Props) => {
 					<button onClick={() => setAdditionalInfoShown(false)}>Done</button>
 				</section>
 			</Modal>
-
-			{/* Additional Info Button */}
-			<button
-				className={s.extrasBtn}
-				onClick={() => setAdditionalInfoShown(true)}
-			>
-				Additional Info
-			</button>
 
 			{/* Loading Spinner */}
 			{isLoading && (
