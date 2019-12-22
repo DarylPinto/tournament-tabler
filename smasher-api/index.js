@@ -15,6 +15,11 @@ const WIKI_PAGE_ID_URL =
 const WIKI_PAGE_NAME_URL =
 	"https://www.ssbwiki.com/api.php?format=json&action=parse&page=";
 
+app.get("/", (req, res) => {
+	res.header("Access-Control-Allow-Origin", "*");
+	return res.status(400).send({ message: "Invalid route", error: 400 });
+});
+
 app.get("/:smasher", async (req, res) => {
 	res.header("Access-Control-Allow-Origin", "*");
 

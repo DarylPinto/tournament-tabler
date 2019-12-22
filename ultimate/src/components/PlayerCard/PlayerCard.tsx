@@ -59,9 +59,9 @@ const PlayerCard = ({ playerIndex }: Props) => {
 		setIsLoading(true);
 		// Query API for player data
 		const res = await fetch(`${SMASHER_API_URL}/${tag}`);
-		let data = await res.json();
-		// If player data is not found, exit early
-		if (data.message === "Not Found") return setIsLoading(false);
+		let data = await res.json();	
+		// If request errors, exit early
+		if (res.status !== 200) return setIsLoading(false);
 		// Update player data in store
 		dispatch(updatePlayer({ playerIndex, update: data }));
 		// Show toast notification
