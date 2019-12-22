@@ -1,5 +1,7 @@
 import { Player, Match } from "../data/customTypes";
 import toTitleCase from "./toTitleCase";
+import getPlayerFullName from "./getPlayerFullName";
+import getScore from "./getScore";
 
 const generateMarkdown = (tournament, players: Player[], matches: Match[]) => {
 	const { streamLink } = tournament;
@@ -21,21 +23,6 @@ const generateMarkdown = (tournament, players: Player[], matches: Match[]) => {
 		};
 		const stockPrefix = stockPrefixDict[tournament.smashTitle];
 		return `[${altText}](#${stockPrefix}${character})`;
-	};
-
-	/**
-	 * Converts a player's real name and tag into a stylized full name
-	 * 
-	 * @param name Player's real name
-	 * @param tag Player's gamer tag
-	 * @returns Joseph "Mang0" Marquez
-	 */
-	const getPlayerFullName = (name: string, tag: string) => {
-		if (name.length === 0) return tag;
-		else if (!name.includes(" ")) return `${name} "${tag}"`;
-		const first = name.substr(0, name.indexOf(" ")).trim();
-		const last = name.substr(name.indexOf(" ")).trim();
-		return `${first} "${tag}" ${last}`;
 	};
 
 	/**
@@ -69,24 +56,6 @@ const generateMarkdown = (tournament, players: Player[], matches: Match[]) => {
 			.join("");
 		if (playerIndex === 0) return `${mainsDisplay} ${tag}`;
 		else return `${tag} ${mainsDisplay}`;
-	};
-
-	/**
-	 * Score of the set
-	 * @param matches Matches to calculate score from
-	 * @returns 3 - 2
-	 */
-	const score = (matches: Match[]) => {
-		const p1score = matches.reduce(
-			(total, match) => (match.winnerIndex === 0 ? total + 1 : total),
-			0
-		);
-		const p2score = matches.reduce(
-			(total, match) => (match.winnerIndex === 1 ? total + 1 : total),
-			0
-		);
-
-		return `${p1score} - ${p2score}`;
 	};
 
 	/**
@@ -131,7 +100,7 @@ const generateMarkdown = (tournament, players: Player[], matches: Match[]) => {
 	***vs***  
 	${playerSummary(1)}  
 
-	${playerStats(0)} | | ${score(matches)} | | ${playerStats(1)}
+	${playerStats(0)} | | ${getScore(matches)} | | ${playerStats(1)}
 	---:|:--:|:--:|:--:|:---
 	${matches
 		.map(match => matchRow(match))

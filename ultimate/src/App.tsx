@@ -4,21 +4,20 @@ import RoundInfoCard from "./components/RoundInfoCard";
 import PlayerCard from "./components/PlayerCard";
 import MatchesCard from "./components/MatchesCard";
 import MarkdownCode from "./components/MarkdownCode";
+import TablePreview from "./components/TablePreview";
 import Toasts from "./components/Toasts";
 import { useSelector, useDispatch } from "react-redux";
 import { showNotification } from "./store/slices/notifications";
 
 const App = () => {
-	const [markdownShown, setMarkdownShown] = useState(false);
+	const [resultsShown, setResultsShown] = useState(true);
 	const markdownEl = useRef(null);
 	const players = useSelector(state => state.players);
 	const dispatch = useDispatch();
 
 	const handleGenerateBtnClick = () => {
-		setMarkdownShown(true);
-		dispatch(
-			showNotification("Code selected! Ctrl+C to copy!", 3000)
-		);
+		setResultsShown(true);
+		dispatch(showNotification("Code selected! Ctrl+C to copy!", 3000));
 		setTimeout(() => {
 			window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
 			markdownEl.current ? markdownEl.current.select() : null;
@@ -27,7 +26,9 @@ const App = () => {
 
 	return (
 		<main>
-			<h1 className={s.logo}>Tournament Tabler</h1>
+			<a href="/" className={s.logo}>
+				<h1>Tournament Tabler</h1>
+			</a>
 			<section className={s.mainSection}>
 				<RoundInfoCard />
 
@@ -42,7 +43,12 @@ const App = () => {
 					Generate Table
 				</button>
 
-				{markdownShown && <MarkdownCode refContainer={markdownEl} />}
+				{resultsShown && (
+					<>
+						<MarkdownCode refContainer={markdownEl} />
+						<TablePreview />
+					</>
+				)}
 			</section>
 			<Toasts />
 		</main>

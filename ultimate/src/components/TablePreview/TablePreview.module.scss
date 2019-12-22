@@ -1,0 +1,81 @@
+.title {
+	text-align: left;
+	margin-bottom: 5px;
+	font-size: 25px;
+	color: rgba(255, 255, 255, 0.6);
+	margin-top: 30px;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	background-color: white;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.tournamentTable {
+	display: inline-block;	
+	border-collapse: collapse;
+	* {
+		color: #222;
+		font-family: "Verdana", "Arial", "Helvetica", sans-serif;
+		font-weight: 300;
+		font-size: 13px;
+	}
+
+	b, em{
+		font-weight: 600;
+		line-height: 1.6em;
+	}
+
+	span {
+		line-height: 1.6em;
+	}
+
+	h1 {
+		font-size: 18px;
+		margin-bottom: 15px;
+		font-weight: 600;
+	}
+
+	a {
+		color: #0079d3;
+		&:visited {
+			color: #952eb8;
+		}
+	}
+
+	table {
+		margin-top: 8px;
+	}
+
+	th {
+		font-weight: 600;
+	}
+
+	th,
+	td {
+		padding: 4px 9px;
+		border: 1px solid #cfcfcf;
+		vertical-align: middle;
+		i {
+			transform: scale(0.7);
+			transform-origin: top left;
+			margin-bottom: -10px;
+			margin-right: -10px;
+		}
+	}
+
+	code {
+		border: 1px solid #eeeed2;
+    background-color: #fcfcf7;
+    padding-left: 4px;
+    padding-right: 4px;
+		border-radius: 2px;
+		margin: 5px;
+		vertical-align: middle;
+	}
+
+}

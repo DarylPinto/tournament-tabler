@@ -19,7 +19,7 @@ interface Props {
 const StockIcon = ({ smashTitle, character, onClick }: Props) => {	
 	return (
 		<i
-			className={`${s.stockIcon} ${s[character as string]}`}
+			className={`${s.stockIcon} ${s[character]}`}
 			onClick={onClick}
 		/>
 	);
