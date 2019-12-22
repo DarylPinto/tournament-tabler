@@ -16,7 +16,9 @@ interface Props {
 	onClick?: () => void;
 };
 
-const StockIcon = ({ smashTitle, character, onClick }: Props) => {	
+const StockIcon = ({ smashTitle, character, onClick }: Props) => {
+	if(!character) return null;
+
 	return (
 		<i
 			className={`${s.stockIcon} ${s[character]}`}

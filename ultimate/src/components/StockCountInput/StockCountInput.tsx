@@ -11,9 +11,9 @@ import { useSelector } from "react-redux";
  */
 
 interface Props {
-	stockIcon: string,
-	value: number,
-	maxValue: number,
+	stockIcon: string;
+	value: number;
+	maxValue: number;
 	onChange: (newValue: number) => any;
 }
 
@@ -28,7 +28,11 @@ const StockCountInput = ({ stockIcon, value, maxValue, onChange }: Props) => {
 			<>
 				{icons.map((_, i) => (
 					<li key={i} onClick={() => onChange(i + 1)}>
-						<StockIcon smashTitle={smashTitle} character={stockIcon} />
+						{stockIcon ? (
+							<StockIcon smashTitle={smashTitle} character={stockIcon} />
+						) : (
+							<div className={s.blankCharacter} />
+						)}
 					</li>
 				))}
 			</>

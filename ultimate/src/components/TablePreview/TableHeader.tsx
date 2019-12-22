@@ -6,15 +6,13 @@ const HeaderCell = ({ players, playerIndex }) => {
 	const player = players[playerIndex];
 	return (
 		<>
+			{playerIndex === 1 ? player.tag : null}
 			{player.mains.ultimate
 				.filter(character => !!character)
 				.map(character => (
-					<>
-						{playerIndex === 1 ? player.tag : null}{" "}
-						<StockIcon smashTitle="ultimate" character={character} />{" "}
-						{playerIndex === 0 ? player.tag : null}
-					</>
+					<StockIcon smashTitle="ultimate" character={character} />
 				))}
+			{playerIndex === 0 ? player.tag : null}
 		</>
 	);
 };

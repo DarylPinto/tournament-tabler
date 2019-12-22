@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { showNotification } from "./store/slices/notifications";
 
 const App = () => {
-	const [resultsShown, setResultsShown] = useState(true);
+	const [resultsShown, setResultsShown] = useState(false);
 	const markdownEl = useRef(null);
 	const players = useSelector(state => state.players);
 	const dispatch = useDispatch();

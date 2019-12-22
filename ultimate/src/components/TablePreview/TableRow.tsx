@@ -18,16 +18,17 @@ const StockSet = ({ match, playerIndex }) => {
 };
 
 const TableRow = ({ match }) => {
+	const { characters } = match;
 	return (
 		<tr>
 			<td align="right"><StockSet match={match} playerIndex={0} /></td>
 			<td align="center">
 				<code>=</code>
-				<StockIcon smashTitle="ultimate" character={match.characters[0]} />
+				<StockIcon smashTitle="ultimate" character={characters[0]} />
 			</td>
 			<td align="center">{match.stage}</td>
 			<td align="left">
-				<StockIcon smashTitle="ultimate" character={match.characters[1]} />
+				<StockIcon smashTitle="ultimate" character={characters[1]} />
 				<code>=</code>
 			</td>
 			<td align="left"><StockSet match={match} playerIndex={1} /></td>
