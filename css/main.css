@@ -120,9 +120,12 @@ option{
 	margin-bottom: 30px;
 }
 
+.game-choice img {
+	max-width: 240px;
+}
+
 .games-row:nth-of-type(2){
-	position: relative;
-	left: 140px;
+	margin-top: 150px;
 }
 
 /*===Tutorial Info===*/
