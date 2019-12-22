@@ -46,7 +46,7 @@ let characters = [
 	{ name: "KingDedede" },
 	{ name: "Olimar" },
 	{ name: "Lucario" },
-	{ name: "ROB", aliases: ["R. O. B."] },
+	{ name: "ROB", aliases: ["R. O. B.", "R.O.B."] },
 	{ name: "ToonLink" },
 	{ name: "Wolf" },
 	{ name: "Villager" },
