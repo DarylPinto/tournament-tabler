@@ -58,14 +58,9 @@ const PlayerCard = ({ playerIndex }: Props) => {
 		setIsLoading(true);
 		// Query API for player data
 		const res = await fetch(`http://localhost:3001/${tag}`);
-		const data = await res.json();
+		let data = await res.json();
 		// If player data is not found, exit early
 		if (data.message === "Not Found") return setIsLoading(false);
-
-		// Truncate mains to 2 maximum
-		for (const smashTitle in data.mains) {
-			data.mains[smashTitle] = data.mains[smashTitle].slice(0, 2);
-		}
 		// Update player data in store
 		dispatch(updatePlayer({ playerIndex, update: data }));
 		// Show toast notification

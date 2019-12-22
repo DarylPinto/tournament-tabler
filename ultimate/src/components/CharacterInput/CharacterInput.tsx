@@ -15,7 +15,8 @@ import { useSelector } from "react-redux";
 
 // Chunk the characters into rows similar to the
 // in-game character select screen
-const characterRows = chunk(characterData, 13);
+const characters = characterData.map(character => character.name);
+const characterRows = chunk(characters, 13);
 
 interface Props {
 	value: string;
@@ -38,7 +39,7 @@ const CharacterInput = ({ value, onChange }: Props) => {
 			{/* Input box */}
 			<div className={s.selectionBox} onClick={() => setModalOpen(true)}>
 				<StockIcon smashTitle={smashTitle} character={value} />
-			</div>	
+			</div>
 
 			{/* Modal to select character */}
 			<Modal isOpen={modalOpen} close={() => setModalOpen(false)}>

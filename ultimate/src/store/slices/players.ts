@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Player } from "../../data/customTypes";
+import resolveCharacter from "../../util/resolveCharacter";
 
 const initialState: Player[] = [
 	{
@@ -31,16 +32,21 @@ const playersSlice = createSlice({
 	initialState: initialState,
 	reducers: {
 		updatePlayer: (state, action) => {
-			const { playerIndex } = action.payload;
+			const { update, playerIndex } = action.payload;
+			const { mains } = update;
+			for (const smashTitle in update.mains) {
+				mains[smashTitle] = mains[smashTitle].map(resolveCharacter);
+				mains[smashTitle] = mains[smashTitle].slice(0, 2);
+			}
 			let targetPlayer = state[playerIndex];
-			targetPlayer = Object.assign({}, targetPlayer, action.payload.update);
+			targetPlayer = Object.assign({}, targetPlayer, update);
 			state[playerIndex] = targetPlayer;
 			return state;
 		},
 		updateMains: (state, action) => {
 			const { playerIndex, smashTitle, mainIndex, character } = action.payload;
 			let targetPlayer = state[playerIndex];
-			targetPlayer.mains[smashTitle][mainIndex] = character;
+			targetPlayer.mains[smashTitle][mainIndex] = resolveCharacter(character);
 		}
 	}
 });
