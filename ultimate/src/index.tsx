@@ -6,6 +6,8 @@ import store from "./store";
 import App from "./App";
 import "./assets/styles/global.scss";
 
+document.title = "Ultimate - r/smashbros Tournament Tabler";
+
 ReactDOM.render(
 	<Provider store={store}>
 		<App />

@@ -36,7 +36,10 @@ let characters = [
 	{ name: "Wario" },
 	{ name: "Snake" },
 	{ name: "Ike" },
-	{ name: "PokemonTrainer", aliases: ["Pokémon Trainer"] },
+	{
+		name: "PokemonTrainer",
+		aliases: ["Pokémon Trainer", "Squirtle", "Ivysaur", "Charizard"]
+	},
 	{ name: "DiddyKong" },
 	{ name: "Lucas" },
 	{ name: "Sonic" },
