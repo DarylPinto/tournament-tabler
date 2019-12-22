@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import s from "./PlayerCard.module.scss";
 import CharacterInput from "../CharacterInput";
 import Modal from "../Modal";
+import { SMASHER_API_URL} from "../../data/constants";
 import { updateMains, updatePlayer } from "../../store/slices/players";
 import { showNotification } from "../../store/slices/notifications";
 import { useSelector, useDispatch } from "react-redux";
@@ -57,7 +58,7 @@ const PlayerCard = ({ playerIndex }: Props) => {
 	const autofillPlayer = async (tag: string) => {
 		setIsLoading(true);
 		// Query API for player data
-		const res = await fetch(`http://localhost:3001/${tag}`);
+		const res = await fetch(`${SMASHER_API_URL}/${tag}`);
 		let data = await res.json();
 		// If player data is not found, exit early
 		if (data.message === "Not Found") return setIsLoading(false);
