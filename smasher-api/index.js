@@ -40,7 +40,7 @@ app.get("/:smasher", async (req, res) => {
 
 	// Scrape the wiki page HTML for relevant data
 	const mains = game => {
-		const el = $(`.infobox th:contains('${game}'):contains('main')`);
+		const el = $(`.infobox th:contains('${game}'):contains('main')`).first();
 		if (el.length === 0) return [];
 		return el
 			.next()
