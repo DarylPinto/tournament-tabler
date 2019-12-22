@@ -14,7 +14,6 @@ const resolveCharacter = character => {
 			aliases.includes(character)
 		);
 	});
-	console.log(character, resolved);
 	return resolved.name;
 };
 
