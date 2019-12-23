@@ -1,8 +1,10 @@
 import React from "react";
 import StockIcon from "../StockIcon";
 import getScore from "../../util/getScore";
+import { useSelector } from "react-redux";
 
 const HeaderCell = ({ players, playerIndex }) => {
+	const smashTitle = useSelector(state => state.tournament.smashTitle)
 	const player = players[playerIndex];
 	return (
 		<>
@@ -10,7 +12,7 @@ const HeaderCell = ({ players, playerIndex }) => {
 			{player.mains.ultimate
 				.filter(character => !!character)
 				.map(character => (
-					<StockIcon smashTitle="ultimate" character={character} />
+					<StockIcon smashTitle={smashTitle} character={character} />
 				))}
 			{" "}{playerIndex === 0 ? player.tag : null}
 		</>

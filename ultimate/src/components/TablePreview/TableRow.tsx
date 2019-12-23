@@ -1,9 +1,10 @@
 import React from "react";
 import StockIcon from "../StockIcon";
-import getScore from "../../util/getScore";
+import { useSelector } from "react-redux";
 
 const StockSet = ({ match, playerIndex }) => {
 	const { characters, winnerIndex, stocksRemaining } = match;
+	const smashTitle = useSelector(state => state.tournament.smashTitle);
 
 	if (winnerIndex !== playerIndex) return <>---</>;
 
@@ -11,7 +12,7 @@ const StockSet = ({ match, playerIndex }) => {
 	return (
 		<>
 			{dummyArray.map(_ => (
-				<StockIcon smashTitle="ultimate" character={characters[playerIndex]} />
+				<StockIcon smashTitle={smashTitle} character={characters[playerIndex]} />
 			))}
 		</>
 	);
@@ -19,16 +20,18 @@ const StockSet = ({ match, playerIndex }) => {
 
 const TableRow = ({ match }) => {
 	const { characters } = match;
+	const smashTitle = useSelector(state => state.tournament.smashTitle);
+
 	return (
 		<tr>
 			<td align="right"><StockSet match={match} playerIndex={0} /></td>
 			<td align="center">
 				<code>=</code>
-				<StockIcon smashTitle="ultimate" character={characters[0]} />
+				<StockIcon smashTitle={smashTitle} character={characters[0]} />
 			</td>
 			<td align="center">{match.stage}</td>
 			<td align="left">
-				<StockIcon smashTitle="ultimate" character={characters[1]} />
+				<StockIcon smashTitle={smashTitle} character={characters[1]} />
 				<code>=</code>
 			</td>
 			<td align="left"><StockSet match={match} playerIndex={1} /></td>

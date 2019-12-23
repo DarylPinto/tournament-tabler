@@ -33,6 +33,7 @@ const PlayerCard = ({ playerIndex }: Props) => {
 	const [additionalInfoShown, setAdditionalInfoShown] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const player = useSelector(state => state.players[playerIndex]);
+	const smashTitle = useSelector(state => state.tournament.smashTitle);
 	const dispatch = useDispatch();
 
 	// Update a particular property of the player object
@@ -47,7 +48,7 @@ const PlayerCard = ({ playerIndex }: Props) => {
 	const setMain = (index, character) => {
 		const payload = {
 			playerIndex,
-			smashTitle: "ultimate",
+			smashTitle,
 			mainIndex: index,
 			character
 		};
