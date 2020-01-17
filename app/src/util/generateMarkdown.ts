@@ -71,11 +71,12 @@ const generateMarkdown = (tournament, players: Player[], matches: Match[]) => {
 		const stockSet = character => {
 			if (stocksRemaining === 0) return "---";
 			else if (stocksRemaining === 1) return stockIcon(character, "1 stock");
-			// First stock contains alt text with stock count
-			// subsequent stocks have no alt text
+			// Last stock contains alt text with stock count
+			// previous stocks have no alt text
 			let ret = stockIcon(character, `${stocksRemaining} stocks`);
 			for (let i = 0; i < stocksRemaining - 1; i++)
-				ret += stockIcon(character, "");
+				ret = stockIcon(character, "") + ret;
+
 			return ret;
 		};
 
