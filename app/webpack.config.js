@@ -71,7 +71,8 @@ module.exports = {
 		contentBase: __dirname,
 		compress: true,
 		port: 3000,
-		overlay: true
+		overlay: true,
+		historyApiFallback: true
 	},
 	plugins: [
 		new HtmlWebPackPlugin({
