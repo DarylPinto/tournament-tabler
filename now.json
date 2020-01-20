@@ -1,0 +1,7 @@
+{
+	"name": "tournament-tabler",
+	"routes": [
+		{ "handle": "filesystem" },
+		{ "src": "/.*", "dest": "/index.html" }
+	]
+}

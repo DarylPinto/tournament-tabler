@@ -14,6 +14,10 @@ const cssLoader = {
 };
 
 module.exports = {
+	output: {
+    path: path.resolve(__dirname, 'public'),
+    filename: 'main.js'
+  },
 	module: {
 		rules: [
 			{
@@ -76,7 +80,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebPackPlugin({
-			template: "./public/index.html",
+			template: "./src/static/index.html",
 			filename: "./index.html",
 			minify: {
 				collapseWhitespace: true,
@@ -86,7 +90,7 @@ module.exports = {
 		}),
 		new CopyPlugin([
 			{
-				context: "./public",
+				context: "./src/static",
 				from: "**/*.!(html)",
 				to: "./"
 			}
