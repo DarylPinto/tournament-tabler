@@ -19,7 +19,7 @@ const MatchesCard = () => {
 	const [matchIndex, setMatchIndex] = useState(0);
 	const matches = useSelector(state => state.matches);
 	const match = matches[matchIndex];
-	const players = useSelector(state => state.players);
+	const players = useSelector(state => state.players.present);
 	const P1 = players[0];
 	const P2 = players[1];
 	const dispatch = useDispatch();

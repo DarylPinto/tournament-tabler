@@ -5,6 +5,7 @@ const MAX_NOTIFICATION_COUNT = 5;
 interface Notification {
 	id: string;
 	content: string;
+	isUndoable: boolean;
 }
 
 const initialState: Notification[] = [];
@@ -24,21 +25,26 @@ const notificationsSlice = createSlice({
 	}
 });
 
-// Thunk action-creator to show an action
+// Thunk action-creator to show a notification
 // dispatches `createNotification` and then dispatches `destroyNotification`
 // after `duration` ms
-export const showNotification = (content: string, duration: number) => {
+export const showNotification = (
+	content: string,
+	duration: number,
+	isUndoable: boolean
+) => {
 	const { actions } = notificationsSlice;
 	const { createNotification, destroyNotification } = actions;
 
 	const id = Date.now().toString();
 
 	return dispatch => {
-		dispatch(createNotification({ id, content }));
+		dispatch(createNotification({ id, content, isUndoable }));
 		setTimeout(() => {
 			dispatch(destroyNotification({ id }));
 		}, duration);
 	};
 };
 
+export const { destroyNotification } = notificationsSlice.actions;
 export default notificationsSlice.reducer;

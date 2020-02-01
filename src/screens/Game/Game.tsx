@@ -12,12 +12,12 @@ import { showNotification } from "../../store/slices/notifications";
 const App = () => {
 	const [resultsShown, setResultsShown] = useState(false);
 	const markdownEl = useRef(null);
-	const players = useSelector(state => state.players);
+	const players = useSelector(state => state.players.present);
 	const dispatch = useDispatch();
 
 	const handleGenerateBtnClick = () => {
 		setResultsShown(true);
-		dispatch(showNotification("Code selected! Ctrl+C to copy!", 3000));
+		dispatch(showNotification("Code selected! Ctrl+C to copy!", 3000, false));
 		setTimeout(() => {
 			window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
 			markdownEl.current ? markdownEl.current.select() : null;
