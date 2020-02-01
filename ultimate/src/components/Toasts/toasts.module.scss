@@ -3,7 +3,6 @@
 	padding: 20px;
 	bottom: 0;
 	left: 0;
-	pointer-events: none;
 	ul {
 		display: flex;
 		flex-direction: column;
@@ -12,14 +11,32 @@
 }
 
 .toast {
+	display: flex;
+	align-items: center;
+	height: 56px;
 	background-color: black;
 	box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
 	color: white;
 	padding: 20px 15px;
 	margin-bottom: 10px;
 	border-radius: 4px;
-	display: inline-block;
 	transition: 500ms;
+}
+
+.undoBtn {
+	color: #a3c4fc;
+	background-color: transparent;
+	margin-left: 12px;
+	margin-right: -10px;
+	padding: 13px;
+	outline: 0;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 3px;
+	transition: .3s;
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.1);
+	}
 }
 
 .toastEnter {	

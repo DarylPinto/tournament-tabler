@@ -5,7 +5,7 @@ import generateMarkdown from "../../util/generateMarkdown";
 
 const MarkdownCode = ({ refContainer }) => {
 	const tournament = useSelector(state => state.tournament);
-	const players = useSelector(state => state.players);
+	const players = useSelector(state => state.players.present);
 	const matches = useSelector(state => state.matches);
 	const markdown = generateMarkdown(tournament, players, matches);
 

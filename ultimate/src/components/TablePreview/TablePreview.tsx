@@ -8,7 +8,7 @@ import TableRow from "./TableRow";
 const TablePreview = () => {
 	const tournament = useSelector(state => state.tournament);
 	const matches = useSelector(state => state.matches);
-	const players = useSelector(state => state.players);
+	const players = useSelector(state => state.players.present);
 
 	return (
 		<>

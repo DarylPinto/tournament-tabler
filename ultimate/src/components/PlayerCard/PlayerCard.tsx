@@ -32,7 +32,7 @@ interface Props {
 const PlayerCard = ({ playerIndex }: Props) => {
 	const [additionalInfoShown, setAdditionalInfoShown] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
-	const player = useSelector(state => state.players[playerIndex]);
+	const player = useSelector(state => state.players.present[playerIndex]);
 	const smashTitle = useSelector(state => state.tournament.smashTitle);
 	const dispatch = useDispatch();
 
@@ -68,7 +68,7 @@ const PlayerCard = ({ playerIndex }: Props) => {
 		// Show toast notification
 		// prettier-ignore
 		const toastMsg = `Automatically loaded smasher data for player ${playerIndex + 1}`;
-		dispatch(showNotification(toastMsg, 4000));
+		dispatch(showNotification(toastMsg, 10000, true));
 		setIsLoading(false);
 	};
 
