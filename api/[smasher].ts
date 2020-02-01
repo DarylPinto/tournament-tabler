@@ -1,8 +1,6 @@
-const express = require("express");
-const axios = require("axios");
-const cheerio = require("cheerio");
-const app = express();
-const port = 3032;
+import { NowRequest, NowResponse } from "@now/node";
+import axios from "axios";
+import cheerio from "cheerio";
 
 //Useful stack trace for unhandledRejection errors
 // eslint-disable-next-line no-console
@@ -15,16 +13,11 @@ const WIKI_PAGE_ID_URL =
 const WIKI_PAGE_NAME_URL =
 	"https://www.ssbwiki.com/api.php?format=json&action=parse&page=";
 
-app.get("/", (req, res) => {
-	res.header("Access-Control-Allow-Origin", "*");
-	return res.status(400).send({ message: "Invalid route", error: 400 });
-});
+export default async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
 
-app.get("/:smasher", async (req, res) => {
-	res.header("Access-Control-Allow-Origin", "*");
-
-	// Query the API with `smasher` request param
-	let search_res = await axios.get(`${WIKI_SEARCH_URL}${req.params.smasher}`);
+	// Query the API with `tag` query param
+	let search_res = await axios.get(`${WIKI_SEARCH_URL}${req.query.smasher}`);
 	if (search_res.data.query.searchinfo.totalhits === 0) {
 		return res.status(404).send({ message: "Not Found", error: 404 });
 	}
@@ -95,9 +88,4 @@ app.get("/:smasher", async (req, res) => {
 		wiki,
 		team: sponsor
 	});
-});
-
-app.listen(port, () => {
-	// eslint-disable-next-line no-console
-	console.log(`Listening on ${port}`);
-});
+};
