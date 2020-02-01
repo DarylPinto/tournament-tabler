@@ -14,6 +14,9 @@ const cssLoader = {
 };
 
 module.exports = {
+	output: {
+    filename: 'bundle.[hash].js'
+  },
 	module: {
 		rules: [
 			{
