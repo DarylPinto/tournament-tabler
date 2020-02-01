@@ -15,9 +15,9 @@ const cssLoader = {
 
 module.exports = {
 	output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: 'main.js'
-  },
+		path: path.resolve(__dirname, "public"),
+		filename: "bundle.[hash].js"
+	},
 	module: {
 		rules: [
 			{
