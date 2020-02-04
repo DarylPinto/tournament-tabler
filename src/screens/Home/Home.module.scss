@@ -1,19 +1,3 @@
-.logo {
-	text-decoration: none;
-	h1 {
-		margin: 0 auto;
-		margin-left: 30px;
-		margin-top: 20px;
-		font-family: "Merriweather", serif;
-		font-style: italic;
-		color: white;
-		font-size: 55px;
-		text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
-		position: relative;
-		bottom: -7px;
-	}
-}
-
 .links a {
 	display: block;
 }
@@ -21,9 +5,61 @@
 .mainSection {
 	display: flex;
 	flex-direction: column;
-	min-width: 1040px;
+	max-width: 1040px;
 	padding: 30px;
 	margin-bottom: 45px;
 	background-color: rgba(0, 0, 0, 0.35);
 	border-radius: 4px;
+}
+
+.gameSelection {
+	.smashTitleLinks {
+		display: flex;
+		flex-wrap: wrap;
+		a {
+			width: 33%;
+			margin: 20px 0;
+			transition: 0.2s;
+			&:hover {
+				transform: scale(1.05);
+			}
+			img {
+				max-width: 240px;
+			}
+		}
+	}
+}
+
+.gameSelection,
+.about {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.35);
+	text-align: center;
+	padding: 20px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	h2 {
+		font-size: 20px;
+		display: inline-block;
+		margin-bottom: 20px;
+		padding: 3px;
+		padding-bottom: 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+		color: rgba(255, 255, 255, 0.75);
+		font-style: italic;
+	}
+	p {
+		font-style: italic;
+		color: rgba(255, 255, 255, 0.75);
+		line-height: 1.8;
+		font-size: 13px;
+		font-weight: 300;
+		max-width: 570px;
+		margin: auto;
+	}
 }
