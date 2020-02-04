@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import s from "./Game.module.scss";
-import Logo from "../../components/Logo"
+import Logo from "../../components/Logo";
 import RoundInfoCard from "../../components/RoundInfoCard";
 import PlayerCard from "../../components/PlayerCard";
 import MatchesCard from "../../components/MatchesCard";
@@ -10,7 +10,7 @@ import Toasts from "../../components/Toasts";
 import { useSelector, useDispatch } from "react-redux";
 import { showNotification } from "../../store/slices/notifications";
 
-const App = () => {
+const Game = () => {
 	const [resultsShown, setResultsShown] = useState(false);
 	const markdownEl = useRef(null);
 	const players = useSelector(state => state.players.present);
@@ -54,4 +54,4 @@ const App = () => {
 	);
 };
 
-export default App;
+export default Game;
