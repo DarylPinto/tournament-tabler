@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import s from "./Game.module.scss";
+import Logo from "../../components/Logo"
 import RoundInfoCard from "../../components/RoundInfoCard";
 import PlayerCard from "../../components/PlayerCard";
 import MatchesCard from "../../components/MatchesCard";
@@ -26,9 +27,7 @@ const App = () => {
 
 	return (
 		<main>
-			<a href="/" className={s.logo}>
-				<h1>Tournament Tabler</h1>
-			</a>
+			<Logo />
 			<section className={s.mainSection}>
 				<RoundInfoCard />
 

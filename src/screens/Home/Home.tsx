@@ -1,17 +1,35 @@
-import React from 'react';
+import React from "react";
+import Logo from "../../components/Logo";
 import { Link } from "react-router-dom";
+import smashTitleLinkData from "./smashTitleLinkData.json";
 import s from "./Home.module.scss";
 
 const Home = () => {
 	return (
-		<div className={s.links}>
-			<Link to="/smash64">Smash 64</Link>
-			<Link to="/melee">Melee</Link>
-			<Link to="/brawl">Brawl</Link>
-			<Link to="/projectm">Project M</Link>
-			<Link to="/smash4">Smash 4</Link>
-			<Link to="/ultimate">Ultimate</Link>
-		</div>
+		<main>
+			<Logo />
+			<section className={s.mainSection}>
+				<div className={s.gameSelection}>
+					<h2>Select a game</h2>
+					<div className={s.smashTitleLinks}>
+						{smashTitleLinkData.map(({ name, link, image }) => (
+							<Link to={link}>
+								<img src={`/images/game-logos/${image}`} alt={name} />
+							</Link>
+						))}
+					</div>
+				</div>
+				<div className={s.about}>
+					<h2>About</h2>
+					<p>
+						Tournament Tabler is an easy-to-use tool made to generate detailed
+						set tables for /r/smashbros tournament result threads. Fill in
+						information for each game while watching the set, then once it's
+						over click "Generate Table" and BAM: Instant table.
+					</p>
+				</div>
+			</section>
+		</main>
 	);
 };
 
