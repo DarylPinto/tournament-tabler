@@ -25,7 +25,7 @@
 	"rules": {
 		"react/jsx-uses-vars": "error",
 		"react/jsx-uses-react": "error",
-		"import/no-relative-parent-imports": "error",
+		"react/jsx-key": "warn",
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
 		"indent": [

@@ -7,14 +7,14 @@ const generateMarkdown = (tournament, players: Player[], matches: Match[]) => {
 	const { streamLink } = tournament;
 
 	/**
-	 * Stock Icon markdown with appropriate smashTitle prefix & alt text
+	 * Stock Icon markdown with appropriate r/smashbros CSS prefix & alt text
 	 * @param character character to show in stock icon
 	 * @param altText stock icon alt text
 	 * @returns [](#MeleeFox)
 	 */
 	const stockIcon = (character: string, altText: string) => {
 		const stockPrefixDict = {
-			s64: "S64",
+			smash64: "S64",
 			melee: "Melee",
 			brawl: "Brawl",
 			pm: "Pm",
@@ -33,7 +33,7 @@ const generateMarkdown = (tournament, players: Player[], matches: Match[]) => {
 	const playerSummary = (playerIndex: number) => {
 		const { tag, name, twitch, twitter, wiki, team } = players[playerIndex];
 		const fields = { twitch, twitter, wiki, team };
-	
+
 		let ret = `**${getPlayerFullName(name, tag)}**`;
 		if (!Object.values(fields).every(field => field === "")) ret += " // ";
 		let social = Object.entries(fields)

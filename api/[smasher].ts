@@ -13,7 +13,7 @@ const WIKI_PAGE_ID_URL =
 const WIKI_PAGE_NAME_URL =
 	"https://www.ssbwiki.com/api.php?format=json&action=parse&page=";
 
-export default async (req, res) => {
+export default async (req: NowRequest, res: NowResponse) => {
 	res.setHeader("Access-Control-Allow-Origin", "*");
 
 	// Query the API with `tag` query param
@@ -76,7 +76,7 @@ export default async (req, res) => {
 		tag: tag,
 		name: fullName,
 		mains: {
-			s64: mains("SSB64"),
+			smash64: mains("SSB64"),
 			melee: mains("Melee"),
 			brawl: mains("Brawl"),
 			pm: mains("Project M"),

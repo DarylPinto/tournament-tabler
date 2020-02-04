@@ -4,7 +4,7 @@
 		"git add"
 	],
 	"*.{ts,tsx,js}": [
-		"eslint --fix",
+		"eslint . --ext .js,.ts,.tsx",
 		"git add"
 	]
 }

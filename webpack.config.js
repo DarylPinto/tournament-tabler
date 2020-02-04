@@ -76,7 +76,8 @@ module.exports = {
 		compress: true,
 		port: 3000,
 		overlay: true,
-		historyApiFallback: true
+		historyApiFallback: true,
+		stats: "minimal"
 	},
 	plugins: [
 		new HtmlWebPackPlugin({

@@ -1,15 +1,20 @@
 export type SmashTitle =
-	| "s64"
+	| "smash64"
 	| "melee"
 	| "brawl"
 	| "pm"
 	| "smash4"
 	| "ultimate";
 
+export interface SmashGame {
+	fullTitle: string;
+	title: SmashTitle;
+}
+
 export interface Player {
 	tag: string;
 	mains: {
-		s64?: string[];
+		smash64?: string[];
 		melee?: string[];
 		brawl?: string[];
 		pm?: string[];

@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../../components/Logo";
 import { Link } from "react-router-dom";
-import smashTitleLinkData from "./smashTitleLinkData.json";
+import smashGames from "../../data/smashGames";
 import s from "./Home.module.scss";
 
 const Home = () => {
@@ -12,9 +12,13 @@ const Home = () => {
 				<div className={s.gameSelection}>
 					<h2>Select a game</h2>
 					<div className={s.smashTitleLinks}>
-						{smashTitleLinkData.map(({ name, link, image }) => (
-							<Link to={link}>
-								<img src={`/images/game-logos/${image}`} alt={name} />
+						{smashGames.map(game => (
+							<Link to={`/${game.title}`} key={game.title}>
+								<img
+									src={`/images/game-logos/${game.title}.png`}
+									alt={game.fullTitle}
+									title={game.fullTitle}
+								/>
 							</Link>
 						))}
 					</div>
