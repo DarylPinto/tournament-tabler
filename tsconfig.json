@@ -8,6 +8,12 @@
 		"allowSyntheticDefaultImports": true,
 		"noImplicitAny": false,
 		"esModuleInterop": true,
-		"resolveJsonModule": true
+		"resolveJsonModule": true,
+		"baseUrl": ".",
+		"paths": {
+			"~/*": [
+				"src/*"
+			]
+		}
 	}
 }

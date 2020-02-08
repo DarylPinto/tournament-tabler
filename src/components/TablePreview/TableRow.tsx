@@ -1,5 +1,5 @@
 import React from "react";
-import StockIcon from "../StockIcon";
+import StockIcon from "~/components/StockIcon";
 import { useSelector } from "react-redux";
 
 const StockSet = ({ match, playerIndex }) => {

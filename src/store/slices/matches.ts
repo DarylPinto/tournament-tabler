@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Match } from "../../data/customTypes";
+import { Match } from "~/data/customTypes";
 
 const MATCH_COUNT = 5;
 

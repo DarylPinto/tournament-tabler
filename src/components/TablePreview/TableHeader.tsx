@@ -1,6 +1,6 @@
 import React from "react";
-import StockIcon from "../StockIcon";
-import getScore from "../../util/getScore";
+import StockIcon from "~/components/StockIcon";
+import getScore from "~/util/getScore";
 import { useSelector } from "react-redux";
 
 const HeaderCell = ({ players, playerIndex }) => {

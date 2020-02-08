@@ -1,17 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./screens/Home";
-import Game from "./screens/Game";
-
-const games = ["smash64", "melee", "brawl", "projectm", "smash4", "ultimate"];
+import smashGames from "~/data/smashGames";
+import HomeScreen from "~/screens/Home";
+import GameScreen from "~/screens/Game";
 
 function App() {
 	return (
 		<Router>
 			<Switch>
-				<Route key="home" exact path="/" component={Home} />
-				{games.map(game => (
-					<Route key={game} exact path={`/${game}`} component={Game} />
+				<Route key="home" exact path="/" component={HomeScreen} />
+				{smashGames.map(game => (
+					<Route key={game.title} exact path={`/${game.title}`} component={GameScreen} />
 				))}
 			</Switch>
 		</Router>

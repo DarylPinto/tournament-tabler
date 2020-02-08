@@ -1,6 +1,6 @@
 import React from "react";
-import getPlayerFullName from "../../util/getPlayerFullName";
-import toTitleCase from "../../util/toTitleCase";
+import getPlayerFullName from "~/util/getPlayerFullName";
+import toTitleCase from "~/util/toTitleCase";
 
 const PlayerLinks = ({ player }) => {
 	const { twitch, twitter, wiki, team } = player;

@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./StockCountInput.module.scss";
-import StockIcon from "../StockIcon";
+import StockIcon from "~/components/StockIcon";
 import { useSelector } from "react-redux";
 
 /**

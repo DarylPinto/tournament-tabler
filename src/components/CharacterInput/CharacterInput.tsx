@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import chunk from "lodash.chunk";
 import s from "./CharacterInput.module.scss";
-import Modal from "../Modal";
-import StockIcon from "../StockIcon";
-import characterData from "../../data/characters";
+import Modal from "~/components/Modal";
+import StockIcon from "~/components/StockIcon";
+import characterData from "~/data/characters";
 import { useSelector } from "react-redux";
 
 /**

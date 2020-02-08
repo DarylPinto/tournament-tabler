@@ -1,10 +1,10 @@
 import React from "react";
-import Logo from "../../components/Logo";
+import Logo from "~/components/Logo";
 import { Link } from "react-router-dom";
-import smashGames from "../../data/smashGames";
+import smashGames from "~/data/smashGames";
 import s from "./Home.module.scss";
 
-const Home = () => {
+const HomeScreen = () => {
 	return (
 		<main>
 			<Logo />
@@ -37,4 +37,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default HomeScreen;

@@ -3,7 +3,7 @@ import s from "./toasts.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { ActionCreators as reduxUndoActionCreators } from "redux-undo";
-import { destroyNotification } from "../../store/slices/notifications";
+import { destroyNotification } from "~/store/slices/notifications";
 
 const Toasts = () => {
 	const notifications = useSelector(state => state.notifications);

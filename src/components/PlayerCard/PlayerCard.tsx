@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import s from "./PlayerCard.module.scss";
-import CharacterInput from "../CharacterInput";
-import Modal from "../Modal";
-import { SMASHER_API_URL} from "../../data/constants";
-import { updateMains, updatePlayer } from "../../store/slices/players";
-import { showNotification } from "../../store/slices/notifications";
+import CharacterInput from "~/components/CharacterInput";
+import Modal from "~/components/Modal";
+import { SMASHER_API_URL} from "~/data/constants";
+import { updateMains, updatePlayer } from "~/store/slices/players";
+import { showNotification } from "~/store/slices/notifications";
 import { useSelector, useDispatch } from "react-redux";
-import loading from "../../assets/images/loading.svg";
+import loading from "~/assets/images/loading.svg";
 
 /**
  * PlayerCard Component

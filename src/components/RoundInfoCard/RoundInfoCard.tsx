@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./RoundInfoCard.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { updateTournament } from "../../store/slices/tournament";
+import { updateTournament } from "~/store/slices/tournament";
 
 /**
  * RoundInfoCard Component

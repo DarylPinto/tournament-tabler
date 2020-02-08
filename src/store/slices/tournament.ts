@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { SmashTitle } from "../../data/customTypes";
+import { SmashTitle } from "~/data/customTypes";
 
 interface Tournament {
 	smashTitle: SmashTitle;

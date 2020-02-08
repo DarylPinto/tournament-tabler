@@ -1,4 +1,4 @@
-import characterData from "../data/characters";
+import characterData from "~/data/characters";
 
 /**
  * Resolves a character name by checking against aliases

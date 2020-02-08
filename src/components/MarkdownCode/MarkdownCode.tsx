@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./MarkdownCode.module.scss";
 import { useSelector } from "react-redux";
-import generateMarkdown from "../../util/generateMarkdown";
+import generateMarkdown from "~/util/generateMarkdown";
 
 const MarkdownCode = ({ refContainer }) => {
 	const tournament = useSelector(state => state.tournament);

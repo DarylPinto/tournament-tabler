@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import s from "./MatchesCard.module.scss";
-import CharacterInput from "../CharacterInput";
-import MatchWinnerInput from "../MatchWinnerInput";
-import StockCountInput from "../StockCountInput";
-import { updateMatch, updateCharacter } from "../../store/slices/matches";
+import CharacterInput from "~/components/CharacterInput";
+import MatchWinnerInput from "~/components/MatchWinnerInput";
+import StockCountInput from "~/components/StockCountInput";
+import { updateMatch, updateCharacter } from "~/store/slices/matches";
 import { useSelector, useDispatch } from "react-redux";
-import stages from "../../data/stages";
+import stages from "~/data/stages";
 
 /**
  * MatchesCard Component

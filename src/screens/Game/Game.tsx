@@ -1,16 +1,16 @@
 import React, { useState, useRef } from "react";
 import s from "./Game.module.scss";
-import Logo from "../../components/Logo";
-import RoundInfoCard from "../../components/RoundInfoCard";
-import PlayerCard from "../../components/PlayerCard";
-import MatchesCard from "../../components/MatchesCard";
-import MarkdownCode from "../../components/MarkdownCode";
-import TablePreview from "../../components/TablePreview";
-import Toasts from "../../components/Toasts";
+import Logo from "~/components/Logo";
+import RoundInfoCard from "~/components/RoundInfoCard";
+import PlayerCard from "~/components/PlayerCard";
+import MatchesCard from "~/components/MatchesCard";
+import MarkdownCode from "~/components/MarkdownCode";
+import TablePreview from "~/components/TablePreview";
+import Toasts from "~/components/Toasts";
 import { useSelector, useDispatch } from "react-redux";
-import { showNotification } from "../../store/slices/notifications";
+import { showNotification } from "~/store/slices/notifications";
 
-const Game = () => {
+const GameScreen = () => {
 	const [resultsShown, setResultsShown] = useState(false);
 	const markdownEl = useRef(null);
 	const players = useSelector(state => state.players.present);
@@ -54,4 +54,4 @@ const Game = () => {
 	);
 };
 
-export default Game;
+export default GameScreen;

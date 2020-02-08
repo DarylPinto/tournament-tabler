@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Player } from "../../data/customTypes";
-import resolveCharacter from "../../util/resolveCharacter";
+import { Player } from "~/data/customTypes";
+import resolveCharacter from "~/util/resolveCharacter";
 
 const initialState: Player[] = [
 	{
