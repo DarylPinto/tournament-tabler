@@ -22,8 +22,8 @@ const TablePreview = () => {
 						<tbody>
 							{matches
 								.filter(match => !!match.stage)
-								.map(match => (
-									<TableRow match={match} />
+								.map((match, i) => (
+									<TableRow key={i} match={match} />
 								))}
 						</tbody>
 					</table>

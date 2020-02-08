@@ -14,17 +14,14 @@ interface Props {
 	smashTitle: SmashTitle;
 	character: string;
 	onClick?: () => void;
-};
+}
 
+// -> `smashTitle` will be used in the future
+// eslint-disable-next-line no-unused-vars
 const StockIcon = ({ smashTitle, character, onClick }: Props) => {
-	if(!character) return null;
+	if (!character) return null;
 
-	return (
-		<i
-			className={`${s.stockIcon} ${s[character]}`}
-			onClick={onClick}
-		/>
-	);
+	return <i className={`${s.stockIcon} ${s[character]}`} onClick={onClick} />;
 };
 
 export default memo(StockIcon);

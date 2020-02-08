@@ -12,7 +12,7 @@ const PlayerLinks = ({ player }) => {
 		.map((field, i) => {
 			const separator = i === 0 ? " // " : " | ";
 			return (
-				<span>
+				<span key={field[0]}>
 					{separator}
 					<a href={field[1]} target="_blank" rel="noopener noreferrer">
 						{toTitleCase(field[0])}

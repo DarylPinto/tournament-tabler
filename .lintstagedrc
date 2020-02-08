@@ -1,10 +1,4 @@
 {
-	"*.{ts,tsx,js,css,json,html}": [
-		"prettier --write",
-		"git add"
-	],
-	"*.{ts,tsx,js}": [
-		"eslint . --ext .js,.ts,.tsx",
-		"git add"
-	]
+	"*.{ts,tsx,js,css,json,html}": "prettier --write",
+	"*.{ts,tsx,js}": "eslint . --ext .js,.ts,.tsx"
 }

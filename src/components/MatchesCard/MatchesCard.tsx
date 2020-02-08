@@ -58,6 +58,7 @@ const MatchesCard = () => {
 			const payload = { matchIndex, characterIndex: index, character };
 			dispatch(updateCharacter(payload));
 		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [matchIndex]);
 
 	return (

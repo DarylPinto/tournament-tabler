@@ -1,3 +1,4 @@
 node_modules
 build
 public
+declarations.d.ts

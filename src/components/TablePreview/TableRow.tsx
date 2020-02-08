@@ -11,8 +11,12 @@ const StockSet = ({ match, playerIndex }) => {
 	const dummyArray = Array(stocksRemaining).fill(null);
 	return (
 		<>
-			{dummyArray.map(_ => (
-				<StockIcon smashTitle={smashTitle} character={characters[playerIndex]} />
+			{dummyArray.map((_, i) => (
+				<StockIcon
+					key={i}
+					smashTitle={smashTitle}
+					character={characters[playerIndex]}
+				/>
 			))}
 		</>
 	);
@@ -24,7 +28,9 @@ const TableRow = ({ match }) => {
 
 	return (
 		<tr>
-			<td align="right"><StockSet match={match} playerIndex={0} /></td>
+			<td align="right">
+				<StockSet match={match} playerIndex={0} />
+			</td>
 			<td align="center">
 				<code>=</code>
 				<StockIcon smashTitle={smashTitle} character={characters[0]} />
@@ -34,7 +40,9 @@ const TableRow = ({ match }) => {
 				<StockIcon smashTitle={smashTitle} character={characters[1]} />
 				<code>=</code>
 			</td>
-			<td align="left"><StockSet match={match} playerIndex={1} /></td>
+			<td align="left">
+				<StockSet match={match} playerIndex={1} />
+			</td>
 		</tr>
 	);
 };

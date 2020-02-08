@@ -4,17 +4,17 @@ import getScore from "~/util/getScore";
 import { useSelector } from "react-redux";
 
 const HeaderCell = ({ players, playerIndex }) => {
-	const smashTitle = useSelector(state => state.tournament.smashTitle)
+	const smashTitle = useSelector(state => state.tournament.smashTitle);
 	const player = players[playerIndex];
 	return (
 		<>
 			{playerIndex === 1 ? player.tag : null}{" "}
 			{player.mains.ultimate
 				.filter(character => !!character)
-				.map(character => (
-					<StockIcon smashTitle={smashTitle} character={character} />
-				))}
-			{" "}{playerIndex === 0 ? player.tag : null}
+				.map((character, i) => (
+					<StockIcon key={i} smashTitle={smashTitle} character={character} />
+				))}{" "}
+			{playerIndex === 0 ? player.tag : null}
 		</>
 	);
 };

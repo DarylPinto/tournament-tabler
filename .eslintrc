@@ -17,32 +17,17 @@
 		"ecmaVersion": 2018,
 		"sourceType": "module"
 	},
-	"plugins": [
-		"react",
-		"react-hooks",
-		"import"
-	],
+	"plugins": ["react", "react-hooks", "import"],
 	"rules": {
 		"react/jsx-uses-vars": "error",
 		"react/jsx-uses-react": "error",
 		"react/jsx-key": "warn",
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
-		"indent": [
-			"error",
-			"tab"
-		],
-		"linebreak-style": [
-			"error",
-			"unix"
-		],
-		"quotes": [
-			"error",
-			"double"
-		],
-		"semi": [
-			"error",
-			"always"
-		]
+		"no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+		"indent": ["error", "tab"],
+		"linebreak-style": ["error", "unix"],
+		"quotes": ["error", "double"],
+		"semi": ["error", "always"]
 	}
 }
