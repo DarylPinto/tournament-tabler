@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./RoundInfoCard.module.scss";
-import { useSelector, useDispatch } from "react-redux";
 import { updateTournament } from "~/store/slices/tournament";
+import useDebouncedReduxState from "~/hooks/useDebouncedReduxState";
 
 /**
  * RoundInfoCard Component
@@ -10,9 +10,15 @@ import { updateTournament } from "~/store/slices/tournament";
  */
 
 const RoundInfoCard = () => {
-	const round = useSelector(state => state.tournament.round);
-	const streamLink = useSelector(state => state.tournament.streamLink);
-	const dispatch = useDispatch();
+	const [round, setRound] = useDebouncedReduxState(
+		state => state.tournament.round,
+		updateTournament
+	);
+
+	const [streamLink, setStreamLink] = useDebouncedReduxState(
+		state => state.tournament.streamLink,
+		updateTournament
+	);
 
 	return (
 		<div className={s.roundInfoCard}>
@@ -22,14 +28,14 @@ const RoundInfoCard = () => {
 				placeholder="Round"
 				required
 				value={round}
-				onChange={e => dispatch(updateTournament({ round: e.target.value }))}
+				onChange={e => setRound(e.target.value, { round: e.target.value })}
 			/>
 			<input
 				type="text"
 				placeholder="Stream Link (optional but recommended)"
 				value={streamLink}
 				onChange={e =>
-					dispatch(updateTournament({ streamLink: e.target.value }))
+					setStreamLink(e.target.value, { streamLink: e.target.value })
 				}
 			/>
 		</div>
