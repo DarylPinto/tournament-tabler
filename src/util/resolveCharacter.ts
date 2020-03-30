@@ -1,12 +1,14 @@
-import characterData from "~/data/characters";
+import smashGames from "~/data/smashGames";
 
 /**
  * Resolves a character name by checking against aliases
- * from `data/characters.ts`
- * 
+ * from `data/[smashGame]/characters.ts`
+ *
  */
-const resolveCharacter = character => {
-	if(!character) return null;
+const resolveCharacter = (character, smashTitle) => {
+	const characterData = smashGames.find(g => g.title === smashTitle).characters;
+
+	if (!character) return null;
 	const resolved = characterData.find(entry => {
 		const { name, aliases } = entry;
 		return (

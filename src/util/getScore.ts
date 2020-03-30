@@ -1,4 +1,4 @@
-import { Match } from "~/data/customTypes";
+import { Match } from "~/data/types";
 
 /**
  * Score of the set

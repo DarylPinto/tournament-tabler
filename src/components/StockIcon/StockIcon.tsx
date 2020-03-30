@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import s from "./StockIcon.module.scss";
-import { SmashTitle } from "~/data/customTypes";
+import { SmashTitle } from "~/data/types";
 
 /**
  * StockIcon component

@@ -6,9 +6,16 @@ export type SmashTitle =
 	| "smash4"
 	| "ultimate";
 
+export interface Characta {
+	name: string;
+	aliases?: string[];
+}
+
 export interface SmashGame {
 	fullTitle: string;
 	title: SmashTitle;
+	characters: Characta[];
+	stages: string[];
 }
 
 export interface Player {

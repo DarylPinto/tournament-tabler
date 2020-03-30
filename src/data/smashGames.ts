@@ -1,30 +1,10 @@
-import { SmashGame } from "./customTypes";
+import { SmashGame } from "~/data/types";
+import smash64 from "~/data/smash64";
+import brawl from "~/data/brawl";
+import pm from "~/data/pm";
+import smash4 from "~/data/smash4";
+import ultimate from "~/data/ultimate";
 
-const smashGames: SmashGame[] = [
-	{
-		fullTitle: "Super Smash Bros.",
-		title: "smash64"
-	},
-	{
-		fullTitle: "Super Smash Bros. Melee",
-		title: "melee"
-	},
-	{
-		fullTitle: "Super Smash Bros. Brawl",
-		title: "brawl"
-	},
-	{
-		fullTitle: "Super Smash Bros. Project M",
-		title: "pm"
-	},
-	{
-		fullTitle: "Super Smash Bros. for Wii U/3DS",
-		title: "smash4"
-	},
-	{
-		fullTitle: "Super Smash Bros. Ultimate",
-		title: "ultimate"
-	}
-];
+const smashGames: SmashGame[] = [smash64, brawl, pm, smash4, ultimate];
 
 export default smashGames;

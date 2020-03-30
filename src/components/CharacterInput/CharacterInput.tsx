@@ -3,7 +3,7 @@ import chunk from "lodash.chunk";
 import s from "./CharacterInput.module.scss";
 import Modal from "~/components/Modal";
 import StockIcon from "~/components/StockIcon";
-import characterData from "~/data/characters";
+import smashGames from "~/data/smashGames";
 import { useSelector } from "react-redux";
 
 /**
@@ -13,11 +13,6 @@ import { useSelector } from "react-redux";
  * includes input box and modal with stock icons
  */
 
-// Chunk the characters into rows similar to the
-// in-game character select screen
-const characters = characterData.map(character => character.name);
-const characterRows = chunk(characters, 13);
-
 interface Props {
 	value: string;
 	onChange: (character: string) => void;
@@ -26,6 +21,11 @@ interface Props {
 const CharacterInput = ({ value, onChange }: Props) => {
 	const [modalOpen, setModalOpen] = useState(false);
 	const smashTitle = useSelector(state => state.tournament.smashTitle);
+	const characterData = smashGames.find(g => g.title === smashTitle).characters;
+	// Chunk the characters into rows similar to the
+	// in-game character select screen
+	const characters = characterData.map(character => character.name);
+	const characterRows = chunk(characters, 13);
 
 	// When a stock icon is clicked pass the character
 	// to the callback `onChange` and close the modal

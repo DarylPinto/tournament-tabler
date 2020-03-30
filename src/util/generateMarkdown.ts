@@ -1,4 +1,4 @@
-import { Player, Match } from "~/data/customTypes";
+import { Player, Match } from "~/data/types";
 import toTitleCase from "./toTitleCase";
 import getPlayerFullName from "./getPlayerFullName";
 import getScore from "./getScore";

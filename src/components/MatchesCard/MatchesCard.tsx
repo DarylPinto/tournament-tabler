@@ -5,7 +5,7 @@ import MatchWinnerInput from "~/components/MatchWinnerInput";
 import StockCountInput from "~/components/StockCountInput";
 import { updateMatch, updateCharacter } from "~/store/slices/matches";
 import { useSelector, useDispatch } from "react-redux";
-import stages from "~/data/stages";
+import smashGames from "~/data/smashGames";
 
 /**
  * MatchesCard Component
@@ -19,10 +19,13 @@ const MatchesCard = () => {
 	const [matchIndex, setMatchIndex] = useState(0);
 	const matches = useSelector(state => state.matches);
 	const match = matches[matchIndex];
+	const smashTitle = useSelector(state => state.tournament.smashTitle);
+	const stages = smashGames.find(g => g.title === smashTitle).stages;
 	const players = useSelector(state => state.players.present);
 	const P1 = players[0];
 	const P2 = players[1];
 	const dispatch = useDispatch();
+
 
 	/**
 	 * Update a particular property of the current match
