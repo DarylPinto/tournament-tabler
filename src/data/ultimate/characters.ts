@@ -78,6 +78,7 @@ let characters = [
 	{ name: "Hero" },
 	{ name: "Banjo", aliases: ["Banjo & Kazooie"] },
 	{ name: "Terry" },
+	{ name: "Byleth" },
 	{ name: "MiiBrawler" },
 	{ name: "MiiGunner" },
 	{ name: "MiiSwordfighter" }
