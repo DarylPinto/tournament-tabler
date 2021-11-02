@@ -1,5 +1,6 @@
 export default [
 	"Battlefield",
+	"Small Battlefield",
 	"Final Destination",
 	"Pokémon Stadium 2",
 	"Smashville",

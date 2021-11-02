@@ -80,6 +80,11 @@ let characters = [
 	{ name: "Terry" },
 	{ name: "Byleth" },
 	{ name: "MinMin" },
+	{ name: "Steve", aliases: ["Alex", "Enderman", "Zombie"] },
+	{ name: "Sephiroth" },
+	{ name: "Pythra", aliases: ["Pyra", "Mythra", "Aegis"] },
+	{ name: "Kazuya" },
+	{ name: "Sora" },
 	{ name: "MiiBrawler" },
 	{ name: "MiiGunner" },
 	{ name: "MiiSwordfighter" }
