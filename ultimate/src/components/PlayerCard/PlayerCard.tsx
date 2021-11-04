@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import s from "./PlayerCard.module.scss";
 import CharacterInput from "../CharacterInput";
 import Modal from "../Modal";
-import { SMASHER_API_URL} from "../../data/constants";
+import { SMASHER_API_URL } from "../../data/constants";
 import { updateMains, updatePlayer } from "../../store/slices/players";
 import { showNotification } from "../../store/slices/notifications";
 import { useSelector, useDispatch } from "react-redux";
 import loading from "../../assets/images/loading.svg";
+import { Player } from "../../data/customTypes";
 
 /**
  * PlayerCard Component
@@ -22,7 +23,7 @@ const fields = [
 	{ name: "twitch", label: "Twitch", required: false },
 	{ name: "twitter", label: "Twitter", required: false },
 	{ name: "wiki", label: "Wiki", required: false },
-	{ name: "team", label: "Team Website URL", required: false }
+	{ name: "team", label: "Team Website URL", required: false },
 ];
 
 interface Props {
@@ -32,14 +33,15 @@ interface Props {
 const PlayerCard = ({ playerIndex }: Props) => {
 	const [additionalInfoShown, setAdditionalInfoShown] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
-	const player = useSelector(state => state.players.present[playerIndex]);
-	const smashTitle = useSelector(state => state.tournament.smashTitle);
+	const player = useSelector((state) => state.players.present[playerIndex]);
+	const smashTitle = useSelector((state) => state.tournament.smashTitle);
 	const dispatch = useDispatch();
+	const [mostRecentTag, setMostRecentTag] = useState(player?.tag ?? "");
 
 	// Update a particular property of the player object
 	// that's been passed to this component
 	// ex: setPlayerProp({twitch: "c9mang0"});
-	const setPlayerProp = update => {
+	const setPlayerProp = (update) => {
 		dispatch(updatePlayer({ playerIndex, update }));
 	};
 
@@ -50,17 +52,19 @@ const PlayerCard = ({ playerIndex }: Props) => {
 			playerIndex,
 			smashTitle,
 			mainIndex: index,
-			character
+			character,
 		};
 		dispatch(updateMains(payload));
 	};
 
 	// Autofill all a player's data using `smasher-api`
 	const autofillPlayer = async (tag: string) => {
+		// Do nothing if user doesn't change tag field
+		if (tag === mostRecentTag) return;
 		setIsLoading(true);
 		// Query API for player data
 		const res = await fetch(`${SMASHER_API_URL}/${tag}`);
-		let data = await res.json();	
+		let data: Player = await res.json();
 		// If request errors, exit early
 		if (res.status !== 200) return setIsLoading(false);
 		// Update player data in store
@@ -70,6 +74,8 @@ const PlayerCard = ({ playerIndex }: Props) => {
 		const toastMsg = `Automatically loaded smasher data for player ${playerIndex + 1}`;
 		dispatch(showNotification(toastMsg, 10000, true));
 		setIsLoading(false);
+		// Update most recently inputted tag for comparison
+		setMostRecentTag(data.tag);
 	};
 
 	return (
@@ -78,16 +84,18 @@ const PlayerCard = ({ playerIndex }: Props) => {
 			<div className={s.requiredInfo}>
 				{/* Mandatory Fields */}
 				{fields
-					.filter(field => field.required)
-					.map(field => (
+					.filter((field) => field.required)
+					.map((field) => (
 						<label key={field.name}>
 							<span>{field.label}</span>
 							<input
 								type="text"
 								required
 								value={player[field.name]}
-								onChange={e => setPlayerProp({ [field.name]: e.target.value })}
-								onBlur={e =>
+								onChange={(e) =>
+									setPlayerProp({ [field.name]: e.target.value })
+								}
+								onBlur={(e) =>
 									field.name === "tag" ? autofillPlayer(e.target.value) : null
 								}
 							/>
@@ -100,11 +108,11 @@ const PlayerCard = ({ playerIndex }: Props) => {
 					<div className={s.characterInputWrap}>
 						<CharacterInput
 							value={player.mains.ultimate[0]}
-							onChange={character => setMain(0, character)}
+							onChange={(character) => setMain(0, character)}
 						/>
 						<CharacterInput
 							value={player.mains.ultimate[1]}
-							onChange={character => setMain(1, character)}
+							onChange={(character) => setMain(1, character)}
 						/>
 					</div>
 				</label>
@@ -127,14 +135,14 @@ const PlayerCard = ({ playerIndex }: Props) => {
 					<h1>{player.tag ? player.tag : `Player ${playerIndex + 1}`}</h1>
 					<div>
 						{fields
-							.filter(field => !field.required)
-							.map(field => (
+							.filter((field) => !field.required)
+							.map((field) => (
 								<label key={field.name}>
 									<span>{field.label}</span>
 									<input
 										type="text"
 										value={player[field.name]}
-										onChange={e =>
+										onChange={(e) =>
 											setPlayerProp({ [field.name]: e.target.value })
 										}
 									/>

@@ -13,7 +13,7 @@ const blankMatch: Match = {
 let initialState: Match[] = Array(MATCH_COUNT).fill(blankMatch);
 
 initialState[0] = {
-	characters: ["Joker", "Wario"],
+	characters: ["Byleth", "DiddyKong"],
 	stage: "Battlefield",
 	winnerIndex: 0,
 	stocksRemaining: 2
